@@ -26,7 +26,7 @@ func _process(delta):
 	var input = Input.get_vector("move_l","move_r","move_f","move_b")
 	var input3 = player.basis * Vector3(input.x, 0.0, input.y)
 	player.input_dir = input3
-	if Input.is_action_just_pressed("move_jump"):
-		player.jump()
+	player.jumping = Input.is_action_pressed("move_jump")
+		
 
 

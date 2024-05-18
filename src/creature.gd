@@ -49,3 +49,8 @@ func _physics_process(delta):
 
 func current_attack() -> int :
 	return current_state - 4 if current_state > 3 else null
+
+
+func die():
+	
+	pass

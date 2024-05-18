@@ -21,8 +21,15 @@ var pitch_camera : float :
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var input_dir : Vector3 = Vector3.ZERO
-
-
+var can_jump : bool
+var jumping : bool :
+	get:
+		return jumping
+	set(j):
+		if j && !jumping && can_jump :
+			jump()
+		jumping = j
+		
 
 func _physics_process(delta):
 	
@@ -31,6 +38,7 @@ func _physics_process(delta):
 
 	
 	if is_on_floor():
+		can_jump = !jumping
 		if input_dir:
 			velocity.x = input_dir.x * SPEED
 			velocity.z = input_dir.z * SPEED
@@ -42,3 +50,8 @@ func _physics_process(delta):
 
 func jump():
 	velocity.y += jump_power
+
+
+func die():
+	
+	pass
