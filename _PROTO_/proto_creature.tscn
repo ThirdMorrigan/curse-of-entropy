@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdhp7t0y37pc4"]
+[gd_scene load_steps=20 format=3 uid="uid://bdhp7t0y37pc4"]
 
 [ext_resource type="Script" path="res://src/creature.gd" id="1_vxb5u"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="2_nqs15"]
@@ -66,7 +66,17 @@ radius = 1.1958
 radius = 1.435
 height = 5.724
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qtoxv"]
+radius = 2.64756
+height = 7.4579
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0tuf"]
+radius = 4.00519
+height = 11.0142
+
 [node name="ProtoCreature" type="CharacterBody3D"]
+collision_layer = 32
+collision_mask = 63
 script = ExtResource("1_vxb5u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -87,13 +97,29 @@ script = ExtResource("2_nqs15")
 
 [node name="attack_range" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02861, 0)
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="attack_range"]
 shape = SubResource("SphereShape3D_068fv")
 
 [node name="vision_range" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02861, 0)
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="vision_range"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.456016, -2.83241)
 shape = SubResource("CapsuleShape3D_gmpb6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="vision_range"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.456016, -7.4214)
+shape = SubResource("CapsuleShape3D_qtoxv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="vision_range"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.456016, -14.4323)
+shape = SubResource("CapsuleShape3D_b0tuf")
+
+[node name="eyes" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50092, -0.544845)
+gizmo_extents = 0.43

@@ -14,13 +14,22 @@ config/name="Curse-of-entropy"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="world_transparent"
+3d_physics/layer_3="interact"
+3d_physics/layer_4="destruct"
+3d_physics/layer_5="player_hurtbox"
+3d_physics/layer_6="creature_hurtbox"
+
 [shader_globals]
 
 wobble_resolution={
 "type": "float",
-"value": 50.0
+"value": 100.0
 }
 wobble_resolution_inv={
 "type": "float",
-"value": 0.02
+"value": 0.01
 }

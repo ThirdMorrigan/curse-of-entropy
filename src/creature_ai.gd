@@ -18,7 +18,7 @@ func _ready():
 	nav = creature.find_children("*", "NavigationAgent3D")[0]
 	attack_range = creature.find_children("attack_range", "Area3D")[0]
 	vision_range = creature.find_children("vision_range", "Area3D")[0]
-	if nav == null or attack_range == null or vision_range == null:
+	if !(nav == NavigationAgent3D and attack_range == Area3D and vision_range == Area3D):
 		queue_free()
 		
 	nav.target_reached.connect(_on_target_reached)
@@ -32,4 +32,3 @@ func _physics_process(delta):
 
 func _on_target_reached():
 	creature.current_state = creature.State.IDLE
-	print("goooob")
