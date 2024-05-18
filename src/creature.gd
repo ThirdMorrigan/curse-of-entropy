@@ -5,7 +5,7 @@ class_name Creature
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-enum State {IDLE, WALK, ATTACK, HURT, DIE}
+enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4}
 
 signal state_changed
 signal hurt(damage : DamageInstance)
@@ -34,12 +34,11 @@ func _physics_process(delta):
 		State.WALK:
 			if is_on_floor():
 				velocity = goal_vec * SPEED
-		State.ATTACK:
-			if is_on_floor():
-				velocity = Vector3.ZERO
 		State.HURT:
 			pass
 		State.DIE:
+			pass
+		_:
 			pass
 
 	if goal_vec:
@@ -47,4 +46,5 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-
+func current_attack() -> int :
+	return current_state - 4 if current_state > 3 else null
