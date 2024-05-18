@@ -16,15 +16,18 @@ func _ready():
 	else :
 		queue_free()
 	nav = creature.find_children("*", "NavigationAgent3D")[0]
-	attack_range = creature.find_children("attack_range", "Area3D")[0]
-	vision_range = creature.find_children("vision_range", "Area3D")[0]
-	if !(nav is NavigationAgent3D and attack_range is Area3D and vision_range is Area3D):
+	if !(nav is NavigationAgent3D):
 		print("dies xd")
 		queue_free()
 		
 	nav.target_reached.connect(_on_target_reached)
 	nav.target_position = pathfind_goal
 	creature.current_state = Creature.State.WALK
+	
+	set_physics_process(false)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	set_physics_process(true)			# this just avoids an error :3
 	
 func _physics_process(delta):
 	if creature.current_state == Creature.State.DIE:

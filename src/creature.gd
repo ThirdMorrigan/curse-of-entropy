@@ -7,6 +7,8 @@ const JUMP_VELOCITY = 4.5
 
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4}
 
+@export var attacks : Array
+
 signal state_changed
 signal hurt(damage : DamageInstance)
 
@@ -38,7 +40,7 @@ func _physics_process(delta):
 			pass
 		State.DIE:
 			pass
-		_:
+		_:						# ALL ATTACKS HERE :3
 			pass
 
 	if goal_vec:

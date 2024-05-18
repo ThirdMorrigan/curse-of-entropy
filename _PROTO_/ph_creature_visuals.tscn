@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqoo8xcrskiwh"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_q18gf"]
+[ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="2_c77lk"]
+[ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="3_u5glu"]
+[ext_resource type="Texture2D" uid="uid://b5rvseyxq86ju" path="res://icon.svg" id="4_ftdpn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vji54"]
+render_priority = 0
+shader = ExtResource("1_q18gf")
+shader_parameter/albedo = Color(1, 0, 0, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.2
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_normal = ExtResource("3_u5glu")
+shader_parameter/texture_crunch = ExtResource("2_c77lk")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h6ji2"]
+material = SubResource("ShaderMaterial_vji54")
+radial_segments = 8
+rings = 3
+
+[sub_resource type="Curve" id="Curve_04avu"]
+_data = [Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_h13vm"]
+
+[sub_resource type="Curve" id="Curve_de3il"]
+_data = [Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2q15p"]
+curve_x = SubResource("Curve_04avu")
+curve_y = SubResource("Curve_h13vm")
+curve_z = SubResource("Curve_de3il")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1ptl"]
+render_priority = 0
+shader = ExtResource("1_q18gf")
+shader_parameter/albedo = Color(1, 0.388235, 0.321569, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("4_ftdpn")
+shader_parameter/texture_crunch = SubResource("CurveXYZTexture_2q15p")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ys3v2"]
+material = SubResource("ShaderMaterial_b1ptl")
+size = Vector2(0.5, 0.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = SubResource("CapsuleMesh_h6ji2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 0.478889, -0.518818)
+mesh = SubResource("PlaneMesh_ys3v2")
+skeleton = NodePath("../..")
