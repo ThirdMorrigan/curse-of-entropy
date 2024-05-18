@@ -6,13 +6,12 @@ class_name HealthPool
 
 @export var hurtboxes : Array[Hurtbox]
 
-@onready var parent : Creature = $".."
+@onready var parent = $".."
 
 var curr_hp : float
 
 func _ready():
 	curr_hp = max_hp
-	#parent.hurt.connect(_on_hurt)
 	if hurtboxes == null:			# bind hurtboxes
 		queue_free()
 	else : 
@@ -23,4 +22,4 @@ func _ready():
 func hurt(di : DamageInstance):
 	curr_hp -= di.damage
 	if curr_hp < 0.0 :
-		parent#.die()
+		pass

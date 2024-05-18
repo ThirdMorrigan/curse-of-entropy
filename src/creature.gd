@@ -10,7 +10,6 @@ enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTAC
 @export var attacks : Array
 
 signal state_changed
-signal hurt(damage : DamageInstance)
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 

@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdhp7t0y37pc4"]
+[gd_scene load_steps=8 format=3 uid="uid://bdhp7t0y37pc4"]
 
 [ext_resource type="Script" path="res://src/creature.gd" id="1_vxb5u"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="2_nqs15"]
 [ext_resource type="PackedScene" uid="uid://bqoo8xcrskiwh" path="res://_PROTO_/ph_creature_visuals.tscn" id="2_pjp1o"]
+[ext_resource type="Script" path="res://src/hurtbox.gd" id="5_253lp"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="7_kch1s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qcg8f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_blcf6"]
+radius = 0.6
 
 [node name="ProtoCreature" type="CharacterBody3D"]
 collision_mask = 63
@@ -26,5 +30,15 @@ script = ExtResource("2_nqs15")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50092, -0.544845)
 gizmo_extents = 0.43
 
-[node name="HealthPool" type="Node" parent="."]
+[node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("7_kch1s")
+hurtboxes = [NodePath("../Hurtbox")]
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("5_253lp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_blcf6")
