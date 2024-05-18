@@ -45,7 +45,6 @@ func _physics_process(delta):
 	if goal_vec:
 		look_at(goal_vec + global_position)
 	
-	
 	move_and_slide()
 
 

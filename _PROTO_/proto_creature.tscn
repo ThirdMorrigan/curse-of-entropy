@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdhp7t0y37pc4"]
+[gd_scene load_steps=21 format=3 uid="uid://bdhp7t0y37pc4"]
 
 [ext_resource type="Script" path="res://src/creature.gd" id="1_vxb5u"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="2_nqs15"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="3_xx3kf"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="4_hivlm"]
 [ext_resource type="Texture2D" uid="uid://b5rvseyxq86ju" path="res://icon.svg" id="4_o7sqy"]
+[ext_resource type="Script" path="res://src/health_pool.gd" id="7_kch1s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qcg8f"]
 
@@ -75,7 +76,6 @@ radius = 4.00519
 height = 11.0142
 
 [node name="ProtoCreature" type="CharacterBody3D"]
-collision_layer = 32
 collision_mask = 63
 script = ExtResource("1_vxb5u")
 
@@ -123,3 +123,6 @@ shape = SubResource("CapsuleShape3D_b0tuf")
 [node name="eyes" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50092, -0.544845)
 gizmo_extents = 0.43
+
+[node name="HealthPool" type="Node" parent="."]
+script = ExtResource("7_kch1s")

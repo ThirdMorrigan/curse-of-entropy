@@ -62,7 +62,7 @@ transform = Transform3D(0.197794, 0, -0.980244, 0, 1, 0, 0.980244, 0, 0.197794, 
 size = Vector3(0.280396, 6.89627, 5.69695)
 
 [node name="ProtoCreature" parent="." instance=ExtResource("2_gdn65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.307822, -9.53674e-07, 12.7686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31893, -9.53674e-07, 12.7686)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.936703, 0.175063, -0.303218, 2.81508e-08, 0.866025, 0.5, 0.350126, 0.468351, -0.811208, -8.59583, 8.5, -13.8906)
