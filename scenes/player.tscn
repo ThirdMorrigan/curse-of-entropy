@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy1leb1kiu6o4"]
+
+[ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
+[ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bwyg2"]
+radius = 0.4
+height = 1.5
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_evqos")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("SeparationRayShape3D_g0tft")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CapsuleShape3D_bwyg2")
+
+[node name="camera_pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60524, 0)
+
+[node name="Camera3D" type="Camera3D" parent="camera_pivot"]
+
+[node name="PlayerInputHandler" type="Node" parent="."]
+script = ExtResource("2_k1kd7")
