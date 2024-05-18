@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://csvrstwr5xdxn"]
+
+[ext_resource type="Material" uid="uid://cklrilemwfjyp" path="res://assets/materials/brick/wall_0/brick_wall_0.tres" id="1_fk2n2"]
+[ext_resource type="PackedScene" uid="uid://bdhp7t0y37pc4" path="res://_PROTO_/proto_creature.tscn" id="2_gdn65"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_drrfq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_blog3"]
+sky_material = SubResource("ProceduralSkyMaterial_drrfq")
+
+[sub_resource type="Environment" id="Environment_xk5sq"]
+background_mode = 2
+sky = SubResource("Sky_blog3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ysavb"]
+vertices = PackedVector3Array(-13.7047, 0.378697, 2, -12.7047, 0.378697, 2, -12.2047, 0.378697, 1, -13.7047, 0.378697, -14.25, -5.95465, 0.378697, 0, 3.79535, 0.378697, 13.25, 14.2953, 0.378697, 13.25, 14.2953, 0.378697, -14.25, -13.7047, 0.378697, -14.25, -13.7047, 0.378697, -14.25, -12.2047, 0.378697, 1, -5.95465, 0.378697, 0, -12.2047, 0.378697, 3.25, -12.7047, 0.378697, 2, -13.7047, 0.378697, 2, -13.7047, 0.378697, 13.25, -13.7047, 0.378697, 13.25, 1.04535, 0.378697, 13.25, -6.70465, 0.378697, 2.25, -12.2047, 0.378697, 3.25)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 8), PackedInt32Array(11, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17)]
+agent_radius = 0.75
+
+[node name="CiarasProtoScene0" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xk5sq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ysavb")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
+material_override = ExtResource("1_fk2n2")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(30, 1, 30)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2047, 4.02106, 0.0198364)
+size = Vector3(1, 9.04211, 30.0277)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.234077, 4.02106, 14.508)
+size = Vector3(1, 9.04211, 30.0277)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-0.804842, 0, -0.593489, 0, 1, 0, 0.593489, 0, -0.804842, 0.659285, -1.28607, 10.6536)
+size = Vector3(0.280396, 9.17047, 9.52153)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-0.804842, 0, -0.593489, 0, 1, 0, 0.593489, 0, -0.804842, -4.31712, -2.42317, 3.93226)
+size = Vector3(0.280396, 6.89627, 7.51865)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.197794, 0, -0.980244, 0, 1, 0, 0.980244, 0, 0.197794, -9.09582, -2.42317, 1.56258)
+size = Vector3(0.280396, 6.89627, 5.69695)
+
+[node name="ProtoCreature" parent="." instance=ExtResource("2_gdn65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.307822, -9.53674e-07, 12.7686)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.936703, 0.175063, -0.303218, 2.81508e-08, 0.866025, 0.5, 0.350126, 0.468351, -0.811208, -8.59583, 8.5, -13.8906)

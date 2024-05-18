@@ -1,0 +1,51 @@
+extends CharacterBody3D
+
+class_name Creature
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+enum State {IDLE, WALK, ATTACK, HURT, DIE}
+
+signal state_changed
+signal hurt(damage : DamageInstance)
+
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var current_state : State :
+	get:
+		return current_state
+	set(s):
+		current_state = s
+		state_changed.emit()
+
+var goal_vec : Vector3 = Vector3.ZERO
+
+
+func _physics_process(delta):
+	
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	match current_state:
+		State.IDLE:
+			if is_on_floor():
+				velocity = Vector3.ZERO
+		State.WALK:
+			if is_on_floor():
+				velocity = goal_vec * SPEED
+		State.ATTACK:
+			if is_on_floor():
+				velocity = Vector3.ZERO
+		State.HURT:
+			pass
+		State.DIE:
+			pass
+
+	if goal_vec:
+		look_at(goal_vec + global_position)
+	
+	
+	move_and_slide()
+
+

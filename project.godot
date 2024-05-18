@@ -13,3 +13,14 @@ config_version=5
 config/name="Curse-of-entropy"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[shader_globals]
+
+wobble_resolution={
+"type": "float",
+"value": 50.0
+}
+wobble_resolution_inv={
+"type": "float",
+"value": 0.02
+}
