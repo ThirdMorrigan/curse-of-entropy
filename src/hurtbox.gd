@@ -9,6 +9,7 @@ class_name Hurtbox
 var health_pool : HealthPool
 
 func _ready():
+	monitoring = false
 	collision_mask = 0
 	collision_layer = collision_layer & 0b111000
 	if !collision_layer :

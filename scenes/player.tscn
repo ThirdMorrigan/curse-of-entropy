@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=11 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -10,23 +10,62 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bwyg2"]
 radius = 0.4
-height = 1.5
+height = 1.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0nxf4"]
+radius = 0.4
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qyid2"]
+height = 1.9
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxkqm"]
+height = 1.25
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_evqos")
+jump_power = 3.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+[node name="separation_ray0" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -0.15)
 shape = SubResource("SeparationRayShape3D_g0tft")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+[node name="separation_ray1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0.15)
+shape = SubResource("SeparationRayShape3D_g0tft")
+
+[node name="separation_ray2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.15, 1, 0)
+shape = SubResource("SeparationRayShape3D_g0tft")
+
+[node name="separation_ray3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.15, 1, 0)
+shape = SubResource("SeparationRayShape3D_g0tft")
+
+[node name="body_standing" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 shape = SubResource("CapsuleShape3D_bwyg2")
 
+[node name="body_crouching" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_0nxf4")
+disabled = true
+
+[node name="standing_camera_pos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="crouching_camera_pos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+
+[node name="leading_ray_pivot" type="Node3D" parent="."]
+
+[node name="leading_ray" type="RayCast3D" parent="leading_ray_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.5)
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 3
+
 [node name="camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60524, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot"]
 
@@ -47,10 +86,15 @@ max_hp = 100.0
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("4_ghgt8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+[node name="hurtbox_standing" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("CapsuleShape3D_qyid2")
+
+[node name="hurtbox_crouching" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
 shape = SubResource("CapsuleShape3D_bxkqm")
+disabled = true

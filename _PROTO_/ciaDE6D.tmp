@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://csvrstwr5xdxn"]
+
+[ext_resource type="Material" uid="uid://cklrilemwfjyp" path="res://assets/materials/brick/wall_0/brick_wall_0.tres" id="1_fk2n2"]
+[ext_resource type="PackedScene" uid="uid://bdhp7t0y37pc4" path="res://_PROTO_/proto_creature.tscn" id="2_gdn65"]
+[ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="3_epovl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_drrfq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hrpth"]
+sky_material = SubResource("ProceduralSkyMaterial_drrfq")
+
+[sub_resource type="Environment" id="Environment_xk5sq"]
+background_mode = 2
+sky = SubResource("Sky_hrpth")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ysavb"]
+vertices = PackedVector3Array(-13.7047, 0.319137, -4, -10.2047, 0.319137, -4, -9.7047, 0.319137, -6.75, -9.7047, 0.319137, -6.75, -8.2047, 0.319137, -7.25, -8.2047, 0.319137, -14.25, -9.7047, 0.319137, -6.75, -8.2047, 0.319137, -14.25, -13.7047, 0.319137, -14.25, -13.7047, 0.319137, -4, -7.4547, 0.319137, -6.75, -7.7047, 0.319137, -5, -3.7047, 0.319137, -5.75, -8.2047, 0.319137, -7.25, -7.4547, 0.319137, -6.75, -3.7047, 0.319137, -5.75, -3.7047, 0.319137, -14.25, -8.2047, 0.319137, -14.25, -3.7047, 0.319137, -14.25, -3.7047, 0.319137, -5.75, -2.7047, 0.319137, -5, -3.7047, 0.319137, -14.25, -2.7047, 0.319137, -5, -1.9547, 0.319137, 0.499998, 14.2953, 0.319137, 0.249998, 14.2953, 0.319137, -14.25, -9.7047, 0.319137, -2.5, -10.2047, 0.319137, -4, -13.7047, 0.319137, -4, -7.4547, 0.319137, 1.5, -8.4547, 0.319137, -2.5, -9.7047, 0.319137, -2.5, -9.7047, 0.319137, -2.5, -13.7047, 0.319137, -4, -13.7047, 0.319137, 2.75, -7.4547, 0.319137, 1.5, -4.4547, 0.319137, -2.5, -4.7047, 0.319137, -3.25, -5.7047, 0.319137, -3.25, -8.4547, 0.319137, -2.5, -7.4547, 0.319137, 1.5, -5.2047, 0.319137, 1.25, -5.2047, 0.319137, 3.25, -7.4547, 0.319137, 3.75, -6.9547, 0.319137, 6.75, -3.4547, 0.319137, 6, -5.2047, 0.319137, 1.25, -4.7047, 0.319137, 1.75, -4.4547, 0.319137, -2.5, -4.7047, 0.319137, 1.75, -3.4547, 0.319137, 6, -4.4547, 0.319137, -2.5, -4.7047, 0.319137, 1.75, -5.2047, 0.319137, 3.25, -3.4547, 0.319137, 6, -1.9547, 0.319137, 0.499998, -1.2047, 0.319137, 6.5, 3.7953, 0.319137, 13.25, 14.2953, 0.319137, 13.25, 14.2953, 0.319137, 0.249998, -8.4547, 0.319137, 7.5, -6.9547, 0.319137, 6.75, -7.4547, 0.319137, 3.75, -13.7047, 0.319137, 5, -8.4547, 0.319137, 8.5, -13.7047, 0.319137, 5, -13.7047, 0.319137, 13.25, -8.4547, 0.319137, 13.25, -8.4547, 0.319137, 8.5, -8.4547, 0.319137, 7.5, -13.7047, 0.319137, 5, -7.9547, 0.319137, 9, -8.4547, 0.319137, 8.5, -8.4547, 0.319137, 13.25, -6.4547, 0.319137, 9, -7.9547, 0.319137, 9, -8.4547, 0.319137, 13.25, 1.0453, 0.319137, 13.25, 1.0453, 0.319137, 12.75, -2.4547, 0.319137, 8.25, -6.4547, 0.319137, 9, -8.4547, 0.319137, 13.25)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(12, 11, 10), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 17), PackedInt32Array(15, 17, 16), PackedInt32Array(20, 19, 18), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 24), PackedInt32Array(24, 21, 25), PackedInt32Array(27, 26, 28), PackedInt32Array(31, 30, 29), PackedInt32Array(32, 35, 33), PackedInt32Array(33, 35, 34), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(39, 36, 41), PackedInt32Array(39, 41, 40), PackedInt32Array(43, 42, 44), PackedInt32Array(44, 42, 45), PackedInt32Array(46, 48, 47), PackedInt32Array(51, 50, 49), PackedInt32Array(54, 53, 52), PackedInt32Array(56, 55, 57), PackedInt32Array(57, 55, 58), PackedInt32Array(58, 55, 59), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63), PackedInt32Array(67, 66, 64), PackedInt32Array(64, 66, 65), PackedInt32Array(70, 69, 68), PackedInt32Array(73, 72, 71), PackedInt32Array(76, 75, 74), PackedInt32Array(78, 77, 79), PackedInt32Array(79, 77, 80), PackedInt32Array(80, 77, 81)]
+agent_radius = 0.75
+
+[sub_resource type="GDScript" id="GDScript_amvs5"]
+script/source = "extends Node
+
+var radius : float = 10.0
+
+func _process(delta):
+	randomize()
+	
+	var x1 = randi_range(-1,1)
+	var x2 = randi_range(-1,1)
+	
+	while x1*x1 + x2*x2 < 1:
+		x1 = randi_range(-1,1)
+		x2 = randi_range(-1,1)
+	
+	var v = 
+	v *= 1-2*(x1*x1+x2*x2)
+	
+	print(str(x1, \", \", x2))
+"
+
+[node name="CiarasProtoScene0" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xk5sq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ysavb")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
+material_override = ExtResource("1_fk2n2")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(30, 1, 30)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2047, 4.02106, 0.0198364)
+size = Vector3(1, 9.04211, 30.0277)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.234077, 4.02106, 14.508)
+size = Vector3(1, 9.04211, 30.0277)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-0.804842, 0, -0.593489, 0, 1, 0, 0.593489, 0, -0.804842, 0.659285, 0.838579, 10.6536)
+size = Vector3(0.280396, 4.92117, 9.52153)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-0.990469, 0, -0.137738, 0, 1, 0, 0.137738, 0, -0.990469, -2.98064, -0.322882, 1.373)
+size = Vector3(0.280396, 2.69569, 11.941)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.197794, 0, -0.980244, 0, 1, 0, 0.980244, 0, 0.197794, -6.5699, -0.18992, -4.06512)
+size = Vector3(0.280396, 2.33271, 5.69695)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.977897, 0, -0.20909, 0, 1, 0, 0.20909, 0, 0.977897, -8.88913, -0.165655, -4.90478)
+size = Vector3(0.280396, 2.38124, 3.03256)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.197794, 0, -0.980244, 0, 1, 0, 0.980244, 0, 0.197794, -4.80813, -0.335948, 7.43253)
+size = Vector3(0.280396, 2.68983, 5.69695)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.197794, 0, -0.980244, 0, 1, 0, 0.980244, 0, 0.197794, -10.6019, -0.0423033, 3.23614)
+size = Vector3(0.280396, 2.13454, 10.2221)
+
+[node name="ProtoCreature" parent="." instance=ExtResource("2_gdn65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31893, -9.53674e-07, 12.7686)
+
+[node name="Player" parent="." instance=ExtResource("3_epovl")]
+
+[node name="Node" type="Node" parent="."]
+script = SubResource("GDScript_amvs5")

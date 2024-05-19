@@ -43,7 +43,7 @@ func _physics_process(delta):
 			pass
 
 	if goal_vec:
-		look_at(goal_vec + global_position)
+		rotation.y = lerp_angle(rotation.y, atan2(-goal_vec.x, -goal_vec.z), delta * 5)
 	
 	move_and_slide()
 
