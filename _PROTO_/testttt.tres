@@ -1,0 +1,50 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://eyotmbncbq1l"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_ytpk8"]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_e7daa"]
+expanded_output_ports = [0]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_tqjbo"]
+default_input_values = [0, 0.0, 1, -100.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeWorldPositionFromDepth" id="VisualShaderNodeWorldPositionFromDepth_0ic31"]
+expanded_output_ports = [0]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D depth_tex_frg_6 : hint_depth_texture, repeat_disable, filter_nearest;
+
+
+
+void fragment() {
+	vec3 n_out6p0;
+// WorldPositionFromDepth:6
+	{
+		float __log_depth = textureLod(depth_tex_frg_6, SCREEN_UV, 0.0).x;
+	vec4 __depth_view = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, __log_depth, 1.0);
+		__depth_view.xyz /= __depth_view.w;
+		n_out6p0 = (INV_VIEW_MATRIX * __depth_view).xyz;
+	}
+
+
+// Output:0
+	ALBEDO = n_out6p0;
+
+
+}
+"
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorCompose_ytpk8")
+nodes/fragment/3/position = Vector2(121.966, 287.631)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorConstant_e7daa")
+nodes/fragment/4/position = Vector2(-377.434, 386.631)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_tqjbo")
+nodes/fragment/5/position = Vector2(-180, 300)
+nodes/fragment/6/node = SubResource("VisualShaderNodeWorldPositionFromDepth_0ic31")
+nodes/fragment/6/position = Vector2(-500, 180)
+nodes/fragment/connections = PackedInt32Array(4, 3, 3, 2, 4, 4, 3, 3, 4, 2, 3, 1, 4, 1, 5, 0, 5, 0, 3, 0, 6, 0, 0, 0)

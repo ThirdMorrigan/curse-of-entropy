@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdhp7t0y37pc4"]
+[gd_scene load_steps=9 format=3 uid="uid://bdhp7t0y37pc4"]
 
 [ext_resource type="Script" path="res://src/creature.gd" id="1_vxb5u"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="2_nqs15"]
@@ -7,24 +7,26 @@
 [ext_resource type="Script" path="res://src/health_pool.gd" id="7_kch1s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qcg8f"]
+height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_blcf6"]
 radius = 0.6
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_54so3"]
 
 [node name="ProtoCreature" type="CharacterBody3D"]
 collision_mask = 63
 script = ExtResource("1_vxb5u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("CapsuleShape3D_qcg8f")
-
-[node name="MeshInstance3D" parent="CollisionShape3D" instance=ExtResource("2_pjp1o")]
 
 [node name="CreatureAI" type="Node" parent="."]
 script = ExtResource("2_nqs15")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="eyes" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50092, -0.544845)
@@ -42,3 +44,11 @@ script = ExtResource("5_253lp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_blcf6")
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("2_pjp1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("SeparationRayShape3D_54so3")
