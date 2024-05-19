@@ -48,7 +48,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func current_attack() -> int :
-	return current_state - 4 if current_state > 3 else null
+	return current_state - 4 if current_state > 3 else -1
 
 
 func die():

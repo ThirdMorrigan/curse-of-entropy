@@ -22,7 +22,7 @@ func _input(event):
 		player.yaw -= event.relative.x * 0.001
 		player.pitch_camera -= event.relative.y * 0.001
 
-func _process(delta):
+func _process(_delta):
 	var input = Input.get_vector("move_l","move_r","move_f","move_b")
 	var input3 = player.basis * Vector3(input.x, 0.0, input.y)
 	player.input_dir = input3

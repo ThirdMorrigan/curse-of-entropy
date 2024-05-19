@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=14 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
+[ext_resource type="Shader" path="res://assets/shaders/postprocess.gdshader" id="3_34caj"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="3_vwos7"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="4_ghgt8"]
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
@@ -15,6 +16,14 @@ height = 1.2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0nxf4"]
 radius = 0.4
 height = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61ybn"]
+render_priority = 0
+shader = ExtResource("3_34caj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_uf0gt"]
+flip_faces = true
+size = Vector2(10, 10)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qyid2"]
 height = 1.9
@@ -68,6 +77,7 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot"]
+fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150992, 0)
@@ -76,6 +86,16 @@ collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("5_g8323")
+
+[node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+material_override = SubResource("ShaderMaterial_61ybn")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_uf0gt")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
+light_specular = 1.0
 
 [node name="PlayerInputHandler" type="Node" parent="."]
 script = ExtResource("2_k1kd7")

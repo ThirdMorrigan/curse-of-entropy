@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vji54"]
 render_priority = 0
 shader = ExtResource("1_q18gf")
-shader_parameter/albedo = Color(1, 0, 0, 1)
+shader_parameter/albedo = Color(0.658824, 0.0313726, 0.0313726, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2

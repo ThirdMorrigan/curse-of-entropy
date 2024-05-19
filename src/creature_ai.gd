@@ -50,7 +50,7 @@ func _ready():
 	
 	ai_loop.start(_ai_loop)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if creature.current_state == Creature.State.DIE:
 		nav.queue_free()
 		queue_free()
