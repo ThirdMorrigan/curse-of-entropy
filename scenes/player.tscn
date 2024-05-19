@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=15 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
 [ext_resource type="Shader" path="res://assets/shaders/postprocess.gdshader" id="3_34caj"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="3_vwos7"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="4_ghgt8"]
+[ext_resource type="Script" path="res://scenes/postprocess_hide_gizmo.gd" id="4_vv5i4"]
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
@@ -92,6 +93,7 @@ material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
+script = ExtResource("4_vv5i4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
