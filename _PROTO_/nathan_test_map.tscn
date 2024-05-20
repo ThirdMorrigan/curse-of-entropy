@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cdaxhqrgsnbrq"]
+[gd_scene load_steps=42 format=3 uid="uid://cdaxhqrgsnbrq"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_8fk6u"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_yb4lv"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="6_xhmgw"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_uagpf"]
 [ext_resource type="Script" path="res://src/interactables/interactable.gd" id="9_77bnv"]
+[ext_resource type="Script" path="res://src/interactables/pickup_action.gd" id="13_jc2m4"]
+[ext_resource type="PackedScene" uid="uid://cdoti521baoyp" path="res://_PROTO_/double_door.tscn" id="13_o8tcs"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_c8gqp"]
 vertices = PackedVector3Array(-1.75, -2.5, -25.5, 0, -2.5, -25.5, 0.25, -2.5, -26.5, 1.5, -2.5, -36.75, -3.25, -2.5, -36.75, -2, -2.5, -26.5, -3.25, -2.5, -36.75, -3.25, -2.5, -26.5, -2, -2.5, -26.5, 0.25, -2.5, -26.5, 1.5, -2.5, -26.5, 1.5, -2.5, -36.75, -4.5, 6.5, -25.5, -4.5, 6.5, -18, 2.5, 6.5, -18, 2.5, 6.5, -25.5, 0.25, -2.5, -24.25, 0, -2.5, -25.5, -1.75, -2.5, -25.5, 0.25, -2.5, -24.25, -1.75, -2.5, -25.5, -2.25, -2.5, -24.25, -3.25, -2.5, -19, 1.5, -2.5, -18.75, -2.25, -2.5, -24.25, -3.25, -2.5, -24.25, -3.25, -2.5, -19, 1.5, -2.5, -18.75, 1.5, -2.5, -24.25, 0.25, -2.5, -24.25, 0.25, 1, -22.75, 0, 1, -21, 1.5, 1, -21, 1.5, 1, -24.25, -1.75, 1, -23, 0.25, 1, -22.75, 1.5, 1, -24.25, -3.25, 1, -24.25, -3.25, 1, -20.75, -1.75, 1, -20.75, -1.75, 1, -23, -3.25, 1, -24.25, -1.75, 1, -20.75, -3.25, 1, -20.75, -3.25, 1, -18, 1.5, 1, -21, 0, 1, -21, -1.75, 1, -20.75, -3.25, 1, -18, 1.5, 1, -18, 1.25, -2.25, 0.75, 1.75, -2.5, 1.5, 2.5, -2.5, 1.5, 2.5, -2.5, -16.75, 1.25, -2.5, -0.5, 2.5, -2.5, -16.75, 1.5, -2.5, -17, -3.25, -2.5, -17.25, -4.5, -2.5, -16.75, -4.5, -2.5, -0.5, 1.25, -2.5, -0.5, 1.5, -2.5, -18.75, -3.25, -2.5, -19, -3.25, -2.5, -17.25, 1.5, -2.5, -17, 0.25, 1, -5, 0, 1, -6, -2, 1, -6, 0.25, 1, -5, -2, 1, -6, -2.25, 1, -5, -3, 1, -0.25, 1.5, 1, -0.5, -3.25, 0.75, 1.5, 1.75, -2.5, 1.5, 1.25, -2.25, 0.75, -3, 0.5, 0.75, -2.25, 1, -5, -3.25, 1, -5, -3, 1, -0.25, -3.25, 0.75, 1.5, -3, 0.5, 0.75, -3, 1, -0.25, -3.25, 1, -5, -3.25, 1, -1.1, 1.5, 1, -0.5, 1.5, 1, -5, 0.25, 1, -5, -4.5, 2.5, 0.25, -4.5, 2.5, 2.5, -4, 2.5, 2.5)
@@ -217,8 +219,13 @@ shape = SubResource("ConvexPolygonShape3D_mwc7x")
 [node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_vdxjs")
 
+[node name="NavigationLink3D" type="NavigationLink3D" parent="NavigationRegion3D"]
+navigation_layers = 2
+start_position = Vector3(-1, 1, -19)
+end_position = Vector3(-2, -3, -15)
+
 [node name="ProtoCreature" parent="." instance=ExtResource("5_idq63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250415, 0.5, -28.4668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208889, 0.992917, -19.0461)
 
 [node name="Interactable" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47837, 1.22459, -1.93074)
@@ -229,3 +236,23 @@ shape = SubResource("SphereShape3D_aiyij")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable/CollisionShape3D"]
 mesh = SubResource("SphereMesh_yircy")
+
+[node name="pickup_action" type="Node" parent="Interactable"]
+script = ExtResource("13_jc2m4")
+type = 1
+
+[node name="Interactable2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47837, 1.22459, -3.93074)
+script = ExtResource("9_77bnv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable2"]
+shape = SubResource("SphereShape3D_aiyij")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable2/CollisionShape3D"]
+mesh = SubResource("SphereMesh_yircy")
+
+[node name="pickup_action" type="Node" parent="Interactable2"]
+script = ExtResource("13_jc2m4")
+
+[node name="DoubleDoor" parent="." instance=ExtResource("13_o8tcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -5)

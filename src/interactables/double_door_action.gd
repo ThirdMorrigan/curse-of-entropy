@@ -6,6 +6,9 @@ enum states {LOCKED,CLOSED,OPEN}
 
 func _on_interact():
 	match state:
+		states.LOCKED:
+			var keyID = interactable.key.ID
+			var inv = load("res://_PROTO_/inventroy.tres")
 		states.CLOSED:
 			animation_player.play("door_open")
 			state = states.OPEN
