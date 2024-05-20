@@ -12,9 +12,12 @@ var creature : Creature
 var nav : NavigationAgent3D
 
 var wander_goal : Vector3 = Vector3.ZERO
+var current_nav_goal : Vector3
+var goal_vel : Vector3
 
 var player : Player
 var player_last_seen : Vector3
+var absolute_distance_to_player : float
 
 var exit_ai_loop : bool = false
 @onready var mut : Mutex = Mutex.new()
@@ -34,12 +37,15 @@ func _ready():
 	else :
 		queue_free()
 	nav = creature.find_children("*", "NavigationAgent3D")[0]
+	attacks = creature.attacks
 	if !(nav is NavigationAgent3D):
 		print("dies xd")
 		queue_free()
 		
 	nav.target_reached.connect(_on_target_reached)
 	nav.target_position = wander_goal
+	nav.max_speed = creature.SPEED
+	nav.velocity_computed.connect(_on_velocity_computed)
 	creature.current_state = Creature.State.IDLE
 	
 	home = creature.global_position
@@ -66,12 +72,17 @@ func _physics_process(_delta):
 	
 	mut.lock()
 	creature.current_state = next_state
+	nav.target_position = current_nav_goal
+	if player != null:
+		player_last_seen = player.global_position
+		absolute_distance_to_player = (player.global_position - creature.global_position).length()
 	mut.unlock()
 	
 	var goal_temp = (nav.get_next_path_position() - creature.global_position) * Vector3(1,0,1)
-	goal_temp = goal_temp.normalized()
-	creature.goal_vec = goal_temp
-
+	goal_temp = goal_temp.normalized() * creature.SPEED
+	nav.set_velocity(goal_temp)
+	creature.goal_vel = goal_vel
+	
 func _on_target_reached():
 	if player == null :
 		wander_goal = random_pos_in_wander_range()
@@ -94,22 +105,23 @@ func _ai_loop():
 				mut.unlock()
 			else:
 				next_state = Creature.State.WALK
-				if nav.target_position != wander_goal:
-					nav.target_position = wander_goal
+				if current_nav_goal != wander_goal:
+					current_nav_goal = wander_goal
 				mut.unlock()
 		else:
 			var num_attacks = min(attacks.size(),5)
 			var picked_attack : int = -1
+			mut.lock()
 			if num_attacks:
-				var distance : float = (player.global_position - creature.global_position).length()
 				for _a in range(num_attacks-1, -1, -1):
-					if attacks[_a].ai_range_min < distance && distance < attacks[_a].ai_range_max:
+					if attacks[_a].ai_range_min < absolute_distance_to_player && absolute_distance_to_player < attacks[_a].ai_range_max:
 						picked_attack = _a
-			if picked_attack < -1:
-				creature.current_state = Creature.State.ATTACK_0 + picked_attack
+			if picked_attack > -1:
+				next_state = Creature.State.ATTACK_0 + picked_attack
 			else :
-				nav.target_position = player.global_position
-				creature.current_state = Creature.State.WALK
+				current_nav_goal = player_last_seen
+				next_state = Creature.State.WALK
+			mut.unlock()
 	
 func wait():
 	randomize()
@@ -137,3 +149,6 @@ func _exit_tree():
 	sem.post()
 	ai_loop.wait_to_finish()
 	waiting_thread.wait_to_finish()
+
+func _on_velocity_computed(vel : Vector3):
+	goal_vel = vel

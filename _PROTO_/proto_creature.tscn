@@ -1,10 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdhp7t0y37pc4"]
+[gd_scene load_steps=10 format=3 uid="uid://bdhp7t0y37pc4"]
 
-[ext_resource type="Script" path="res://src/creature.gd" id="1_vxb5u"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="2_nqs15"]
 [ext_resource type="PackedScene" uid="uid://bqoo8xcrskiwh" path="res://_PROTO_/ph_creature_visuals.tscn" id="2_pjp1o"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="5_253lp"]
+[ext_resource type="PackedScene" uid="uid://dvy3sfa6swek6" path="res://scenes/creature/attacks/basic_melee.tscn" id="5_tltch"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="7_kch1s"]
+
+[sub_resource type="GDScript" id="GDScript_up77q"]
+script/source = "extends Creature
+
+@export var _player : Player
+
+func _ready():
+	super()
+	$CreatureAI.player = _player
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qcg8f"]
 height = 1.5
@@ -16,7 +26,7 @@ radius = 0.6
 
 [node name="ProtoCreature" type="CharacterBody3D"]
 collision_mask = 63
-script = ExtResource("1_vxb5u")
+script = SubResource("GDScript_up77q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
@@ -27,6 +37,7 @@ script = ExtResource("2_nqs15")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
+time_horizon_obstacles = 5.0
 
 [node name="eyes" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50092, -0.544845)
@@ -52,3 +63,9 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
 shape = SubResource("SeparationRayShape3D_54so3")
+
+[node name="BasicMelee" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("5_tltch")]
+attack_origin = NodePath("../Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
