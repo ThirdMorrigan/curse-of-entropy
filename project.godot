@@ -67,11 +67,20 @@ crouch={
 [layer_names]
 
 3d_physics/layer_1="world"
+3d_navigation/layer_1="small_creature"
 3d_physics/layer_2="world_transparent"
+3d_navigation/layer_2="medium_creature"
 3d_physics/layer_3="interact"
+3d_navigation/layer_3="large_creature"
 3d_physics/layer_4="destruct"
+3d_navigation/layer_4="small_jump"
 3d_physics/layer_5="player_hurtbox"
+3d_navigation/layer_5="medium_jump"
 3d_physics/layer_6="creature_hurtbox"
+3d_navigation/layer_6="large_jump"
+3d_navigation/layer_7="small_drop"
+3d_navigation/layer_8="medium_drop"
+3d_navigation/layer_9="large_drop"
 
 [rendering]
 
