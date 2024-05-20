@@ -56,18 +56,16 @@ void fragment() {
 	vec3 col = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x, SCREEN_UV.y)).rgb;
 	vec3 hsv = RGB_to_HSV(col);
 	
-	float sat_low_bracket = float(hsv.y>0.9);
-	float sat_high_bracket = float(hsv.z<0.05);
+	float sat_high_bracket = float(hsv.y>0.9);
+	float sat_low_bracket = float(hsv.z<0.05);
 	
-	float sat_steps = 0.0;// + 8.0 * max(0.0, 0.95 - hsv.z);
-	sat_steps += sat_low_bracket*8.0;
-	sat_steps -= sat_high_bracket*3.9;
+	float sat_steps = 0.0;
+	sat_steps += sat_high_bracket*8.0;
+	sat_steps -= sat_low_bracket*3.9;
 	sat_steps = trunc(sat_steps);
 	sat_steps += 4.0;
-	hsv.y *= 1.0-(sat_high_bracket * 0.9 * (0.05 - hsv.z * 2.0) * 10.0);
-	//ALBEDO = vec3(hsv.y);
-	//hsv.z = max(0.05, hsv.z);
-	//hsv.y = hsv.y * 0.99 + 0.01;
+	hsv.y *= 1.0-(sat_low_bracket * (0.05 - hsv.z * 2.0) * 10.0);
+	hsv.z *= 1.0-(sat_high_bracket * 0.9 * (0.05 - hsv.z * 2.0) * 10.0);
 	
 	hsv.x = quantize(hsv.x, 16.0, 1.0/16.0);
 	hsv.y = quantize(hsv.y, sat_steps, 1.0/sat_steps);
@@ -75,7 +73,7 @@ void fragment() {
 	hsv.z = max(0.01, hsv.z);
 	col = HSV_to_RGB(hsv);
 	ALBEDO = col;
-	//ALBEDO = vec3(hsv.z);
+	//ALBEDO = vec3(sat_high_bracket);
 }
 
 

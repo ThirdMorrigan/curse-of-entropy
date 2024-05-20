@@ -21,4 +21,5 @@ sdfgi_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_bounce_feedback = 1.0
 sdfgi_min_cell_size = 1.0
+volumetric_fog_anisotropy = 0.75
 adjustment_color_correction = SubResource("CurveTexture_pkbay")

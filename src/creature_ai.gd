@@ -6,6 +6,7 @@ class_name CreatureAI
 @export var wander_wait_min : float = 1.0
 @export var wander_wait_max : float = 8.0
 @export var ai_tickrate : int = 4
+var attacks : Array[Attack]
 
 var creature : Creature
 var nav : NavigationAgent3D
@@ -43,6 +44,9 @@ func _ready():
 	
 	home = creature.global_position
 	
+	randomize()
+	ai_ticker = randi_range(0,ai_tickrate)
+	
 	set_physics_process(false)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
@@ -55,9 +59,6 @@ func _physics_process(_delta):
 		nav.queue_free()
 		queue_free()
 		
-	if player == null :
-		pass
-	
 	if !ai_ticker:
 		sem.post()
 		ai_ticker += ai_tickrate
@@ -97,7 +98,18 @@ func _ai_loop():
 					nav.target_position = wander_goal
 				mut.unlock()
 		else:
-			pass
+			var num_attacks = min(attacks.size(),5)
+			var picked_attack : int = -1
+			if num_attacks:
+				var distance : float = (player.global_position - creature.global_position).length()
+				for _a in range(num_attacks-1, -1, -1):
+					if attacks[_a].ai_range_min < distance && distance < attacks[_a].ai_range_max:
+						picked_attack = _a
+			if picked_attack < -1:
+				creature.current_state = Creature.State.ATTACK_0 + picked_attack
+			else :
+				nav.target_position = player.global_position
+				creature.current_state = Creature.State.WALK
 	
 func wait():
 	randomize()
