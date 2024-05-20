@@ -89,6 +89,7 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
