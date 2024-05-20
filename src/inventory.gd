@@ -1,10 +1,14 @@
 extends Resource
 
-enum types {KEYS, CONSUMABLES, TOOLS}
 
-var bags = {
-	types.KEYS:[],
-	types.CONSUMABLES:[],
-	types.TOOLS:[]
-}
 
+var bags = {}
+
+func _init():
+	for type in GameDataSingleton.item_types.values():
+		bags[type] = {}
+	print(bags)
+
+
+func searchBagByID(bag,id):
+	pass

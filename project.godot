@@ -15,6 +15,10 @@ run/main_scene="res://_PROTO_/ciaras_proto_scene_0.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameDataSingleton="*res://src/interactables/GameDataSingleton.gd"
+
 [display]
 
 window/size/viewport_width=1920

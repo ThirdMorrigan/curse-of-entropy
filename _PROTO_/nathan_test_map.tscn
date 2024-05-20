@@ -239,6 +239,7 @@ mesh = SubResource("SphereMesh_yircy")
 
 [node name="pickup_action" type="Node" parent="Interactable"]
 script = ExtResource("13_jc2m4")
+type = 1
 
 [node name="Interactable2" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47837, 1.22459, -3.93074)
