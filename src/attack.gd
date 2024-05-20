@@ -3,13 +3,13 @@ extends Node3D
 class_name Attack
 
 @export var damage_instances : Array[DamageInstance]
-@export_flags("destructible:8","player:32","creature:16") var targets : int :
+@export_flags("destructible:8","player:16","creature:32") var targets : int :
 	get:
 		return targets
 	set(t):
 		targets = t
 		if cast != null:
-			cast.collision_mask = t * 8.0
+			cast.collision_mask = t #* 8.0
 @export var hitbox_shape : Shape3D
 @export var attack_origin : Node3D
 @export var range : float :
@@ -24,9 +24,11 @@ class_name Attack
 var cast : ShapeCast3D
 
 func _ready():
+	await get_tree().physics_frame
 	create_hitbox()
 
 func fire() :
+	cast.force_shapecast_update()
 	if cast.is_colliding():
 		for t in range(cast.get_collision_count()):
 			var h = cast.get_collider(t)
@@ -39,8 +41,9 @@ func create_hitbox():
 	cast.collide_with_areas = true
 	cast.collide_with_bodies = false
 	cast.exclude_parent = true
-	targets = targets
+	cast.collision_mask = targets #* 8.0
+	print(cast.collision_mask)
 	cast.shape = hitbox_shape
-	cast.global_position = attack_origin.global_position if attack_origin != null else 1.0
+	cast.global_position = attack_origin.global_position if attack_origin != null else Vector3(0.0, 1.0, 0.0)
 	cast.target_position = Vector3.FORWARD * range
 

@@ -8,19 +8,15 @@ vec3 RGB_to_HSV(vec3 rgb) {
 	float c_min = min(min(rgb.r,rgb.g),rgb.b);
 	float delta = c_max - c_min;
 	float delta_inv = 1.0/delta;
-	
 	float h,s,v;
-	
 	h = 	mod((rgb.g-rgb.b) * delta_inv, 6.0) * float(c_max==rgb.r) + 
 			((rgb.b-rgb.r) * delta_inv + 2.0) * float(c_max==rgb.g) + 
 			((rgb.r-rgb.g) * delta_inv + 4.0) * float(c_max==rgb.b);
 	h /= 6.0;
-	
 	s = 0.0;
 	if(bool(c_max)){
 		s = delta / c_max;
 	}
-	
 	v = c_max;
 	return vec3(h,s,v);
 }

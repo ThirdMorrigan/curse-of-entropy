@@ -23,3 +23,4 @@ func hurt(di : DamageInstance):
 	curr_hp -= di.damage
 	if curr_hp < 0.0 :
 		pass
+	print(str("someone's health pool is now ", curr_hp))

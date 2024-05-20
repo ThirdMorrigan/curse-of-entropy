@@ -10,9 +10,13 @@ impulse = 1.0
 damage_types = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fvdhb"]
+margin = 1.0
 
 [node name="BasicMelee" type="Node3D"]
 script = ExtResource("1_toq7c")
 damage_instances = Array[ExtResource("2_ddv2u")]([SubResource("Resource_xphfq")])
-targets = 32
+targets = 16
 hitbox_shape = SubResource("CapsuleShape3D_fvdhb")
+range = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

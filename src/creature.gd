@@ -7,7 +7,7 @@ const JUMP_VELOCITY = 4.5
 
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4}
 
-@export var attacks : Array
+var attacks : Array[Attack]
 
 signal state_changed
 
@@ -20,8 +20,15 @@ var current_state : State :
 		current_state = s
 		state_changed.emit()
 
-var goal_vec : Vector3 = Vector3.ZERO
+#var goal_vec : Vector3 = Vector3.ZERO
+var goal_vel : Vector3 = Vector3.ZERO
 
+func _ready():
+	var _attacks = find_children("*", "Attack")
+	for a in _attacks:
+		if a is Attack:
+			attacks.append(a)
+	if attacks.size() > 5 : print("someone's got too many attacks :3")
 
 func _physics_process(delta):
 	
@@ -34,16 +41,15 @@ func _physics_process(delta):
 				velocity = Vector3.ZERO
 		State.WALK:
 			if is_on_floor():
-				velocity = goal_vec * SPEED
+				velocity = goal_vel
+				rotation.y = lerp_angle(rotation.y, atan2(-goal_vel.x, -goal_vel.z), delta * 5)
 		State.HURT:
 			pass
 		State.DIE:
 			pass
 		_:						# ALL ATTACKS HERE :3
-			pass
+			attacks[current_state - State.ATTACK_0].fire()
 
-	if goal_vec:
-		rotation.y = lerp_angle(rotation.y, atan2(-goal_vec.x, -goal_vec.z), delta * 5)
 	
 	move_and_slide()
 
