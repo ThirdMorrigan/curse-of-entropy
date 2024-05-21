@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=18 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -12,16 +12,17 @@
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bwyg2"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k8cwv"]
+height = 1.4
 radius = 0.4
-height = 1.2
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0nxf4"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yrqtm"]
+height = 0.8
 radius = 0.4
-height = 1.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_e61wn"]
-radius = 0.1
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gnhj7"]
+height = 0.2
+radius = 0.4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61ybn"]
 render_priority = 0
@@ -42,29 +43,28 @@ script = ExtResource("1_evqos")
 jump_power = 3.0
 
 [node name="separation_ray0" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -0.15)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
 shape = SubResource("SeparationRayShape3D_g0tft")
 
 [node name="separation_ray1" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0.15)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0.317662)
 shape = SubResource("SeparationRayShape3D_g0tft")
 
 [node name="separation_ray2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.15, 1, 0)
-shape = SubResource("SeparationRayShape3D_g0tft")
-
-[node name="separation_ray3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.15, 1, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -0.318)
 shape = SubResource("SeparationRayShape3D_g0tft")
 
 [node name="body_standing" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-shape = SubResource("CapsuleShape3D_bwyg2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_k8cwv")
 
 [node name="body_crouching" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-shape = SubResource("CapsuleShape3D_0nxf4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("CylinderShape3D_yrqtm")
 disabled = true
+
+[node name="floor_test" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.05, 0)
 
 [node name="standing_camera_pos" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -79,13 +79,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.5)
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 3
 
-[node name="uncrouch" type="RayCast3D" parent="direction_pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
-target_position = Vector3(0, 0.7, 0)
+[node name="uncrouch" type="ShapeCast3D" parent="direction_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+shape = SubResource("CylinderShape3D_gnhj7")
+target_position = Vector3(0, 0, 0)
+collision_mask = 11
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="direction_pivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.837973, -1)
-mesh = SubResource("CapsuleMesh_e61wn")
+[node name="trail_ray_coll" type="RemoteTransform3D" parent="direction_pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0.317662)
+remote_path = NodePath("../../separation_ray1")
+
+[node name="lead_ray_coll" type="RemoteTransform3D" parent="direction_pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -0.318)
+remote_path = NodePath("../../separation_ray2")
 
 [node name="camera_pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -102,6 +108,7 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0

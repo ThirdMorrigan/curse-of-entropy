@@ -65,6 +65,16 @@ func _process(delta):
 		crouching = false
 
 func _physics_process(delta):
+	var floor_friction : float = 1.0
+	if $floor_test.is_colliding() :
+		var col = $floor_test.get_collider()
+		if col is PhysicsBody3D:
+			print(col)
+			var pmo = col.physics_material_override
+			if pmo != null:
+				floor_friction = pmo.friction
+				print(floor_friction)
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		if coyote_timer :
@@ -75,8 +85,12 @@ func _physics_process(delta):
 		
 	var vel_v = velocity.y
 	velocity.y = 0
-	velocity *= 1 - (delta * friction * float(is_on_floor()))
-	velocity += input_dir * delta * (acceleration if is_on_floor() else acceleration_air)
+	var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
+	var temp_friction = friction
+	temp_friction *= (10 if edge_stop else 1)
+	temp_friction *= floor_friction
+	velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
+	velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
 	velocity = velocity.limit_length(speed)
 	velocity.y = vel_v
 
