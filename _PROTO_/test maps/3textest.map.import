@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://casn6qwtss8sf"
+path="res://.godot/imported/3textest.map-42b705b7f81d6538583ea240f844afee.tres"
+
+[deps]
+
+source_file="res://_PROTO_/test maps/3textest.map"
+dest_files=["res://.godot/imported/3textest.map-42b705b7f81d6538583ea240f844afee.tres"]
+
+[params]
+

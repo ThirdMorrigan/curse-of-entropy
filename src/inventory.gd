@@ -10,5 +10,9 @@ func _init():
 	print(bags)
 
 
-func searchBagByID(bag,id):
-	pass
+func bagHasByID(id,type):
+	return bags[type].has(id)
+
+func add(id):
+	var item = GameDataSingleton.itemLookupTable[id]
+	bags[item["type"]][id] = 1

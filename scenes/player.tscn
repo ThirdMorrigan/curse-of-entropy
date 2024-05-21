@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=16 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/health_pool.gd" id="3_vwos7"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="4_ghgt8"]
 [ext_resource type="Script" path="res://scenes/postprocess_hide_gizmo.gd" id="4_vv5i4"]
+[ext_resource type="Script" path="res://src/Audio control node.gd" id="5_atf2r"]
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
@@ -99,11 +100,12 @@ script = ExtResource("4_vv5i4")
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
 light_color = Color(1, 0.980392, 0.878431, 1)
-light_energy = 0.2
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-light_size = 1.0
 light_specular = 1.0
+
+[node name="Audio control node" type="Node3D" parent="camera_pivot/Camera3D"]
+script = ExtResource("5_atf2r")
+
+[node name="music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 
 [node name="PlayerInputHandler" type="Node" parent="."]
 script = ExtResource("2_k1kd7")
@@ -126,3 +128,6 @@ shape = SubResource("CapsuleShape3D_qyid2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
 shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
+[connection signal="newRoomEntered" from="Hurtbox" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]

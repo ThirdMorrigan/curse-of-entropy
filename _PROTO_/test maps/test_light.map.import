@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bft628156vtqd"
+path="res://.godot/imported/test_light.map-d4b382dcc8b2130001214fd35dbd21e7.tres"
+
+[deps]
+
+source_file="res://_PROTO_/test maps/test_light.map"
+dest_files=["res://.godot/imported/test_light.map-d4b382dcc8b2130001214fd35dbd21e7.tres"]
+
+[params]
+
