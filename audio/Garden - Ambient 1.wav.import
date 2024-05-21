@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cas70e2qpascn"
+path="res://.godot/imported/Garden - Ambient 1.wav-ca712ff3d35663153c0110c33a963eb2.sample"
+
+[deps]
+
+source_file="res://audio/Garden - Ambient 1.wav"
+dest_files=["res://.godot/imported/Garden - Ambient 1.wav-ca712ff3d35663153c0110c33a963eb2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

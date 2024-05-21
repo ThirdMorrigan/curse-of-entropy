@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/postprocess_hide_gizmo.gd" id="4_vv5i4"]
 [ext_resource type="Script" path="res://src/Audio control node.gd" id="5_atf2r"]
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
+[ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 
@@ -116,6 +117,7 @@ light_specular = 1.0
 script = ExtResource("5_atf2r")
 
 [node name="music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+stream = ExtResource("6_gmdfq")
 
 [node name="PlayerInputHandler" type="Node" parent="."]
 script = ExtResource("2_k1kd7")

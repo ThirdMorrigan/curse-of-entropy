@@ -1,5 +1,5 @@
 extends Node3D
-@onready var music = $music
+@onready var music : AudioStreamPlayer = $music
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,4 +13,8 @@ func _process(delta):
 
 
 func _on_new_room_entered(roomData : Dictionary):
-	print("anything")
+	print(roomData)
+	match roomData["zone"]:
+		GameDataSingleton.map_zone.GARDEN:
+			music.play()
+		# GameDataSingleton.map_zone.GARDEN:
