@@ -2,12 +2,12 @@
 
 [ext_resource type="Material" uid="uid://cklrilemwfjyp" path="res://assets/materials/brick/wall_0/brick_wall_0.tres" id="1_cifms"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map_settings.gd" id="1_dlf23"]
-[ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_hd7se"]
+[ext_resource type="Resource" uid="uid://c1blhjn6ke38y" path="res://func_godot/CurseOfEntropy_FGD.tres" id="2_h2n6f"]
 
 [resource]
 script = ExtResource("1_dlf23")
 inverse_scale_factor = 32.0
-entity_fgd = ExtResource("1_hd7se")
+entity_fgd = ExtResource("2_h2n6f")
 entity_name_property = ""
 base_texture_dir = "res://textures"
 texture_file_extensions = Array[String](["png", "jpg", "jpeg", "bmp", "tga", "webp"])
