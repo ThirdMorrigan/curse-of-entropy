@@ -48,6 +48,8 @@ func _physics_process(delta):
 		State.DIE:
 			pass
 		_:						# ALL ATTACKS HERE :3
+			if is_on_floor():
+				velocity = Vector3.ZERO
 			attacks[current_state - State.ATTACK_0].fire()
 
 	
