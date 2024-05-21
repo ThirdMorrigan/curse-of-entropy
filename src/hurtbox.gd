@@ -26,3 +26,8 @@ func _ready():
 func damage(d : DamageInstance):
 	d.damage *= damage_modifier
 	health_pool.hurt(d)
+
+
+
+func _on_area_entered(area):
+	print("areaplayer")

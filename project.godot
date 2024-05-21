@@ -82,6 +82,7 @@ crouch={
 3d_navigation/layer_5="medium_jump"
 3d_physics/layer_6="creature_hurtbox"
 3d_navigation/layer_6="large_jump"
+3d_physics/layer_7="room_bounding_box"
 3d_navigation/layer_7="small_drop"
 3d_navigation/layer_8="medium_drop"
 3d_navigation/layer_9="large_drop"

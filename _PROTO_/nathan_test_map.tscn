@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cdaxhqrgsnbrq"]
+[gd_scene load_steps=41 format=3 uid="uid://cdaxhqrgsnbrq"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_8fk6u"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_yb4lv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_kakka"]
 [ext_resource type="Material" uid="uid://cklrilemwfjyp" path="res://assets/materials/brick/wall_0/brick_wall_0.tres" id="4_qe45t"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="4_qn6xo"]
+[ext_resource type="PackedScene" uid="uid://bdhp7t0y37pc4" path="res://_PROTO_/proto_creature.tscn" id="5_idq63"]
 [ext_resource type="Texture2D" uid="uid://622b6tyw60y0" path="res://assets/materials/brick/wall_0/tex/wall_brick_albedo.png" id="5_slwd6"]
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="6_xhmgw"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_uagpf"]
@@ -227,7 +228,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -25)
 script = ExtResource("14_uyfye")
 
 [node name="Interactable" parent="." instance=ExtResource("12_lov7j")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.9, 2.5, -21.6)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.953151, 1.86014, -20.8222)
 
 [node name="PickupAction" type="Node" parent="Interactable"]
 script = ExtResource("13_jc2m4")
+
+[node name="ProtoCreature" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("5_idq63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91506, -2.81336, -35.9986)
+_player = NodePath("../Player")
