@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://622b6tyw60y0" path="res://assets/materials/brick/wall_0/tex/wall_brick_albedo.png" id="5_slwd6"]
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="6_xhmgw"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_uagpf"]
-[ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://_PROTO_/basic_key.tscn" id="12_lov7j"]
+[ext_resource type="PackedScene" path="res://_PROTO_/basic_key.tscn" id="12_lov7j"]
 [ext_resource type="Script" path="res://src/interactables/pickup_action.gd" id="13_jc2m4"]
 [ext_resource type="PackedScene" uid="uid://cdoti521baoyp" path="res://_PROTO_/double_door.tscn" id="13_o8tcs"]
 [ext_resource type="Script" path="res://src/interactables/double_door_action.gd" id="14_uyfye"]

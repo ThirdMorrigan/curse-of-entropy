@@ -3,7 +3,9 @@ extends CharacterBody3D
 class_name Player
 
 @export var speed : float = 3
+@export var speed_crouch : float
 @export var acceleration : float
+@export var acceleration_air : float
 @export var friction : float
 @export var jump_power : float = 5
 @export var coyote_frames : int = 6
@@ -13,12 +15,17 @@ var crouching : bool :
 	get:
 		return crouching
 	set(c):
-		crouching = c
-		$body_standing.disabled = c
-		$Hurtbox/hurtbox_standing.disabled = c
-		$body_crouching.disabled = !c
-		$Hurtbox/hurtbox_crouching.disabled = !c
-		camera_lerp = $crouching_camera_pos if c else $standing_camera_pos
+		if !$direction_pivot/uncrouch.is_colliding() || c :
+			crouching = c
+			$body_standing.disabled = c
+			$Hurtbox/hurtbox_standing.disabled = c
+			$body_crouching.disabled = !c
+			$Hurtbox/hurtbox_crouching.disabled = !c
+			camera_lerp = $crouching_camera_pos if c else $standing_camera_pos
+			try_uncrouch = false
+		elif !c :
+			try_uncrouch = true
+var try_uncrouch : bool = false
 var camera_lerp : Node3D
 
 var yaw : float :
@@ -41,9 +48,7 @@ var jumping : bool :
 	get:
 		return jumping
 	set(j):
-		if j && !jumping && can_jump && coyote_timer :
-			if !is_on_floor() && coyote_timer:
-				print("coyote'd")
+		if j && can_jump && coyote_timer :
 			jump()
 		jumping = j
 		
@@ -55,27 +60,29 @@ func _process(delta):
 	if $camera_pivot.position.y != camera_lerp.position.y:
 		var vert_move = move_toward($camera_pivot.position.y, camera_lerp.position.y, delta * 4) - $camera_pivot.position.y
 		$camera_pivot.position.y += vert_move
-		#if vert_move < 0:
 		position.y -= vert_move
+	if try_uncrouch :
+		crouching = false
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		if coyote_timer :
 			coyote_timer-=1
-		
-	
-	if is_on_floor():
+	else : 
 		coyote_timer = coyote_frames * int(!jumping)
 		can_jump = !jumping
-		if input_dir:
-			velocity.x = input_dir.x * speed
-			velocity.z = input_dir.z * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
-			velocity.z = move_toward(velocity.z, 0, speed)
+		
+	var vel_v = velocity.y
+	velocity.y = 0
+	velocity *= 1 - (delta * friction * float(is_on_floor()))
+	velocity += input_dir * delta * (acceleration if is_on_floor() else acceleration_air)
+	velocity = velocity.limit_length(speed)
+	velocity.y = vel_v
 
 	move_and_slide()
+	
+	$direction_pivot.global_rotation.y = atan2(-velocity.x, -velocity.z)
 
 func jump():
 	velocity.y += jump_power

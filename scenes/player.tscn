@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=17 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -18,6 +18,9 @@ height = 1.2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0nxf4"]
 radius = 0.4
 height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_e61wn"]
+radius = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61ybn"]
 render_priority = 0
@@ -68,12 +71,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="crouching_camera_pos" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 
-[node name="leading_ray_pivot" type="Node3D" parent="."]
+[node name="direction_pivot" type="Node3D" parent="."]
 
-[node name="leading_ray" type="RayCast3D" parent="leading_ray_pivot"]
+[node name="leading_ray" type="RayCast3D" parent="direction_pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.5)
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 3
+
+[node name="uncrouch" type="RayCast3D" parent="direction_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+target_position = Vector3(0, 0.7, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="direction_pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.837973, -1)
+mesh = SubResource("CapsuleMesh_e61wn")
 
 [node name="camera_pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -90,7 +101,6 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
-visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
