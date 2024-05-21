@@ -18,11 +18,13 @@ func _ready():
 		collision_shape_3d.shape.size = bounding_box.size
 		collision_shape_3d.position = bounding_box.position + bounding_box.size * 0.5
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func toDict():
+	return {
+		"indoors" : indoors,
+		"zone" : zone
+	}
 
 
 func _on_area_entered(area):
-	print(area)
+	if area is Hurtbox:
+		area.changeRoom(toDict())

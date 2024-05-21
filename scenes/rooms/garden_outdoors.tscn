@@ -125,5 +125,3 @@ shape = SubResource("ConvexPolygonShape3D_me73s")
 
 [node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_trdkw")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
