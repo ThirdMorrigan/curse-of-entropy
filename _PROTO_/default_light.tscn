@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://co3bsbmt86evp"]
+[gd_scene load_steps=2 format=3 uid="uid://co3bsbmt86evp"]
+
+[ext_resource type="Script" path="res://src/default_light.gd" id="1_ibu3l"]
 
 [node name="OmniLight3D" type="OmniLight3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 5, 12.9914)
@@ -8,3 +10,4 @@ light_size = 0.1
 light_specular = 1.0
 shadow_enabled = true
 omni_range = 25.0588
+script = ExtResource("1_ibu3l")

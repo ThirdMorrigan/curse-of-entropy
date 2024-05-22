@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dcw0f6p3cyomn"
+path="res://.godot/imported/light_propertiersTest.map-1979abf56b0b57444dd5f360faa12bf3.tres"
+
+[deps]
+
+source_file="res://_PROTO_/test maps/light_propertiersTest.map"
+dest_files=["res://.godot/imported/light_propertiersTest.map-1979abf56b0b57444dd5f360faa12bf3.tres"]
+
+[params]
+
