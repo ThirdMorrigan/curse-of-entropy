@@ -10,4 +10,4 @@ func _ready():
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
 	print(props)
-	light_energy = props["Energy"]
+	#light_energy = props["Energy"]

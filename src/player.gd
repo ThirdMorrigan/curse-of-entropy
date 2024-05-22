@@ -72,7 +72,7 @@ func _physics_process(delta):
 			var pmo = col.physics_material_override
 			if pmo != null:
 				floor_friction = pmo.friction
-				print(floor_friction)
+				#print(floor_friction)
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -82,11 +82,12 @@ func _physics_process(delta):
 		coyote_timer = coyote_frames * int(!jumping)
 		can_jump = !jumping
 		
+	print(input_dir)
 	var vel_v = velocity.y
 	velocity.y = 0
 	var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
 	var temp_friction = friction
-	temp_friction *= (10 if edge_stop else 1)
+	temp_friction *= (2 if edge_stop else 1)
 	temp_friction *= floor_friction
 	velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
 	velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)

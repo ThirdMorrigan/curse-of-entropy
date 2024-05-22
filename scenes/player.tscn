@@ -43,6 +43,10 @@ height = 1.25
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_evqos")
+speed_crouch = 1.5
+acceleration = 60.0
+acceleration_air = 15.0
+friction = 15.0
 jump_power = 3.0
 
 [node name="separation_ray0" type="CollisionShape3D" parent="."]
@@ -111,6 +115,7 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
