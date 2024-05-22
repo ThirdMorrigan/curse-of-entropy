@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dloqcecpimwj5"
+path="res://.godot/imported/rotationtesr.map-b73bd1e55ca53e1d476c99d8d69bef7c.tres"
+
+[deps]
+
+source_file="res://_PROTO_/test maps/rotationtesr.map"
+dest_files=["res://.godot/imported/rotationtesr.map-b73bd1e55ca53e1d476c99d8d69bef7c.tres"]
+
+[params]
+

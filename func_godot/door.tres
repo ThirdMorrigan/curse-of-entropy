@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDModelPointClass" load_steps=3 format=3 uid="uid://bkmyrx3jmqdve"]
+[gd_resource type="Resource" script_class="FuncGodotFGDModelPointClass" load_steps=3 format=3 uid="uid://dpnhoeftpe5dh"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_model_point_class.gd" id="1_6jods"]
-[ext_resource type="PackedScene" uid="uid://cdoti521baoyp" path="res://_PROTO_/door.tscn" id="1_pjm0k"]
+[ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="1_bnpvh"]
 
 [resource]
 script = ExtResource("1_6jods")
@@ -10,10 +10,11 @@ models_sub_folder = ""
 scale_expression = ""
 generate_size_property = false
 generate_gd_ignore_file = false
-scene_file = ExtResource("1_pjm0k")
+scene_file = ExtResource("1_bnpvh")
 apply_rotation_on_map_build = true
 classname = "Door"
-description = "A door that can be opened by the player and may be locked"
+description = "A basic lockable single door
+"
 func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
@@ -23,7 +24,6 @@ class_properties = {
 class_property_descriptions = {}
 meta_properties = {
 "color": Color(0.8, 0.8, 0.8, 1),
-"model": "\"Door.glb\"",
 "size": AABB(-8, -8, -8, 8, 8, 8)
 }
 node_class = ""

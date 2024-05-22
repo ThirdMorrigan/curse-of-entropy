@@ -8,6 +8,9 @@ enum states {LOCKED,CLOSED,OPEN}
 @export var func_godot_properties : Dictionary
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
-	print("door")
-	#state = props["state"]
-	keyID = props["key"]
+	print(props)
+	#if "angle" in props:
+		#rotation_degrees.y = props["angle"] as float
+		#print(rotation_degrees)
+	state = props["state"] as int
+	keyID = props["key"] as int

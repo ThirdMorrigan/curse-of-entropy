@@ -1,6 +1,7 @@
 extends InteractableAction
 class_name DoorAction
-@onready var animation_player = $"../AnimationPlayer"
+@onready var animation_player = $"../Container/AnimationPlayer"
+
 
 var inventory = preload("res://_PROTO_/inventroy.tres")
 
@@ -17,8 +18,9 @@ func _on_interact():
 			print("already open")
 
 func open():
-	animation_player.play("door_open")
+	animation_player.play("open")
 	interactable.state = interactable.states.OPEN
 
 func failedOpen():
-	animation_player.play("failed_open")
+	#animation_player.play("failed_open")
+	pass

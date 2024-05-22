@@ -1,95 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdoti521baoyp"]
+[gd_scene load_steps=6 format=3 uid="uid://cdoti521baoyp"]
 
 [ext_resource type="Script" path="res://src/interactables/door.gd" id="1_jkv8n"]
-[ext_resource type="PackedScene" uid="uid://5jlsjs7pdqq3" path="res://assets/models/knob.glb" id="2_jggpb"]
 [ext_resource type="Script" path="res://src/interactables/door_action.gd" id="3_bgvpp"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_87cpk"]
-size = Vector3(1.9967, 1.99274, 0.0990601)
-
-[sub_resource type="Animation" id="Animation_4w026"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_jlyfv"]
-resource_name = "door_open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_y634m"]
-resource_name = "failed_open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.0872665, 0), Vector3(0, -0.0872664, 0), Vector3(0, 1.49012e-08, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fbpq"]
-_data = {
-"RESET": SubResource("Animation_4w026"),
-"door_open": SubResource("Animation_jlyfv"),
-"failed_open": SubResource("Animation_y634m")
-}
+[ext_resource type="PackedScene" uid="uid://cvsxqnrvp455n" path="res://assets/models/plain_door.glb" id="3_xcgnm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_upsae"]
-size = Vector3(2.01648, 2.00818, 0.0892334)
+size = Vector3(3.99886, 4.00617, 0.197174)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_87cpk"]
+size = Vector3(4.02557, 3.99429, 0.214645)
 
 [node name="Door" type="Area3D"]
+collision_layer = 4
 script = ExtResource("1_jkv8n")
 
-[node name="Meshes" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00737619, 0, 0)
-
-[node name="knob2" parent="Meshes" instance=ExtResource("2_jggpb")]
-transform = Transform3D(-4.37114e-08, 0, -2.005, 0, 1, 0, 1, 0, -8.76413e-08, -5.96046e-08, 0, -0.00214159)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00469971, 1.0018, -0.00350952)
-shape = SubResource("BoxShape3D_87cpk")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3fbpq")
-}
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00237, 0.995667, 0.000427246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00288999, 1.99466, 0.00157166)
 shape = SubResource("BoxShape3D_upsae")
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04344, 0.311735, -1.55484e-08)
-vertices = PackedVector3Array(-0.9729, 0, 0.0604614, -0.955888, 0, -0.0472829, 1.03455, 0, -0.0586244, 1.03455, 0, 0.0604614)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0118999, 2.17715, -1.55484e-08)
+radius = 2.0
 
 [node name="DoorAction" type="Node" parent="."]
 script = ExtResource("3_bgvpp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00437, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01914, 2.00258, 0.00330353)
+shape = SubResource("BoxShape3D_87cpk")
+
+[node name="plain_door" parent="." instance=ExtResource("3_xcgnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)

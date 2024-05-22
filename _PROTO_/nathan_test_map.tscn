@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://622b6tyw60y0" path="res://assets/materials/brick/wall_0/tex/wall_brick_albedo.png" id="5_slwd6"]
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="6_xhmgw"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_uagpf"]
+[ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="11_h15rd"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://_PROTO_/basic_key.tscn" id="12_lov7j"]
-[ext_resource type="PackedScene" uid="uid://cdoti521baoyp" path="res://_PROTO_/door.tscn" id="13_o8tcs"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_c8gqp"]
 vertices = PackedVector3Array(-1.75, -2.5, -25.5, 0, -2.5, -25.5, 0.25, -2.5, -26.5, 1.5, -2.5, -36.75, -3.25, -2.5, -36.75, -2, -2.5, -26.5, -3.25, -2.5, -36.75, -3.25, -2.5, -26.5, -2, -2.5, -26.5, 0.25, -2.5, -26.5, 1.5, -2.5, -26.5, 1.5, -2.5, -36.75, -4.5, 6.5, -25.5, -4.5, 6.5, -18, 2.5, 6.5, -18, 2.5, 6.5, -25.5, 0.25, -2.5, -24.25, 0, -2.5, -25.5, -1.75, -2.5, -25.5, 0.25, -2.5, -24.25, -1.75, -2.5, -25.5, -2.25, -2.5, -24.25, -3.25, -2.5, -19, 1.5, -2.5, -18.75, -2.25, -2.5, -24.25, -3.25, -2.5, -24.25, -3.25, -2.5, -19, 1.5, -2.5, -18.75, 1.5, -2.5, -24.25, 0.25, -2.5, -24.25, 0.25, 1, -22.75, 0, 1, -21, 1.5, 1, -21, 1.5, 1, -24.25, -1.75, 1, -23, 0.25, 1, -22.75, 1.5, 1, -24.25, -3.25, 1, -24.25, -3.25, 1, -20.75, -1.75, 1, -20.75, -1.75, 1, -23, -3.25, 1, -24.25, -1.75, 1, -20.75, -3.25, 1, -20.75, -3.25, 1, -18, 1.5, 1, -21, 0, 1, -21, -1.75, 1, -20.75, -3.25, 1, -18, 1.5, 1, -18, 1.25, -2.25, 0.75, 1.75, -2.5, 1.5, 2.5, -2.5, 1.5, 2.5, -2.5, -16.75, 1.25, -2.5, -0.5, 2.5, -2.5, -16.75, 1.5, -2.5, -17, -3.25, -2.5, -17.25, -4.5, -2.5, -16.75, -4.5, -2.5, -0.5, 1.25, -2.5, -0.5, 1.5, -2.5, -18.75, -3.25, -2.5, -19, -3.25, -2.5, -17.25, 1.5, -2.5, -17, 0.25, 1, -5, 0, 1, -6, -2, 1, -6, 0.25, 1, -5, -2, 1, -6, -2.25, 1, -5, -3, 1, -0.25, 1.5, 1, -0.5, -3.25, 0.75, 1.5, 1.75, -2.5, 1.5, 1.25, -2.25, 0.75, -3, 0.5, 0.75, -2.25, 1, -5, -3.25, 1, -5, -3, 1, -0.25, -3.25, 0.75, 1.5, -3, 0.5, 0.75, -3, 1, -0.25, -3.25, 1, -5, -3.25, 1, -1.1, 1.5, 1, -0.5, 1.5, 1, -5, 0.25, 1, -5, -4.5, 2.5, 0.25, -4.5, 2.5, 2.5, -4, 2.5, 2.5)
@@ -126,10 +126,6 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 light_energy = 5.0
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("4_kakka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0650015, 1.73595, -3.2692)
-acceleration = 1.0
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_c8gqp")
 
@@ -219,15 +215,14 @@ navigation_layers = 2
 start_position = Vector3(-1, 1, -19)
 end_position = Vector3(-2, -3, -15)
 
-[node name="Door" parent="." instance=ExtResource("13_o8tcs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220682, 0.5, -4.39553)
-collision_layer = 4
-keyID = 1
-
 [node name="Key" parent="." instance=ExtResource("12_lov7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1522, 2, -1.26675)
 id = 1
 
-[node name="Door2" parent="." instance=ExtResource("13_o8tcs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81135, 0.5, -1.71585)
+[node name="Interactable" parent="." instance=ExtResource("11_h15rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76087, 0.5, -3.64857)
 collision_layer = 4
+keyID = 1
+
+[node name="Player" parent="." instance=ExtResource("4_kakka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93086, 0.5, -1.48944)

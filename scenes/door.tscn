@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://hegywc5emmxm"]
+
+[ext_resource type="Script" path="res://src/interactables/door.gd" id="1_74ual"]
+[ext_resource type="PackedScene" uid="uid://5jlsjs7pdqq3" path="res://assets/models/knob.glb" id="2_bkdnm"]
+[ext_resource type="Script" path="res://src/interactables/door_action.gd" id="3_d16ll"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jrd7f"]
+size = Vector3(0.973228, 1.98229, 0.145264)
+
+[sub_resource type="Animation" id="Animation_hlqj7"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cuyps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pax0m"]
+_data = {
+"RESET": SubResource("Animation_cuyps"),
+"open": SubResource("Animation_hlqj7")
+}
+
+[node name="Interactable" type="Area3D"]
+script = ExtResource("1_74ual")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503811, 1.01003, 0.0303955)
+shape = SubResource("BoxShape3D_jrd7f")
+
+[node name="Container" type="Node3D" parent="."]
+
+[node name="knob" parent="Container" instance=ExtResource("2_bkdnm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Container"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503811, 1.01003, 0.0303955)
+shape = SubResource("BoxShape3D_jrd7f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container"]
+libraries = {
+"": SubResource("AnimationLibrary_pax0m")
+}
+
+[node name="DoorAction" type="Node" parent="."]
+script = ExtResource("3_d16ll")

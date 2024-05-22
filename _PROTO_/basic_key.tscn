@@ -8,6 +8,7 @@
 radius = 0.25
 
 [node name="Key" type="Area3D"]
+collision_layer = 4
 script = ExtResource("1_2vx77")
 
 [node name="key" parent="." instance=ExtResource("2_yfp8e")]

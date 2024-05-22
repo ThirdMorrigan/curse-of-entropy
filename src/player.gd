@@ -82,7 +82,7 @@ func _physics_process(delta):
 		coyote_timer = coyote_frames * int(!jumping)
 		can_jump = !jumping
 		
-	print(input_dir)
+	#print(input_dir)
 	var vel_v = velocity.y
 	velocity.y = 0
 	var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
