@@ -12,7 +12,8 @@ description = "default light for levels"
 func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
-"Energy": 0.0
+"colour": Color(1, 0.843137, 0.270588, 1),
+"energy": 0.0
 }
 class_property_descriptions = {}
 meta_properties = {

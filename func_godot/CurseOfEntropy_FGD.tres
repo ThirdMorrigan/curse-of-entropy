@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=10 format=3 uid="uid://c1blhjn6ke38y"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=12 format=3 uid="uid://c1blhjn6ke38y"]
 
 [ext_resource type="Resource" uid="uid://nayxb8n7see2" path="res://addons/func_godot/fgd/phong_base.tres" id="1_co63r"]
 [ext_resource type="Resource" uid="uid://bdji3873bg32h" path="res://addons/func_godot/fgd/worldspawn.tres" id="2_g02gq"]
@@ -9,6 +9,8 @@
 [ext_resource type="Resource" uid="uid://dg5x44cc7flew" path="res://addons/func_godot/fgd/func_illusionary.tres" id="6_w5w5f"]
 [ext_resource type="Resource" uid="uid://dblcxwxvpo8st" path="res://func_godot/light.tres" id="7_58sq4"]
 [ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="8_1hv21"]
+[ext_resource type="Resource" uid="uid://bkmyrx3jmqdve" path="res://func_godot/door.tres" id="9_h3ua6"]
+[ext_resource type="Resource" uid="uid://6d1bp0l5oty1" path="res://func_godot/key.tres" id="10_3isq1"]
 
 [resource]
 script = ExtResource("8_1hv21")
@@ -16,4 +18,4 @@ export_file = false
 model_key_word_supported = true
 fgd_name = "CurseOFEntropy"
 base_fgd_files = Array[Resource]([])
-entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("2_lxuqp"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq")])
+entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("2_lxuqp"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq"), ExtResource("9_h3ua6"), ExtResource("10_3isq1")])

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdoti521baoyp"]
+[gd_scene load_steps=10 format=3 uid="uid://cdoti521baoyp"]
 
-[ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_l87kt"]
-[ext_resource type="PackedScene" uid="uid://5jlsjs7pdqq3" path="res://assets/models/knob.glb" id="2_nk1qh"]
+[ext_resource type="Script" path="res://src/interactables/door.gd" id="1_jkv8n"]
+[ext_resource type="PackedScene" uid="uid://5jlsjs7pdqq3" path="res://assets/models/knob.glb" id="2_jggpb"]
+[ext_resource type="Script" path="res://src/interactables/door_action.gd" id="3_bgvpp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87cpk"]
 size = Vector3(1.9967, 1.99274, 0.0990601)
@@ -61,13 +62,13 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_upsae"]
 size = Vector3(2.01648, 2.00818, 0.0892334)
 
-[node name="DoubleDoor" type="Area3D"]
-script = ExtResource("1_l87kt")
+[node name="Door" type="Area3D"]
+script = ExtResource("1_jkv8n")
 
 [node name="Meshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00737619, 0, 0)
 
-[node name="knob2" parent="Meshes" instance=ExtResource("2_nk1qh")]
+[node name="knob2" parent="Meshes" instance=ExtResource("2_jggpb")]
 transform = Transform3D(-4.37114e-08, 0, -2.005, 0, 1, 0, 1, 0, -8.76413e-08, -5.96046e-08, 0, -0.00214159)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Meshes"]
@@ -89,3 +90,6 @@ shape = SubResource("BoxShape3D_upsae")
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04344, 0.311735, -1.55484e-08)
 vertices = PackedVector3Array(-0.9729, 0, 0.0604614, -0.955888, 0, -0.0472829, 1.03455, 0, -0.0586244, 1.03455, 0, 0.0604614)
+
+[node name="DoorAction" type="Node" parent="."]
+script = ExtResource("3_bgvpp")

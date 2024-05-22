@@ -5,9 +5,9 @@ extends OmniLight3D
 @export var func_godot_properties : Dictionary
 
 func _ready():
-	_func_godot_apply_properties(func_godot_properties)
 	pass
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
-	print(props)
-	light_energy = props["Energy"]
+	print("building light")
+	light_energy = props["energy"] as float
+	light_color = props["colour"] as Color

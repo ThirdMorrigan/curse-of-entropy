@@ -9,5 +9,10 @@ var itemLookupTable = {
 	1 : {
 		"name" : "Small Key",
 		"type" : item_types.KEY
+	},
+	2 : {
+		"name" : "Small Key 2",
+		"type" : item_types.KEY
 	}
+	
 }
