@@ -15,7 +15,9 @@ func _ready():
 		print("func_godot map is required")
 	else:
 		bounding_box = func_godot_map.get_child(0).get_child(0).get_aabb()
-		collision_shape_3d.shape.size = bounding_box.size
+		#here i add a the height of 1m to the height to make sure its tall enough if there are no high walls for instance
+		#todo make it reach a minimum of the players height
+		collision_shape_3d.shape.size = bounding_box.size + Vector3(0,1,0)
 		collision_shape_3d.position = bounding_box.position + bounding_box.size * 0.5
 
 func toDict():
@@ -26,5 +28,4 @@ func toDict():
 
 
 func _on_area_entered(area):
-	if area is Hurtbox:
 		area.changeRoom(toDict())

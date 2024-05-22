@@ -8,7 +8,6 @@ class_name Hurtbox
 
 var health_pool : HealthPool
 
-signal newRoomEntered
 
 func _ready():
 	monitoring = false
@@ -29,7 +28,6 @@ func damage(d : DamageInstance):
 	d.damage *= damage_modifier
 	health_pool.hurt(d)
 
-func changeRoom(roomData):
-	newRoomEntered.emit(roomData)
+
 
 

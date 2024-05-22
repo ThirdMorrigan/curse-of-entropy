@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=20 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/Audio control node.gd" id="5_atf2r"]
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
+[ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 
@@ -31,6 +32,8 @@ shader = ExtResource("3_34caj")
 [sub_resource type="QuadMesh" id="QuadMesh_uf0gt"]
 flip_faces = true
 size = Vector2(10, 10)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4wjgr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qyid2"]
 height = 1.9
@@ -108,7 +111,6 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
-visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
@@ -125,6 +127,14 @@ script = ExtResource("5_atf2r")
 
 [node name="music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("6_gmdfq")
+
+[node name="room_detector" type="Area3D" parent="camera_pivot/Camera3D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("7_beu1l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camera_pivot/Camera3D/room_detector"]
+shape = SubResource("SphereShape3D_4wjgr")
 
 [node name="PlayerInputHandler" type="Node" parent="."]
 script = ExtResource("2_k1kd7")
@@ -148,5 +158,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
 shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
 
-[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
-[connection signal="newRoomEntered" from="Hurtbox" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
+[connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]

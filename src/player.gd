@@ -69,7 +69,6 @@ func _physics_process(delta):
 	if $floor_test.is_colliding() :
 		var col = $floor_test.get_collider()
 		if col is PhysicsBody3D:
-			print(col)
 			var pmo = col.physics_material_override
 			if pmo != null:
 				floor_friction = pmo.friction

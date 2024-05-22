@@ -1,14 +1,14 @@
-@tool
-extends MeshInstance3D
+extends Area3D
 
-@export var hideInEditor : bool = true
+signal newRoomEntered
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Engine.is_editor_hint():
-		visible = !hideInEditor
-	else:
-		visible = true
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func changeRoom(roomData):
+	newRoomEntered.emit(roomData)
