@@ -1,11 +1,14 @@
 @tool
 extends Interactable
+class_name Door
 
 enum states {LOCKED,CLOSED,OPEN}
 @export var state : states
 @export var keyID : int = 0
 
 @export var func_godot_properties : Dictionary
+
+signal opened
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
 	print(props)

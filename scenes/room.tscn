@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vrhh38m676t5"]
+[gd_scene load_steps=7 format=3 uid="uid://vrhh38m676t5"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_c140b"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_4kqjs"]
+[ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="2_8mvvb"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_lfyhr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
@@ -19,6 +20,7 @@ shape = SubResource("BoxShape3D_worb3")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_rs62u")
+script = ExtResource("2_8mvvb")
 
 [node name="FuncGodotMap" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("2_4kqjs")

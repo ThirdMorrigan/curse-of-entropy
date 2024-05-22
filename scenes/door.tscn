@@ -68,3 +68,5 @@ libraries = {
 
 [node name="DoorAction" type="Node" parent="."]
 script = ExtResource("3_d16ll")
+
+[connection signal="animation_finished" from="Container/AnimationPlayer" to="DoorAction" method="_on_animation_player_animation_finished"]

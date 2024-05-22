@@ -19,8 +19,14 @@ func _on_interact():
 
 func open():
 	animation_player.play("open")
+	
 	interactable.state = interactable.states.OPEN
 
 func failedOpen():
 	#animation_player.play("failed_open")
 	pass
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "open":
+		interactable.opened.emit()
