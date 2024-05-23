@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cdaxhqrgsnbrq"]
+[gd_scene load_steps=39 format=3 uid="uid://cdaxhqrgsnbrq"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_8fk6u"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_yb4lv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_uagpf"]
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="11_h15rd"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://_PROTO_/basic_key.tscn" id="12_lov7j"]
+[ext_resource type="PackedScene" uid="uid://c10rkymorq1ml" path="res://scenes/creature/slime.tscn" id="12_m3bs5"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_c8gqp"]
 vertices = PackedVector3Array(-1.75, -2.5, -25.5, 0, -2.5, -25.5, 0.25, -2.5, -26.5, 1.5, -2.5, -36.75, -3.25, -2.5, -36.75, -2, -2.5, -26.5, -3.25, -2.5, -36.75, -3.25, -2.5, -26.5, -2, -2.5, -26.5, 0.25, -2.5, -26.5, 1.5, -2.5, -26.5, 1.5, -2.5, -36.75, -4.5, 6.5, -25.5, -4.5, 6.5, -18, 2.5, 6.5, -18, 2.5, 6.5, -25.5, 0.25, -2.5, -24.25, 0, -2.5, -25.5, -1.75, -2.5, -25.5, 0.25, -2.5, -24.25, -1.75, -2.5, -25.5, -2.25, -2.5, -24.25, -3.25, -2.5, -19, 1.5, -2.5, -18.75, -2.25, -2.5, -24.25, -3.25, -2.5, -24.25, -3.25, -2.5, -19, 1.5, -2.5, -18.75, 1.5, -2.5, -24.25, 0.25, -2.5, -24.25, 0.25, 1, -22.75, 0, 1, -21, 1.5, 1, -21, 1.5, 1, -24.25, -1.75, 1, -23, 0.25, 1, -22.75, 1.5, 1, -24.25, -3.25, 1, -24.25, -3.25, 1, -20.75, -1.75, 1, -20.75, -1.75, 1, -23, -3.25, 1, -24.25, -1.75, 1, -20.75, -3.25, 1, -20.75, -3.25, 1, -18, 1.5, 1, -21, 0, 1, -21, -1.75, 1, -20.75, -3.25, 1, -18, 1.5, 1, -18, 1.25, -2.25, 0.75, 1.75, -2.5, 1.5, 2.5, -2.5, 1.5, 2.5, -2.5, -16.75, 1.25, -2.5, -0.5, 2.5, -2.5, -16.75, 1.5, -2.5, -17, -3.25, -2.5, -17.25, -4.5, -2.5, -16.75, -4.5, -2.5, -0.5, 1.25, -2.5, -0.5, 1.5, -2.5, -18.75, -3.25, -2.5, -19, -3.25, -2.5, -17.25, 1.5, -2.5, -17, 0.25, 1, -5, 0, 1, -6, -2, 1, -6, 0.25, 1, -5, -2, 1, -6, -2.25, 1, -5, -3, 1, -0.25, 1.5, 1, -0.5, -3.25, 0.75, 1.5, 1.75, -2.5, 1.5, 1.25, -2.25, 0.75, -3, 0.5, 0.75, -2.25, 1, -5, -3.25, 1, -5, -3, 1, -0.25, -3.25, 0.75, 1.5, -3, 0.5, 0.75, -3, 1, -0.25, -3.25, 1, -5, -3.25, 1, -1.1, 1.5, 1, -0.5, 1.5, 1, -5, 0.25, 1, -5, -4.5, 2.5, 0.25, -4.5, 2.5, 2.5, -4, 2.5, 2.5)
@@ -221,8 +222,11 @@ id = 1
 
 [node name="Interactable" parent="." instance=ExtResource("11_h15rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76087, 0.5, -3.64857)
-collision_layer = 4
 keyID = 1
 
 [node name="Player" parent="." instance=ExtResource("4_kakka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93086, 0.5, -1.48944)
+
+[node name="Creature" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("12_m3bs5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682738, 0.5, -1.65994)
+_player = NodePath("../Player")

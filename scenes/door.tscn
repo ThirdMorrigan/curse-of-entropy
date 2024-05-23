@@ -7,21 +7,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrd7f"]
 size = Vector3(0.973228, 1.98229, 0.145264)
 
-[sub_resource type="Animation" id="Animation_hlqj7"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_cuyps"]
 length = 0.001
 tracks/0/type = "value"
@@ -37,6 +22,21 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_hlqj7"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pax0m"]
 _data = {
 "RESET": SubResource("Animation_cuyps"),
@@ -44,6 +44,7 @@ _data = {
 }
 
 [node name="Interactable" type="Area3D"]
+collision_layer = 4
 script = ExtResource("1_74ual")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -134,7 +134,7 @@ func_godot_properties = {
 id = 1
 
 [node name="entity_2_Key" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("9_1og78")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.25, 0.75, 6.75)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.25, 0.75, 1.36275)
 func_godot_properties = {
 "classname": "Key",
 "id": 2,
@@ -159,7 +159,6 @@ func_godot_properties = {
 
 [node name="entity_4_Door" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("10_2qxyh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.25, 0.75, 3.25)
-collision_layer = 4
 keyID = 1
 func_godot_properties = {
 "classname": "Door",
@@ -170,7 +169,6 @@ func_godot_properties = {
 
 [node name="entity_5_Door" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("10_2qxyh")]
 transform = Transform3D(1.39071e-07, 0, 1, 0, 1, 0, -1, 0, 1.39071e-07, -1.25, 0.75, -0.75)
-collision_layer = 4
 keyID = 2
 func_godot_properties = {
 "angle": "270",
