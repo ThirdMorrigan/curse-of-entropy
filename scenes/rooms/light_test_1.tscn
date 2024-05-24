@@ -6,26 +6,26 @@
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_xm7uj"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="5_bca3v"]
 [ext_resource type="PackedScene" uid="uid://wmcc6au003b5" path="res://scenes/navigation_link_entity.tscn" id="6_c8j8u"]
+[ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="7_rvn8f"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="8_irjev"]
-[ext_resource type="PackedScene" uid="uid://b12ibvp44ynex" path="res://assets/models/breakable_wall_v2.glb" id="8_p2e8g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rs62u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrv0g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq31p"]
 albedo_texture = ExtResource("5_bca3v")
 metallic_specular = 0.0
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_cfnsk"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vb84g"]
 _surfaces = [{
 "aabb": AABB(-2, -0.5, -2, 10.5, 1.00001, 4),
 "attribute_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 190, 0, 0, 128, 191, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 62, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 190, 0, 0, 128, 191, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 62, 0, 0, 0, 192, 0, 0, 128, 190, 0, 0, 0, 192, 0, 0, 128, 62, 0, 0, 128, 192, 0, 0, 128, 62, 0, 0, 128, 192, 0, 0, 128, 190, 0, 0, 128, 191, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 62, 0, 0, 128, 63, 0, 0, 128, 192, 0, 0, 128, 63, 0, 0, 0, 192, 0, 0, 128, 191, 0, 0, 0, 192, 0, 0, 128, 191, 0, 0, 128, 192, 0, 0, 128, 191, 0, 0, 128, 192, 0, 0, 128, 63, 0, 0, 128, 192, 0, 0, 128, 63, 0, 0, 0, 192, 0, 0, 128, 191, 0, 0, 0, 192, 0, 0, 128, 63, 0, 0, 128, 190, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 190, 0, 0, 0, 64, 0, 0, 128, 190, 0, 0, 128, 64, 0, 0, 128, 190, 0, 0, 128, 64, 0, 0, 128, 62, 0, 0, 0, 64, 0, 0, 128, 62),
 "format": 34359742487,
 "index_count": 72,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 24, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 28, 0, 30, 0, 31, 0, 32, 0, 33, 0, 34, 0, 32, 0, 34, 0, 35, 0, 36, 0, 37, 0, 38, 0, 36, 0, 38, 0, 39, 0, 40, 0, 41, 0, 42, 0, 40, 0, 42, 0, 43, 0, 44, 0, 45, 0, 46, 0, 44, 0, 46, 0, 47, 0),
-"material": SubResource("StandardMaterial3D_jrv0g"),
+"material": SubResource("StandardMaterial3D_gq31p"),
 "name": "__TB_empty",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -33,14 +33,14 @@ _surfaces = [{
 "vertex_data": PackedByteArray(0, 0, 0, 192, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 8, 65, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 8, 65, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 8, 65, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 8, 65, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 8, 65, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 8, 65, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 8, 65, 0, 0, 0, 63, 0, 0, 0, 192, 0, 0, 8, 65, 0, 0, 0, 191, 0, 0, 0, 192, 0, 0, 8, 65, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 8, 65, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 144, 64, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 8, 65, 0, 0, 0, 63, 0, 0, 0, 64, 0, 0, 8, 65, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 144, 64, 0, 0, 0, 191, 0, 0, 0, 64, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191)
 }]
 
-[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_m7iyy"]
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_2d1we"]
 vertices = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, -0.5, -2, -2, -0.5, -2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, -2, 2, 0.5, 2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2, 4.5, 0.5, -2, 4.5, -0.5, -2, 8.5, -0.5, -2, 8.5, 0.5, -2, 4.5, 0.5, -2, 4.5, 0.5, 2, 4.5, -0.5, 2, 4.5, -0.5, -2, 8.5, -0.5, -2, 4.5, -0.5, -2, 4.5, -0.5, 2, 8.5, -0.5, 2, 8.5, 0.5, -2, 8.5, 0.5, 2, 4.5, 0.5, 2, 4.5, 0.5, -2, 8.5, 0.5, -2, 8.5, -0.5, -2, 8.5, -0.5, 2, 8.5, 0.5, 2, 4.5, 0.5, 2, 8.5, 0.5, 2, 8.5, -0.5, 2, 4.5, -0.5, 2)
 indices = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23, 24, 25, 26, 24, 26, 27, 28, 29, 30, 28, 30, 31, 32, 33, 34, 32, 34, 35, 36, 37, 38, 36, 38, 39, 40, 41, 42, 40, 42, 43, 44, 45, 46, 44, 46, 47)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0kcxo"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2hq81"]
 points = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, 2)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mr8tj"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jvj0m"]
 points = PackedVector3Array(4.5, 0.5, -2, 4.5, -0.5, -2, 8.5, -0.5, -2, 8.5, 0.5, -2, 4.5, 0.5, 2, 4.5, -0.5, 2, 8.5, -0.5, 2, 8.5, 0.5, 2)
 
 [node name="Room" type="Area3D"]
@@ -65,16 +65,16 @@ map_settings = ExtResource("3_xm7uj")
 collision_mask = 0
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-mesh = SubResource("ArrayMesh_cfnsk")
+mesh = SubResource("ArrayMesh_vb84g")
 
 [node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-occluder = SubResource("ArrayOccluder3D_m7iyy")
+occluder = SubResource("ArrayOccluder3D_2d1we")
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_0kcxo")
+shape = SubResource("ConvexPolygonShape3D_2hq81")
 
 [node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_mr8tj")
+shape = SubResource("ConvexPolygonShape3D_jvj0m")
 
 [node name="entity_1_NavLink" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("6_c8j8u")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.75, 0.75, 0.25)
@@ -87,11 +87,11 @@ func_godot_properties = {
 "origin": "8 56 24"
 }
 
-[node name="Player" parent="." instance=ExtResource("8_irjev")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17518, 0.5, -1.32923)
+[node name="entity_2_Breakable_wall" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("7_rvn8f")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.25, 0.75, -1.75)
 
-[node name="breakable_wall_v2" parent="." instance=ExtResource("8_p2e8g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55592, 1.18709, -0.242628)
+[node name="Player" parent="." instance=ExtResource("8_irjev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732727, 0.5, 0.415873)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="bake_finished" from="NavigationRegion3D" to="NavigationRegion3D" method="_on_bake_finished"]

@@ -30,3 +30,8 @@
 "end_offset" "-5 0 5"
 "layer" "4"
 }
+// entity 2
+{
+"classname" "Breakable_wall"
+"origin" "-56 40 24"
+}
