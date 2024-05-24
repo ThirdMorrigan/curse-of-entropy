@@ -20,9 +20,10 @@ func _ready():
 		for s in copy_collision_shapes:
 			var _s : CollisionShape3D = CollisionShape3D.new()
 			var _r : RemoteTransform3D = RemoteTransform3D.new()
-			_r.remote_path = _r.get_path_to(_s)
+			_s.shape = s.shape
 			s.add_child(_r)
 			add_child(_s)
+			_r.remote_path = _r.get_path_to(_s)
 		copy_collision_shapes = []
 
 func damage(d : DamageInstance):

@@ -14,7 +14,6 @@ func _process(delta):
 	pass
 
 func die():
-	print("ive died ouch")
 	breakable_wall_visuals.breakWall()
 	collision_shape_3d.queue_free()
 	hurtbox.queue_free()
