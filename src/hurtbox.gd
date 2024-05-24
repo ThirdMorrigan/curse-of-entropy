@@ -19,8 +19,9 @@ func _ready():
 	if copy_collision_shapes.size() :
 		for s in copy_collision_shapes:
 			var _s : CollisionShape3D = CollisionShape3D.new()
-			_s.transform = s.transform
-			_s.shape = s.shape
+			var _r : RemoteTransform3D = RemoteTransform3D.new()
+			_r.remote_path = _r.get_path_to(_s)
+			s.add_child(_r)
 			add_child(_s)
 		copy_collision_shapes = []
 
