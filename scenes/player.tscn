@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=26 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
 [ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
+[ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
+[ext_resource type="Script" path="res://_PROTO_/requirement.gd" id="15_m0vcd"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 
@@ -42,13 +45,23 @@ height = 1.9
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxkqm"]
 height = 1.25
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="Resource" id="Resource_cacvt"]
+script = ExtResource("13_qgojy")
+damage = 1.0
+impulse = 0.0
+damage_types = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hg4dn"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("current_tool")]
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
 acceleration = 60.0
 acceleration_air = 15.0
 friction = 15.0
 jump_power = 3.0
+current_tool = NodePath("PickaxeSwing")
 
 [node name="separation_ray0" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
@@ -166,7 +179,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
 shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
 
-[node name="Attack" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
+[node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
+script = ExtResource("12_cios8")
+tool_id = 3
+damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_cacvt")])
+hitbox_shape = SubResource("BoxShape3D_hg4dn")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+
+[node name="requirement" type="Node" parent="PickaxeSwing"]
+script = ExtResource("15_m0vcd")
 
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
