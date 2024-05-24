@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=3 format=3 uid="uid://bv8hiink1giti"]
+
+[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="1_8qe1f"]
+[ext_resource type="PackedScene" uid="uid://wmcc6au003b5" path="res://scenes/navigation_link_entity.tscn" id="1_rruvp"]
+
+[resource]
+script = ExtResource("1_8qe1f")
+scene_file = ExtResource("1_rruvp")
+apply_rotation_on_map_build = true
+classname = "NavLink"
+description = "A link bewteen 2 nav meshes that AI can follow, primarily used for dropping down off leges or jumping over gaps
+/n
+layers:
+4 - small jump
+5 - med jump
+6 - large jump
+7 - small drop
+8- med drop
+9 - larged drop
+/n
+x and z are negetive compared to godot"
+func_godot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"end_offset": Vector3(0, 0, 0),
+"layer": 0
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+name_property = ""
