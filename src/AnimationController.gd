@@ -6,7 +6,7 @@ class_name AnimationController
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():a
+func _ready():
 	animation_player.play("walk")
 
 

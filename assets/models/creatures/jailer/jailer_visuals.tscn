@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtem34shg32mg"]
+
+[ext_resource type="PackedScene" uid="uid://dqtm4rdwn8ccg" path="res://assets/models/creatures/jailer/jailer.glb" id="1_5k8aa"]
+[ext_resource type="Material" uid="uid://brpaouhsyo64v" path="res://assets/materials/creatures/jailer/Jailer.tres" id="2_3y201"]
+[ext_resource type="Material" uid="uid://bbe6ywaeny7is" path="res://assets/materials/creatures/jailer/iron_maiden.tres" id="3_dgd6o"]
+
+[node name="jailer" instance=ExtResource("1_5k8aa")]
+
+[node name="Skeleton3D" parent="jailer" index="0"]
+bones/0/position = Vector3(-0.0210489, 1.15657, -0.516839)
+bones/0/rotation = Quaternion(0.173635, -0.00237428, 0.00291311, 0.984803)
+bones/1/rotation = Quaternion(0.247756, -0.000120846, -0.03403, 0.968224)
+bones/2/rotation = Quaternion(0.13952, 0.00281727, -0.00903729, 0.990174)
+bones/3/rotation = Quaternion(0.0256749, -0.00933386, 0.0166746, 0.999488)
+bones/4/rotation = Quaternion(-0.0752216, -0.0150243, 0.0245769, 0.996751)
+bones/5/rotation = Quaternion(-0.226039, 0.000755125, 0.0061359, 0.974099)
+bones/6/rotation = Quaternion(-0.563054, -0.448387, -0.493044, 0.488699)
+bones/7/rotation = Quaternion(-0.0513907, 0.424327, -0.418384, 0.801412)
+bones/8/rotation = Quaternion(0.63026, 0.0689253, 0.0761001, 0.769565)
+bones/9/rotation = Quaternion(-0.0212374, 0.129419, 0.270868, 0.95364)
+bones/11/rotation = Quaternion(0.615764, 0.761533, -0.0851494, -0.183444)
+bones/12/rotation = Quaternion(0.346409, -0.627295, 0.251915, 0.650416)
+bones/13/rotation = Quaternion(0.222493, 0.0518347, -0.0401365, 0.972728)
+bones/14/rotation = Quaternion(-0.606317, 0.449583, 0.453579, 0.473837)
+bones/15/rotation = Quaternion(-0.00966041, -0.404505, 0.427572, 0.808371)
+bones/16/rotation = Quaternion(0.453295, -0.0213521, -0.0475508, 0.889835)
+bones/17/rotation = Quaternion(0.3071, -0.0174975, -0.25423, 0.916925)
+bones/18/rotation = Quaternion(0.0500101, -0.776175, -0.00573633, 0.628505)
+bones/19/rotation = Quaternion(-0.591027, 0.719525, -0.265105, 0.250381)
+bones/20/rotation = Quaternion(0.494097, 0.486796, -0.433233, 0.575506)
+bones/21/rotation = Quaternion(0.105487, -0.0620837, 0.0266088, 0.992124)
+bones/22/rotation = Quaternion(-0.00442856, 0.458528, 0.888644, -0.00669809)
+bones/23/rotation = Quaternion(-0.00520695, 0.457106, 0.889376, -0.00611295)
+bones/26/rotation = Quaternion(0.852818, 0.0564529, 0.179498, 0.487129)
+bones/27/rotation = Quaternion(0.649535, 0.00443315, 0.00326604, 0.760312)
+bones/28/rotation = Quaternion(-0.793266, -0.00419393, 0.085406, 0.602841)
+bones/31/rotation = Quaternion(0.938013, -0.0576055, -0.0824298, 0.33169)
+bones/32/rotation = Quaternion(0.607872, -0.00425182, -0.00349878, 0.794016)
+bones/33/rotation = Quaternion(-0.858561, -0.0120193, -0.0515513, 0.509972)
+bones/36/position = Vector3(0.57762, 0.594321, -0.517685)
+bones/37/position = Vector3(-0.576203, 0.594321, -0.519262)
+bones/39/position = Vector3(0.102869, -0.476899, 0.830509)
+bones/40/position = Vector3(0.314308, 0.0838359, -0.375996)
+bones/40/rotation = Quaternion(-0.695857, -0.134103, -0.125628, 0.694274)
+bones/42/position = Vector3(-0.349345, 0.0568746, -0.764316)
+bones/42/rotation = Quaternion(-0.704275, 0.0718065, 0.0632239, 0.703451)
+bones/44/position = Vector3(0.622665, 1.06926, 0.618617)
+bones/44/rotation = Quaternion(-0.32868, 0.471832, 0.661295, -0.481697)
+bones/45/position = Vector3(-0.781193, 1.17263, 0.647995)
+bones/45/rotation = Quaternion(0.315305, 0.615206, 0.571494, 0.442152)
+bones/46/position = Vector3(-1.12692, 1.01089, 0.646842)
+bones/46/rotation = Quaternion(-4.96694e-15, 9.3896e-08, -0.698845, 0.715273)
+bones/47/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/48/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+
+[node name="body" parent="jailer/Skeleton3D" index="0"]
+material_override = ExtResource("2_3y201")
+
+[node name="eyes" parent="jailer/Skeleton3D" index="1"]
+material_override = ExtResource("2_3y201")
+
+[node name="hair" parent="jailer/Skeleton3D" index="2"]
+material_override = ExtResource("2_3y201")
+
+[node name="helmet" parent="jailer/Skeleton3D" index="3"]
+material_override = ExtResource("2_3y201")
+
+[node name="iron_maiden" parent="jailer/Skeleton3D" index="4"]
+material_override = ExtResource("3_dgd6o")
+
+[node name="loincloth" parent="jailer/Skeleton3D" index="5"]
+material_override = ExtResource("2_3y201")

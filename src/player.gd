@@ -68,7 +68,7 @@ func _physics_process(delta):
 	var floor_friction : float = 1.0
 	if $floor_test.is_colliding() :
 		var col = $floor_test.get_collider()
-		if col is PhysicsBody3D:
+		if col is StaticBody3D or col is RigidBody3D:
 			var pmo = col.physics_material_override
 			if pmo != null:
 				floor_friction = pmo.friction
