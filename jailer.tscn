@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk0ecqoyantce"]
+
+[ext_resource type="PackedScene" uid="uid://dqtm4rdwn8ccg" path="res://assets/models/creatures/jailer/jailer.glb" id="1_fa6yv"]
+[ext_resource type="Material" uid="uid://brpaouhsyo64v" path="res://assets/materials/creatures/jailer/Jailer.tres" id="2_njinq"]
+[ext_resource type="Material" uid="uid://bbe6ywaeny7is" path="res://assets/materials/creatures/jailer/iron_maiden.tres" id="3_f6r8h"]
+
+[node name="jailer" instance=ExtResource("1_fa6yv")]
+
+[node name="body" parent="jailer/Skeleton3D" index="0"]
+material_override = ExtResource("2_njinq")
+
+[node name="eyes" parent="jailer/Skeleton3D" index="1"]
+material_override = ExtResource("2_njinq")
+
+[node name="hair" parent="jailer/Skeleton3D" index="2"]
+material_override = ExtResource("2_njinq")
+
+[node name="helmet" parent="jailer/Skeleton3D" index="3"]
+material_override = ExtResource("2_njinq")
+
+[node name="iron_maiden" parent="jailer/Skeleton3D" index="4"]
+material_override = ExtResource("3_f6r8h")
+
+[node name="loincloth" parent="jailer/Skeleton3D" index="5"]
+material_override = ExtResource("2_njinq")
