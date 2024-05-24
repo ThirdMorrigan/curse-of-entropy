@@ -14,8 +14,6 @@ func _process(delta):
 	pass
 
 func die():
-	var inventory = load("res://_PROTO_/inventroy.tres")
-	inventory.consumeItem(3)
 	breakable_wall_visuals.breakWall()
 	collision_shape_3d.queue_free()
 	hurtbox.queue_free()

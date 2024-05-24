@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://blywgy8fa1nv8"]
+[gd_scene load_steps=17 format=3 uid="uid://blywgy8fa1nv8"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_fqg05"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_bvhvv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wmcc6au003b5" path="res://scenes/navigation_link_entity.tscn" id="6_c8j8u"]
 [ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="7_rvn8f"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="8_irjev"]
+[ext_resource type="PackedScene" uid="uid://btrnmhkbgq5c8" path="res://_PROTO_/pickaxe.tscn" id="9_lpwko"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
 
@@ -101,6 +102,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03367, 0.5, 1.67788)
 
 [node name="breakable_wall3" parent="." instance=ExtResource("7_rvn8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09821, 0.5, 1.67611)
+
+[node name="Pickaxe" parent="." instance=ExtResource("9_lpwko")]
+transform = Transform3D(-0.01421, 0, 0.259611, 0, 0.26, 0, -0.259611, 0, -0.01421, -1.45914, 1.14219, 0)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="bake_finished" from="NavigationRegion3D" to="NavigationRegion3D" method="_on_bake_finished"]

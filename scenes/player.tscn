@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=27 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
 [ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
+[ext_resource type="Script" path="res://scenes/tool_use_from_inventory.gd" id="13_mqnn4"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
 [ext_resource type="Script" path="res://_PROTO_/requirement.gd" id="15_m0vcd"]
 
@@ -188,5 +189,9 @@ attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
 script = ExtResource("15_m0vcd")
+
+[node name="ToolAction" type="Node" parent="PickaxeSwing"]
+script = ExtResource("13_mqnn4")
+onHit = true
 
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]

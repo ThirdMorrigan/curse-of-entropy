@@ -2,6 +2,8 @@ extends Node3D
 
 class_name Attack
 
+signal hit
+
 @export var damage_instances : Array[DamageInstance]
 @export_flags("destructible:8","player:16","creature:32") var targets : int :
 	get:
@@ -33,6 +35,7 @@ func fire() :
 		for t in range(cast.get_collision_count()):
 			var h = cast.get_collider(t)
 			if h is Hurtbox:
+				hit.emit()
 				h.damage(damage_instances[0])
 
 func create_hitbox():
