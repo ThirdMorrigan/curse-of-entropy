@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyglowitmuhnx"]
+
+[ext_resource type="PackedScene" uid="uid://b4xc4y284os01" path="res://assets/models/slime.glb" id="1_8q44s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffww2"]
+albedo_color = Color(0.295448, 0.640875, 0, 1)
+
+[node name="slime" instance=ExtResource("1_8q44s")]
+
+[node name="Sphere" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ffww2")
