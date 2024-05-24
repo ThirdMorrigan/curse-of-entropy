@@ -1,11 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyglowitmuhnx"]
+[gd_scene load_steps=8 format=3 uid="uid://bls4chynvps5e"]
 
 [ext_resource type="PackedScene" uid="uid://b4xc4y284os01" path="res://assets/models/slime.glb" id="1_8q44s"]
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_see3c"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffww2"]
-albedo_color = Color(0.295448, 0.640875, 0, 1)
+[sub_resource type="Curve" id="Curve_3xoxr"]
+_data = [Vector2(0.813333, 0.054945), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_2dwny"]
+_data = [Vector2(0.273333, 0.340659), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_ad3q4"]
+_data = [Vector2(0.42, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_x7ayo"]
+curve_x = SubResource("Curve_3xoxr")
+curve_y = SubResource("Curve_2dwny")
+curve_z = SubResource("Curve_ad3q4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n88cx"]
+render_priority = 0
+shader = ExtResource("2_see3c")
+shader_parameter/albedo = Color(0, 0.729412, 0.278431, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_crunch = SubResource("CurveXYZTexture_x7ayo")
 
 [node name="slime" instance=ExtResource("1_8q44s")]
 
 [node name="Sphere" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_ffww2")
+surface_material_override/0 = SubResource("ShaderMaterial_n88cx")

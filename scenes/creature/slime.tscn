@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c10rkymorq1ml"]
+[gd_scene load_steps=10 format=3 uid="uid://c1hkftglluoww"]
 
 [ext_resource type="Script" path="res://src/slime.gd" id="1_q0pwy"]
-[ext_resource type="PackedScene" uid="uid://dyglowitmuhnx" path="res://scenes/creature/slime_visuals.tscn" id="2_of5gn"]
+[ext_resource type="PackedScene" uid="uid://bls4chynvps5e" path="res://scenes/creature/slime_visuals.tscn" id="2_of5gn"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="3_ey5hb"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="4_1jeot"]
 [ext_resource type="Script" path="res://src/AnimationController.gd" id="5_qevki"]
@@ -9,6 +9,21 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_81fuj"]
 height = 1.00782
 radius = 0.998409
+
+[sub_resource type="Animation" id="Animation_vno2b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("slime:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_vtvrr"]
 resource_name = "walk"
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(1, 0.5, 1), Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_vno2b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("slime:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_es7um"]

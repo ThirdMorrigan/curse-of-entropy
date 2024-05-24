@@ -62,6 +62,7 @@ void fragment() {
 	sat_steps += 4.0;
 	hsv.y *= 1.0-(sat_low_bracket * (0.05 - hsv.z * 2.0) * 10.0);
 	hsv.z *= 1.0-(sat_high_bracket * 0.9 * (0.05 - hsv.z * 2.0) * 10.0);
+	//hsv.z = min(hsv.z, 1.0);
 	
 	hsv.x = quantize(hsv.x, 16.0, 1.0/16.0);
 	hsv.y = quantize(hsv.y, sat_steps, 1.0/sat_steps);
@@ -69,7 +70,7 @@ void fragment() {
 	hsv.z = max(0.01, hsv.z);
 	col = HSV_to_RGB(hsv);
 	ALBEDO = col;
-	//ALBEDO = vec3(sat_high_bracket);
+	//ALBEDO = vec3(sat_steps/20.0);
 }
 
 
