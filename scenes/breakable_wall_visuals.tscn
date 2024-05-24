@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmjun4ai78pvm"]
+
+[ext_resource type="PackedScene" uid="uid://cap1jjt7vmb6s" path="res://assets/models/breakable_wall_v5.glb" id="1_t05wx"]
+[ext_resource type="Script" path="res://src/breakable_wall_visuals.gd" id="2_eywn2"]
+
+[node name="breakable_wall_v5" instance=ExtResource("1_t05wx")]
+script = ExtResource("2_eywn2")

@@ -21,6 +21,6 @@ func _ready():
 
 func hurt(di : DamageInstance):
 	curr_hp -= di.damage
-	if curr_hp < 0.0 :
-		pass
+	if curr_hp <= 0.0 :
+		parent.die()
 	print(str("someone's health pool is now ", curr_hp))

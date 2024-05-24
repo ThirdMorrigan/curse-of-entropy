@@ -32,4 +32,7 @@ func _process(_delta):
 		player.crouching = Input.is_action_pressed("crouch")
 		
 
+func _physics_process(delta):
+	if Input.is_action_just_pressed("use_tool"):
+		$"../Attack".fire()
 

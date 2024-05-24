@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c818g2vuvr4nf"]
+
+[ext_resource type="Script" path="res://src/attack.gd" id="1_fs68s"]
+[ext_resource type="Script" path="res://src/damage_instance.gd" id="2_lqkbr"]
+
+[sub_resource type="Resource" id="Resource_qtel1"]
+script = ExtResource("2_lqkbr")
+damage = 1.0
+impulse = 0.0
+damage_types = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8138"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Attack" type="Node3D"]
+script = ExtResource("1_fs68s")
+damage_instances = Array[ExtResource("2_lqkbr")]([SubResource("Resource_qtel1")])
+targets = 8
+hitbox_shape = SubResource("BoxShape3D_p8138")
+range = 1.0

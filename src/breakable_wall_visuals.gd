@@ -1,0 +1,6 @@
+extends Node3D
+
+@onready var animation_player = $AnimationPlayer
+
+func breakWall():
+	animation_player.play("Animation")

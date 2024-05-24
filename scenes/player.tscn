@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=21 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 
@@ -141,6 +142,8 @@ script = ExtResource("7_beu1l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="camera_pivot/Camera3D/room_detector"]
 shape = SubResource("SphereShape3D_4wjgr")
 
+[node name="attack_origin" type="Marker3D" parent="camera_pivot/Camera3D"]
+
 [node name="PlayerInputHandler" type="Node" parent="."]
 script = ExtResource("2_k1kd7")
 
@@ -162,5 +165,8 @@ shape = SubResource("CapsuleShape3D_qyid2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
 shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
+
+[node name="Attack" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
+attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
