@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c41r5xt152iub"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_qu2ce"]
+[ext_resource type="Texture2D" uid="uid://m4hjrokrekj5" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_albedo_v2.png" id="2_o2ewl"]
+[ext_resource type="Texture2D" uid="uid://485gc3mix5ti" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_crunch.png" id="3_0gn5c"]
+[ext_resource type="Texture2D" uid="uid://de0m5pc38kqll" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_normal.png" id="4_ep007"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qu2ce")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.2
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_o2ewl")
+shader_parameter/texture_normal = ExtResource("4_ep007")
+shader_parameter/texture_crunch = ExtResource("3_0gn5c")

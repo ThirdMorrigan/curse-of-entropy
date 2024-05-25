@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sj58k7p836g"
-path.s3tc="res://.godot/imported/wall_brick_crunch.png-e5fef860aedda80d35450fecbf2227d4.s3tc.ctex"
+uid="uid://485gc3mix5ti"
+path.s3tc="res://.godot/imported/hedge_crunch.png-5cf9dba256dab638ee24fef69142824d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/wall_brick_crunch.png"
-dest_files=["res://.godot/imported/wall_brick_crunch.png-e5fef860aedda80d35450fecbf2227d4.s3tc.ctex"]
+source_file="res://assets/materials/hedge/hedge_wall_0/tex/hedge_crunch.png"
+dest_files=["res://.godot/imported/hedge_crunch.png-5cf9dba256dab638ee24fef69142824d.s3tc.ctex"]
 
 [params]
 
@@ -24,8 +24,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=7
+roughness/src_normal="res://assets/materials/hedge/hedge_wall_0/tex/hedge_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

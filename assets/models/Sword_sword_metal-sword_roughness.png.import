@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djt5iuxgyh1kf"
-path.s3tc="res://.godot/imported/wall_brick_albedo.png-56a16105214ff1b5bea356ef79b622e3.s3tc.ctex"
+uid="uid://pr33ecs12n3"
+path.s3tc="res://.godot/imported/Sword_sword_metal-sword_roughness.png-ed65a25a49c0f6f51c2168391fe38ba7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "a02d78ccb54053edf1eb6773e1895dfd"
+}
 
 [deps]
 
-source_file="res://textures/wall_brick_albedo.png"
-dest_files=["res://.godot/imported/wall_brick_albedo.png-56a16105214ff1b5bea356ef79b622e3.s3tc.ctex"]
+source_file="res://assets/models/Sword_sword_metal-sword_roughness.png"
+dest_files=["res://.godot/imported/Sword_sword_metal-sword_roughness.png-ed65a25a49c0f6f51c2168391fe38ba7.s3tc.ctex"]
 
 [params]
 

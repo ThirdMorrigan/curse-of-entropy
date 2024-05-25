@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dt6jsd158d4nf"
+path="res://.godot/imported/pickaxe.map-a820a3aeb9ce6400c6d48dac826f143f.tres"
+
+[deps]
+
+source_file="res://_PROTO_/test maps/pickaxe.map"
+dest_files=["res://.godot/imported/pickaxe.map-a820a3aeb9ce6400c6d48dac826f143f.tres"]
+
+[params]
+

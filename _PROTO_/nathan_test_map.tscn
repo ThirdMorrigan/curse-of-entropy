@@ -1,15 +1,16 @@
-[gd_scene load_steps=38 format=3 uid="uid://cdaxhqrgsnbrq"]
+[gd_scene load_steps=39 format=3 uid="uid://cdaxhqrgsnbrq"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_8fk6u"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_yb4lv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_mg5ov"]
+[ext_resource type="Material" uid="uid://c41r5xt152iub" path="res://assets/materials/hedge/hedge_wall_0/hedge_wall_0.tres" id="4_6kvuq"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_kakka"]
-[ext_resource type="Material" uid="uid://cklrilemwfjyp" path="res://assets/materials/brick/wall_0/brick_wall_0.tres" id="4_qe45t"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="4_qn6xo"]
 [ext_resource type="Texture2D" uid="uid://622b6tyw60y0" path="res://assets/materials/brick/wall_0/tex/wall_brick_albedo.png" id="5_slwd6"]
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="6_xhmgw"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_uagpf"]
 [ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="11_qxid6"]
+[ext_resource type="PackedScene" uid="uid://ji4h1i0420fk" path="res://_PROTO_/sword.tscn" id="12_ai3gk"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://_PROTO_/basic_key.tscn" id="12_lov7j"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_c8gqp"]
@@ -138,7 +139,7 @@ map_settings = ExtResource("2_mg5ov")
 collision_mask = 0
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-material_override = ExtResource("4_qe45t")
+material_override = ExtResource("4_6kvuq")
 mesh = SubResource("ArrayMesh_0oy81")
 
 [node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
@@ -218,10 +219,13 @@ end_position = Vector3(-2, -3, -15)
 [node name="Key" parent="." instance=ExtResource("12_lov7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1522, 2, -1.26675)
 id = 1
-quantity = null
+quantity = 1
 
 [node name="Player" parent="." instance=ExtResource("4_kakka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93086, 0.5, -1.48944)
 
 [node name="breakable_wall" parent="." instance=ExtResource("11_qxid6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26282, 0.5, -4.98303)
+
+[node name="Sword" parent="." instance=ExtResource("12_ai3gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72512, 1.54122, -2.42116)
