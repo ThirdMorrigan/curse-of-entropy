@@ -5,7 +5,7 @@ var inventory = load("res://_PROTO_/inventroy.tres")
 
 
 func _on_interact():
-	inventory.add(interactable.id, interactable.quantity)
+	inventory.add(interactable.id)
 	interactable.queue_free()
 
 
