@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://n72irdnqsr6y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iblmh"]
+radius = 0.85
+
+[node name="collision_hull_large" type="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_iblmh")

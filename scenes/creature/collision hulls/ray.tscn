@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnl3lldtblpkr"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_pnbka"]
+
+[node name="ray" type="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -0.15)
+shape = SubResource("SeparationRayShape3D_pnbka")

@@ -2,8 +2,7 @@ extends CharacterBody3D
 
 class_name Creature
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var speed = 3.0
 
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, JUMP}
 

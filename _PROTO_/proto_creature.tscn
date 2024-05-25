@@ -35,8 +35,9 @@ script = SubResource("GDScript_up77q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("CapsuleShape3D_qcg8f")
 
-[node name="CreatureAI" type="Node" parent="."]
+[node name="CreatureAI" type="Node" parent="." node_paths=PackedStringArray("eyes")]
 script = ExtResource("2_nqs15")
+eyes = NodePath("../Marker3D")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
 navigation_layers = 73
