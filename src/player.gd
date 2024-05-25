@@ -10,8 +10,6 @@ class_name Player
 @export var jump_power : float = 5
 @export var coyote_frames : int = 6
 
-@export var current_tool : Attack
-
 var coyote_timer : int
 var crouching : bool :
 	get:
@@ -93,7 +91,7 @@ func _physics_process(delta):
 	temp_friction *= floor_friction
 	velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
 	velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
-	velocity = velocity.limit_length(speed)
+	velocity = velocity.limit_length(speed if !crouching || !is_on_floor() else speed_crouch)
 	velocity.y = vel_v
 
 	move_and_slide()

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://xjgypv1ijx66"]
+
+[ext_resource type="Script" path="res://_PROTO_/inventory_ui_item_slot.gd" id="1_6niii"]
+
+[node name="ItemSlot" type="Panel"]
+custom_minimum_size = Vector2(10, 40)
+script = ExtResource("1_6niii")
+
+[node name="ItemNameLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 40.0

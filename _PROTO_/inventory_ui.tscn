@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnqnjpea6g5vs"]
+
+[ext_resource type="Script" path="res://_PROTO_/inventory_ui.gd" id="1_odtb2"]
+[ext_resource type="ButtonGroup" uid="uid://d14hcikp23ll8" path="res://_PROTO_/inventory_ui_catagory_buttongroup.tres" id="2_fso8h"]
+
+[node name="InventoryUI" type="Control"]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odtb2")
+catagory_buttons = ExtResource("2_fso8h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.168627, 0.176471, 0.192157, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonKeys" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_fso8h")
+text = "Keys"
+
+[node name="ButtonConsumables" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_fso8h")
+text = "Consumables"
+
+[node name="ButtonTools" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_fso8h")
+text = "Tools"
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 2
+offset_left = 500.0
+offset_top = 60.0
+offset_right = 508.0
+offset_bottom = 487.0
+
+[node name="ItemSlotContainer" type="VBoxContainer" parent="VScrollBar"]
+clip_contents = true
+layout_mode = 0
+offset_left = -493.0
+offset_right = -6.0
+offset_bottom = 433.0
+
+[connection signal="pressed" from="HBoxContainer/ButtonKeys" to="." method="populate_inventory" binds= [0]]
+[connection signal="pressed" from="HBoxContainer/ButtonConsumables" to="." method="populate_inventory" binds= [1]]
+[connection signal="pressed" from="HBoxContainer/ButtonTools" to="." method="populate_inventory" binds= [2]]

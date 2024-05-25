@@ -8,8 +8,8 @@ uniform sampler2D texture_crunch : hint_default_black,filter_nearest,repeat_enab
 uniform vec4 albedo : source_color = vec4(1.0);
 uniform float alpha_scissor_threshold = 0.5;
 uniform float roughness : hint_range(0,1) = 1.0;
-uniform float specular : hint_range(0.0, 1.0) = 0.5;
-uniform float metallic : hint_range(0.0, 1.0) = 1.0;
+uniform float specular : hint_range(-10.0, 10.0) = 0.5;
+uniform float metallic : hint_range(-10.0, 10.0) = 1.0;
 uniform float normal_scale : hint_range(-16,16) = 2.0;
 uniform float ao_light_affect = 0.5;
 
@@ -18,6 +18,8 @@ global uniform float wobble_resolution;
 
 void vertex() {
     vec3 transformed = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	// VVVV uncomment this line if you're cool VVVV
+    //transformed = ( vec4(transformed, 10.0) * PROJECTION_MATRIX * MODELVIEW_MATRIX).xyz * (vec3(-1.0,1.0,1.0));   
 	transformed *= wobble_resolution;
 	transformed = trunc(transformed);
 	transformed *= wobble_resolution_inv;

@@ -3,7 +3,7 @@ extends Node
 
 enum item_types {KEY, CONSUMABLE, TOOL}
 enum map_zone {GARDEN,GRAVEYARD,CASTLE,CRYPT,DUNGEON,CAVE,SEWER}
-enum equipment_slots {TOOL, HEAD, BODY, FEET, HANDS}
+
 
 var itemLookupTable = {
 	0 : {
@@ -20,8 +20,7 @@ var itemLookupTable = {
 	},
 	3 : {
 		"name" : "Pickaxe",
-		"type" : item_types.TOOL,
-		"slot" : equipment_slots.TOOL
+		"type" : item_types.TOOL
 	}
 	
 }

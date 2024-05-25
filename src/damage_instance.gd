@@ -24,3 +24,10 @@ func rotate_impulse(b:Basis):
 
 func has_type(t : DamageType) -> bool:
 	return t&damage_types
+
+func copy() -> DamageInstance:
+	var d = DamageInstance.new()
+	d.damage = damage
+	d.impulse_vector = impulse_vector
+	d.damage_types = damage_types
+	return d
