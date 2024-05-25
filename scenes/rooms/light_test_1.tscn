@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="7_rvn8f"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://_PROTO_/basic_key.tscn" id="8_a6yyg"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="8_irjev"]
-[ext_resource type="PackedScene" uid="uid://btrnmhkbgq5c8" path="res://_PROTO_/pickaxe.tscn" id="9_lpwko"]
+[ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="9_lpwko"]
 [ext_resource type="PackedScene" uid="uid://co3bsbmt86evp" path="res://_PROTO_/default_light.tscn" id="11_tblg8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
