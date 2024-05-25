@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="3_epovl"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="4_ff8a5"]
 [ext_resource type="PackedScene" uid="uid://co3bsbmt86evp" path="res://_PROTO_/default_light.tscn" id="8_nv4e5"]
-[ext_resource type="PackedScene" uid="uid://cppnic6vlc23e" path="res://assets/models/creatures/jailer/jailer_visuals.tscn" id="9_qi1bu"]
+[ext_resource type="PackedScene" uid="uid://dn65kr04osb2l" path="res://assets/models/creatures/jailer/jailer_visuals.tscn" id="9_qi1bu"]
 [ext_resource type="PackedScene" uid="uid://bls4chynvps5e" path="res://scenes/creature/slime_visuals.tscn" id="10_ivui0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ysavb"]
@@ -213,7 +213,10 @@ radius = 3.0
 height = 3.95
 
 [node name="jailer" parent="." instance=ExtResource("9_qi1bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0714, 0, -5.53441)
+transform = Transform3D(0.574734, 0, 0.81834, 0, 1, 0, -0.81834, 0, 0.574734, -2.0714, 0, -5.53441)
+
+[node name="jailer2" parent="." instance=ExtResource("9_qi1bu")]
+transform = Transform3D(-0.968826, 0, -0.247743, 0, 1, 0, 0.247743, 0, -0.968826, -33.8244, -2.38419e-07, -10.2474)
 
 [node name="slime" parent="." instance=ExtResource("10_ivui0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25601, 0, -6.97903)

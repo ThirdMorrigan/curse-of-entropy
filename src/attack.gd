@@ -29,11 +29,14 @@ func _ready():
 
 func fire() :
 	cast.force_shapecast_update()
+	if attack_origin != null :
+		cast.global_position = attack_origin.global_position
+		cast.global_rotation = attack_origin.global_rotation
 	if cast.is_colliding():
 		for t in range(cast.get_collision_count()):
 			var h = cast.get_collider(t)
 			if h is Hurtbox:
-				h.damage(damage_instances[0])
+				h.damage(get_modified_damage_instance(damage_instances[0]))
 
 func create_hitbox():
 	cast = ShapeCast3D.new()
@@ -47,3 +50,7 @@ func create_hitbox():
 	cast.global_position = attack_origin.global_position if attack_origin != null else Vector3(0.0, 1.0, 0.0)
 	cast.target_position = Vector3.FORWARD * range
 
+func get_modified_damage_instance(d : DamageInstance) -> DamageInstance :
+	var d_temp = d.copy()
+	d_temp.impulse_vector = d_temp.impulse_vector * cast.global_basis
+	return d_temp
