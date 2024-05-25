@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr1suyanyixg0"]
+
+[ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_yujak"]
+[ext_resource type="PackedScene" path="res://assets/models/AWFUL_pickaxe.glb" id="2_rq1me"]
+[ext_resource type="Script" path="res://src/interactables/pickup_action.gd" id="3_sm13x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mj5r"]
+size = Vector3(2.96851, 4.48389, 1)
+
+[node name="Pickaxe" type="Area3D"]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0.607381, 0)
+script = ExtResource("1_yujak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.617887, -0.786267, 0, 0.786267, -0.617887, 0, 0, 0, 1, 0.0784912, -0.315185, 0)
+shape = SubResource("BoxShape3D_6mj5r")
+
+[node name="AWFUL_pickaxe" parent="CollisionShape3D" instance=ExtResource("2_rq1me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0784912, 0.315185, 0)
+
+[node name="PickupAction" type="Node" parent="."]
+script = ExtResource("3_sm13x")
