@@ -39,7 +39,7 @@ shape = SubResource("CapsuleShape3D_qcg8f")
 script = ExtResource("2_nqs15")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
-navigation_layers = 73
+navigation_layers = 65
 avoidance_enabled = true
 radius = 0.75
 max_neighbors = 50

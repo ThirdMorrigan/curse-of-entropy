@@ -6,5 +6,8 @@ extends NavigationLink3D
 
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
-	set_navigation_layer_value(props["layer"], true)
+	var layers = props["layers"].split(" ",false,0)
+	for layer in layers:
+			set_navigation_layer_value(int(layer), true)
 	end_position = start_position + props["end_offset"]
+	bidirectional = props["bidirectional"]
