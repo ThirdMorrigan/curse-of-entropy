@@ -1,5 +1,6 @@
 extends Control
 var is_open = false
+var last_tab = GameDataSingleton.item_types.KEY
 @export var catagory_buttons: ButtonGroup
 @onready var inventory = load("res://_PROTO_/inventroy.tres")
 @onready var item_slot_container = get_node("VScrollBar/ItemSlotContainer")
@@ -15,29 +16,28 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("toggle_inventory"):
-		if is_open:
-			close()
-			inventoryState.emit(false)
-		else:
-			open()
-			inventoryState.emit(true)
+		if is_open:close()
+		else:open()
+			
 	
 func open():
 	visible = true
 	is_open = true
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	populate_inventory(last_tab)
+	inventoryState.emit(true)
 
-##TODO Freeze camera when inventory is open, but I don't wait to break the camera smileyface
 func close():
 	visible = false
 	is_open = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	inventoryState.emit(false)
 	
 #Each item type button calls this with the corresponding id for the item type enum
 func populate_inventory(type_id: int):
-	
+	last_tab = type_id
 	#Clear existing itemslots
 	for item_slot in item_slot_container.get_children():
 		item_slot_container.remove_child(item_slot)
