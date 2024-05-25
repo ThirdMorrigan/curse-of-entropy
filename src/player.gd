@@ -10,8 +10,6 @@ class_name Player
 @export var jump_power : float = 5
 @export var coyote_frames : int = 6
 
-@export var current_tool : Attack
-
 var coyote_timer : int
 var crouching : bool :
 	get:

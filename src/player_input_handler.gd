@@ -3,7 +3,7 @@ extends Node
 class_name PlayerInputHandler
 
 @onready var player : Player = $".."
-@onready var inventory = load("res://_PROTO_/inventroy.tres")
+
 var mouselook_active : bool :
 	get:
 		return mouselook_active
@@ -33,9 +33,6 @@ func _process(_delta):
 		
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("nathan_test_action"):
-		inventory.add(3, 1)
-	
 	if Input.is_action_just_pressed("use_tool"):
-		player.current_tool.useTool()
+		$"../Attack".fire()
 
