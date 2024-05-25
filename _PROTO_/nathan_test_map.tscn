@@ -81,11 +81,11 @@ points = PackedVector3Array(-0.5, 0.5, -8.5, -0.5, -0.5, -8.5, 2.5, -0.5, -8.5, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6kf7s"]
 points = PackedVector3Array(-4, 0.5, -10.5, -4, -0.5, -10.5, -1, -0.5, -10.5, -1, 0.5, -10.5, -4, 0.5, -9.5, -4, -0.5, -9.5, -1, -0.5, -9.5, -1, 0.5, -9.5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygsu0"]
-points = PackedVector3Array(0.5, 0.5, -15.5, 0.5, -0.5, -15.5, 1.5, -0.5, -15.5, 1.5, 0.5, -15.5, 0.5, 0.5, -12.5, 0.5, -0.5, -12.5, 1.5, -0.5, -12.5, 1.5, 0.5, -12.5)
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t1bum"]
 points = PackedVector3Array(-4, 0.5, -25, -4, -0.5, -25, 2, -0.5, -25, 2, 0.5, -25, -4, 0.5, -17.5, -4, -0.5, -17.5, 2, -0.5, -17.5, 2, 0.5, -17.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygsu0"]
+points = PackedVector3Array(0.5, 0.5, -15.5, 0.5, -0.5, -15.5, 1.5, -0.5, -15.5, 1.5, 0.5, -15.5, 0.5, 0.5, -12.5, 0.5, -0.5, -12.5, 1.5, -0.5, -12.5, 1.5, 0.5, -12.5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kp424"]
 points = PackedVector3Array(-5, 6, -25, -5, -3, -25, -4, -3, -25, -4, 6, -25, -5, 6, -17.5, -5, -3, -17.5, -4, -3, -17.5, -4, 6, -17.5)
@@ -175,11 +175,11 @@ shape = SubResource("ConvexPolygonShape3D_0ob7y")
 [node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_6kf7s")
 
-[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_ygsu0")
-
 [node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_t1bum")
+
+[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn/entity_0_brush_11_collision_shape"]
+shape = SubResource("ConvexPolygonShape3D_ygsu0")
 
 [node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_kp424")
@@ -219,7 +219,6 @@ end_position = Vector3(-2, -3, -15)
 [node name="Key" parent="." instance=ExtResource("12_lov7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1522, 2, -1.26675)
 id = 1
-quantity = 1
 
 [node name="Player" parent="." instance=ExtResource("4_kakka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93086, 0.5, -1.48944)
