@@ -1,6 +1,8 @@
 extends Panel
-@export var text: String
+var name_text: String = "missing name"
+var quantity_text: String = "0"
+@onready var item_name_label = $ItemNameLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("ItemNameLabel").add_text(text)
+	item_name_label.add_text(name_text + "		Held:	" + quantity_text)

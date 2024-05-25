@@ -48,7 +48,8 @@ func populate_inventory(type_id: int):
 	
 	for item in items:
 		var new_item_slot = preload(item_slot_path).instantiate()
-		new_item_slot.text = GameDataSingleton.itemLookupTable[item].name
+		new_item_slot.name_text = GameDataSingleton.itemLookupTable[item].name
+		new_item_slot.quantity_text = str(bag[item])
 		item_slot_container.add_child(new_item_slot)
 
 	
