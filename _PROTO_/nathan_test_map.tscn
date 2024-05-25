@@ -219,6 +219,7 @@ end_position = Vector3(-2, -3, -15)
 [node name="Key" parent="." instance=ExtResource("12_lov7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1522, 2, -1.26675)
 id = 1
+quantity = null
 
 [node name="Player" parent="." instance=ExtResource("4_kakka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93086, 0.5, -1.48944)

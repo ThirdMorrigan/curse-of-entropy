@@ -176,5 +176,17 @@ func_godot_properties = {
 [node name="Player" parent="." instance=ExtResource("8_irjev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732727, 0.5, 0.415873)
 
+[node name="breakable_wall" parent="." instance=ExtResource("7_rvn8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14181, 0.5, -1.9239)
+
+[node name="breakable_wall2" parent="." instance=ExtResource("7_rvn8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03367, 0.5, 1.67788)
+
+[node name="breakable_wall3" parent="." instance=ExtResource("7_rvn8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09821, 0.5, 1.67611)
+
+[node name="Pickaxe" parent="." instance=ExtResource("9_lpwko")]
+transform = Transform3D(-0.01421, 0, 0.259611, 0, 0.26, 0, -0.259611, 0, -0.01421, -1.45914, 1.14219, 0)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="bake_finished" from="NavigationRegion3D" to="NavigationRegion3D" method="_on_bake_finished"]
