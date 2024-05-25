@@ -5,6 +5,7 @@ var is_open = false
 @onready var item_slot_container = get_node("VScrollBar/ItemSlotContainer")
 const item_slot_path = "res://_PROTO_/inventory_ui_item_slot.tscn"
 
+signal inventoryState
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,8 +17,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("toggle_inventory"):
-		if is_open: close()
-		else: open()
+		if is_open:
+			close()
+			inventoryState.emit(false)
+		else:
+			open()
+			inventoryState.emit(true)
 	
 func open():
 	visible = true

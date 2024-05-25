@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnqnjpea6g5vs"]
+[gd_scene load_steps=3 format=3 uid="uid://g4jm5a62hdsg"]
 
 [ext_resource type="Script" path="res://_PROTO_/inventory_ui.gd" id="1_odtb2"]
-[ext_resource type="ButtonGroup" uid="uid://d14hcikp23ll8" path="res://_PROTO_/inventory_ui_catagory_buttongroup.tres" id="2_fso8h"]
+[ext_resource type="ButtonGroup" path="res://_PROTO_/inventory_ui_catagory_buttongroup.tres" id="2_fso8h"]
 
 [node name="InventoryUI" type="Control"]
 custom_minimum_size = Vector2(800, 500)

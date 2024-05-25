@@ -147,8 +147,6 @@ func_godot_properties = {
 "origin": "-95.875 65.375 16",
 "state": 0
 }
-id = 0
-quantity = 1
 
 [node name="entity_3_Key" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("8_a6yyg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.25, 0.75, -8.75)
@@ -158,7 +156,6 @@ func_godot_properties = {
 "origin": "-280 -8 24"
 }
 id = 1
-quantity = 1
 
 [node name="entity_4_Pickaxe" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("9_lpwko")]
 transform = Transform3D(-0.26, 0, -2.27299e-08, 0, 0.26, 0, 2.27299e-08, 0, -0.26, -0.25, 0.75, 0.75)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=29 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/tool_use_from_inventory.gd" id="13_mqnn4"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
 [ext_resource type="Script" path="res://_PROTO_/requirement.gd" id="15_m0vcd"]
+[ext_resource type="PackedScene" uid="uid://g4jm5a62hdsg" path="res://_PROTO_/inventory_ui.tscn" id="16_gls4e"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 
@@ -54,6 +55,8 @@ damage_types = 16
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hg4dn"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("current_tool")]
 script = ExtResource("1_evqos")
@@ -130,12 +133,13 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
-hideInEditor = false
+hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -194,4 +198,8 @@ script = ExtResource("15_m0vcd")
 script = ExtResource("13_mqnn4")
 onHit = true
 
+[node name="InventoryUI" parent="." instance=ExtResource("16_gls4e")]
+catagory_buttons = SubResource("ButtonGroup_rq6di")
+
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
+[connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]

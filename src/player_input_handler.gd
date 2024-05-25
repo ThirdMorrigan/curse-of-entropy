@@ -4,6 +4,7 @@ class_name PlayerInputHandler
 
 @onready var player : Player = $".."
 @onready var inventory = load("res://_PROTO_/inventroy.tres")
+var lockMouse : bool = false
 var mouselook_active : bool :
 	get:
 		return mouselook_active
@@ -18,7 +19,7 @@ func _ready():
 	mouselook_active = true
 
 func _input(event):
-	if event is InputEventMouseMotion && mouselook_active:
+	if event is InputEventMouseMotion && mouselook_active && not lockMouse:
 		player.yaw -= event.relative.x * 0.001
 		player.pitch_camera -= event.relative.y * 0.001
 
@@ -37,3 +38,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("use_tool"):
 		player.current_tool.useTool()
 
+
+
+func _on_inventory_ui_inventory_state_change(state):
+	lockMouse = state
