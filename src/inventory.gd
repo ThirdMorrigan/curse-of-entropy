@@ -24,3 +24,4 @@ func bagHasByID(id,type):
 func add(id):
 	var item = GameDataSingleton.itemLookupTable[id]
 	bags[item["type"]][id] = 1
+	
