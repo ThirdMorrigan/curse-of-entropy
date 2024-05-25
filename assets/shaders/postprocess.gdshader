@@ -49,15 +49,8 @@ void vertex() {
 }
 
 void fragment() {
-	float funny_colon_three = abs(SCREEN_UV.x - 0.3) * abs(SCREEN_UV.x - 0.7) * 1.0;
-	funny_colon_three -= 1.0;
-	if (SCREEN_UV.y + funny_colon_three > 0.0){
-		funny_colon_three = -(2.0*SCREEN_UV.y + funny_colon_three) ;
-	}
 	
-	
-	
-	vec3 col = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x, SCREEN_UV.y + funny_colon_three)).rgb;
+	vec3 col = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x, SCREEN_UV.y)).rgb;
 	vec3 hsv = RGB_to_HSV(col);
 	
 	float sat_high_bracket = float(hsv.y>0.9);
