@@ -46,6 +46,7 @@ _data = {
 [node name="Interactable" type="Area3D"]
 collision_layer = 4
 script = ExtResource("1_74ual")
+interactionText = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503811, 1.01003, 0.0303955)

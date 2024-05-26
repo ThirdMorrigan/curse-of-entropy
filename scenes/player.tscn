@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=30 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
 [ext_resource type="Script" path="res://_PROTO_/requirement.gd" id="15_m0vcd"]
 [ext_resource type="PackedScene" uid="uid://g4jm5a62hdsg" path="res://_PROTO_/inventory_ui.tscn" id="16_gls4e"]
+[ext_resource type="PackedScene" uid="uid://cpu2r44awjr47" path="res://scenes/game_ui.tscn" id="17_f2jcj"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 
@@ -133,6 +134,7 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
@@ -199,6 +201,8 @@ onHit = true
 
 [node name="InventoryUI" parent="." instance=ExtResource("16_gls4e")]
 catagory_buttons = SubResource("ButtonGroup_rq6di")
+
+[node name="game_ui" parent="." instance=ExtResource("17_f2jcj")]
 
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
 [connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]

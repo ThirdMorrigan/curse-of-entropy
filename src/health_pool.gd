@@ -8,8 +8,15 @@ class_name HealthPool
 
 @onready var parent = $".."
 
+signal health_change
+
 var curr_max_hp : float
-var curr_hp : float
+var curr_hp : float :
+	get:
+		return curr_hp
+	set(hp):
+		curr_hp = hp
+		health_change.emit(curr_hp)
 
 func _ready():
 	curr_max_hp = max_hp
