@@ -28,3 +28,5 @@ script = ExtResource("1_1kk3m")
 copy_collision_shapes = [NodePath("../CollisionShape3D")]
 
 [node name="breakable_wall_v5" parent="." instance=ExtResource("2_lahat")]
+
+[connection signal="broken" from="breakable_wall_v5" to="." method="_on_wall_broken"]

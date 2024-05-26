@@ -5,3 +5,5 @@
 
 [node name="breakable_wall_v5" instance=ExtResource("1_t05wx")]
 script = ExtResource("2_eywn2")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

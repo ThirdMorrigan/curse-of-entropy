@@ -68,8 +68,9 @@ func jump(delta):
 	
 	velocity = Vector3.ZERO
 	position = position.slerp(jump_target,delta*speed)
+	velocity = position.direction_to(jump_target)
+	rotation.y = lerp_angle(rotation.y, atan2(-goal_vel.x, -goal_vel.z), delta * 5)
 	if position.distance_to(jump_target) < jump_land_error:
-		print("ahoy")
 		landed = true
 		
 
