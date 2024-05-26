@@ -50,11 +50,11 @@ func _ready():
 		queue_free()
 	
 	##nav.target_position = wander_goal
-	if $"../nav" != null:
-		$"../nav".link_reached.connect(_on_link_reached)
+	nav.link_reached.connect(_on_link_reached)
 	nav.target_reached.connect(_on_target_reached)
-	nav.max_speed = creature.speed
+	nav.path_changed.connect(_on_path_changed)
 	nav.velocity_computed.connect(_on_velocity_computed)
+	nav.max_speed = creature.speed
 	creature.current_state = Creature.State.IDLE
 	
 	
@@ -165,7 +165,7 @@ func random_pos_in_wander_range() -> Vector3:
 	for c in range(10):
 		if ( final - creature.global_position ).length_squared() < 1.0 :
 			randomize()
-			var v = Vector3(randf(),randf(),randf()).normalized()
+			var v = Vector3(randf(),randf() * 0.5,randf()).normalized()
 			var r = ease(randf(), 0.4) * wander_range
 			v *= r
 			final = NavigationServer3D.map_get_closest_point(creature.get_world_3d().navigation_map, home + v)
@@ -181,7 +181,18 @@ func _on_link_reached(details):
 		next_state = Creature.State.JUMP
 		creature.landed = false
 		creature.jump_target =  details["link_exit_position"]
-
+		
+		
+func _on_velocity_computed(vel : Vector3):
+	goal_vel = vel
+	safe_velocity_lockout = false
+	
+func _on_path_changed() :
+	if !nav.is_target_reachable() && player == null:
+		mut.lock()
+		current_nav_goal = creature.global_position
+		mut.unlock()
+	
 func _exit_tree():
 	mut.lock()
 	exit_ai_loop = true
@@ -190,6 +201,4 @@ func _exit_tree():
 	ai_loop.wait_to_finish()
 	waiting_thread.wait_to_finish()
 
-func _on_velocity_computed(vel : Vector3):
-	goal_vel = vel
-	safe_velocity_lockout = false
+

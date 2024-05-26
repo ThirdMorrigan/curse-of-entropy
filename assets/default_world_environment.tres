@@ -1,11 +1,4 @@
-[gd_resource type="Environment" load_steps=5 format=3 uid="uid://ddtcwap4p84ds"]
-
-[sub_resource type="Curve" id="Curve_ju7s0"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 1, Vector2(0.125, 0), 0.0, 0.0, 1, 0, Vector2(0.125, 0.125), inf_neg, 0.0, 1, 1, Vector2(0.25, 0.125), 0.0, inf_neg, 1, 1, Vector2(0.25, 0.25), inf_neg, 0.0, 1, 1, Vector2(0.375, 0.25), 0.0, inf_neg, 1, 1, Vector2(0.375, 0.375), inf_neg, 0.0, 1, 1, Vector2(0.5, 0.375), 0.0, inf_neg, 1, 1, Vector2(0.5, 0.5), inf_neg, 0.0, 1, 1, Vector2(0.625, 0.5), 0.0, inf_neg, 1, 1, Vector2(0.625, 0.625), inf_neg, 0.0, 1, 1, Vector2(0.75, 0.625), 0.0, inf_neg, 1, 1, Vector2(0.75, 0.75), inf_neg, 0.0, 1, 1, Vector2(0.875, 0.75), 0.0, inf_neg, 1, 1, Vector2(0.875, 0.875), inf_neg, 0.0, 1, 1, Vector2(1, 0.875), 0.0, inf, 1, 1, Vector2(1, 1), inf, inf, 1, 1]
-point_count = 17
-
-[sub_resource type="CurveTexture" id="CurveTexture_pkbay"]
-curve = SubResource("Curve_ju7s0")
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://ddtcwap4p84ds"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_t3ivt"]
 
@@ -19,7 +12,9 @@ ssao_enabled = true
 ssil_radius = 10.0
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 1.49
 sdfgi_min_cell_size = 1.0
 sdfgi_y_scale = 0
 volumetric_fog_anisotropy = 0.75
-adjustment_color_correction = SubResource("CurveTexture_pkbay")
+adjustment_brightness = 2.31
+adjustment_contrast = 0.56

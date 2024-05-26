@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://csvrstwr5xdxn"]
+[gd_scene load_steps=21 format=3 uid="uid://csvrstwr5xdxn"]
 
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_dehhm"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_v6xkx"]
 [ext_resource type="Texture2D" uid="uid://622b6tyw60y0" path="res://assets/materials/brick/wall_0/tex/wall_brick_albedo.png" id="2_4fq0w"]
-[ext_resource type="PackedScene" uid="uid://bdhp7t0y37pc4" path="res://_PROTO_/proto_creature.tscn" id="2_gdn65"]
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="3_2kci8"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="3_epovl"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="4_ff8a5"]
@@ -180,10 +179,6 @@ size = Vector3(0.366315, 7.8078, 0.452307)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4713, 4.01792, 10.0795)
 size = Vector3(0.366315, 7.8078, 0.452307)
 
-[node name="ProtoCreature" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_gdn65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00023, 3.41061e-13, 11.4082)
-_player = NodePath("../Player")
-
 [node name="Player" parent="." instance=ExtResource("3_epovl")]
 speed_crouch = 2.0
 acceleration = 80.0
@@ -195,11 +190,13 @@ transform = Transform3D(0.322282, 0, 0.946644, 0, 1, 0, -0.946644, 0, 0.322282, 
 mesh = SubResource("QuadMesh_383so")
 
 [node name="OmniLight3D" parent="." instance=ExtResource("8_nv4e5")]
+light_color = Color(1, 0.854902, 0.329412, 1)
+light_energy = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 2.3749, -13.3878)
 light_color = Color(1, 0.839216, 0.2, 1)
-light_energy = 5.0
+light_energy = 3.0
 light_size = 0.1
 light_specular = 1.0
 shadow_enabled = true
@@ -222,4 +219,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25601, 0, -6.97903)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5119, 9.53674e-07, -10.1403)
 
 [node name="Jailer" parent="." instance=ExtResource("11_jxdrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.84271, 1.90735e-06, -0.479004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2233, 4.64161, -0.193731)

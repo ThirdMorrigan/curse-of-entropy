@@ -5,9 +5,8 @@
 [ext_resource type="Script" path="res://src/creature_visuals.gd" id="2_ja3ru"]
 [ext_resource type="Material" uid="uid://bbe6ywaeny7is" path="res://assets/materials/creatures/jailer/iron_maiden.tres" id="3_8mslv"]
 
-[node name="jailer_visuals" node_paths=PackedStringArray("animation_tree") instance=ExtResource("1_yy03w")]
+[node name="jailer_visuals" instance=ExtResource("1_yy03w")]
 script = ExtResource("2_ja3ru")
-animation_tree = NodePath("")
 
 [node name="Skeleton3D" parent="jailer" index="0"]
 bones/0/position = Vector3(0.314308, 0.0838359, -0.375996)

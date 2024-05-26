@@ -35,8 +35,8 @@ vec3 HSV_to_RGB(vec3 hsv){
 }
 
 float quantize(float input, float steps, float steps_inv){
-	input += steps_inv * 0.5;
 	input *= steps;
+	input += 0.5;
 	input = trunc(input);
 	input *= steps_inv;
 	//input -= steps_inv * 0.5;
@@ -54,25 +54,27 @@ void fragment() {
 	vec3 hsv = RGB_to_HSV(col);
 	
 	float sat_high_bracket = float(hsv.y>0.9);
-	float sat_low_bracket = float(hsv.z<0.05);
+	float sat_low_bracket = float(hsv.z<0.001);
 	
 	float sat_steps = 0.0;
-	sat_steps += sat_high_bracket*8.0;
-	sat_steps -= sat_low_bracket*3.9;
+	sat_steps += sat_high_bracket*10.0;
+	sat_steps -= sat_low_bracket*5.9;
 	sat_steps = trunc(sat_steps);
-	sat_steps += 4.0;
-	hsv.y *= 1.0-(sat_low_bracket * (0.05 - hsv.z * 2.0) * 10.0);
-	//hsv.z *= 1.0-(sat_high_bracket * (0.05 - hsv.z * 2.0) * 10.0);
+	sat_steps += 6.0;
+	hsv.y -= sat_low_bracket * hsv.y * 0.8;
+	//hsv.z -= sat_low_bracket * 0.2 *(1.0-hsv.y) * 0.1;
+	hsv.z *= 1.0-(sat_high_bracket * (0.1 - hsv.y * 1.0) * 2.0);
 	
 	//hsv.z = min(hsv.z, 1.0);
 	
-	hsv.x = quantize(hsv.x, 16.0, 1.0/16.0);
+	hsv.x = quantize(hsv.x, 36.0, 1.0/36.0);
 	hsv.y = quantize(hsv.y, sat_steps, 1.0/sat_steps);
-	hsv.z = quantize(hsv.z, 16.0, 1.0/16.0);
-	hsv.z = max(0.01, hsv.z);
+	hsv.z = quantize(hsv.z, 32.0, 1.0/32.0);
+	hsv.z *= 0.998;
+	hsv.z += 0.002;
 	col = HSV_to_RGB(hsv);
 	ALBEDO = col;
-	//ALBEDO = vec3(float(SCREEN_UV.y + funny_colon_three));
+	//ALBEDO = vec3(sat_low_bracket);
 }
 
 
