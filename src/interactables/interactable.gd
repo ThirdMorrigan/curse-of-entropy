@@ -8,9 +8,10 @@ class_name Interactable
 signal interact
 
 func _ready():
-	print(rotation_degrees)
-	collision_layer = 4
+	_interactable_ready()
 
+func _interactable_ready():
+	collision_layer = 4
 
 func interacted():
 	interact.emit()

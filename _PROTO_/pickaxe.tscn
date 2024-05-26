@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr1suyanyixg0"]
 
 [ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_yujak"]
-[ext_resource type="PackedScene" path="res://assets/models/AWFUL_pickaxe.glb" id="2_rq1me"]
+[ext_resource type="PackedScene" uid="uid://b0brvqat421gn" path="res://assets/models/AWFUL_pickaxe.glb" id="2_rq1me"]
 [ext_resource type="Script" path="res://src/interactables/pickup_action.gd" id="3_sm13x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mj5r"]
@@ -10,6 +10,8 @@ size = Vector3(2.96851, 4.48389, 1)
 [node name="Pickaxe" type="Area3D"]
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0.607381, 0)
 script = ExtResource("1_yujak")
+objectName = "Pickaxe"
+interactionText = "Pickup pickaxe"
 id = 3
 quantity = 3
 

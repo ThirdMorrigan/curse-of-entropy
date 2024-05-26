@@ -16,6 +16,7 @@ func _on_interact():
 			open()
 		interactable.states.OPEN:
 			print("already open")
+	interactable.set_interaction_text()
 
 func open():
 	animation_player.play("open")
