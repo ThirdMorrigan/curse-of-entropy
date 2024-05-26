@@ -4,11 +4,11 @@
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_see3c"]
 
 [sub_resource type="Curve" id="Curve_3xoxr"]
-_data = [Vector2(1, 0.351648), 0.0, 0.0, 0, 0]
+_data = [Vector2(1, 0.461538), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="Curve" id="Curve_2dwny"]
-_data = [Vector2(0.566667, 0.406593), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.556017, 0.67033), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="Curve" id="Curve_ad3q4"]
@@ -23,7 +23,7 @@ curve_z = SubResource("Curve_ad3q4")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n88cx"]
 render_priority = 0
 shader = ExtResource("2_see3c")
-shader_parameter/albedo = Color(0, 0.729412, 0.278431, 1)
+shader_parameter/albedo = Color(0.203922, 0.419608, 0, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.5
