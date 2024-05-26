@@ -188,4 +188,4 @@ interactionText = "locked"
 [node name="Interactable2" parent="." instance=ExtResource("11_ddcvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65054, 0.5, 6.73269)
 state = 1
-interactionText = "locked"
+interactionText = "open"

@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnah4sucyiwd4"]
+
+[ext_resource type="PackedScene" uid="uid://dodo6owsk4hpp" path="res://assets/models/plane_gate.glb" id="1_raxsc"]
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_euoe5"]
+[ext_resource type="Texture2D" uid="uid://kf52kmqxmlxd" path="res://assets/materials/plane_gate/Plane_albedo.png" id="3_2kqg6"]
+[ext_resource type="Texture2D" uid="uid://boj4ikw4gcqs8" path="res://assets/materials/plane_gate/crunch_map.png" id="4_tx1tt"]
+[ext_resource type="Texture2D" uid="uid://bre4d80iqg4mc" path="res://assets/materials/plane_gate/gate_normal(3).png" id="5_0tkqq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyc0t"]
+render_priority = 0
+shader = ExtResource("2_euoe5")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("3_2kqg6")
+shader_parameter/texture_normal = ExtResource("5_0tkqq")
+shader_parameter/texture_crunch = ExtResource("4_tx1tt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iv7ma"]
+resource_name = "Material.001"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+metallic = 1.0
+metallic_texture_channel = 2
+roughness_texture_channel = 1
+normal_enabled = true
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mnnm1"]
+_surfaces = [{
+"aabb": AABB(-3, 7.54979e-08, -1, 3, 1.00604e-05, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 4, 0, 0, 0, 5, 0, 2, 0, 4, 0, 7, 0, 3, 0, 4, 0, 2, 0, 7, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 8, 0, 2, 0, 5, 0, 8, 0, 11, 0, 2, 0, 11, 0, 7, 0, 2, 0, 11, 0, 10, 0, 7, 0, 10, 0, 6, 0, 7, 0, 10, 0, 9, 0, 6, 0),
+"lods": [1.38291e-08, PackedByteArray(0, 0, 5, 0, 4, 0, 4, 0, 5, 0, 3, 0, 11, 0, 3, 0, 5, 0, 8, 0, 11, 0, 5, 0, 11, 0, 10, 0, 3, 0, 10, 0, 6, 0, 3, 0, 3, 0, 6, 0, 1, 0, 10, 0, 9, 0, 6, 0)],
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(17, 17, 137, 1, 255, 191, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 170, 42, 235, 1, 255, 127, 0, 0, 85, 85, 235, 1, 255, 255, 0, 0, 170, 42, 235, 1, 101, 230, 0, 0, 0, 0, 235, 1, 255, 127, 0, 0, 255, 255, 0, 0, 255, 127, 0, 0, 85, 85, 235, 1, 255, 127, 0, 0, 17, 17, 137, 1, 255, 63, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 85, 85, 235, 1, 0, 0, 0, 0, 170, 42, 235, 1, 153, 25, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pgyyc"]
+resource_name = "plane_gate_Plane"
+_surfaces = [{
+"aabb": AABB(-3, 7.54979e-08, -1, 3, 1.00604e-05, 2),
+"attribute_data": PackedByteArray(87, 85, 21, 17, 174, 42, 249, 255, 255, 127, 174, 42, 174, 42, 86, 85, 190, 59, 174, 42, 255, 127, 5, 0, 255, 127, 249, 255, 255, 127, 86, 85, 168, 170, 21, 17, 81, 213, 249, 255, 81, 213, 86, 85, 64, 196, 174, 42),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 4, 0, 0, 0, 5, 0, 2, 0, 4, 0, 7, 0, 3, 0, 4, 0, 2, 0, 7, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 8, 0, 2, 0, 5, 0, 8, 0, 11, 0, 2, 0, 11, 0, 7, 0, 2, 0, 11, 0, 10, 0, 7, 0, 10, 0, 6, 0, 7, 0, 10, 0, 9, 0, 6, 0),
+"lods": [1.38291e-08, PackedByteArray(0, 0, 5, 0, 4, 0, 4, 0, 5, 0, 3, 0, 11, 0, 3, 0, 5, 0, 8, 0, 11, 0, 5, 0, 11, 0, 10, 0, 3, 0, 10, 0, 6, 0, 3, 0, 3, 0, 6, 0, 1, 0, 10, 0, 9, 0, 6, 0)],
+"material": SubResource("StandardMaterial3D_iv7ma"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(17, 17, 137, 1, 255, 191, 84, 213, 255, 255, 0, 0, 255, 255, 84, 213, 170, 42, 235, 1, 255, 127, 84, 213, 85, 85, 235, 1, 255, 255, 84, 213, 170, 42, 235, 1, 101, 230, 84, 213, 0, 0, 235, 1, 255, 127, 84, 213, 255, 255, 0, 0, 255, 127, 84, 213, 85, 85, 235, 1, 255, 127, 84, 213, 17, 17, 137, 1, 255, 63, 84, 213, 255, 255, 0, 0, 0, 0, 84, 213, 85, 85, 235, 1, 0, 0, 84, 213, 170, 42, 235, 1, 153, 25, 84, 213, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mnnm1")
+
+[node name="plane_gate" instance=ExtResource("1_raxsc")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_fyc0t")
+
+[node name="Plane2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0, -1, -8.74228e-08, -1, 0, 0, 0, 8.74228e-08, -1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_pgyyc")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_fyc0t")
