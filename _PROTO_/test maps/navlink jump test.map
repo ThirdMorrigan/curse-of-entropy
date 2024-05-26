@@ -79,6 +79,22 @@
 "classname" "NavLink"
 "origin" "104 -104 104"
 "bidirectional" "0"
-"layers" "4 7"
+"layers" "4"
 "end_offset" "0 -2 -2"
+}
+// entity 5
+{
+"classname" "NavLink"
+"origin" "-40 -232 104"
+"end_offset" "-3 0 0"
+"bidirectional" "1"
+"layers" "7"
+}
+// entity 6
+{
+"classname" "NavLink"
+"origin" "-40 24 104"
+"end_offset" "3 0 0"
+"bidirectional" "1"
+"layers" "7"
 }

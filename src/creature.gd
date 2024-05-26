@@ -65,7 +65,7 @@ func current_attack() -> int :
 func jump(delta):
 	
 	velocity = Vector3.ZERO
-	position = position.slerp(jump_target,delta*JUMP_VELOCITY)
+	position = position.slerp(jump_target,delta*speed)
 	if position.distance_to(jump_target) < jump_land_error:
 		print("ahoy")
 		landed = true

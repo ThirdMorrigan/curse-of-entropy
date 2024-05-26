@@ -37,7 +37,7 @@ shape = SubResource("CapsuleShape3D_qcg8f")
 
 [node name="CreatureAI" type="Node" parent="." node_paths=PackedStringArray("eyes")]
 script = ExtResource("2_nqs15")
-eyes = NodePath("../Marker3D")
+eyes = NodePath("../eyes")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
 navigation_layers = 73
