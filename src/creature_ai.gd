@@ -48,8 +48,10 @@ func _ready():
 	if !(nav is NavigationAgent3D):
 		print("dies xd")
 		queue_free()
-		
+	
 	##nav.target_position = wander_goal
+	if $"../nav" != null:
+		$"../nav".link_reached.connect(_on_link_reached)
 	nav.target_reached.connect(_on_target_reached)
 	nav.max_speed = creature.speed
 	nav.velocity_computed.connect(_on_velocity_computed)
@@ -139,9 +141,11 @@ func _ai_loop():
 						picked_attack = _a
 			if picked_attack > -1:
 				next_state = Creature.State.ATTACK_0 + picked_attack
-			else :
+			elif creature.landed:
 				current_nav_goal = player_last_seen
 				next_state = Creature.State.WALK
+			else:
+				next_state = Creature.State.JUMP
 			mut.unlock()
 	
 func wait():
@@ -170,6 +174,14 @@ func random_pos_in_wander_range() -> Vector3:
 		
 	return final
 	
+
+func _on_link_reached(details):
+	var link : NavigationLink3D = details["owner"]
+	if link.navigation_layers > 63:
+		next_state = Creature.State.JUMP
+		creature.landed = false
+		creature.jump_target =  details["link_exit_position"]
+
 func _exit_tree():
 	mut.lock()
 	exit_ai_loop = true

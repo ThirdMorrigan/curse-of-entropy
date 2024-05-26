@@ -11,19 +11,20 @@ classname = "NavLink"
 description = "A link bewteen 2 nav meshes that AI can follow, primarily used for dropping down off leges or jumping over gaps
 /n
 layers:
-4 - small jump
-5 - med jump
-6 - large jump
-7 - small drop
-8- med drop
-9 - larged drop
+4 - small drop
+5- med drop
+6 - larged drop
+7 - small jump
+8 - med jump
+9 - large jump
 /n
 x and z are negetive compared to godot"
 func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
+"bidirectional": true,
 "end_offset": Vector3(0, 0, 0),
-"layer": 0
+"layers": ""
 }
 class_property_descriptions = {}
 meta_properties = {
