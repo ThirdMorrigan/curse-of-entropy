@@ -155,7 +155,6 @@ stream = ExtResource("6_gmdfq")
 
 [node name="player_sfx" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("7_7kgrb")
-bus = &"RvLarge"
 
 [node name="room_detector" type="Area3D" parent="camera_pivot/Camera3D"]
 collision_layer = 64
