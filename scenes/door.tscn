@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://hegywc5emmxm"]
+[gd_scene load_steps=9 format=3 uid="uid://hegywc5emmxm"]
 
 [ext_resource type="Script" path="res://src/interactables/door.gd" id="1_74ual"]
 [ext_resource type="PackedScene" uid="uid://ccuaf5wjr7547" path="res://scenes/visuals/plane_door_visuals.tscn" id="2_uohdg"]
+[ext_resource type="Material" uid="uid://bvd6k2uixi2hg" path="res://assets/materials/plane_gate/metal_gate_0.tres" id="3_0ht6g"]
 [ext_resource type="Script" path="res://src/interactables/door_action.gd" id="3_d16ll"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrd7f"]
@@ -68,6 +69,7 @@ libraries = {
 
 [node name="plane_door_visuals" parent="Container" instance=ExtResource("2_uohdg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+material = ExtResource("3_0ht6g")
 
 [node name="DoorAction" type="Node" parent="."]
 script = ExtResource("3_d16ll")

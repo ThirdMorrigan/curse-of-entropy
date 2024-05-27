@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="1_1kk3m"]
 [ext_resource type="Script" path="res://src/breakable_wall.gd" id="1_xj4qg"]
-[ext_resource type="PackedScene" uid="uid://cmjun4ai78pvm" path="res://scenes/breakable_wall_visuals.tscn" id="2_lahat"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="3_ql4ti"]
+[ext_resource type="PackedScene" uid="uid://bk4d6uw8ij68a" path="res://scenes/visuals/breakable_wall_visuals.tscn" id="4_m2bwn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0n7r"]
 size = Vector3(1.99365, 1.99878, 1)
@@ -27,6 +27,6 @@ collision_mask = 0
 script = ExtResource("1_1kk3m")
 copy_collision_shapes = [NodePath("../CollisionShape3D")]
 
-[node name="breakable_wall_v5" parent="." instance=ExtResource("2_lahat")]
+[node name="breakable_wall_visuals" parent="." instance=ExtResource("4_m2bwn")]
 
-[connection signal="broken" from="breakable_wall_v5" to="." method="_on_wall_broken"]
+[connection signal="broken" from="breakable_wall_visuals" to="." method="_on_wall_broken"]

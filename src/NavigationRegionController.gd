@@ -8,6 +8,7 @@ func _ready():
 			print("got door?")
 			entity.opened.connect(_reload_nav_mesh)
 	bake_finished.connect(_on_bake_finished)
+
 func _reload_nav_mesh():
 	bake_navigation_mesh(true)
 
