@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
-[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
 [ext_resource type="Script" path="res://scenes/tool_use_from_inventory.gd" id="13_mqnn4"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -65,7 +65,7 @@ speed_crouch = 1.5
 acceleration = 60.0
 acceleration_air = 5.0
 friction = 15.0
-jump_power = 3.0
+crouchjump_height = 0.5
 current_tool = NodePath("PickaxeSwing")
 
 [node name="separation_ray0" type="CollisionShape3D" parent="."]
@@ -140,6 +140,7 @@ cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
+hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -168,6 +169,7 @@ script = ExtResource("2_k1kd7")
 [node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("3_vwos7")
 max_hp = 100.0
+max_hp_loss_ration = null
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]

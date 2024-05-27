@@ -55,6 +55,7 @@ func _ready():
 	nav.path_changed.connect(_on_path_changed)
 	nav.velocity_computed.connect(_on_velocity_computed)
 	nav.max_speed = creature.speed
+	print("setting state in ai ready")
 	creature.current_state = Creature.State.IDLE
 	
 	
@@ -74,6 +75,8 @@ func _ready():
 	vision_area.add_child(vision_area_shape)
 	vision_area_shape.shape = SphereShape3D.new()
 	vision_area_shape.shape.radius = vision_range
+	vision_area.collision_mask = 16
+	vision_area.collision_layer = 0
 	
 	wander_goal = random_pos_in_wander_range()
 	
@@ -92,11 +95,29 @@ func _physics_process(_delta):
 	
 	mut.lock()
 	if next_state != creature.current_state:
-		creature.current_state = next_state
+		if !(next_state >= Creature.State.ATTACK_0 && creature.current_state == Creature.State.IDLE) :
+			print("setting state in ai phys processs")
+			creature.current_state = next_state
 	nav.target_position = current_nav_goal
 	if player != null:														# LOOKING FOR PLAYER
-		player_last_seen = player.global_position
+		if look_for(player):
+			player_last_seen = player.global_position
 		absolute_distance_to_player = (player.global_position - creature.global_position).length()
+		current_nav_goal = player_last_seen
+	else:
+		if vision_area.has_overlapping_areas() :
+			print("player close")
+			var _p = vision_area.get_overlapping_areas()[0].parent
+			var to_player = (_p.global_position - creature.global_position)
+			if (Vector3.FORWARD * creature.global_basis).angle_to(to_player) < deg_to_rad(vision_angle) :
+				print("player in cone")
+				var space_state = creature.get_world_3d().direct_space_state
+				var ray_params = PhysicsRayQueryParameters3D.create(eyes.global_position, _p.global_position + Vector3.UP, 17)
+				ray_params.collide_with_areas = true
+				var result = space_state.intersect_ray(ray_params)
+				if result["collider"].collision_layer == 16 :
+					print("player seen")
+					player = _p
 	mut.unlock()
 	
 	var goal_temp = (nav.get_next_path_position() - creature.global_position) * Vector3(1,0,1)
@@ -104,7 +125,11 @@ func _physics_process(_delta):
 	if !safe_velocity_lockout:
 		nav.set_velocity(goal_temp)
 		safe_velocity_lockout = true
-	creature.goal_vel = goal_temp#goal_vel
+	creature.goal_vel = goal_vel
+	if creature.current_state == Creature.State.WALK :
+		creature.goal_look = goal_vel
+	elif player != null :
+		creature.goal_look = player.global_position - creature.global_position
 	
 func _on_target_reached():
 	if player == null && creature.current_state == Creature.State.WALK && !waiting :
@@ -141,11 +166,13 @@ func _ai_loop():
 						picked_attack = _a
 			if picked_attack > -1:
 				next_state = Creature.State.ATTACK_0 + picked_attack
-			elif creature.landed:
-				current_nav_goal = player_last_seen
-				next_state = Creature.State.WALK
-			else:
-				next_state = Creature.State.JUMP
+				
+			elif creature.current_state < Creature.State.ATTACK_0:
+				if creature.landed:
+					current_nav_goal = player_last_seen
+					next_state = Creature.State.WALK
+				else:
+					next_state = Creature.State.JUMP
 			mut.unlock()
 	
 func wait():
@@ -174,6 +201,9 @@ func random_pos_in_wander_range() -> Vector3:
 		
 	return final
 	
+func look_for(_player : Player) -> bool:
+	
+	return true
 
 func _on_link_reached(details):
 	var link : NavigationLink3D = details["owner"]

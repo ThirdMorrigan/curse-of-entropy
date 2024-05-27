@@ -8,6 +8,9 @@ class_name Hurtbox
 
 var health_pool : HealthPool
 
+var parent :
+	get:
+		return health_pool.parent
 
 func _ready():
 	monitoring = false

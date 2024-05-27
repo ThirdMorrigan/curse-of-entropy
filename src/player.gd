@@ -125,6 +125,9 @@ func _physics_process(delta):
 		
 		$direction_pivot.global_rotation.y = atan2(-velocity.x, -velocity.z)
 
+func impulse(i : Vector3):
+	velocity = i
+
 func jump():
 	velocity.y += jump_power
 
