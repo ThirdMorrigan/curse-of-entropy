@@ -1,7 +1,7 @@
 extends StaticBody3D
 class_name BreakableWall
 
-@onready var breakable_wall_visuals = $breakable_wall_v5
+@onready var breakable_wall_visuals = $breakable_wall_visuals
 @onready var collision_shape_3d = $CollisionShape3D
 @onready var hurtbox = $Hurtbox
 
@@ -25,5 +25,5 @@ func die():
 
 
 func _on_wall_broken():
-	breakable_wall_visuals.queue_free()
+	#breakable_wall_visuals.queue_free()
 	opened.emit()

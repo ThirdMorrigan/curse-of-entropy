@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bvd6k2uixi2hg"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_rrq8u"]
+[ext_resource type="Texture2D" uid="uid://kf52kmqxmlxd" path="res://assets/materials/plane_gate/metal fence gate/Plane_albedo.png" id="2_63pco"]
+[ext_resource type="Texture2D" uid="uid://boj4ikw4gcqs8" path="res://assets/materials/plane_gate/metal fence gate/crunch_map.png" id="3_opfbs"]
+[ext_resource type="Texture2D" uid="uid://bre4d80iqg4mc" path="res://assets/materials/plane_gate/metal fence gate/gate_normal(3).png" id="4_57krj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rrq8u")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_63pco")
+shader_parameter/texture_normal = ExtResource("4_57krj")
+shader_parameter/texture_crunch = ExtResource("3_opfbs")

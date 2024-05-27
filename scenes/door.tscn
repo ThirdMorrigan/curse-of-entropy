@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://hegywc5emmxm"]
+[gd_scene load_steps=9 format=3 uid="uid://hegywc5emmxm"]
 
 [ext_resource type="Script" path="res://src/interactables/door.gd" id="1_74ual"]
-[ext_resource type="PackedScene" uid="uid://5jlsjs7pdqq3" path="res://assets/models/knob.glb" id="2_bkdnm"]
+[ext_resource type="PackedScene" uid="uid://ccuaf5wjr7547" path="res://scenes/visuals/plane_door_visuals.tscn" id="2_uohdg"]
+[ext_resource type="Material" uid="uid://bvd6k2uixi2hg" path="res://assets/materials/plane_gate/metal_gate_0.tres" id="3_0ht6g"]
 [ext_resource type="Script" path="res://src/interactables/door_action.gd" id="3_d16ll"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrd7f"]
-size = Vector3(0.973228, 1.98229, 0.145264)
+size = Vector3(1.98018, 2.97027, 0.145264)
 
 [sub_resource type="Animation" id="Animation_cuyps"]
 length = 0.001
@@ -47,27 +48,28 @@ _data = {
 collision_layer = 4
 script = ExtResource("1_74ual")
 objectName = "Door"
-interactionText = "door text not implamented"
+interactionText = "locked"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503811, 1.01003, 0.0303955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00212, 1.4821, -0.00569976)
 shape = SubResource("BoxShape3D_jrd7f")
 
 [node name="Container" type="Node3D" parent="."]
 
-[node name="knob" parent="Container" instance=ExtResource("2_bkdnm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Container"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503811, 1.01003, 0.0303955)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Container/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00212, 1.4821, -0.00569976)
 shape = SubResource("BoxShape3D_jrd7f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container"]
 libraries = {
 "": SubResource("AnimationLibrary_pax0m")
 }
+
+[node name="plane_door_visuals" parent="Container" instance=ExtResource("2_uohdg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
+material = ExtResource("3_0ht6g")
 
 [node name="DoorAction" type="Node" parent="."]
 script = ExtResource("3_d16ll")

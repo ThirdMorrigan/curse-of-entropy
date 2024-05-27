@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cap1jjt7vmb6s"
-path="res://.godot/imported/breakable_wall_v5.glb-b09b9c699d17276ab9c6cf36818eaab0.scn"
+uid="uid://dg63he1dsydty"
+path="res://.godot/imported/plane_door.glb-cc5d1a5a5e7ad7e5a6506111d6a97528.scn"
 
 [deps]
 
-source_file="res://assets/models/breakable_wall_v5.glb"
-dest_files=["res://.godot/imported/breakable_wall_v5.glb-b09b9c699d17276ab9c6cf36818eaab0.scn"]
+source_file="res://assets/models/plane_door.glb"
+dest_files=["res://.godot/imported/plane_door.glb-cc5d1a5a5e7ad7e5a6506111d6a97528.scn"]
 
 [params]
 

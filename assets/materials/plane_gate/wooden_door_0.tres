@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cghwvuql2dgfk"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_diess"]
+[ext_resource type="Texture2D" uid="uid://b5k03un7wge1b" path="res://assets/materials/plane_gate/wooden door/Plane_door_albedo.png" id="2_gub01"]
+[ext_resource type="Texture2D" uid="uid://noxr6sv6xs1k" path="res://assets/materials/plane_gate/wooden door/Plane_door_crunch.png" id="3_erf1g"]
+[ext_resource type="Texture2D" uid="uid://b0j8mu3jome05" path="res://assets/materials/plane_gate/wooden door/woodenDoor_normal.png" id="4_tdxsi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_diess")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_gub01")
+shader_parameter/texture_normal = ExtResource("4_tdxsi")
+shader_parameter/texture_crunch = ExtResource("3_erf1g")
