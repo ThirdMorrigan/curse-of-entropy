@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=31 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/Audio control node.gd" id="5_atf2r"]
 [ext_resource type="Script" path="res://src/interaction_ray.gd" id="5_g8323"]
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
+[ext_resource type="AudioStream" uid="uid://bw0w66wvjfni0" path="res://audio/Footsteps1.wav" id="7_7kgrb"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
 [ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
@@ -65,7 +66,7 @@ speed_crouch = 1.5
 acceleration = 60.0
 acceleration_air = 5.0
 friction = 15.0
-jump_power = 3.0
+crouchjump_height = 0.5
 current_tool = NodePath("PickaxeSwing")
 
 [node name="separation_ray0" type="CollisionShape3D" parent="."]
@@ -151,6 +152,10 @@ script = ExtResource("5_atf2r")
 
 [node name="music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("6_gmdfq")
+
+[node name="player_sfx" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+stream = ExtResource("7_7kgrb")
+bus = &"RvLarge"
 
 [node name="room_detector" type="Area3D" parent="camera_pivot/Camera3D"]
 collision_layer = 64
