@@ -61,5 +61,5 @@ surface_material_override/0 = ExtResource("2_iox6w")
 [node name="iron_maiden" parent="jailer/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("3_8mslv")
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="6"]
 root_motion_track = NodePath("jailer/Skeleton3D:root")

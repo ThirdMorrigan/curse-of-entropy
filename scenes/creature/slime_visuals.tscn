@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bls4chynvps5e"]
+[gd_scene load_steps=10 format=3 uid="uid://bls4chynvps5e"]
 
 [ext_resource type="PackedScene" uid="uid://b4xc4y284os01" path="res://assets/models/slime.glb" id="1_8q44s"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_see3c"]
@@ -20,7 +20,7 @@ curve_x = SubResource("Curve_3xoxr")
 curve_y = SubResource("Curve_2dwny")
 curve_z = SubResource("Curve_ad3q4")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n88cx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0613f"]
 render_priority = 0
 shader = ExtResource("2_see3c")
 shader_parameter/albedo = Color(0.203922, 0.419608, 0, 1)
@@ -32,7 +32,30 @@ shader_parameter/normal_scale = 2.0
 shader_parameter/ao_light_affect = 0.5
 shader_parameter/texture_crunch = SubResource("CurveXYZTexture_x7ayo")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0e12a"]
+render_priority = 0
+shader = ExtResource("2_see3c")
+shader_parameter/albedo = Color(0.203922, 0.419608, 0, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_crunch = SubResource("CurveXYZTexture_x7ayo")
+
+[sub_resource type="SphereMesh" id="SphereMesh_tt2ed"]
+material = SubResource("ShaderMaterial_0e12a")
+radius = 1.0
+height = 2.0
+radial_segments = 6
+rings = 5
+
 [node name="slime" instance=ExtResource("1_8q44s")]
 
 [node name="Sphere" parent="." index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_n88cx")
+visible = false
+surface_material_override/0 = SubResource("ShaderMaterial_0613f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("SphereMesh_tt2ed")

@@ -1,3 +1,4 @@
+@tool
 extends CharacterBody3D
 
 class_name Player
@@ -7,10 +8,32 @@ class_name Player
 @export var acceleration : float
 @export var acceleration_air : float
 @export var friction : float
-@export var jump_power : float = 5
+@export var jump_height : float = 0.0 :
+	get:
+		return jump_height
+	set(h):
+		jump_height = h
+		jump_power = sqrt(-(2 * -9.81 * h))
+		notify_property_list_changed()
+@export var crouch_difference : float = 0.5 :
+	get:
+		return crouch_difference
+	set(a):
+		if Engine.is_editor_hint():
+			crouch_difference = $standing_camera_pos.position.y - $crouching_camera_pos.position.y
+		else : crouch_difference = a
+		notify_property_list_changed()
+@export var crouchjump_height : float = 0.0 :
+	get:
+		return jump_height + crouch_difference
+	set(h):
+		jump_height = h - crouch_difference
+		notify_property_list_changed()
 @export var coyote_frames : int = 6
 
 @export var current_tool : Attack
+
+var jump_power : float
 
 var coyote_timer : int
 var crouching : bool :
@@ -59,46 +82,48 @@ func _ready():
 	crouching = false
 
 func _process(delta):
-	if $camera_pivot.position.y != camera_lerp.position.y:
-		var vert_move = move_toward($camera_pivot.position.y, camera_lerp.position.y, delta * 4) - $camera_pivot.position.y
-		$camera_pivot.position.y += vert_move
-		position.y -= vert_move
-	if try_uncrouch :
-		crouching = false
+	if !Engine.is_editor_hint():
+		if $camera_pivot.position.y != camera_lerp.position.y:
+			var vert_move = move_toward($camera_pivot.position.y, camera_lerp.position.y, delta * 4) - $camera_pivot.position.y
+			$camera_pivot.position.y += vert_move
+			position.y -= vert_move
+		if try_uncrouch :
+			crouching = false
 
 func _physics_process(delta):
-	var floor_friction : float = 1.0
-	if $floor_test.is_colliding() :
-		var col = $floor_test.get_collider()
-		if col is StaticBody3D or col is RigidBody3D:
-			var pmo = col.physics_material_override
-			if pmo != null:
-				floor_friction = pmo.friction
-				#print(floor_friction)
-	
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-		if coyote_timer :
-			coyote_timer-=1
-	else : 
-		coyote_timer = coyote_frames * int(!jumping)
-		can_jump = !jumping
+	if !Engine.is_editor_hint():
+		var floor_friction : float = 1.0
+		if $floor_test.is_colliding() :
+			var col = $floor_test.get_collider()
+			if col is StaticBody3D or col is RigidBody3D:
+				var pmo = col.physics_material_override
+				if pmo != null:
+					floor_friction = pmo.friction
+					#print(floor_friction)
 		
-	#print(input_dir)
-	var vel_v = velocity.y
-	velocity.y = 0
-	var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
-	var temp_friction = friction
-	temp_friction *= (2 if edge_stop else 1)
-	temp_friction *= floor_friction
-	velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
-	velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
-	velocity = velocity.limit_length(speed if !crouching || !is_on_floor() else speed_crouch)
-	velocity.y = vel_v
+		if not is_on_floor():
+			velocity.y -= gravity * delta
+			if coyote_timer :
+				coyote_timer-=1
+		else : 
+			coyote_timer = coyote_frames * int(!jumping)
+			can_jump = !jumping
+			
+		#print(input_dir)
+		var vel_v = velocity.y
+		velocity.y = 0
+		var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
+		var temp_friction = friction
+		temp_friction *= (2 if edge_stop else 1)
+		temp_friction *= floor_friction
+		velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
+		velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
+		velocity = velocity.limit_length(speed if !crouching || !is_on_floor() else speed_crouch)
+		velocity.y = vel_v
 
-	move_and_slide()
-	
-	$direction_pivot.global_rotation.y = atan2(-velocity.x, -velocity.z)
+		move_and_slide()
+		
+		$direction_pivot.global_rotation.y = atan2(-velocity.x, -velocity.z)
 
 func jump():
 	velocity.y += jump_power
