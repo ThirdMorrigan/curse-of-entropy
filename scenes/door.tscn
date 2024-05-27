@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://hegywc5emmxm"]
 
 [ext_resource type="Script" path="res://src/interactables/door.gd" id="1_74ual"]
+[ext_resource type="PackedScene" uid="uid://ccuaf5wjr7547" path="res://scenes/visuals/plane_door_visuals.tscn" id="2_uohdg"]
 [ext_resource type="Script" path="res://src/interactables/door_action.gd" id="3_d16ll"]
-[ext_resource type="PackedScene" uid="uid://cnah4sucyiwd4" path="res://scenes/visuals/plane_gate_visuals.tscn" id="3_sdb2s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrd7f"]
 size = Vector3(1.98018, 2.97027, 0.145264)
@@ -66,7 +66,7 @@ libraries = {
 "": SubResource("AnimationLibrary_pax0m")
 }
 
-[node name="plane_gate" parent="Container" instance=ExtResource("3_sdb2s")]
+[node name="plane_door_visuals" parent="Container" instance=ExtResource("2_uohdg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 
 [node name="DoorAction" type="Node" parent="."]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dodo6owsk4hpp"
-path="res://.godot/imported/plane_gate.glb-df9c6f8ffae242385d28ebc79d7500df.scn"
+uid="uid://dg63he1dsydty"
+path="res://.godot/imported/plane_door.glb-cc5d1a5a5e7ad7e5a6506111d6a97528.scn"
 
 [deps]
 
-source_file="res://assets/models/plane_gate.glb"
-dest_files=["res://.godot/imported/plane_gate.glb-df9c6f8ffae242385d28ebc79d7500df.scn"]
+source_file="res://assets/models/plane_door.glb"
+dest_files=["res://.godot/imported/plane_door.glb-cc5d1a5a5e7ad7e5a6506111d6a97528.scn"]
 
 [params]
 
@@ -31,4 +31,4 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
 gltf/naming_version=1
-gltf/embedded_image_handling=0
+gltf/embedded_image_handling=1
