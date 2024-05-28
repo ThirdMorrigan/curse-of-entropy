@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 [ext_resource type="AudioStream" uid="uid://bw0w66wvjfni0" path="res://audio/Footsteps1.wav" id="7_7kgrb"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
 [ext_resource type="Script" path="res://scenes/tool_use_from_inventory.gd" id="13_mqnn4"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -135,6 +135,7 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
@@ -154,7 +155,6 @@ stream = ExtResource("6_gmdfq")
 
 [node name="player_sfx" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("7_7kgrb")
-bus = &"RvLarge"
 
 [node name="room_detector" type="Area3D" parent="camera_pivot/Camera3D"]
 collision_layer = 64

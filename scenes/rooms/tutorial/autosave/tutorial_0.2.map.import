@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dj4b814xwk8d1"
+path="res://.godot/imported/tutorial_0.2.map-315128ff717f3ed4c19561981e4b26bc.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/tutorial/autosave/tutorial_0.2.map"
+dest_files=["res://.godot/imported/tutorial_0.2.map-315128ff717f3ed4c19561981e4b26bc.tres"]
+
+[params]
+

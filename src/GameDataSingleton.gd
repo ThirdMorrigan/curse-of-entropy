@@ -22,6 +22,14 @@ var itemLookupTable = {
 		"name" : "Pickaxe",
 		"type" : item_types.TOOL,
 		"slot" : equipment_slots.TOOL
-	}
+	},
+	4 : {#key for the cell in the tutorial
+		"name" : "Cell key",
+		"type" : item_types.KEY
+	},
+	5 : {#key for the exit of the tutorial
+		"name" : "Cave emergency exit key",
+		"type" : item_types.KEY
+	},
 	
 }

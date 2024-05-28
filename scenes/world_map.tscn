@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbaki6pwgq3ad"]
+
+[ext_resource type="PackedScene" uid="uid://0l5nneje3rbi" path="res://scenes/rooms/tutorial/tutorial_0.tscn" id="1_e4wcu"]
+[ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
+[ext_resource type="PackedScene" uid="uid://dyladcmyqihju" path="res://scenes/rooms/tutorial/tutorial_3.tscn" id="2_7yay8"]
+[ext_resource type="PackedScene" uid="uid://dct2a0gttmidd" path="res://scenes/rooms/tutorial/tutorial_1.tscn" id="3_besj4"]
+[ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_dj85u"]
+[ext_resource type="PackedScene" uid="uid://b47do8nq81ve8" path="res://scenes/rooms/tutorial/tutorial_2.tscn" id="5_q2ilp"]
+
+[node name="WorldMap" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("4_dj85u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3187, -0.465791, 37.1769)
+jump_height = 0.5
+crouchjump_height = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_tfkiy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Room" parent="." instance=ExtResource("1_e4wcu")]
+
+[node name="Room2" parent="." instance=ExtResource("3_besj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7746, -0.505934, 22.506)
+
+[node name="Room3" parent="." instance=ExtResource("5_q2ilp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5457, -0.532762, 17.1764)
+
+[node name="Room4" parent="." instance=ExtResource("2_7yay8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.593, 0.999862, 32.96)
