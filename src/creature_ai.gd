@@ -11,6 +11,7 @@ class_name CreatureAI
 @export var vision_range : float = 15
 @export var vision_angle : float = 45
 var attacks : Array[Attack]
+var attack_timer : float = 0.0
 
 var creature : Creature
 var nav : NavigationAgent3D
@@ -83,7 +84,7 @@ func _ready():
 	
 	ai_loop.start(_ai_loop)
 	
-func _physics_process(_delta):
+func _physics_process(delta):
 	if creature.current_state == Creature.State.DIE:
 		nav.queue_free()
 		queue_free()
@@ -96,8 +97,9 @@ func _physics_process(_delta):
 	mut.lock()
 	if next_state != creature.current_state:
 		if !(next_state >= Creature.State.ATTACK_0 && creature.current_state == Creature.State.IDLE) :
-			print("setting state in ai phys processs")
 			creature.current_state = next_state
+	if creature.current_state < Creature.State.ATTACK_0 :
+		attack_timer -= delta
 	nav.target_position = current_nav_goal
 	if player != null:														# LOOKING FOR PLAYER
 		if look_for(player):
@@ -109,7 +111,7 @@ func _physics_process(_delta):
 			print("player close")
 			var _p = vision_area.get_overlapping_areas()[0].parent
 			var to_player = (_p.global_position - creature.global_position)
-			if (Vector3.FORWARD * creature.global_basis).angle_to(to_player) < deg_to_rad(vision_angle) :
+			if (creature.global_basis * Vector3.FORWARD).angle_to(to_player) < deg_to_rad(vision_angle) :
 				print("player in cone")
 				var space_state = creature.get_world_3d().direct_space_state
 				var ray_params = PhysicsRayQueryParameters3D.create(eyes.global_position, _p.global_position + Vector3.UP, 17)
@@ -150,8 +152,10 @@ func _ai_loop():
 			mut.lock()
 			if wander_range :
 				if waiting:
+					print("player null, waiting, setting to idle")
 					next_state = Creature.State.IDLE
 				else:
+					print("player null, not waiting, setting to walk")
 					next_state = Creature.State.WALK
 					if current_nav_goal != wander_goal:
 						current_nav_goal = wander_goal
@@ -164,8 +168,9 @@ func _ai_loop():
 				for _a in range(num_attacks-1, -1, -1):
 					if attacks[_a].ai_range_min < absolute_distance_to_player && absolute_distance_to_player < attacks[_a].ai_range_max:
 						picked_attack = _a
-			if picked_attack > -1:
+			if picked_attack > -1 && attack_timer <= 0.0:
 				next_state = Creature.State.ATTACK_0 + picked_attack
+				attack_timer = attacks[picked_attack].wind_down
 				
 			elif creature.current_state < Creature.State.ATTACK_0:
 				if creature.landed:

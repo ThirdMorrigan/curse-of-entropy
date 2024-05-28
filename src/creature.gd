@@ -48,7 +48,7 @@ func _physics_process(delta):
 		State.WALK:
 			if is_on_floor():
 				velocity = goal_vel
-				if track_target  : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_vel.x, -goal_vel.z), delta * 5)
+				if track_target  : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_look.x, -goal_look.z), delta * 5)
 		State.HURT:
 			pass
 		State.DIE:
@@ -58,7 +58,7 @@ func _physics_process(delta):
 		_:						# ALL ATTACKS HERE :3
 			if is_on_floor():
 				velocity = Vector3.ZERO
-				if track_target : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_vel.x, -goal_vel.z), delta * 5)
+				if track_target : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_look.x, -goal_look.z), delta * 10)
 			#attacks[current_state - State.ATTACK_0].fire()
 		
 

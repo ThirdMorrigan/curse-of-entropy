@@ -24,6 +24,7 @@ signal hit
 @export var ai_range_min : float = 0.0
 @export var ai_range_max : float = 2.0
 @export var weight : float = 1.0
+@export var wind_down : float = 1.0
 var cast : ShapeCast3D
 
 func _ready():

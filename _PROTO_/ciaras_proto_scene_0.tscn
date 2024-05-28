@@ -291,13 +291,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4713, 4.01792, 10.0795)
 size = Vector3(0.366315, 7.8078, 0.452307)
 
 [node name="Player" parent="." instance=ExtResource("3_epovl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08194, 12.5096, 8.70216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08194, 3.28999, 8.70216)
 speed_crouch = 2.0
 acceleration = 80.0
 acceleration_air = 6.0
 friction = 20.0
 jump_height = 0.5
 crouchjump_height = 1.0
+
+[node name="Player2" parent="." node_paths=PackedStringArray("current_tool") instance=ExtResource("3_epovl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08194, 3.28999, 8.70216)
+speed_crouch = 2.0
+acceleration = 80.0
+acceleration_air = 6.0
+friction = 20.0
+jump_height = 0.5
+crouchjump_height = 1.0
+current_tool = NodePath("../Player/PickaxeSwing")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.322282, 0, 0.946644, 0, 1, 0, -0.946644, 0, 0.322282, 1.80551, 2.15851, 0)
@@ -353,12 +363,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25601, 0, -6.97903)
 [node name="slime2" parent="." instance=ExtResource("10_ivui0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3073, 9.53674e-07, 1.16445)
 
-[node name="Jailer" parent="." instance=ExtResource("11_jxdrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3927, 16.0236, -0.19373)
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75266, 4.44403)
 mesh = SubResource("BoxMesh_fd5dy")
 
 [node name="ProtoCreatureNew" parent="." instance=ExtResource("13_qdq3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04799, 0, -6.01048)
+
+[node name="Jailer" parent="." instance=ExtResource("11_jxdrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7369, 1.90735e-06, -10.7084)

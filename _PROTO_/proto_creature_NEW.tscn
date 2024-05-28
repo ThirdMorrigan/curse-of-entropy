@@ -193,7 +193,7 @@ transitions = ["Start", "walk_proto", SubResource("AnimationNodeStateMachineTran
 [sub_resource type="Resource" id="Resource_5vo1p"]
 script = ExtResource("11_w3obf")
 damage = 1.0
-impulse = 0.0
+impulse = 1.0
 damage_types = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4d746"]
@@ -546,7 +546,7 @@ damage_instances = Array[ExtResource("11_w3obf")]([SubResource("Resource_5vo1p")
 targets = 16
 hitbox_shape = SubResource("CapsuleShape3D_4d746")
 attack_origin = NodePath("../attack_origin")
-range = 1.0
+range = 2.0
 ai_range_max = 1.0
 
 [node name="eyes" type="Marker3D" parent="."]
