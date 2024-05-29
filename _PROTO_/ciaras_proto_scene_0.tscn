@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://485gc3mix5ti" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_crunch.png" id="11_7xegh"]
 [ext_resource type="PackedScene" uid="uid://brcfsadh7uno" path="res://scenes/creature/jailer/jailer.tscn" id="11_jxdrb"]
 [ext_resource type="Texture2D" uid="uid://de0m5pc38kqll" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_normal.png" id="12_tv326"]
-[ext_resource type="PackedScene" path="res://_PROTO_/proto_creature_NEW.tscn" id="13_qdq3a"]
+[ext_resource type="PackedScene" uid="uid://c3utt4ghjjs1s" path="res://_PROTO_/proto_creature_NEW.tscn" id="13_qdq3a"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6id8d"]
 exposure_multiplier = 2.0
@@ -298,16 +298,6 @@ acceleration_air = 6.0
 friction = 20.0
 jump_height = 0.5
 crouchjump_height = 1.0
-
-[node name="Player2" parent="." node_paths=PackedStringArray("current_tool") instance=ExtResource("3_epovl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08194, 3.28999, 8.70216)
-speed_crouch = 2.0
-acceleration = 80.0
-acceleration_air = 6.0
-friction = 20.0
-jump_height = 0.5
-crouchjump_height = 1.0
-current_tool = NodePath("../Player/PickaxeSwing")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.322282, 0, 0.946644, 0, 1, 0, -0.946644, 0, 0.322282, 1.80551, 2.15851, 0)

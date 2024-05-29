@@ -20,7 +20,7 @@ enum DamageType {
 var impulse_vector : Vector3
 
 func rotate_impulse(b:Basis):
-	impulse_vector *= b
+	impulse_vector = b * impulse_vector
 
 func has_type(t : DamageType) -> bool:
 	return t&damage_types

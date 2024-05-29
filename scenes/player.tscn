@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=32 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 [ext_resource type="AudioStream" uid="uid://bw0w66wvjfni0" path="res://audio/Footsteps1.wav" id="7_7kgrb"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
-[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
 [ext_resource type="Script" path="res://scenes/tool_use_from_inventory.gd" id="13_mqnn4"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -28,6 +28,10 @@ height = 1.4
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3igwf"]
 radius = 0.4
 height = 0.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_36snj"]
+radius = 0.1
+height = 0.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gnhj7"]
 height = 0.2
@@ -90,6 +94,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 shape = SubResource("CapsuleShape3D_3igwf")
 disabled = true
 
+[node name="feet" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.247487, 0)
+shape = SubResource("CapsuleShape3D_36snj")
+
 [node name="floor_test" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.05, 0)
 
@@ -141,6 +149,7 @@ cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
+hideInEditor = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
