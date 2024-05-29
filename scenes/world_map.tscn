@@ -10,7 +10,7 @@
 [node name="WorldMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3187, -0.465791, 37.1769)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3187, -0.465791, 20.5764)
 jump_height = 0.5
 crouchjump_height = 1.0
 
@@ -19,6 +19,7 @@ environment = ExtResource("1_tfkiy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 5.0
 shadow_enabled = true
 
 [node name="Room" parent="." instance=ExtResource("1_e4wcu")]

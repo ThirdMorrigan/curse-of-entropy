@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bvtffos6xm3ar"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_pyrbl"]
+[ext_resource type="Texture2D" uid="uid://cyvqyi3emst7n" path="res://assets/materials/rock/tex/rock_albedo.png" id="2_1gjjf"]
+[ext_resource type="Texture2D" uid="uid://cdr1s4gx7jdgq" path="res://assets/materials/rock/tex/rock_crunch.png" id="3_br3je"]
+[ext_resource type="Texture2D" uid="uid://b7ri5smhs0fj3" path="res://assets/materials/rock/tex/NormalMap(1).png" id="4_7m5xf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pyrbl")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.0650005
+shader_parameter/metallic = 2.755
+shader_parameter/normal_scale = 14.805
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_1gjjf")
+shader_parameter/texture_normal = ExtResource("4_7m5xf")
+shader_parameter/texture_crunch = ExtResource("3_br3je")
