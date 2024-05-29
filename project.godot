@@ -111,9 +111,9 @@ environment/defaults/default_environment="res://assets/default_world_environment
 
 wobble_resolution={
 "type": "float",
-"value": 100.0
+"value": 50.0
 }
 wobble_resolution_inv={
 "type": "float",
-"value": 0.01
+"value": 0.02
 }

@@ -41,5 +41,6 @@ func _on_animation_finished(anim_name : String):
 		attack_finished.emit()
 
 func fire_current_attack():
+	print("trying to fire")
 	if creature != null:
 		creature.attacks[creature.current_attack()].fire()

@@ -1,13 +1,14 @@
-[gd_scene load_steps=141 format=3 uid="uid://dyladcmyqihju"]
+[gd_scene load_steps=142 format=3 uid="uid://dyladcmyqihju"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_4c5gp"]
 [ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="2_d2e8n"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_aakas"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_1yc0w"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="5_p0vsm"]
-[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="6_bac7d"]
+[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="6_bac7d"]
 [ext_resource type="Material" uid="uid://d8b07myu3n0y" path="res://textures/hedge_wall_0.tres" id="7_e50sh"]
 [ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="8_dcueb"]
+[ext_resource type="Material" uid="uid://bvtffos6xm3ar" path="res://assets/materials/rock/rock_wall_0.tres" id="8_qax5s"]
 [ext_resource type="PackedScene" uid="uid://bdhp7t0y37pc4" path="res://_PROTO_/proto_creature.tscn" id="9_xg2i7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
@@ -466,6 +467,7 @@ collision_mask = 0
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 mesh = SubResource("ArrayMesh_400fb")
+surface_material_override/0 = ExtResource("8_qax5s")
 
 [node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 occluder = SubResource("ArrayOccluder3D_axkqg")

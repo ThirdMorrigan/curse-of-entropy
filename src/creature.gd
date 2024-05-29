@@ -22,7 +22,6 @@ var current_state : State :
 		return current_state
 	set(s):
 		current_state = s
-		print(str(" --   -- changed to", s))
 		state_changed.emit()
 
 var goal_look : Vector3

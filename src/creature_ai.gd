@@ -56,7 +56,7 @@ func _ready():
 	nav.path_changed.connect(_on_path_changed)
 	nav.velocity_computed.connect(_on_velocity_computed)
 	nav.max_speed = creature.speed
-	print("setting state in ai ready")
+	#print("setting state in ai ready")
 	creature.current_state = Creature.State.IDLE
 	
 	
@@ -108,17 +108,17 @@ func _physics_process(delta):
 		current_nav_goal = player_last_seen
 	else:
 		if vision_area.has_overlapping_areas() :
-			print("player close")
+			#print("player close")
 			var _p = vision_area.get_overlapping_areas()[0].parent
 			var to_player = (_p.global_position - creature.global_position)
 			if (creature.global_basis * Vector3.FORWARD).angle_to(to_player) < deg_to_rad(vision_angle) :
-				print("player in cone")
+				#print("player in cone")
 				var space_state = creature.get_world_3d().direct_space_state
 				var ray_params = PhysicsRayQueryParameters3D.create(eyes.global_position, _p.global_position + Vector3.UP, 17)
 				ray_params.collide_with_areas = true
 				var result = space_state.intersect_ray(ray_params)
 				if result["collider"].collision_layer == 16 :
-					print("player seen")
+					#print("player seen")
 					player = _p
 	mut.unlock()
 	
@@ -152,10 +152,10 @@ func _ai_loop():
 			mut.lock()
 			if wander_range :
 				if waiting:
-					print("player null, waiting, setting to idle")
+					#print("player null, waiting, setting to idle")
 					next_state = Creature.State.IDLE
 				else:
-					print("player null, not waiting, setting to walk")
+					#print("player null, not waiting, setting to walk")
 					next_state = Creature.State.WALK
 					if current_nav_goal != wander_goal:
 						current_nav_goal = wander_goal
