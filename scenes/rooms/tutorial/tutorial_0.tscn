@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="5_iltxw"]
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="6_ls75q"]
 [ext_resource type="Material" uid="uid://bvtffos6xm3ar" path="res://assets/materials/rock/rock_wall_0.tres" id="6_n83tc"]
-[ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://_PROTO_/basic_key.tscn" id="7_fline"]
+[ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="7_fline"]
 [ext_resource type="PackedScene" uid="uid://co3bsbmt86evp" path="res://_PROTO_/default_light.tscn" id="8_23bay"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
@@ -363,7 +363,7 @@ points = PackedVector3Array(8, 4.5, 21, 8, 3, 21, 9, 3, 21, 9, 4.5, 21, 8, 4.5, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pacpa"]
 points = PackedVector3Array(8, 0, 21, 8, -1, 21, 9, -1, 21, 9, 0, 21, 8, 0, 23, 8, -1, 23, 9, -1, 23, 9, 0, 23)
 
-[node name="Room" type="Area3D"]
+[node name="Room2" type="Area3D"]
 collision_layer = 0
 collision_mask = 64
 script = ExtResource("1_30y02")
