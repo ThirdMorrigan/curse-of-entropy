@@ -43,6 +43,11 @@ var itemLookupTable = {
 		"name" : "Small health potion",
 		"type" : item_types.CONSUMABLE,
 		"visuals" : "res://scenes/visuals/potion_visuals.tscn"
+	},
+	7 : {
+		"name" : "Jump boots",
+		"type" : item_types.TOOL,
+		"visuals" : "res://scenes/visuals/boots_visuals.tscn"
 	}
 	
 }

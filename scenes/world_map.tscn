@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=14 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d7uk01l6ew2y" path="res://scenes/rooms/castle/castle temp.tscn" id="6_llrit"]
 [ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
+[ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i14cj"]
 
@@ -18,8 +19,6 @@
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8823, 1.32145, -41.8318)
-jump_height = 0.5
-crouchjump_height = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_tfkiy")
@@ -69,3 +68,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4948, 9.53674e-07, -48.711
 
 [node name="Pickaxe2" parent="." instance=ExtResource("5_u0wn1")]
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 29.042, 0, -49.2395)
+
+[node name="Key2" parent="." instance=ExtResource("11_8bbro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2488, 0, -39.7928)
+visuals = ExtResource("12_1ifis")
+id = 7

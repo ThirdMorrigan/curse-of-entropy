@@ -32,6 +32,7 @@ class_name Player
 @export var coyote_frames : int = 6
 
 @export var current_tool : Attack
+@onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
 var jump_power : float
 
@@ -79,6 +80,7 @@ var jumping : bool :
 		
 
 func _ready():
+	inventory.jump_boots.connect(_apply_jump_boots)
 	crouching = false
 
 func _process(delta):
@@ -130,6 +132,9 @@ func impulse(i : Vector3):
 
 func jump():
 	velocity.y += jump_power
+
+func _apply_jump_boots():
+	jump_height = 1
 
 func die():
 	

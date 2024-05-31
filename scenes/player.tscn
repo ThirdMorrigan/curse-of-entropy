@@ -66,7 +66,8 @@ speed_crouch = 1.5
 acceleration = 60.0
 acceleration_air = 5.0
 friction = 15.0
-crouchjump_height = 0.5
+jump_height = 0.5
+crouchjump_height = 1.0
 current_tool = NodePath("PickaxeSwing")
 
 [node name="separation_ray0" type="CollisionShape3D" parent="."]
