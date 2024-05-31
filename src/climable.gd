@@ -1,5 +1,6 @@
 extends Area3D
 
+const INVENTROY = preload("res://_PROTO_/inventroy.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,8 +13,10 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	area.startClimb()
+	if INVENTROY.bagHasByID(8,2):
+		area.startClimb()
 
 
 func _on_area_exited(area):
-	area.stopClimb()
+	if INVENTROY.bagHasByID(8,2):
+		area.stopClimb()

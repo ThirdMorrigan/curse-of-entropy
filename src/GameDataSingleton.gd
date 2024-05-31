@@ -48,6 +48,11 @@ var itemLookupTable = {
 		"name" : "Jump boots",
 		"type" : item_types.TOOL,
 		"visuals" : "res://scenes/visuals/boots_visuals.tscn"
+	},
+	8 : {
+		"name" : "Climbers gloves",
+		"type" : item_types.TOOL,
+		"visuals" : "res://scenes/visuals/gloves_visuals.tscn"
 	}
 	
 }
