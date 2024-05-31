@@ -33,6 +33,14 @@ func damage(d : DamageInstance):
 	d.damage *= damage_modifier
 	health_pool.hurt(d)
 
+func startClimb():
+	$"..".climbing = true
+	print("start")
+	pass
 
+func stopClimb():
+	$"..".climbing = false
+	print("stop")
+	pass
 
 

@@ -61,6 +61,7 @@ size = Vector3(0.1, 0.1, 1)
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("current_tool")]
+floor_block_on_wall = false
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
 acceleration = 60.0
@@ -141,7 +142,6 @@ cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
-hideInEditor = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)

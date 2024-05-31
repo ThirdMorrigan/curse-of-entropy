@@ -35,7 +35,7 @@ class_name Player
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
 var jump_power : float
-
+var climbing : bool = false
 var coyote_timer : int
 var crouching : bool :
 	get:
@@ -104,9 +104,10 @@ func _physics_process(delta):
 					#print(floor_friction)
 		
 		if not is_on_floor():
-			velocity.y -= gravity * delta
-			if coyote_timer :
-				coyote_timer-=1
+			if !climbing:
+				velocity.y -= gravity * delta
+				if coyote_timer :
+					coyote_timer-=1
 		else : 
 			coyote_timer = coyote_frames * int(!jumping)
 			can_jump = !jumping
@@ -119,9 +120,16 @@ func _physics_process(delta):
 		temp_friction *= (2 if edge_stop else 1)
 		temp_friction *= floor_friction
 		velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
+			
 		velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
 		velocity = velocity.limit_length(speed if !crouching || !is_on_floor() else speed_crouch)
-		velocity.y = vel_v
+
+		if !climbing:
+			velocity.y = vel_v
+		else:
+			velocity.y = jump_power
+			velocity.x = 0
+			velocity.z = 0
 
 		move_and_slide()
 		
