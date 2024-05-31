@@ -18,12 +18,13 @@ description = "Any item that is in the item lookup table as assinged by its ID
 func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
-"id": 0
+"id": 0,
+"quantity": 1
 }
 class_property_descriptions = {}
 meta_properties = {
 "color": Color(0.8, 0.8, 0.8, 1),
-"model": "\"Key.glb\"",
+"model": "\"Item_pickup.glb\"",
 "size": AABB(-8, -8, -8, 8, 8, 8)
 }
 node_class = ""

@@ -9,7 +9,6 @@ radius = 0.468124
 [node name="Key" type="Area3D"]
 collision_layer = 4
 script = ExtResource("1_4ulsl")
-amount = null
 interactionText = "pick up Error ID has not been set to a real item"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

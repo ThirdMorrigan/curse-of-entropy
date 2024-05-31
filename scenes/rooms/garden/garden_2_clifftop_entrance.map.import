@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c22782qr28itj"
+path="res://.godot/imported/garden_2_clifftop_entrance.map-eef3c2c6e22e9d339bd9132e10d34bb3.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/garden/garden_2_clifftop_entrance.map"
+dest_files=["res://.godot/imported/garden_2_clifftop_entrance.map-eef3c2c6e22e9d339bd9132e10d34bb3.tres"]
+
+[params]
+

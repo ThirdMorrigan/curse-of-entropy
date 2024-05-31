@@ -14,8 +14,9 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 func _ready():
 	_interactable_ready()
 	set_interactable_text()
-	var visuals_instance = visuals.instantiate()
-	add_child(visuals_instance)
+	if visuals != null:
+		var visuals_instance = visuals.instantiate()
+		add_child(visuals_instance)
 
 func set_interactable_text():
 	interactionText ="pick up " + GameDataSingleton.itemLookupTable[id]["name"]

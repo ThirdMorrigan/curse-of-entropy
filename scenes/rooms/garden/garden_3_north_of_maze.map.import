@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dfsuts5qijphs"
+path="res://.godot/imported/garden_3_north_of_maze.map-0407e54bf85767189fcd00d75bbc7c68.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/garden/garden_3_north_of_maze.map"
+dest_files=["res://.godot/imported/garden_3_north_of_maze.map-0407e54bf85767189fcd00d75bbc7c68.tres"]
+
+[params]
+
