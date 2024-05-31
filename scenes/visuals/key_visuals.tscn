@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj7of4ca3aj6k"]
+
+[ext_resource type="PackedScene" uid="uid://c4xkpqedewkc1" path="res://assets/models/key.glb" id="1_tbn8n"]
+
+[node name="key" instance=ExtResource("1_tbn8n")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Torus" parent="." index="0"]
+transform = Transform3D(0.538449, 0, 0, 0, 0.538449, 0, 0, 0, 0.538449, 0, 0, 1.01295)
+
+[node name="Cylinder" parent="." index="1"]
+transform = Transform3D(0.390763, 0, 0, 0, -1.70808e-08, -0.390763, 0, 0.390763, -1.70808e-08, 0, 0, -0.857498)
+
+[node name="Cube" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.857498)

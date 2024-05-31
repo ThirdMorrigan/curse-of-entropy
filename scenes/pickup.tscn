@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5y8clpwclb6g"]
+
+[ext_resource type="Script" path="res://src/pickup.gd" id="1_4ulsl"]
+[ext_resource type="Script" path="res://src/interactables/pickup_action.gd" id="2_nuqv8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kr617"]
+radius = 0.468124
+
+[node name="Key" type="Area3D"]
+collision_layer = 4
+script = ExtResource("1_4ulsl")
+interactionText = "pick up Error ID has not been set to a real item"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kr617")
+
+[node name="PickupAction" type="Node" parent="."]
+script = ExtResource("2_nuqv8")

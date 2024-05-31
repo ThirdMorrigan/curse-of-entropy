@@ -1,72 +1,79 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=15 format=3 uid="uid://bbaki6pwgq3ad"]
 
-[ext_resource type="PackedScene" uid="uid://0l5nneje3rbi" path="res://scenes/rooms/tutorial/tutorial_0.tscn" id="1_e4wcu"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
-[ext_resource type="PackedScene" uid="uid://dyladcmyqihju" path="res://scenes/rooms/tutorial/tutorial_3.tscn" id="2_7yay8"]
-[ext_resource type="PackedScene" uid="uid://dct2a0gttmidd" path="res://scenes/rooms/tutorial/tutorial_1.tscn" id="3_besj4"]
+[ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
+[ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="4_3kt52"]
+[ext_resource type="PackedScene" uid="uid://ct0ufd3dj7oqw" path="res://scenes/rooms/garden/garden_1_tunnel.tscn" id="4_5b8cs"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_dj85u"]
-[ext_resource type="PackedScene" uid="uid://b47do8nq81ve8" path="res://scenes/rooms/tutorial/tutorial_2.tscn" id="5_q2ilp"]
-[ext_resource type="PackedScene" uid="uid://c3utt4ghjjs1s" path="res://_PROTO_/proto_creature_NEW.tscn" id="7_aeyfx"]
+[ext_resource type="PackedScene" uid="uid://dyvbnk6yj5r4e" path="res://scenes/rooms/cave/cave_0.tscn" id="4_imm0p"]
+[ext_resource type="PackedScene" uid="uid://gyma5elte04f" path="res://scenes/rooms/garden/garden_2_clifftop_entrance.tscn" id="5_3ma6k"]
+[ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="5_u0wn1"]
+[ext_resource type="PackedScene" uid="uid://d7uk01l6ew2y" path="res://scenes/rooms/castle/castle temp.tscn" id="6_llrit"]
+[ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
+[ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
+[ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
+[ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_qvwps"]
-size = Vector2(154.15, 18.945)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54vae"]
-albedo_color = Color(0.317647, 0.317647, 0.317647, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_i14cj"]
 
 [node name="WorldMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3187, -0.465791, 20.5764)
-jump_height = 0.5
-crouchjump_height = 1.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8823, 1.32145, -41.8318)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_tfkiy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 5.80709, 0)
 light_energy = 8.0
 light_angular_distance = 2.0
 shadow_enabled = true
 shadow_blur = 0.5
 
-[node name="Room" parent="." instance=ExtResource("1_e4wcu")]
+[node name="Garden" type="Node3D" parent="."]
 
-[node name="Room2" parent="." instance=ExtResource("3_besj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7746, -0.505934, 22.506)
+[node name="Room" parent="Garden" instance=ExtResource("3_4a6ae")]
 
-[node name="Room3" parent="." instance=ExtResource("5_q2ilp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5457, -0.532762, 17.1764)
+[node name="Room2" parent="Garden" instance=ExtResource("4_5b8cs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0033, 0.4929, -51.5055)
 
-[node name="Room4" parent="." instance=ExtResource("2_7yay8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.593, 0.999862, 32.96)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
+transform = Transform3D(97.01, 0, 0, 0, 47.81, 0, 0, 0, 33.29, 44.3359, 0.202967, -85.2825)
+mesh = SubResource("PlaneMesh_i14cj")
 
-[node name="ProtoCreatureNew" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6164, 0.999862, 47.9837)
+[node name="Room3" parent="Garden" instance=ExtResource("5_3ma6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.9339, 20.9315, -98.0954)
 
-[node name="ProtoCreatureNew2" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1378, 0.999862, 47.4622)
+[node name="Cave" type="Node3D" parent="."]
 
-[node name="ProtoCreatureNew3" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2114, 0.999862, 46.5202)
+[node name="Room" parent="Cave" instance=ExtResource("4_imm0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, -0.91, 0.001)
 
-[node name="ProtoCreatureNew4" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2335, 0.999862, 45.4016)
+[node name="breakable_wall" parent="." instance=ExtResource("4_3kt52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.4069, 2.38419e-07, 8.45011)
 
-[node name="ProtoCreatureNew5" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3358, 0.999862, 45.5223)
+[node name="Pickaxe" parent="." instance=ExtResource("5_u0wn1")]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 39.5987, 0.793831, 6.23055)
 
-[node name="ProtoCreatureNew6" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9938, 0.999862, 45.9001)
+[node name="Castle" type="Node3D" parent="."]
 
-[node name="ProtoCreatureNew7" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.884, 0.999862, 44.4552)
+[node name="Room" parent="Castle" instance=ExtResource("6_llrit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7508, 4.9872, 16.2351)
 
-[node name="ProtoCreatureNew8" parent="." instance=ExtResource("7_aeyfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2175, 0.999862, 43.5198)
+[node name="StaticBody3D" parent="." instance=ExtResource("7_65b00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2448, 2.38419e-07, 4.71408)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 25.9529, -0.0467563, 41.9208)
-mesh = SubResource("QuadMesh_qvwps")
-surface_material_override/0 = SubResource("StandardMaterial3D_54vae")
+[node name="Key" parent="." instance=ExtResource("11_8bbro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4948, 9.53674e-07, -48.7117)
+
+[node name="Pickaxe2" parent="." instance=ExtResource("5_u0wn1")]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 29.042, 0, -49.2395)
+
+[node name="Key2" parent="." instance=ExtResource("11_8bbro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2488, 0, -39.7928)
+visuals = ExtResource("12_1ifis")
+id = 7
+
+[node name="Climable" parent="." instance=ExtResource("13_fdyd1")]
+transform = Transform3D(2.65, 0, 0, 0, 2.65, 0, 0, 0, 2.65, 28.8127, 0.187195, -30.1653)

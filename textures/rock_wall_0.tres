@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://c4i0ucvapgjo3"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_sr545"]
+[ext_resource type="Texture2D" uid="uid://cyvqyi3emst7n" path="res://assets/materials/rock/tex/rock_albedo.png" id="2_5410i"]
+[ext_resource type="Texture2D" uid="uid://b7ri5smhs0fj3" path="res://assets/materials/rock/tex/NormalMap(1).png" id="3_37dbl"]
+
+[sub_resource type="Curve" id="Curve_eenc2"]
+_data = [Vector2(0.237548, 0.886328), 0.0, 0.0, 0, 0, Vector2(0.659004, 0.751987), 0.0, 0.0, 0, 0, Vector2(0.950192, 0.875994), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_bfwep"]
+
+[sub_resource type="Curve" id="Curve_3n6py"]
+_data = [Vector2(0.51341, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ldhoh"]
+curve_x = SubResource("Curve_eenc2")
+curve_y = SubResource("Curve_bfwep")
+curve_z = SubResource("Curve_3n6py")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sr545")
+shader_parameter/albedo = Color(0.698039, 0.698039, 0.698039, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 1.556
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_5410i")
+shader_parameter/texture_normal = ExtResource("3_37dbl")
+shader_parameter/texture_crunch = SubResource("CurveXYZTexture_ldhoh")

@@ -176,17 +176,16 @@ func_godot_properties = {
 [node name="breakable_wall" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("9_tdyxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32253, 0.5, 8.05899)
 
-[node name="Player" parent="." instance=ExtResource("4_kakka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34861, 3.35786, 6.24246)
-
 [node name="Pickaxe" parent="." instance=ExtResource("11_sqhgr")]
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, -2.02389, 1.38448, 8.53258)
 
-[node name="ProtoCreature" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("12_y0ta5")]
+[node name="ProtoCreature" parent="." instance=ExtResource("12_y0ta5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.739, 3.40178, 0)
-_player = NodePath("../Player")
 
 [node name="Interactable" parent="." instance=ExtResource("12_h6of2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71913, 0.5, 6.57355)
 state = 3
 interactionText = "can't be opened from this side"
+
+[node name="Player" parent="." instance=ExtResource("4_kakka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 9)

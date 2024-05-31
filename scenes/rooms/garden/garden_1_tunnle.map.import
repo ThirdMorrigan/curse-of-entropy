@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c6a15qmr58a77"
+path="res://.godot/imported/garden_1_tunnle.map-82c1920dd00e80f1aeabe49a63503b78.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/garden/garden_1_tunnle.map"
+dest_files=["res://.godot/imported/garden_1_tunnle.map-82c1920dd00e80f1aeabe49a63503b78.tres"]
+
+[params]
+
