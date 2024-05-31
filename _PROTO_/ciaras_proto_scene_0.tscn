@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bls4chynvps5e" path="res://scenes/creature/slime_visuals.tscn" id="10_ivui0"]
 [ext_resource type="Texture2D" uid="uid://m4hjrokrekj5" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_albedo_v2.png" id="10_w88oy"]
 [ext_resource type="Texture2D" uid="uid://485gc3mix5ti" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_crunch.png" id="11_7xegh"]
-[ext_resource type="PackedScene" uid="uid://brcfsadh7uno" path="res://scenes/creature/jailer/jailer.tscn" id="11_jxdrb"]
+[ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="12_enpuq"]
 [ext_resource type="Texture2D" uid="uid://de0m5pc38kqll" path="res://assets/materials/hedge/hedge_wall_0/tex/hedge_normal.png" id="12_tv326"]
-[ext_resource type="PackedScene" uid="uid://c3utt4ghjjs1s" path="res://_PROTO_/proto_creature_NEW.tscn" id="13_qdq3a"]
+[ext_resource type="PackedScene" uid="uid://mk1onb6ftio0" path="res://scenes/creature/proto_thrall_2h.tscn" id="13_5xra6"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6id8d"]
 exposure_multiplier = 2.0
@@ -101,6 +101,7 @@ camera_attributes = SubResource("CameraAttributesPractical_6id8d")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 light_energy = 8.0
+light_indirect_energy = 2.0
 light_angular_distance = 2.0
 shadow_enabled = true
 shadow_blur = 0.5
@@ -311,10 +312,10 @@ light_color = Color(1, 0.854902, 0.329412, 1)
 light_energy = 3.0
 
 [node name="OmniLight3D4" parent="." instance=ExtResource("8_nv4e5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5002, 5, 12.9914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5002, 5, 12.3033)
 light_color = Color(1, 1, 1, 1)
 light_energy = 3.0
-omni_shadow_mode = 0
+omni_attenuation = 0.68302
 script = null
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
@@ -357,8 +358,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3073, 9.53674e-07, 1.1644
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75266, 4.44403)
 mesh = SubResource("BoxMesh_fd5dy")
 
-[node name="ProtoCreatureNew" parent="." instance=ExtResource("13_qdq3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04799, 0, -6.01048)
+[node name="proto_thrall_1h" parent="." instance=ExtResource("12_enpuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2537, 2.38419e-07, -8.03373)
 
-[node name="Jailer" parent="." instance=ExtResource("11_jxdrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7369, 1.90735e-06, -10.7084)
+[node name="proto_thrall_2h" parent="." instance=ExtResource("13_5xra6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.46824, 2.38419e-07, -8.67382)

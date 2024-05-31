@@ -16,6 +16,7 @@ signal attack_finished
 			creature.track_target = t
 @export var fire_attack : bool = false :
 	set(f):
+		print("setting fire")
 		if f :
 			fire_current_attack()
 
