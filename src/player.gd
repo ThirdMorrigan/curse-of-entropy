@@ -31,6 +31,10 @@ class_name Player
 		notify_property_list_changed()
 @export var coyote_frames : int = 6
 
+@export var sword_swing : SwordAttack
+@export var current_swing_damage_instance : int = 0
+@export var swinging : bool = false
+
 @export var current_tool : Attack
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
@@ -94,7 +98,6 @@ func _process(delta):
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
-		$sword_swing.fire()
 		var floor_friction : float = 1.0
 		if $floor_test.is_colliding() :
 			var col = $floor_test.get_collider()
@@ -123,7 +126,9 @@ func _physics_process(delta):
 		velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
 			
 		velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
-		velocity = velocity.limit_length(speed if !crouching || !is_on_floor() else speed_crouch)
+		var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
+		if swinging : speed_limit *= sword_swing.weight
+		velocity = velocity.limit_length(speed_limit)
 
 		if !climbing:
 			velocity.y = vel_v
@@ -135,6 +140,11 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		$direction_pivot.global_rotation.y = atan2(-velocity.x, -velocity.z)
+
+func try_swing():
+	if !swinging:
+		#more shit in here!!!!!
+		swinging = true
 
 func impulse(i : Vector3):
 	velocity = i
