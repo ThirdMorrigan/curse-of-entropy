@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwkmv4kg16oj4"]
+[gd_scene load_steps=5 format=3 uid="uid://cwkmv4kg16oj4"]
 
 [ext_resource type="Script" path="res://src/climable.gd" id="1_lmas0"]
+[ext_resource type="PackedScene" uid="uid://ccuaf5wjr7547" path="res://scenes/visuals/plane_door_visuals.tscn" id="2_1vhcq"]
+[ext_resource type="Material" uid="uid://b5siytw1dci08" path="res://assets/materials/vine/vine_wall_0.tres" id="3_qikp5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxnie"]
-size = Vector3(1, 1, 0.036377)
+size = Vector3(1, 1.45398, 0.036377)
 
 [node name="Climable" type="Area3D"]
 collision_layer = 0
@@ -11,8 +13,12 @@ collision_mask = 16
 script = ExtResource("1_lmas0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503126, 0.01615)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.730116, 0.01615)
 shape = SubResource("BoxShape3D_rxnie")
+
+[node name="plane_door_visuals" parent="." instance=ExtResource("2_1vhcq")]
+transform = Transform3D(-2.12e-08, 0, 0.485, 0, 0.485, 0, -0.485, 0, -2.12e-08, 0, 0, 0)
+material = ExtResource("3_qikp5")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

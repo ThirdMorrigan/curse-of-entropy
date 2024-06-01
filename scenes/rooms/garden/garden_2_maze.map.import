@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c22782qr28itj"
+path="res://.godot/imported/garden_2_maze.map-01d86293819856f672374a4739ac8093.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/garden/garden_2_maze.map"
+dest_files=["res://.godot/imported/garden_2_maze.map-01d86293819856f672374a4739ac8093.tres"]
+
+[params]
+

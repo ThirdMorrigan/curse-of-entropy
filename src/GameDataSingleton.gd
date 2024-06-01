@@ -53,6 +53,11 @@ var itemLookupTable = {
 		"name" : "Climbers gloves",
 		"type" : item_types.TOOL,
 		"visuals" : "res://scenes/visuals/gloves_visuals.tscn"
+	},
+	9 : {
+		"name" : "Garden gate key",
+		"type" : item_types.KEY,
+		"visuals" : key_visuals
 	}
 	
 }
