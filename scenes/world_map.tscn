@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=15 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -14,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
 [ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
 [ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_i14cj"]
 
 [node name="WorldMap" type="Node3D"]
 
@@ -41,12 +39,8 @@ shadow_blur = 0.5
 [node name="Room2" parent="Garden" instance=ExtResource("4_5b8cs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0033, 0.4929, -51.5055)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
-transform = Transform3D(97.01, 0, 0, 0, 47.81, 0, 0, 0, 33.29, 44.3359, 0.202967, -85.2825)
-mesh = SubResource("PlaneMesh_i14cj")
-
 [node name="Room3" parent="Garden" instance=ExtResource("5_3ma6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.9339, 20.9315, -98.0954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9382, 7.48331, 135.114)
 
 [node name="Cave" type="Node3D" parent="."]
 
