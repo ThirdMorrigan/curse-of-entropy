@@ -105,15 +105,32 @@ heal={
 
 [rendering]
 
+occlusion_culling/use_occlusion_culling=true
 environment/defaults/default_environment="res://assets/default_world_environment.tres"
 
 [shader_globals]
 
 wobble_resolution={
 "type": "float",
-"value": 50.0
+"value": 100.0
 }
 wobble_resolution_inv={
 "type": "float",
+"value": 0.01
+}
+wobble_resolution_high={
+"type": "float",
+"value": 200.0
+}
+wobble_resolution_inv_high={
+"type": "float",
+"value": 0.005
+}
+wobble_resolution_inv_low={
+"type": "float",
 "value": 0.02
+}
+wobble_resolution_low={
+"type": "float",
+"value": 50.0
 }

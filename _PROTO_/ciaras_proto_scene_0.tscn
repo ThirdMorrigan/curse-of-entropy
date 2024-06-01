@@ -32,6 +32,7 @@ agent_radius = 0.75
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vo207"]
 render_priority = 0
 shader = ExtResource("1_dehhm")
+shader_parameter/vertex_wobble_scale = 0
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0
@@ -78,6 +79,7 @@ size = Vector3(5, 1, 5)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7kwsp"]
 render_priority = 0
 shader = ExtResource("1_dehhm")
+shader_parameter/vertex_wobble_scale = 0
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0
@@ -297,8 +299,6 @@ speed_crouch = 2.0
 acceleration = 80.0
 acceleration_air = 6.0
 friction = 20.0
-jump_height = 0.5
-crouchjump_height = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.322282, 0, 0.946644, 0, 1, 0, -0.946644, 0, 0.322282, 1.80551, 2.15851, 0)

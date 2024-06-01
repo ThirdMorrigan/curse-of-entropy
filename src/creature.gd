@@ -26,6 +26,7 @@ var current_state : State :
 
 var goal_look : Vector3
 var goal_vel : Vector3 = Vector3.ZERO
+var to_impulse : Vector3 = Vector3.ZERO
 
 func _ready():
 	goal_look = basis * Vector3.FORWARD
@@ -61,7 +62,9 @@ func _physics_process(delta):
 			#attacks[current_state - State.ATTACK_0].fire()
 		
 
-	
+	if to_impulse :
+		velocity += to_impulse
+		to_impulse = Vector3.ZERO
 	move_and_slide()
 
 func current_attack() -> int :
@@ -78,7 +81,8 @@ func jump(delta):
 		
 
 func impulse(i : Vector3):
-	velocity += i
+	print(str("impulsing by ", i))
+	to_impulse += i
 
 func die():
 	

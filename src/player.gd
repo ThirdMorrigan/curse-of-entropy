@@ -94,6 +94,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
+		$sword_swing.fire()
 		var floor_friction : float = 1.0
 		if $floor_test.is_colliding() :
 			var col = $floor_test.get_collider()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ji4h1i0420fk"]
+[gd_scene load_steps=7 format=3 uid="uid://d0omc54eyjjne"]
 
 [ext_resource type="PackedScene" uid="uid://dwu0o6wb3sbm4" path="res://assets/models/Sword.glb" id="1_h8p0u"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_s55r7"]
@@ -9,12 +9,13 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmnrt"]
 render_priority = 0
 shader = ExtResource("2_s55r7")
+shader_parameter/vertex_wobble_scale = 0
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 1.0
-shader_parameter/normal_scale = -2.0
+shader_parameter/normal_scale = 2.0
 shader_parameter/ao_light_affect = 0.5
 shader_parameter/texture_albedo = ExtResource("3_40686")
 shader_parameter/texture_normal = ExtResource("5_d7foo")

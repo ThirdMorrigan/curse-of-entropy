@@ -5,24 +5,45 @@ render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlic
 uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable; 
 uniform sampler2D texture_normal : hint_roughness_normal,filter_nearest,repeat_enable;
 uniform sampler2D texture_crunch : hint_default_black,filter_nearest,repeat_enable;
+uniform int vertex_wobble_scale : hint_range(0, 2, 1) = 0;
 uniform vec4 albedo : source_color = vec4(1.0);
 uniform float alpha_scissor_threshold = 0.5;
-uniform float roughness : hint_range(0,1) = 1.0;
-uniform float specular : hint_range(-10.0, 10.0) = 0.5;
-uniform float metallic : hint_range(-10.0, 10.0) = 1.0;
-uniform float normal_scale : hint_range(-16,16) = 2.0;
+uniform float roughness : hint_range(0.0,1.0) = 1.0;
+uniform float specular : hint_range(-1.0, 2.0) = 0.5;
+uniform float metallic : hint_range(-1.0, 2.0) = 1.0;
+uniform float normal_scale : hint_range(-8.0,8.0) = 2.0;
 uniform float ao_light_affect = 0.5;
 
+global uniform float wobble_resolution_inv_low;
+global uniform float wobble_resolution_low;
 global uniform float wobble_resolution_inv;
 global uniform float wobble_resolution;
+global uniform float wobble_resolution_inv_high;
+global uniform float wobble_resolution_high;
 
 void vertex() {
+	float wobble, awobble;
+	switch (vertex_wobble_scale){
+		case 0:
+			wobble = wobble_resolution_low;
+			awobble = wobble_resolution_inv_low;
+			break;
+		case 1:
+			wobble = wobble_resolution;
+			awobble = wobble_resolution_inv;
+			break;
+		default:
+			wobble = wobble_resolution_high;
+			awobble = wobble_resolution_inv_high;
+			break;
+	}
+	
     vec3 transformed = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	// VVVV uncomment this line if you're cool VVVV
     //transformed = ( vec4(transformed, 10.0) * PROJECTION_MATRIX * MODELVIEW_MATRIX).xyz * (vec3(-1.0,1.0,1.0));   
-	transformed *= wobble_resolution;
+	transformed *= wobble;
 	transformed = trunc(transformed);
-	transformed *= wobble_resolution_inv;
+	transformed *= awobble;
 	VERTEX = transformed;
     NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
 }
