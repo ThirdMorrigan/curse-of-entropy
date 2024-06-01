@@ -21,6 +21,8 @@
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3342, 6.43817, -41.8318)
+current_swing_damage_instance = 0
+swinging = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_tfkiy")

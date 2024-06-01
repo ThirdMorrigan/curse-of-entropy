@@ -32,10 +32,10 @@ func _ready():
 	create_hitbox()
 
 func fire() :
-	cast.force_shapecast_update()
 	if attack_origin != null :
 		cast.global_position = attack_origin.global_position
 		cast.global_rotation = attack_origin.global_rotation
+	cast.force_shapecast_update()
 	if cast.is_colliding():
 		for t in range(cast.get_collision_count()):
 			var h = cast.get_collider(t)
