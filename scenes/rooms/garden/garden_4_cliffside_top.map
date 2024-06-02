@@ -2549,39 +2549,16 @@
 {
 "classname" "Light"
 "origin" "-1608 64 184"
+"energy" "5"
 }
 // entity 19
 {
-"classname" "1h_thrall"
-"origin" "-712 -392 40"
+"classname" "Creature"
+"origin" "-648 -392 40"
 }
 // entity 20
 {
-"classname" "2H_thrall"
-"origin" "-632 520 40"
-}
-// entity 21
-{
-"classname" "1h_thrall"
-"origin" "-2072 8 40"
-}
-// entity 22
-{
-"classname" "1h_thrall"
-"origin" "-2328 -88 40"
-}
-// entity 23
-{
-"classname" "1h_thrall"
-"origin" "-2184 200 40"
-}
-// entity 24
-{
-"classname" "2H_thrall"
-"origin" "-2232 -520 40"
-}
-// entity 25
-{
-"classname" "1h_thrall"
-"origin" "-1448 -296 -56"
+"classname" "Creature"
+"origin" "-648 520 40"
+"creature_id" "1"
 }

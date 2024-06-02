@@ -5,7 +5,6 @@ class_name NavigationRegionController
 func _ready():
 	for entity in func_godot_map.get_children():
 		if entity is Door or entity is BreakableWall:
-			print("got door?")
 			entity.opened.connect(_reload_nav_mesh)
 	bake_finished.connect(_on_bake_finished)
 

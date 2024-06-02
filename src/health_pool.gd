@@ -10,7 +10,7 @@ var parent :
 	set(p):
 		parent = p
 		can_impulse = parent.has_method("impulse")
-		print(can_impulse)
+		#print(can_impulse)
 
 signal health_change
 

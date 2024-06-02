@@ -31,12 +31,14 @@ class_name Player
 		notify_property_list_changed()
 @export var coyote_frames : int = 6
 
-@export var sword_swing : SwordAttack
+@export var sword_swing : Attack
 @export var current_swing_damage_instance : int = 0
 @export var swinging : bool = false
 
 @export var current_tool : Attack
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
+
+signal player_death
 
 var jump_power : float
 var climbing : bool = false
@@ -116,7 +118,6 @@ func _physics_process(delta):
 			coyote_timer = coyote_frames * int(!jumping)
 			can_jump = !jumping
 			
-		#print(input_dir)
 		var vel_v = velocity.y
 		velocity.y = 0
 		var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
@@ -156,5 +157,11 @@ func _apply_jump_boots():
 	jump_height = 1
 
 func die():
+	player_death.emit()
+	get_tree().call_group("creature","stop")
 	
-	pass
+	
+func _on_game_ui_fade_complete():
+	position = GameDataSingleton.respawn_point
+	get_tree().call_group("creature","delete")
+	get_tree().call_group("spawner","spawn")

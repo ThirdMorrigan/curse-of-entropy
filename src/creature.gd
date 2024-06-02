@@ -30,6 +30,7 @@ var to_impulse : Vector3 = Vector3.ZERO
 
 func _ready():
 	goal_look = basis * Vector3.FORWARD
+	add_to_group("creature")
 	var _attacks = find_children("*", "Attack")
 	for a in _attacks:
 		if a is Attack:
@@ -81,8 +82,17 @@ func jump(delta):
 		
 
 func impulse(i : Vector3):
-	print(str("impulsing by ", i))
+	#print(str("impulsing by ", i))
 	to_impulse += i
+
+func stop():
+	#if $CreatureAI != null:
+		#$CreatureAI.queue_free()
+	pass
+	
+func delete():
+	queue_free()
+
 
 func die():
 	

@@ -603,7 +603,7 @@ states/swing_0/position = Vector2(489, 100)
 states/walk/node = SubResource("AnimationNodeBlendTree_8yyy3")
 states/walk/position = Vector2(315, 190)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_i2137"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_6ak4p"), "idle", "swing_0", SubResource("AnimationNodeStateMachineTransition_m8irs"), "swing_0", "idle", SubResource("AnimationNodeStateMachineTransition_48p4f"), "swing_0", "walk", SubResource("AnimationNodeStateMachineTransition_vxpoh"), "walk", "swing_0", SubResource("AnimationNodeStateMachineTransition_3gjrk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_7f6dj")]
-graph_offset = Vector2(0, -61)
+graph_offset = Vector2(-1562, -61)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("current_tool")]
 floor_block_on_wall = false
@@ -752,7 +752,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(-0.24391, -0.249652, 0.937113, 0.413903, 0.847073, 0.333395, -0.877036, 0.469192, -0.103278, -0.00778834, 0.200791, 0.0203862)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.00778834, 0.200791, 0.0203862)
-bones/1/rotation = Quaternion(0.0382382, 0.764689, 0.269738, 0.583978)
+bones/1/rotation = Quaternion(0.0497159, 0.748804, 0.270567, 0.603004)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "forearm.L"
 bones/2/parent = 1
@@ -766,7 +766,7 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(0.998386, -0.0565106, -0.00569077, 0.0561546, 0.997157, -0.0502547, 0.00851452, 0.049854, 0.99872, -8.11735e-09, 0.262835, 1.49012e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(-8.11735e-09, 0.262835, 1.49012e-08)
-bones/3/rotation = Quaternion(-0.051763, -0.0330101, -0.0641101, 0.996053)
+bones/3/rotation = Quaternion(-0.00057307, -0.013401, -0.00260089, 0.999907)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "hold.L"
 bones/4/parent = 3
@@ -779,7 +779,7 @@ bones/5/name = "shoulder.R"
 bones/5/parent = -1
 bones/5/rest = Transform3D(0.507095, 0.86189, -0.000688106, -0.000387311, -0.000570536, -1, -0.86189, 0.507095, 4.44651e-05, 0.0183, -0.0969235, -0.0689345)
 bones/5/enabled = true
-bones/5/position = Vector3(0.0187851, -0.128556, -0.0784718)
+bones/5/position = Vector3(0.018785, -0.128556, -0.0784719)
 bones/5/rotation = Quaternion(0.570693, 0.418404, -0.419117, 0.568848)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "upper_arm.R"
@@ -787,21 +787,21 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(-0.243498, 0.249873, -0.937162, -0.413903, 0.847073, 0.333395, 0.877151, 0.469075, -0.102837, 0.00779793, 0.200791, 0.0203825)
 bones/6/enabled = true
 bones/6/position = Vector3(0.00779793, 0.200791, 0.0203825)
-bones/6/rotation = Quaternion(0.0134774, -0.404754, -0.628547, 0.664019)
+bones/6/rotation = Quaternion(-0.0465314, -0.378478, -0.659381, 0.647925)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "forearm.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.996715, 0.0800764, 0.0120918, -0.0791007, 0.930606, 0.357372, 0.0173643, -0.357155, 0.933884, 1.18825e-08, 0.28851, -9.31323e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.18825e-08, 0.28851, -9.31323e-09)
-bones/7/rotation = Quaternion(-0.396829, -0.00124763, -0.0884029, 0.913625)
+bones/7/rotation = Quaternion(-0.245612, -0.00132156, -0.0547157, 0.967822)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "hand.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.998386, 0.0565106, 0.00569056, -0.0561545, 0.997156, -0.0502579, -0.00851448, 0.0498572, 0.99872, -2.33994e-08, 0.262836, 1.86265e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-2.33994e-08, 0.262836, 1.86265e-08)
-bones/8/rotation = Quaternion(-0.0330952, 0.403098, -0.0511667, 0.913126)
+bones/8/rotation = Quaternion(-0.0112566, 0.350182, -0.0616831, 0.934581)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "hold.R"
 bones/9/parent = 8
@@ -814,7 +814,7 @@ bones/10/name = "pole.R"
 bones/10/parent = -1
 bones/10/rest = Transform3D(-0.480832, -2.98023e-08, -0.876813, -0.876813, 0, 0.480832, 2.98023e-08, 1, -1.19209e-07, 0.4424, -0.252923, 0.61852)
 bones/10/enabled = true
-bones/10/position = Vector3(0.315897, -0.374072, 0.576969)
+bones/10/position = Vector3(0.315897, -0.374071, 0.576969)
 bones/10/rotation = Quaternion(0.360267, -0.608447, -0.608447, 0.360267)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "pole.L"
@@ -828,8 +828,8 @@ bones/12/name = "IK.R"
 bones/12/parent = -1
 bones/12/rest = Transform3D(-0.550248, 0.825611, 0.124872, -0.835001, -0.544067, -0.0822447, 3.64929e-05, -0.149523, 0.988758, 0.6594, -0.395923, 0.0486656)
 bones/12/enabled = true
-bones/12/position = Vector3(0.312517, -0.269213, -0.504716)
-bones/12/rotation = Quaternion(-0.0471947, -0.672798, 0.704226, 0.221768)
+bones/12/position = Vector3(0.338397, -0.303229, -0.521311)
+bones/12/rotation = Quaternion(-0.0402756, -0.664016, 0.742004, 0.083007)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "IK.L"
 bones/13/parent = -1
@@ -840,7 +840,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.928024, 0.334389, -0.164183, 0.319876, 0.941187, 0.108842, 0.190922, 0.04849, -0.980407, 0.312606, -0.279152, -0.575658)
+transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -863,7 +863,7 @@ script = ExtResource("2_k1kd7")
 
 [node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("3_vwos7")
-max_hp = 100.0
+max_hp = 1.0
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -910,14 +910,13 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
 parameters/walk/walk_tilt_add/add_amount = 2.0
 script = ExtResource("26_xowfa")
 
+[connection signal="player_death" from="." to="game_ui" method="_on_player_player_death"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
 [connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]
+[connection signal="fade_complete" from="game_ui" to="." method="_on_game_ui_fade_complete"]

@@ -1,21 +1,14 @@
-[gd_scene load_steps=52 format=3 uid="uid://mk1onb6ftio0"]
+[gd_scene load_steps=44 format=3 uid="uid://mk1onb6ftio0"]
 
 [ext_resource type="PackedScene" uid="uid://dq25c0xpdv6yp" path="res://assets/models/creatures/humanoid base/humanoid_base.glb" id="1_ufxch"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="2_8djno"]
-[ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="2_aficu"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_n1tam"]
-[ext_resource type="Animation" uid="uid://dxpgwr168tki5" path="res://assets/models/creatures/humanoid base/attack-2h-thrust.res" id="3_rpb4o"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="3_w1osr"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
-[ext_resource type="Animation" uid="uid://wqc2q3ml87yr" path="res://assets/models/creatures/humanoid base/idle-1h.res" id="4_p5kog"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="5_5qyje"]
-[ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="5_op4p3"]
-[ext_resource type="Animation" uid="uid://fh8elerhgb8b" path="res://assets/models/creatures/humanoid base/idle.res" id="6_m8ct3"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="6_xsdof"]
 [ext_resource type="Script" path="res://src/attack.gd" id="7_kj51n"]
-[ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="7_t6tc4"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="8_ge3yd"]
-[ext_resource type="Animation" uid="uid://cl373jmtxdgub" path="res://assets/models/creatures/humanoid base/walk_proto.res" id="8_yqn8y"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="9_r6von"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34wcx"]
@@ -245,17 +238,6 @@ shader_parameter/normal_scale = 2.0
 shader_parameter/ao_light_affect = 0.5
 shader_parameter/texture_crunch = SubResource("CurveXYZTexture_ma58v")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1cii"]
-_data = {
-"attack-1h": ExtResource("2_aficu"),
-"attack-2h-thrust": ExtResource("3_rpb4o"),
-"idle": ExtResource("6_m8ct3"),
-"idle-1h": ExtResource("4_p5kog"),
-"idle-2h": ExtResource("5_op4p3"),
-"walk": ExtResource("7_t6tc4"),
-"walk_proto": ExtResource("8_yqn8y")
-}
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
 animation = &"attack-2h-thrust"
 
@@ -346,7 +328,7 @@ damage_types = 1
 radius = 0.2
 height = 0.6
 
-[node name="proto_thrall_2h" instance=ExtResource("1_ufxch")]
+[node name="proto_thrall_2h" groups=["Reload"] instance=ExtResource("1_ufxch")]
 speed = 2.0
 
 [node name="rig" parent="." index="0"]
@@ -354,7 +336,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0167731, 0.976659, -0.085483)
+bones/1/position = Vector3(0.0175464, 0.971242, -0.0852787)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -362,7 +344,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.158319, -0.0130592, -0.00058933, 0.987302)
+bones/7/rotation = Quaternion(-0.189703, -0.0213348, 0.000346418, 0.98161)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.020635, 0.452077, -0.667065, 0.591798)
@@ -387,18 +369,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.941415, 0.0176041, 0.027733, 0.335648)
+bones/24/rotation = Quaternion(0.938319, 0.0170126, 0.0273517, 0.344266)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.271891, -1.029e-09, -6.37413e-10, 0.962328)
+bones/25/rotation = Quaternion(0.290968, -2.348e-10, -6.20604e-10, 0.956733)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.570544, -0.131089, -0.0317968, 0.810113)
+bones/26/rotation = Quaternion(-0.579242, -0.130798, -0.0305016, 0.804015)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.958067, -0.0479192, -0.0658848, 0.274721)
+bones/29/rotation = Quaternion(0.955664, -0.0479874, -0.067146, 0.282657)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.275687, 5.77175e-09, -5.3182e-09, 0.961247)
+bones/30/rotation = Quaternion(0.29408, -3.08458e-10, 1.28761e-09, 0.955781)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.618806, 0.168842, 0.0169016, 0.766998)
+bones/31/rotation = Quaternion(-0.626878, 0.170042, 0.0148296, 0.76019)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -435,9 +417,6 @@ root_motion_track = NodePath("rig/Skeleton3D:Bone")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 root_motion_track = NodePath("rig/Skeleton3D:Bone")
-libraries = {
-"": SubResource("AnimationLibrary_l1cii")
-}
 tree_root = SubResource("AnimationNodeStateMachine_hqiyj")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/Add2/add_amount = 1.0

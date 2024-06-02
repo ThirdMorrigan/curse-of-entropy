@@ -50,7 +50,7 @@ func create_hitbox():
 	cast.collide_with_bodies = false
 	cast.exclude_parent = true
 	cast.collision_mask = targets #* 8.0
-	print(cast.collision_mask)
+	#print(cast.collision_mask)
 	cast.shape = hitbox_shape
 	cast.global_position = attack_origin.global_position if attack_origin != null else Vector3(0.0, 1.0, 0.0)
 	cast.global_rotation = attack_origin.global_rotation if attack_origin != null else Vector3.ZERO
