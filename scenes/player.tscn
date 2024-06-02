@@ -512,8 +512,6 @@ damage_types = 16
 [sub_resource type="BoxShape3D" id="BoxShape3D_hg4dn"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
-
 [sub_resource type="Resource" id="Resource_hl5qo"]
 script = ExtResource("13_qgojy")
 damage = 0.1
@@ -604,6 +602,8 @@ states/walk/node = SubResource("AnimationNodeBlendTree_8yyy3")
 states/walk/position = Vector2(315, 190)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_i2137"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_6ak4p"), "idle", "swing_0", SubResource("AnimationNodeStateMachineTransition_m8irs"), "swing_0", "idle", SubResource("AnimationNodeStateMachineTransition_48p4f"), "swing_0", "walk", SubResource("AnimationNodeStateMachineTransition_vxpoh"), "walk", "swing_0", SubResource("AnimationNodeStateMachineTransition_3gjrk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_7f6dj")]
 graph_offset = Vector2(-1562, -61)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("current_tool")]
 floor_block_on_wall = false
@@ -894,11 +894,6 @@ script = ExtResource("15_m0vcd")
 script = ExtResource("13_mqnn4")
 onHit = true
 
-[node name="InventoryUI" parent="." instance=ExtResource("16_gls4e")]
-catagory_buttons = SubResource("ButtonGroup_rq6di")
-
-[node name="game_ui" parent="." instance=ExtResource("17_f2jcj")]
-
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_hl5qo")])
@@ -916,8 +911,17 @@ parameters/walk/tilt_blend_space/blend_position = -1.0
 parameters/walk/walk_tilt_add/add_amount = 2.0
 script = ExtResource("26_xowfa")
 
+[node name="game_ui" parent="." instance=ExtResource("17_f2jcj")]
+
+[node name="InventoryUI" parent="." instance=ExtResource("16_gls4e")]
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+catagory_buttons = SubResource("ButtonGroup_rq6di")
+
 [connection signal="player_death" from="." to="game_ui" method="_on_player_player_death"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
-[connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]
 [connection signal="fade_complete" from="game_ui" to="." method="_on_game_ui_fade_complete"]
 [connection signal="fade_complete" from="game_ui" to="HealthPool" method="_on_player_death"]
+[connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]

@@ -2,7 +2,7 @@
 extends Node
 
 
-enum item_types {KEY, CONSUMABLE, TOOL}
+enum item_types {KEY, CONSUMABLE, TOOL,NOTE}
 enum map_zone {GARDEN,GRAVEYARD,CASTLE,CRYPT,DUNGEON,CAVE,SEWER}
 enum equipment_slots {TOOL, HEAD, BODY, FEET, HANDS}
 
@@ -49,6 +49,7 @@ var itemLookupTable = {
 	7 : {
 		"name" : "Jump boots",
 		"type" : item_types.TOOL,
+		"description" : "She jump on my boot until i shit my pants",
 		"visuals" : "res://scenes/visuals/boots_visuals.tscn"
 	},
 	8 : {

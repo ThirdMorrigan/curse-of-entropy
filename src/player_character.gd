@@ -10,6 +10,7 @@ var intelligence
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	proto_char()
+	$"../InventoryUI".character_details = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

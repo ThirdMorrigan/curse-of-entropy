@@ -71,32 +71,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_862kw")
 
-[node name="health" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="interactable" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.517708
-anchor_top = 0.500463
-anchor_right = 0.517708
-anchor_bottom = 0.500463
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="death_screen" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -134,5 +108,38 @@ grow_vertical = 2
 scale = Vector2(2.54895, 2.82958)
 text = "You died
 "
+
+[node name="next_character_select" type="Control" parent="death_screen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="health" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="interactable" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517708
+anchor_top = 0.500463
+anchor_right = 0.517708
+anchor_bottom = 0.500463
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 3
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="death_screen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

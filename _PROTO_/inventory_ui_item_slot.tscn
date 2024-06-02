@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://_PROTO_/inventory_ui_item_slot.gd" id="1_6niii"]
 
-[node name="ItemSlot" type="Panel"]
+[node name="ItemSlot" type="Button"]
 custom_minimum_size = Vector2(10, 40)
 script = ExtResource("1_6niii")
 
@@ -13,3 +13,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

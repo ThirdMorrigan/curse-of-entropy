@@ -3,8 +3,11 @@ var is_open = false
 var last_tab = GameDataSingleton.item_types.KEY
 @export var catagory_buttons: ButtonGroup
 @onready var inventory = load("res://_PROTO_/inventroy.tres")
-@onready var item_slot_container = get_node("VScrollBar/ItemSlotContainer")
-const item_slot_path = "res://_PROTO_/inventory_ui_item_slot.tscn"
+@onready var item_slot_container = $ItemSlotContainer
+@onready var view_page = $view_page
+var character_details : PlayerCharacter
+
+const item_slot = preload("res://_PROTO_/inventory_ui_item_slot.tscn")
 
 signal inventoryState
 
@@ -47,10 +50,14 @@ func populate_inventory(type_id: int):
 	var items = bag.keys()
 	
 	for item in items:
-		var new_item_slot = preload(item_slot_path).instantiate()
-		new_item_slot.name_text = GameDataSingleton.itemLookupTable[item].name
-		new_item_slot.quantity_text = str(bag[item])
+		var new_item_slot = ItemButton.new()
+		view_page.connect_button(new_item_slot)
+		new_item_slot.item_id = item
+		new_item_slot.text = GameDataSingleton.itemLookupTable[item].name
+		#new_item_slot.quantity_text = str(bag[item])
 		item_slot_container.add_child(new_item_slot)
+	
+	view_page._display_item(0)
 
 	
 	
