@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="2_w6cqm"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_4x402"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_gxw3r"]
-[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="5_b4jf1"]
+[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="5_b4jf1"]
 [ext_resource type="Material" uid="uid://d8b07myu3n0y" path="res://textures/hedge_wall_0.tres" id="6_y6fck"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="7_gvb3l"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="8_nojvb"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="11_r2x8l"]
 [ext_resource type="PackedScene" uid="uid://dj7of4ca3aj6k" path="res://scenes/visuals/key_visuals.tscn" id="12_ely45"]
 [ext_resource type="PackedScene" uid="uid://deoarosws2vjx" path="res://scenes/visuals/pickaxe_visuals.tscn" id="13_l2hom"]
-[ext_resource type="PackedScene" path="res://scenes/navigation_link_entity.tscn" id="14_4lvia"]
+[ext_resource type="PackedScene" uid="uid://wmcc6au003b5" path="res://scenes/navigation_link_entity.tscn" id="14_4lvia"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
 size = Vector3(69.75, 10.25, 123)

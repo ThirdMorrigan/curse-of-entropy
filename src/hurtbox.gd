@@ -35,12 +35,10 @@ func damage(d : DamageInstance):
 
 func startClimb():
 	$"..".climbing = true
-	print("start")
 	pass
 
 func stopClimb():
 	$"..".climbing = false
-	print("stop")
 	pass
 
 

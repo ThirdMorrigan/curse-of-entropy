@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=3 format=3 uid="uid://ntit5rqhcyi3"]
+
+[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="1_kh8rm"]
+[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="1_lslab"]
+
+[resource]
+script = ExtResource("1_kh8rm")
+scene_file = ExtResource("1_lslab")
+apply_rotation_on_map_build = true
+classname = "Creature"
+description = "The spawn point of a creature. The creature is assigned with an id. 0 1HT 1 2HT"
+func_godot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"creature_id": 0
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+name_property = ""

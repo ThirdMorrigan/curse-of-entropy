@@ -10,7 +10,7 @@ var parent :
 	set(p):
 		parent = p
 		can_impulse = parent.has_method("impulse")
-		print(can_impulse)
+		#print(can_impulse)
 
 signal health_change
 
@@ -46,3 +46,8 @@ func hurt(di : DamageInstance):
 
 func heal(healing : float):
 	curr_hp = minf(curr_max_hp,curr_hp+healing)
+
+
+func _on_player_death():
+	curr_max_hp = max_hp
+	curr_hp = max_hp

@@ -6,6 +6,8 @@ enum item_types {KEY, CONSUMABLE, TOOL}
 enum map_zone {GARDEN,GRAVEYARD,CASTLE,CRYPT,DUNGEON,CAVE,SEWER}
 enum equipment_slots {TOOL, HEAD, BODY, FEET, HANDS}
 
+@export var respawn_point : Vector3 = Vector3.ZERO
+
 var key_visuals = "res://scenes/visuals/key_visuals.tscn"
 
 var itemLookupTable = {
@@ -53,6 +55,13 @@ var itemLookupTable = {
 		"name" : "Climbers gloves",
 		"type" : item_types.TOOL,
 		"visuals" : "res://scenes/visuals/gloves_visuals.tscn"
+	},
+	9 : {
+		"name" : "Garden gate key",
+		"type" : item_types.KEY,
+		"visuals" : key_visuals
 	}
 	
 }
+
+	

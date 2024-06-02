@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=17 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -9,20 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://gyma5elte04f" path="res://scenes/rooms/garden/garden_2_clifftop_entrance.tscn" id="5_3ma6k"]
 [ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="5_u0wn1"]
 [ext_resource type="PackedScene" uid="uid://d7uk01l6ew2y" path="res://scenes/rooms/castle/castle temp.tscn" id="6_llrit"]
+[ext_resource type="PackedScene" uid="uid://bo5dobm0w2jli" path="res://scenes/rooms/garden/garden_4_clifftop.tscn" id="6_lmwv8"]
 [ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
 [ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
 [ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
-[ext_resource type="Material" uid="uid://dc7e3jahsipi3" path="res://textures/bare_stone_0.tres" id="15_thlmv"]
-[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="16_3gsho"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_dgwdk"]
+[ext_resource type="PackedScene" uid="uid://bbggg6dd7nwuw" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
 
 [node name="WorldMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3342, 6.43817, -41.8318)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7051, 6.99117, -82.3993)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_tfkiy")
@@ -39,10 +37,13 @@ shadow_blur = 0.5
 [node name="Room" parent="Garden" instance=ExtResource("3_4a6ae")]
 
 [node name="Room2" parent="Garden" instance=ExtResource("4_5b8cs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0033, 0.4929, -51.5055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3671, 0.4929, -51.5055)
 
 [node name="Room3" parent="Garden" instance=ExtResource("5_3ma6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9382, 7.48331, 135.114)
+
+[node name="Room4" parent="Garden" instance=ExtResource("6_lmwv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.9778, 6.06453, -63.4947)
 
 [node name="Cave" type="Node3D" parent="."]
 
@@ -84,12 +85,5 @@ visuals = ExtResource("14_1joox")
 interactionText = "pick up Climbers gloves"
 id = 8
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.909522, 0)
-mesh = SubResource("BoxMesh_dgwdk")
-surface_material_override/0 = ExtResource("15_thlmv")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18642, 0.909522, 0)
-mesh = SubResource("BoxMesh_dgwdk")
-surface_material_override/0 = ExtResource("16_3gsho")
+[node name="respawn_point" parent="." instance=ExtResource("16_uxas1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0464, 7.06453, -75.8627)

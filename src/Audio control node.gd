@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func _on_new_room_entered(roomData : Dictionary):
-	print(roomData)
+	#print(roomData)
 	match roomData["zone"]:
 		GameDataSingleton.map_zone.GARDEN:
 			music.play()

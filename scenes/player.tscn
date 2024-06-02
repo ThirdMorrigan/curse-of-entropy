@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
@@ -603,7 +603,7 @@ states/swing_0/position = Vector2(489, 100)
 states/walk/node = SubResource("AnimationNodeBlendTree_8yyy3")
 states/walk/position = Vector2(315, 190)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_i2137"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_6ak4p"), "idle", "swing_0", SubResource("AnimationNodeStateMachineTransition_m8irs"), "swing_0", "idle", SubResource("AnimationNodeStateMachineTransition_48p4f"), "swing_0", "walk", SubResource("AnimationNodeStateMachineTransition_vxpoh"), "walk", "swing_0", SubResource("AnimationNodeStateMachineTransition_3gjrk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_7f6dj")]
-graph_offset = Vector2(0, -61)
+graph_offset = Vector2(-1562, -61)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("current_tool")]
 floor_block_on_wall = false
@@ -863,7 +863,7 @@ script = ExtResource("2_k1kd7")
 
 [node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("3_vwos7")
-max_hp = 100.0
+max_hp = 1.0
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -910,14 +910,14 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
 parameters/walk/walk_tilt_add/add_amount = 2.0
 script = ExtResource("26_xowfa")
 
+[connection signal="player_death" from="." to="game_ui" method="_on_player_player_death"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
 [connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]
+[connection signal="fade_complete" from="game_ui" to="." method="_on_game_ui_fade_complete"]
+[connection signal="fade_complete" from="game_ui" to="HealthPool" method="_on_player_death"]

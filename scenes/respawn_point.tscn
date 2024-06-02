@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbggg6dd7nwuw"]
+
+[ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_b2dml"]
+[ext_resource type="Script" path="res://src/interactables/respawn_interactable_action.gd" id="2_ouoqb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bcrj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbyje"]
+
+[node name="respawn_point" type="Area3D"]
+script = ExtResource("1_b2dml")
+interactionText = "Set spawn"
+
+[node name="respawn_interactable_action" type="Node" parent="."]
+script = ExtResource("2_ouoqb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509042, -1)
+mesh = SubResource("BoxMesh_4bcrj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509042, -1)
+shape = SubResource("BoxShape3D_fbyje")

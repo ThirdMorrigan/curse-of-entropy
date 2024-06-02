@@ -28,7 +28,7 @@ func _ready():
 func _physics_process(delta):
 	relative_velocity = lerp(relative_velocity, player.velocity * player.global_basis, delta * 20.0)
 	set("parameters/walk/tilt_blend_space/blend_position", relative_velocity.x / 3.0)
-	print(relative_velocity)
+	#print(relative_velocity)
 	if fire_attack :
 		var new_hits : Array[Hurtbox] = player.sword_swing.fire()
 		for h in range(new_hits.size()) :
@@ -58,4 +58,5 @@ func _on_animation_finished(anim_name : String):
 		player.swinging = false
 
 func fire_current_attack():
-	print("trying to fire")
+	#print("trying to fire")
+	pass

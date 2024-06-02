@@ -16,7 +16,7 @@ signal attack_finished
 			creature.track_target = t
 @export var fire_attack : bool = false :
 	set(f):
-		print("setting fire")
+		#print("setting fire")
 		if f :
 			fire_current_attack()
 
@@ -37,11 +37,11 @@ func _on_creature_state_changed():
 func _on_animation_finished(anim_name : String):
 	anim_name = anim_name.to_upper()
 	if anim_name.begins_with("ATTACK"):
-		print("setting state in anim controller anim fginished")
+		#print("setting state in anim controller anim fginished")
 		creature.current_state = creature.State.IDLE
 		attack_finished.emit()
 
 func fire_current_attack():
-	print("trying to fire")
+	#print("trying to fire")
 	if creature != null:
 		creature.attacks[creature.current_attack()].fire()

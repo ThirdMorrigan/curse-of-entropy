@@ -234,6 +234,7 @@ func _exit_tree():
 	mut.unlock()
 	sem.post()
 	ai_loop.wait_to_finish()
-	waiting_thread.wait_to_finish()
+	if waiting_thread.is_alive():
+		waiting_thread.wait_to_finish()
 
 
