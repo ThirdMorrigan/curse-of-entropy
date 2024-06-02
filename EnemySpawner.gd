@@ -14,7 +14,6 @@ func _ready():
 
 
 func spawn():
-	print("hehehaha")
 	if creature != null:
 		add_child(creature.instantiate())
 

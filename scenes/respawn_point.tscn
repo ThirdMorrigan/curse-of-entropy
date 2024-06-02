@@ -9,6 +9,7 @@
 
 [node name="respawn_point" type="Area3D"]
 script = ExtResource("1_b2dml")
+interactionText = "Set spawn"
 
 [node name="respawn_interactable_action" type="Node" parent="."]
 script = ExtResource("2_ouoqb")

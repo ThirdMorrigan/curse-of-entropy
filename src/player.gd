@@ -73,7 +73,7 @@ var pitch_camera : float :
 		$"camera_pivot".rotation.x = x
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
+var character : PlayerCharacter
 var input_dir : Vector3 = Vector3.ZERO
 var can_jump : bool
 var jumping : bool :
@@ -88,6 +88,8 @@ var jumping : bool :
 func _ready():
 	inventory.jump_boots.connect(_apply_jump_boots)
 	crouching = false
+	character = PlayerCharacter.new()
+	add_child(character)
 
 func _process(delta):
 	if !Engine.is_editor_hint():
@@ -165,3 +167,5 @@ func _on_game_ui_fade_complete():
 	position = GameDataSingleton.respawn_point
 	get_tree().call_group("creature","delete")
 	get_tree().call_group("spawner","spawn")
+	character.get_older()
+	
