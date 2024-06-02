@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dwxg1p4lpyrgc"
+path="res://.godot/imported/jailer_arena.map-f7313c02d93f6e52299f7a27edde4bac.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/dungeon/jailer_arena.map"
+dest_files=["res://.godot/imported/jailer_arena.map-f7313c02d93f6e52299f7a27edde4bac.tres"]
+
+[params]
+

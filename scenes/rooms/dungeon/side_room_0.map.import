@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://0xt55iwwmo44"
+path="res://.godot/imported/side_room_0.map-d973624caf2681ddd8e1b80f788859a0.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/dungeon/side_room_0.map"
+dest_files=["res://.godot/imported/side_room_0.map-d973624caf2681ddd8e1b80f788859a0.tres"]
+
+[params]
+

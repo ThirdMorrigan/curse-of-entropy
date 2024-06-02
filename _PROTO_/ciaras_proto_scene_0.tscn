@@ -299,8 +299,6 @@ speed_crouch = 2.0
 acceleration = 80.0
 acceleration_air = 6.0
 friction = 20.0
-current_swing_damage_instance = 0
-swinging = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.322282, 0, 0.946644, 0, 1, 0, -0.946644, 0, 0.322282, 1.80551, 2.15851, 0)
