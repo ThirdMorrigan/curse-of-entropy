@@ -1008,6 +1008,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ely45")
+interactionText = "pick up South west courtyard key"
 id = 4
 
 [node name="entity_4_Item_pickup" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("11_5tv3o")]
@@ -1019,6 +1020,7 @@ func_godot_properties = {
 "quantity": 3
 }
 visuals = ExtResource("13_l2hom")
+interactionText = "pick up Pickaxe"
 id = 3
 quantity = 3
 

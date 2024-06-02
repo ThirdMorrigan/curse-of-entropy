@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c1ls1kwk1gaii"
+path="res://.godot/imported/pillar_room_0.3.map-b797691846614c47b6f24d112dd22aa4.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/dungeon/autosave/pillar_room_0.3.map"
+dest_files=["res://.godot/imported/pillar_room_0.3.map-b797691846614c47b6f24d112dd22aa4.tres"]
+
+[params]
+
