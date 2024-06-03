@@ -1,21 +1,14 @@
-[gd_scene load_steps=53 format=3 uid="uid://lxnrcvm08whn"]
+[gd_scene load_steps=45 format=3 uid="uid://lxnrcvm08whn"]
 
 [ext_resource type="PackedScene" uid="uid://dq25c0xpdv6yp" path="res://assets/models/creatures/humanoid base/humanoid_base.glb" id="1_ufxch"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="2_8djno"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_75wws"]
-[ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="3_ujldt"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="3_w1osr"]
-[ext_resource type="Animation" uid="uid://dxpgwr168tki5" path="res://assets/models/creatures/humanoid base/attack-2h-thrust.res" id="4_67u3p"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="5_5qyje"]
-[ext_resource type="Animation" uid="uid://fh8elerhgb8b" path="res://assets/models/creatures/humanoid base/idle.res" id="5_is513"]
-[ext_resource type="Animation" uid="uid://wqc2q3ml87yr" path="res://assets/models/creatures/humanoid base/idle-1h.res" id="6_0sysk"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="6_xsdof"]
-[ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="7_gxbjn"]
 [ext_resource type="Script" path="res://src/attack.gd" id="7_kj51n"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="8_ge3yd"]
-[ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="8_ohnto"]
-[ext_resource type="Animation" uid="uid://cl373jmtxdgub" path="res://assets/models/creatures/humanoid base/walk_proto.res" id="9_kj466"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="9_r6von"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34wcx"]
@@ -250,17 +243,6 @@ shader_parameter/texture_crunch = SubResource("CurveXYZTexture_ma58v")
 [sub_resource type="SphereShape3D" id="SphereShape3D_klpjv"]
 radius = 0.0743231
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1cii"]
-_data = {
-"attack-1h": ExtResource("3_ujldt"),
-"attack-2h-thrust": ExtResource("4_67u3p"),
-"idle": ExtResource("5_is513"),
-"idle-1h": ExtResource("6_0sysk"),
-"idle-2h": ExtResource("7_gxbjn"),
-"walk": ExtResource("8_ohnto"),
-"walk_proto": ExtResource("9_kj466")
-}
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
 animation = &"attack-1h"
 
@@ -452,9 +434,6 @@ shape = SubResource("SphereShape3D_klpjv")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 root_motion_track = NodePath("rig/Skeleton3D:Bone")
-libraries = {
-"": SubResource("AnimationLibrary_l1cii")
-}
 tree_root = SubResource("AnimationNodeStateMachine_848h1")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/Add2/add_amount = 1.0
