@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6a7s5frem84q"
-path.s3tc="res://.godot/imported/base_stone_albedo.png-311652c64197f8e5d1194af83e4fbc9f.s3tc.ctex"
+uid="uid://csk52b4ldfrdg"
+path.s3tc="res://.godot/imported/bare_stone_crunch.png-4636b9c65e3903ea2ad0f28f103f45b6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/materials/bare_stone/base_stone_albedo.png"
-dest_files=["res://.godot/imported/base_stone_albedo.png-311652c64197f8e5d1194af83e4fbc9f.s3tc.ctex"]
+source_file="res://assets/materials/bare_stone/bare_stone_crunch.png"
+dest_files=["res://.godot/imported/bare_stone_crunch.png-4636b9c65e3903ea2ad0f28f103f45b6.s3tc.ctex"]
 
 [params]
 

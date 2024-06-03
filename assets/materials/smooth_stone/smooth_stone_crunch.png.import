@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4kap0m2r0bjg"
-path.s3tc="res://.godot/imported/base_stone_normal.png-5ae85c97c3fa0a75ce68d496ccd8b56b.s3tc.ctex"
+uid="uid://driea32ed8tb4"
+path.s3tc="res://.godot/imported/smooth_stone_crunch.png-e329a2cc669073fc74efd9b5ef1bdf88.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/materials/bare_stone/base_stone_normal.png"
-dest_files=["res://.godot/imported/base_stone_normal.png-5ae85c97c3fa0a75ce68d496ccd8b56b.s3tc.ctex"]
+source_file="res://assets/materials/smooth_stone/smooth_stone_crunch.png"
+dest_files=["res://.godot/imported/smooth_stone_crunch.png-e329a2cc669073fc74efd9b5ef1bdf88.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://assets/materials/bare_stone/base_stone_normal.png"
+roughness/mode=7
+roughness/src_normal="res://assets/materials/smooth_stone/smooth_stone_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dc7e3jahsipi3"]
 
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_mp4py"]
-[ext_resource type="Texture2D" uid="uid://c6a7s5frem84q" path="res://assets/materials/bare_stone/base_stone_albedo.png" id="2_au7c4"]
-[ext_resource type="Texture2D" uid="uid://ddhm7uobbgihj" path="res://assets/materials/bare_stone/base_stone_crunch.png" id="3_yfakb"]
-[ext_resource type="Texture2D" uid="uid://4kap0m2r0bjg" path="res://assets/materials/bare_stone/base_stone_normal.png" id="4_b7m1p"]
+[ext_resource type="Texture2D" uid="uid://dryixn0go3gpk" path="res://assets/materials/bare_stone/bare_stone_albedo.png" id="2_27p5f"]
+[ext_resource type="Texture2D" uid="uid://csk52b4ldfrdg" path="res://assets/materials/bare_stone/bare_stone_crunch.png" id="3_ce0co"]
+[ext_resource type="Texture2D" uid="uid://0nnk40k2bko6" path="res://assets/materials/bare_stone/bare_stone_normal.png" id="4_yxxx0"]
 
 [resource]
 render_priority = 0
@@ -16,6 +16,6 @@ shader_parameter/specular = 0.5
 shader_parameter/metallic = 1.0
 shader_parameter/normal_scale = 1.0
 shader_parameter/ao_light_affect = 0.5
-shader_parameter/texture_albedo = ExtResource("2_au7c4")
-shader_parameter/texture_normal = ExtResource("4_b7m1p")
-shader_parameter/texture_crunch = ExtResource("3_yfakb")
+shader_parameter/texture_albedo = ExtResource("2_27p5f")
+shader_parameter/texture_normal = ExtResource("4_yxxx0")
+shader_parameter/texture_crunch = ExtResource("3_ce0co")

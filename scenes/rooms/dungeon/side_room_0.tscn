@@ -77,14 +77,6 @@ zone = 4
 navigation_mesh = SubResource("NavigationMesh_a33vr")
 script = ExtResource("2_e0cxi")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegionController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4965, 2.08879, 22.9929)
-light_energy = 0.2
-light_size = 50.0
-light_specular = 0.0
-omni_range = 50.0
-omni_attenuation = 0.0114382
-
 [node name="FuncGodotMap" type="Node3D" parent="." groups=["side_room_0_world"]]
 script = ExtResource("3_c0syd")
 local_map_file = "res://scenes/rooms/dungeon/side_room_0.map"

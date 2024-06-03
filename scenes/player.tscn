@@ -45,7 +45,7 @@ height = 0.8
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gnhj7"]
 height = 0.2
-radius = 0.4
+radius = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61ybn"]
 render_priority = 0
@@ -707,7 +707,11 @@ remote_path = NodePath("../../separation_ray_left")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot"]
+doppler_tracking = 2
+projection = 2
 fov = 90.0
+size = 0.035
+near = 0.02
 
 [node name="RayCast3D" type="RayCast3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150992, 0)
@@ -718,6 +722,7 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=24 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -20,14 +20,18 @@
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
 [ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="20_qitwe"]
+[ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
+exposure_multiplier = 2.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u546n"]
 
 [node name="WorldMap" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57068, 1.54328, -18.9217)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_tfkiy")
+camera_attributes = SubResource("CameraAttributesPractical_xd1se")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 5.80709, 0)
@@ -91,8 +95,21 @@ id = 8
 [node name="respawn_point" parent="." instance=ExtResource("16_uxas1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0464, 7.06453, -75.8627)
 
+[node name="Player" parent="." instance=ExtResource("4_dj85u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.372, 6.61388, -9.78735)
+
 [node name="Dungeon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)
+
+[node name="ambient_omni" type="OmniLight3D" parent="Dungeon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.651, 31.5357, -16.199)
+light_energy = 0.1
+light_size = 50.0
+light_specular = 0.0
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+omni_range = 15.0
+omni_attenuation = 4.02682e-05
 
 [node name="PillarRoom0" parent="Dungeon" instance=ExtResource("17_uikiu")]
 
@@ -102,3 +119,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)
 
 [node name="proto_thrall_1h" parent="." instance=ExtResource("20_qitwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0352, 0, -32.7317)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.882102, 0.835171, 0.00676489)
+mesh = SubResource("PlaneMesh_u546n")
+surface_material_override/0 = ExtResource("21_x60d4")

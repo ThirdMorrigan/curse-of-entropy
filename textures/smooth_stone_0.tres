@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://jsufqdhpo58a"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_rmgro"]
+[ext_resource type="Texture2D" uid="uid://c2ga1icjw4hfe" path="res://assets/materials/smooth_stone/smooth_stone_albedo.png" id="2_alrs4"]
+[ext_resource type="Texture2D" uid="uid://driea32ed8tb4" path="res://assets/materials/smooth_stone/smooth_stone_crunch.png" id="3_uhm7n"]
+[ext_resource type="Texture2D" uid="uid://vlcu4cbigv8q" path="res://assets/materials/smooth_stone/smooth_stone_normal.png" id="4_8thc1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rmgro")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_alrs4")
+shader_parameter/texture_normal = ExtResource("4_8thc1")
+shader_parameter/texture_crunch = ExtResource("3_uhm7n")

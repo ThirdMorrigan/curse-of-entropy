@@ -649,11 +649,3 @@ func_godot_properties = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_jglw3")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92331, 2.08879, 0)
-light_energy = 0.2
-light_size = 50.0
-light_specular = 0.0
-omni_range = 50.0
-omni_attenuation = 0.0114382
