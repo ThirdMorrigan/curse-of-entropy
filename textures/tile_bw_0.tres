@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bj3a12dvnt81k"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_wnutg"]
+[ext_resource type="Texture2D" uid="uid://b8ghorh3stayd" path="res://assets/materials/tile_bw/tile_bw_albedo.png" id="2_qnwat"]
+[ext_resource type="Texture2D" uid="uid://bdorwwt0sukc2" path="res://assets/materials/tile_bw/tile_bw_crunch.png" id="3_irchl"]
+[ext_resource type="Texture2D" uid="uid://dtu3eqish2yu4" path="res://assets/materials/tile_bw/tile_bw_normal.png" id="4_6krxr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wnutg")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_qnwat")
+shader_parameter/texture_normal = ExtResource("4_6krxr")
+shader_parameter/texture_crunch = ExtResource("3_irchl")
