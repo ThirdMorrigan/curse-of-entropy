@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
@@ -45,7 +45,7 @@ height = 0.8
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gnhj7"]
 height = 0.2
-radius = 0.4
+radius = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61ybn"]
 render_priority = 0
@@ -264,6 +264,18 @@ tracks/9/path = NodePath("metarig/Skeleton3D:IK.R")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = PackedFloat32Array(0, 1, -0.0397845, -0.664006, 0.742078, 0.0826624, 0.0333333, 1, -0.00903175, -0.689898, 0.720799, 0.0663874, 0.0666667, 1, 0.055682, -0.739002, 0.670643, 0.0318349, 0.1, 1, 0.138909, -0.791317, 0.595269, -0.0132685, 0.133333, 1, -0.223427, 0.831217, -0.505556, 0.059761, 0.166667, 1, -0.292554, 0.852755, -0.421454, 0.0979646, 0.2, 1, -0.326908, 0.85895, -0.376832, 0.115476, 0.233333, 1, -0.344062, 0.860238, -0.355894, 0.122275, 0.266667, 1, -0.351026, 0.859268, -0.351359, 0.122418, 0.3, 1, -0.353921, 0.856819, -0.35537, 0.119641, 0.333333, 1, -0.358494, 0.853205, -0.360151, 0.117533, 0.366667, 1, -0.337557, 0.782877, -0.499494, 0.153834, 0.4, 1, -0.26502, 0.584648, -0.731965, 0.228427, 0.433333, 1, -0.16434, 0.305701, -0.885746, 0.308211, 0.466667, 1, -0.0820702, 0.0575927, -0.916841, 0.386459, 0.5, 1, -0.0479616, -0.0809504, -0.874176, 0.476407, 0.533333, 1, 0.0373032, -0.142151, -0.859511, 0.489533, 0.566667, 1, 0.177803, -0.159396, -0.871484, 0.428362, 0.6, 1, 0.350553, -0.130488, -0.878949, 0.295862, 0.633333, 1, 0.513702, -0.0601082, -0.848378, 0.112922, 0.666667, 1, -0.623196, -0.0343362, 0.778039, 0.071436, 0.7, 1, -0.656718, -0.122848, 0.721766, 0.180787, 0.733333, 1, -0.650562, -0.203471, 0.694774, 0.229474, 0.766667, 1, -0.617472, -0.281493, 0.696881, 0.232048, 0.8, 1, -0.560764, -0.358882, 0.719076, 0.199193, 0.833333, 1, -0.480069, -0.434137, 0.7495, 0.138956, 0.866667, 1, -0.378491, -0.499913, 0.776557, 0.0615762, 0.9, 1, -0.276128, -0.549489, 0.788503, -0.00888403, 0.933333, 1, 0.186522, 0.583824, -0.787832, 0.0606591, 0.966667, 1, 0.117278, 0.607307, -0.780703, 0.0890342, 1, 1, 0.0688302, 0.624294, -0.772216, 0.0959291, 1.03333, 1, 0.0417296, 0.636845, -0.765417, 0.0826037, 1.06667, 1, 0.0263798, 0.646882, -0.759826, 0.05927, 1.1, 1, 0.0203567, 0.654564, -0.755169, 0.0291912, 1.13333, 1, 0.0212801, 0.659885, -0.751053, -0.00427016, 1.16667, 1, -0.0268264, -0.662931, 0.747253, 0.0376343, 1.2, 1, -0.0337762, -0.663876, 0.744387, 0.0633653, 1.23333, 1, -0.0380755, -0.664033, 0.742699, 0.0775158, 1.25, 1, -0.0397845, -0.664006, 0.742078, 0.0826624)
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../viewmodel_animation_tree:fire_attack")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_vemgb"]
 resource_name = "tilr_r"
@@ -514,8 +526,8 @@ size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="Resource" id="Resource_hl5qo"]
 script = ExtResource("13_qgojy")
-damage = 0.1
-impulse = 0.1
+damage = 5.0
+impulse = 2.0
 damage_types = 1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bqkju"]
@@ -570,6 +582,7 @@ advance_mode = 2
 advance_expression = "relative_velocity.length_squared() > 0.1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8irs"]
+xfade_time = 0.05
 advance_mode = 2
 advance_expression = "swinging"
 
@@ -578,12 +591,8 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "relative_velocity.length_squared() <= 0.1"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vxpoh"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "relative_velocity.length_squared() > 0.1"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3gjrk"]
+xfade_time = 0.05
 advance_mode = 2
 advance_expression = "swinging"
 
@@ -591,6 +600,11 @@ advance_expression = "swinging"
 xfade_time = 0.2
 advance_mode = 2
 advance_expression = "relative_velocity.length_squared() < 0.01"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vxpoh"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "relative_velocity.length_squared() > 0.1"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vwxjo"]
 states/End/position = Vector2(934, 25)
@@ -600,12 +614,12 @@ states/swing_0/node = SubResource("AnimationNodeAnimation_y2l4i")
 states/swing_0/position = Vector2(489, 100)
 states/walk/node = SubResource("AnimationNodeBlendTree_8yyy3")
 states/walk/position = Vector2(315, 190)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_i2137"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_6ak4p"), "idle", "swing_0", SubResource("AnimationNodeStateMachineTransition_m8irs"), "swing_0", "idle", SubResource("AnimationNodeStateMachineTransition_48p4f"), "swing_0", "walk", SubResource("AnimationNodeStateMachineTransition_vxpoh"), "walk", "swing_0", SubResource("AnimationNodeStateMachineTransition_3gjrk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_7f6dj")]
-graph_offset = Vector2(-1562, -61)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_i2137"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_6ak4p"), "idle", "swing_0", SubResource("AnimationNodeStateMachineTransition_m8irs"), "swing_0", "idle", SubResource("AnimationNodeStateMachineTransition_48p4f"), "walk", "swing_0", SubResource("AnimationNodeStateMachineTransition_3gjrk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_7f6dj"), "swing_0", "walk", SubResource("AnimationNodeStateMachineTransition_vxpoh")]
+graph_offset = Vector2(-313, -49)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("current_tool")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "current_tool")]
 floor_block_on_wall = false
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
@@ -614,6 +628,7 @@ acceleration_air = 5.0
 friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
+sword_swing = NodePath("sword_swing")
 current_tool = NodePath("PickaxeSwing")
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
@@ -692,7 +707,11 @@ remote_path = NodePath("../../separation_ray_left")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot"]
+doppler_tracking = 2
+projection = 2
 fov = 90.0
+size = 0.035
+near = 0.02
 
 [node name="RayCast3D" type="RayCast3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150992, 0)
@@ -703,13 +722,13 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
 hideInEditor = false
-hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -863,7 +882,7 @@ script = ExtResource("2_k1kd7")
 
 [node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("3_vwos7")
-max_hp = 100.0
+max_hp = 5000.0
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -905,11 +924,15 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
+libraries = {
+"": SubResource("AnimationLibrary_vtxm4")
+}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
 parameters/walk/walk_tilt_add/add_amount = 2.0
 script = ExtResource("26_xowfa")
+fire_attack = true
 
 [node name="game_ui" parent="." instance=ExtResource("17_f2jcj")]
 

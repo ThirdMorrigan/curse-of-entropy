@@ -111,14 +111,18 @@ func _physics_process(delta):
 			#print("player close")
 			var _p = vision_area.get_overlapping_areas()[0].parent
 			var to_player = (_p.global_position - creature.global_position)
-			if (creature.global_basis * Vector3.FORWARD).angle_to(to_player) < deg_to_rad(vision_angle) :
-				#print("player in cone")
+			var close = to_player.length_squared() < 4.0
+			var loud = !_p.crouching && _p.velocity.length_squared() > 0.01
+			var hit = creature.aware
+			if close || loud || hit:
+				player = _p
+			elif (creature.global_basis * Vector3.FORWARD).angle_to(to_player) < deg_to_rad(vision_angle) :
 				var space_state = creature.get_world_3d().direct_space_state
 				var ray_params = PhysicsRayQueryParameters3D.create(eyes.global_position, _p.global_position + Vector3.UP, 17)
 				ray_params.collide_with_areas = true
 				var result = space_state.intersect_ray(ray_params)
 				if result["collider"].collision_layer == 16 :
-					#print("player seen")
+					creature.aware = true
 					player = _p
 	mut.unlock()
 	

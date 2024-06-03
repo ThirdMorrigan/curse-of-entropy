@@ -28,6 +28,8 @@ var goal_look : Vector3
 var goal_vel : Vector3 = Vector3.ZERO
 var to_impulse : Vector3 = Vector3.ZERO
 
+var aware : bool = false
+
 func _ready():
 	goal_look = basis * Vector3.FORWARD
 	add_to_group("creature")
@@ -82,7 +84,7 @@ func jump(delta):
 		
 
 func impulse(i : Vector3):
-	#print(str("impulsing by ", i))
+	aware = true
 	to_impulse += i
 
 func stop():

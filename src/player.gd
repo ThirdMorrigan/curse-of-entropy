@@ -40,6 +40,8 @@ class_name Player
 
 signal player_death
 
+var current_max_speed : float
+
 var jump_power : float
 var climbing : bool = false
 var coyote_timer : int
@@ -86,6 +88,7 @@ var jumping : bool :
 		
 
 func _ready():
+	current_max_speed = speed
 	inventory.jump_boots.connect(_apply_jump_boots)
 	crouching = false
 	character = PlayerCharacter.new()
@@ -131,7 +134,8 @@ func _physics_process(delta):
 		velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
 		var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
 		if swinging : speed_limit *= sword_swing.weight
-		velocity = velocity.limit_length(speed_limit)
+		current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
+		velocity = velocity.limit_length(current_max_speed)
 
 		if !climbing:
 			velocity.y = vel_v
