@@ -1,7 +1,7 @@
 extends Node3D
 @onready var music : AudioStreamPlayer = $music
 
-@onready var player_sfx : AudioStreamPlayer = $player_sfx
+@onready var player_sfx_footsteps : AudioStreamPlayer = $player_sfx_footsteps
 
 @onready var player = $"../../.."
 
@@ -25,7 +25,7 @@ func _on_new_room_entered(roomData : Dictionary):
 
 func player_moving():
 	if player.velocity.length_squared()>0.001 && player.is_on_floor():
-		if !player_sfx.playing:
-			player_sfx.play()
+		if !player_sfx_footsteps.playing:
+			player_sfx_footsteps.play()
 	else:
-		player_sfx.stop()
+		player_sfx_footsteps.stop()

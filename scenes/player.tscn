@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
@@ -722,7 +722,6 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
-visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
@@ -741,7 +740,7 @@ script = ExtResource("5_atf2r")
 [node name="music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("6_gmdfq")
 
-[node name="player_sfx" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+[node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("7_7kgrb")
 
 [node name="room_detector" type="Area3D" parent="camera_pivot/Camera3D"]
@@ -924,9 +923,6 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
