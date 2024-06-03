@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://622b6tyw60y0" path="res://assets/materials/brick/wall_0/tex/wall_brick_albedo.png" id="5_0t73u"]
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="6_a5ea3"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_dxs8t"]
-[ext_resource type="Material" uid="uid://bdd2i3l0kn0s8" path="res://textures/wall_brick_normal.tres" id="8_bk1rp"]
+[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="8_bk1rp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
 
@@ -16,6 +16,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkrlj"]
 render_priority = 0
 shader = ExtResource("4_mdmoo")
+shader_parameter/vertex_wobble_scale = 0
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0
