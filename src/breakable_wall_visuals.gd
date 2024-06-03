@@ -22,7 +22,7 @@ func _on_animation_player_animation_finished(anim_name):
 	timer.start()
 
 func _on_timer_timeout():
-	print("kill")
+	#print("kill")
 	var rock = get_children().pick_random()
 	if rock is MeshInstance3D:
 		rock.queue_free()

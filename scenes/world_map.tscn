@@ -1,0 +1,126 @@
+[gd_scene load_steps=24 format=3 uid="uid://bbaki6pwgq3ad"]
+
+[ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
+[ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
+[ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="4_3kt52"]
+[ext_resource type="PackedScene" uid="uid://ct0ufd3dj7oqw" path="res://scenes/rooms/garden/garden_1_tunnel.tscn" id="4_5b8cs"]
+[ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_dj85u"]
+[ext_resource type="PackedScene" uid="uid://dyvbnk6yj5r4e" path="res://scenes/rooms/cave/cave_0.tscn" id="4_imm0p"]
+[ext_resource type="PackedScene" uid="uid://gyma5elte04f" path="res://scenes/rooms/garden/garden_2_clifftop_entrance.tscn" id="5_3ma6k"]
+[ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="5_u0wn1"]
+[ext_resource type="PackedScene" uid="uid://d7uk01l6ew2y" path="res://scenes/rooms/castle/castle temp.tscn" id="6_llrit"]
+[ext_resource type="PackedScene" uid="uid://bbpt3c2rpfwl2" path="res://scenes/rooms/garden/garden_4_clifftop.tscn" id="6_lmwv8"]
+[ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
+[ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
+[ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
+[ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
+[ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
+[ext_resource type="PackedScene" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
+[ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
+[ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
+[ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
+[ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="20_qitwe"]
+[ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
+exposure_multiplier = 2.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u546n"]
+
+[node name="WorldMap" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_tfkiy")
+camera_attributes = SubResource("CameraAttributesPractical_xd1se")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 5.80709, 0)
+light_energy = 8.0
+shadow_enabled = true
+shadow_blur = 0.5
+
+[node name="Garden" type="Node3D" parent="."]
+
+[node name="Room" parent="Garden" instance=ExtResource("3_4a6ae")]
+
+[node name="Room2" parent="Garden" instance=ExtResource("4_5b8cs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3671, 0.4929, -51.5055)
+
+[node name="Room3" parent="Garden" instance=ExtResource("5_3ma6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9382, 7.48331, 135.114)
+
+[node name="Room4" parent="Garden" instance=ExtResource("6_lmwv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.9778, 6.06453, -63.4947)
+
+[node name="Cave" type="Node3D" parent="."]
+
+[node name="Room" parent="Cave" instance=ExtResource("4_imm0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, -0.91, 0.001)
+
+[node name="breakable_wall" parent="." instance=ExtResource("4_3kt52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.4069, 2.38419e-07, 8.45011)
+
+[node name="Pickaxe" parent="." instance=ExtResource("5_u0wn1")]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 39.5987, 0.793831, 6.23055)
+
+[node name="Castle" type="Node3D" parent="."]
+
+[node name="Room" parent="Castle" instance=ExtResource("6_llrit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7508, 4.9872, 16.2351)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("7_65b00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2448, 2.38419e-07, 4.71408)
+
+[node name="Key" parent="." instance=ExtResource("11_8bbro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4948, 9.53674e-07, -48.7117)
+
+[node name="Pickaxe2" parent="." instance=ExtResource("5_u0wn1")]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 29.042, 0, -49.2395)
+
+[node name="Key2" parent="." instance=ExtResource("11_8bbro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2488, 0, -39.7928)
+visuals = ExtResource("12_1ifis")
+interactionText = "pick up Jump boots"
+id = 7
+
+[node name="Climable" parent="." instance=ExtResource("13_fdyd1")]
+transform = Transform3D(2.65, 0, 0, 0, 2.65, 0, 0, 0, 2.65, 28.8127, 0.187195, -30.1653)
+
+[node name="Key3" parent="." instance=ExtResource("11_8bbro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1928, 0, -39.7575)
+visuals = ExtResource("14_1joox")
+interactionText = "pick up Climbers gloves"
+id = 8
+
+[node name="respawn_point" parent="." instance=ExtResource("16_uxas1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0464, 7.06453, -75.8627)
+
+[node name="Player" parent="." instance=ExtResource("4_dj85u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.372, 6.61388, -9.78735)
+
+[node name="Dungeon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)
+
+[node name="ambient_omni" type="OmniLight3D" parent="Dungeon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.651, 31.5357, -16.199)
+light_energy = 0.1
+light_size = 50.0
+light_specular = 0.0
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+omni_range = 15.0
+omni_attenuation = 4.02682e-05
+
+[node name="PillarRoom0" parent="Dungeon" instance=ExtResource("17_uikiu")]
+
+[node name="PillarRoom1" parent="Dungeon" instance=ExtResource("18_tf7ma")]
+
+[node name="SideRoom0" parent="Dungeon" instance=ExtResource("19_t0tue")]
+
+[node name="proto_thrall_1h" parent="." instance=ExtResource("20_qitwe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0352, 0, -32.7317)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.882102, 0.835171, 0.00676489)
+mesh = SubResource("PlaneMesh_u546n")
+surface_material_override/0 = ExtResource("21_x60d4")

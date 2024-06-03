@@ -8,6 +8,9 @@ class_name Hurtbox
 
 var health_pool : HealthPool
 
+var parent :
+	get:
+		return health_pool.parent
 
 func _ready():
 	monitoring = false
@@ -30,6 +33,12 @@ func damage(d : DamageInstance):
 	d.damage *= damage_modifier
 	health_pool.hurt(d)
 
+func startClimb():
+	$"..".climbing = true
+	pass
 
+func stopClimb():
+	$"..".climbing = false
+	pass
 
 

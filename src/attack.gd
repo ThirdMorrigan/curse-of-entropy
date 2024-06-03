@@ -24,6 +24,7 @@ signal hit
 @export var ai_range_min : float = 0.0
 @export var ai_range_max : float = 2.0
 @export var weight : float = 1.0
+@export var wind_down : float = 1.0
 var cast : ShapeCast3D
 
 func _ready():
@@ -31,13 +32,11 @@ func _ready():
 	create_hitbox()
 
 func fire() :
-	print("firing")
-	cast.force_shapecast_update()
 	if attack_origin != null :
 		cast.global_position = attack_origin.global_position
 		cast.global_rotation = attack_origin.global_rotation
+	cast.force_shapecast_update()
 	if cast.is_colliding():
-		print("hitting")
 		for t in range(cast.get_collision_count()):
 			var h = cast.get_collider(t)
 			if h is Hurtbox:
@@ -51,12 +50,13 @@ func create_hitbox():
 	cast.collide_with_bodies = false
 	cast.exclude_parent = true
 	cast.collision_mask = targets #* 8.0
-	print(cast.collision_mask)
+	#print(cast.collision_mask)
 	cast.shape = hitbox_shape
 	cast.global_position = attack_origin.global_position if attack_origin != null else Vector3(0.0, 1.0, 0.0)
+	cast.global_rotation = attack_origin.global_rotation if attack_origin != null else Vector3.ZERO
 	cast.target_position = Vector3.FORWARD * range
 
 func get_modified_damage_instance(d : DamageInstance) -> DamageInstance :
 	var d_temp = d.copy()
-	d_temp.impulse_vector = d_temp.impulse_vector * cast.global_basis
+	d_temp.rotate_impulse(global_basis)
 	return d_temp

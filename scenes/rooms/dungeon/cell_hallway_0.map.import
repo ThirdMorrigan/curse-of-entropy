@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://2ob35bgbi2pl"
+path="res://.godot/imported/cell_hallway_0.map-c9265b487ac2e4a2df0ed82c0220672d.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/dungeon/cell_hallway_0.map"
+dest_files=["res://.godot/imported/cell_hallway_0.map-c9265b487ac2e4a2df0ed82c0220672d.tres"]
+
+[params]
+

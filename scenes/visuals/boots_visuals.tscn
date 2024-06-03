@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://puxurcrqxtkp"]
+
+[ext_resource type="PackedScene" uid="uid://dps6w580gvaic" path="res://assets/models/boots.glb" id="1_dvlk7"]
+
+[node name="boots" instance=ExtResource("1_dvlk7")]

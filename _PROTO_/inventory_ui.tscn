@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g4jm5a62hdsg"]
+[gd_scene load_steps=4 format=3 uid="uid://g4jm5a62hdsg"]
 
 [ext_resource type="Script" path="res://_PROTO_/inventory_ui.gd" id="1_odtb2"]
 [ext_resource type="ButtonGroup" path="res://_PROTO_/inventory_ui_catagory_buttongroup.tres" id="2_fso8h"]
+[ext_resource type="Script" path="res://src/UI/view_page.gd" id="3_g8dbn"]
 
 [node name="InventoryUI" type="Control"]
 custom_minimum_size = Vector2(800, 500)
@@ -19,9 +20,50 @@ catagory_buttons = ExtResource("2_fso8h")
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(800, 500)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 800.0
+offset_bottom = 500.0
 color = Color(0.168627, 0.176471, 0.192157, 1)
+
+[node name="view_page" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.64375
+anchor_top = 0.124
+anchor_right = 0.982
+anchor_bottom = 0.974
+offset_right = 0.399963
+offset_bottom = -3.05176e-05
+script = ExtResource("3_g8dbn")
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="view_page"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="descrition" type="Label" parent="view_page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.167
+anchor_right = 0.531
+anchor_bottom = 0.628059
+offset_top = 0.0249939
+offset_right = 0.098999
+offset_bottom = 0.0749969
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="age" type="Label" parent="view_page"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -49,20 +91,27 @@ toggle_mode = true
 button_group = ExtResource("2_fso8h")
 text = "Tools"
 
-[node name="VScrollBar" type="VScrollBar" parent="."]
+[node name="ButtonNotes" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-offset_left = 500.0
-offset_top = 60.0
-offset_right = 508.0
-offset_bottom = 487.0
+toggle_mode = true
+button_group = ExtResource("2_fso8h")
+text = "Notes
+"
 
-[node name="ItemSlotContainer" type="VBoxContainer" parent="VScrollBar"]
+[node name="ItemSlotContainer" type="VBoxContainer" parent="."]
 clip_contents = true
 layout_mode = 0
-offset_left = -493.0
-offset_right = -6.0
-offset_bottom = 433.0
+offset_left = 7.0
+offset_top = 60.0
+offset_right = 494.0
+offset_bottom = 493.0
+
+[node name="Button" type="Button" parent="ItemSlotContainer"]
+layout_mode = 2
+text = "test"
 
 [connection signal="pressed" from="HBoxContainer/ButtonKeys" to="." method="populate_inventory" binds= [0]]
 [connection signal="pressed" from="HBoxContainer/ButtonConsumables" to="." method="populate_inventory" binds= [1]]
 [connection signal="pressed" from="HBoxContainer/ButtonTools" to="." method="populate_inventory" binds= [2]]
+[connection signal="pressed" from="HBoxContainer/ButtonNotes" to="." method="populate_inventory" binds= [3]]

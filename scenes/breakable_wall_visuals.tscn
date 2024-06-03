@@ -1,9 +1,226 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmjun4ai78pvm"]
+[gd_scene load_steps=4 format=3 uid="uid://cmjun4ai78pvm"]
 
-[ext_resource type="PackedScene" uid="uid://cap1jjt7vmb6s" path="res://assets/models/breakable_wall_v5.glb" id="1_t05wx"]
+[ext_resource type="PackedScene" uid="uid://ctm3qbpgkvehj" path="res://assets/models/breakable_wall_2.glb" id="1_t05wx"]
 [ext_resource type="Script" path="res://src/breakable_wall_visuals.gd" id="2_eywn2"]
+[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="3_ru2e4"]
 
 [node name="breakable_wall_v5" instance=ExtResource("1_t05wx")]
 script = ExtResource("2_eywn2")
+material = ExtResource("3_ru2e4")
+
+[node name="Cube_cell" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_005" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_007" parent="." index="2"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_001" parent="." index="3"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_002" parent="." index="4"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_003" parent="." index="5"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_005" parent="." index="6"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_006" parent="." index="7"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_007" parent="." index="8"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_009" parent="." index="9"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_011" parent="." index="10"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_001" parent="." index="11"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_002" parent="." index="12"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_005" parent="." index="13"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_006" parent="." index="14"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_007" parent="." index="15"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_008" parent="." index="16"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_010" parent="." index="17"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_009_cell_002" parent="." index="18"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_009_cell_004" parent="." index="19"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+surface_material_override/1 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_009_cell_005" parent="." index="20"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_009_cell_006" parent="." index="21"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_009_cell_008" parent="." index="22"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_009_cell_009" parent="." index="23"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_009_cell_010" parent="." index="24"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell" parent="." index="25"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell_002" parent="." index="26"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell_004" parent="." index="27"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell_005" parent="." index="28"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell_007" parent="." index="29"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell_008" parent="." index="30"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell_009" parent="." index="31"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_003_cell_003_cell_010" parent="." index="32"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell" parent="." index="33"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_001" parent="." index="34"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_002" parent="." index="35"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_004" parent="." index="36"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_005" parent="." index="37"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_006" parent="." index="38"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_007" parent="." index="39"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_008" parent="." index="40"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_009" parent="." index="41"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_006_cell_cell_010" parent="." index="42"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell" parent="." index="43"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_001" parent="." index="44"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_002" parent="." index="45"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_003" parent="." index="46"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_004" parent="." index="47"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_005" parent="." index="48"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_006" parent="." index="49"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+surface_material_override/1 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_007" parent="." index="50"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_008" parent="." index="51"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_004_cell_009" parent="." index="52"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell" parent="." index="53"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_002" parent="." index="54"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_003" parent="." index="55"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_004" parent="." index="56"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_005" parent="." index="57"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_006" parent="." index="58"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_007" parent="." index="59"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_008" parent="." index="60"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_009" parent="." index="61"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_010" parent="." index="62"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_002_cell_011" parent="." index="63"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_001_cell_001" parent="." index="64"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_001_cell_002" parent="." index="65"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_001_cell_005" parent="." index="66"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_001_cell_006" parent="." index="67"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_001_cell_007" parent="." index="68"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_001_cell_008" parent="." index="69"]
+surface_material_override/0 = ExtResource("3_ru2e4")
+
+[node name="Cube_cell_001_cell_009" parent="." index="70"]
+surface_material_override/0 = ExtResource("3_ru2e4")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

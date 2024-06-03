@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bksjwraslra30"
+path="res://.godot/imported/garden_4_cliffside_top.map-eeda2634c45a8ed1556a6601b85df024.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/garden/garden_4_cliffside_top.map"
+dest_files=["res://.godot/imported/garden_4_cliffside_top.map-eeda2634c45a8ed1556a6601b85df024.tres"]
+
+[params]
+

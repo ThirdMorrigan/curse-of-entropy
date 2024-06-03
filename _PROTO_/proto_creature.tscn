@@ -51,9 +51,10 @@ time_horizon_obstacles = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50092, -0.544845)
 gizmo_extents = 0.43
 
-[node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
+[node name="HealthPool" type="Node" parent="."]
 script = ExtResource("7_kch1s")
-hurtboxes = [NodePath("../Hurtbox")]
+max_hp = null
+max_hp_loss_ration = null
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 32

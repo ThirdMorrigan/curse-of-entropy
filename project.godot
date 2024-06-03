@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Curse-of-entropy"
-run/main_scene="res://_PROTO_/ciaras_proto_scene_0.tscn"
+run/main_scene="res://scenes/world_map.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -83,6 +83,11 @@ heal={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
 ]
 }
+swing={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -105,6 +110,7 @@ heal={
 
 [rendering]
 
+occlusion_culling/use_occlusion_culling=true
 environment/defaults/default_environment="res://assets/default_world_environment.tres"
 
 [shader_globals]
@@ -116,4 +122,20 @@ wobble_resolution={
 wobble_resolution_inv={
 "type": "float",
 "value": 0.01
+}
+wobble_resolution_high={
+"type": "float",
+"value": 200.0
+}
+wobble_resolution_inv_high={
+"type": "float",
+"value": 0.005
+}
+wobble_resolution_inv_low={
+"type": "float",
+"value": 0.02
+}
+wobble_resolution_low={
+"type": "float",
+"value": 50.0
 }

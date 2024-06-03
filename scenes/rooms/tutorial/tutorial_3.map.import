@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ntevaknxd4cf"
+path="res://.godot/imported/tutorial_3.map-458b9a0c320965773f243986dfc828c8.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/tutorial/tutorial_3.map"
+dest_files=["res://.godot/imported/tutorial_3.map-458b9a0c320965773f243986dfc828c8.tres"]
+
+[params]
+

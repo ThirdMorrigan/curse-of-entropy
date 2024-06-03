@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://b5siytw1dci08"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_81gjx"]
+[ext_resource type="Texture2D" uid="uid://dlguaimcf28bh" path="res://assets/materials/vine/tex/vine_wall_albedo.png" id="2_jdx81"]
+[ext_resource type="Texture2D" uid="uid://nlg7vx5nkl6p" path="res://assets/materials/vine/tex/vine_wall_crunch.png" id="3_v00g4"]
+[ext_resource type="Texture2D" uid="uid://blri7h0vvli4x" path="res://assets/materials/vine/tex/vine_wall_normal.png" id="4_18b7w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_81gjx")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_jdx81")
+shader_parameter/texture_normal = ExtResource("4_18b7w")
+shader_parameter/texture_crunch = ExtResource("3_v00g4")

@@ -12,6 +12,7 @@ var attacks : Array[Attack]
 var jump_target : Vector3
 var jump_land_error = 0.5
 var landed = true
+var track_target : bool = true
 signal state_changed
 signal jump_reached
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -23,10 +24,15 @@ var current_state : State :
 		current_state = s
 		state_changed.emit()
 
-#var goal_vec : Vector3 = Vector3.ZERO
+var goal_look : Vector3
 var goal_vel : Vector3 = Vector3.ZERO
+var to_impulse : Vector3 = Vector3.ZERO
+
+var aware : bool = false
 
 func _ready():
+	goal_look = basis * Vector3.FORWARD
+	add_to_group("creature")
 	var _attacks = find_children("*", "Attack")
 	for a in _attacks:
 		if a is Attack:
@@ -45,7 +51,7 @@ func _physics_process(delta):
 		State.WALK:
 			if is_on_floor():
 				velocity = goal_vel
-				rotation.y = lerp_angle(rotation.y, atan2(-goal_vel.x, -goal_vel.z), delta * 5)
+				if track_target  : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_look.x, -goal_look.z), delta * 5)
 		State.HURT:
 			pass
 		State.DIE:
@@ -55,10 +61,13 @@ func _physics_process(delta):
 		_:						# ALL ATTACKS HERE :3
 			if is_on_floor():
 				velocity = Vector3.ZERO
-			attacks[current_state - State.ATTACK_0].fire()
+				if track_target : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_look.x, -goal_look.z), delta * 10)
+			#attacks[current_state - State.ATTACK_0].fire()
 		
 
-	
+	if to_impulse :
+		velocity += to_impulse
+		to_impulse = Vector3.ZERO
 	move_and_slide()
 
 func current_attack() -> int :
@@ -73,6 +82,18 @@ func jump(delta):
 	if position.distance_to(jump_target) < jump_land_error:
 		landed = true
 		
+
+func impulse(i : Vector3):
+	aware = true
+	to_impulse += i
+
+func stop():
+	#if $CreatureAI != null:
+		#$CreatureAI.queue_free()
+	pass
+	
+func delete():
+	queue_free()
 
 
 func die():
