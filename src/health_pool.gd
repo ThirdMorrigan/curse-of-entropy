@@ -45,6 +45,10 @@ func hurt(di : DamageInstance):
 	#print(str("someone's health pool is now ", curr_hp))
 	
 
+func _process(delta):
+	if Input.is_action_just_pressed("heal"):
+		heal(1)
+
 func heal(healing : float):
 	curr_hp = minf(curr_max_hp,curr_hp+healing)
 

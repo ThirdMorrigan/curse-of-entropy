@@ -163,9 +163,10 @@ func _apply_jump_boots():
 	jump_height = 1
 
 func die():
+	get_tree().call_group("creature","stop")
 	var death_chance = character.get_death_chance()
 	player_death.emit(randf_range(0,100) < death_chance)
-	get_tree().call_group("creature","stop")
+	
 	
 
 
