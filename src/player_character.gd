@@ -27,17 +27,20 @@ func proto_char():
 	strength = 10
 	intelligence = 5
 
-func get_older():
+func calculate_age_gain():
 	var overkill = abs(health_pool.curr_hp)
 	var max_health_lost = health_pool.max_hp - health_pool.curr_max_hp
-	var years_gained = overkill + max_health_lost * 0.5
-	age += years_gained
+	var years_gained = overkill + max_health_lost * 0.1
 	return years_gained
+
+func get_older():
+	age += calculate_age_gain()
+	
 
 func get_death_chance():
 	var overkill = abs(health_pool.curr_hp)
 	var max_health_lost = health_pool.max_hp - health_pool.curr_max_hp
-	return overkill + max_health_lost * 0.1 + max(0,age - 30) * 2
+	return overkill + max_health_lost + max(0,age - 30) * 2
 
 func _on_player_death(died):
 	if died:
