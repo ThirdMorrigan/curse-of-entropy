@@ -38,6 +38,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 light_energy = 8.0
 shadow_enabled = true
 shadow_blur = 0.5
+directional_shadow_max_distance = 800.0
 
 [node name="Garden" type="Node3D" parent="."]
 
@@ -96,7 +97,7 @@ id = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0464, 7.06453, -75.8627)
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.372, 6.61388, -9.78735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9246, 19.9582, -79.9231)
 
 [node name="Dungeon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)
