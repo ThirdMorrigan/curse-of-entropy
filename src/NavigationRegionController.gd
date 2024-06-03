@@ -1,8 +1,9 @@
 extends NavigationRegion3D
 class_name NavigationRegionController
-@onready var func_godot_map = $FuncGodotMap
+var func_godot_map
 
 func _ready():
+	func_godot_map = $"..".find_children("*", "FuncGodotMap")[0]
 	for entity in func_godot_map.get_children():
 		if entity is Door or entity is BreakableWall:
 			entity.opened.connect(_reload_nav_mesh)

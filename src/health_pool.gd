@@ -35,8 +35,10 @@ func _ready():
 	parent = $".."
 
 func hurt(di : DamageInstance):
+	print(str("yeeeouch! ", di.damage, " damage!"))
 	curr_hp -= di.damage
 	curr_max_hp -= di.damage * max_hp_loss_ration
+	
 	if curr_hp <= 0.0 :
 		parent.die()
 	if can_impulse:

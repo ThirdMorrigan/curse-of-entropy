@@ -5,8 +5,8 @@ class_name Room
 @export var zone : GameDataSingleton.map_zone
 @export var indoors : bool = true
 @onready var collision_shape_3d = $CollisionShape3D
-@onready var func_godot_map : FuncGodotMap = $NavigationRegion3D/FuncGodotMap
-@onready var level_mesh = $NavigationRegion3D/FuncGodotMap/entity_0_worldspawn/entity_0_mesh_instance
+@onready var func_godot_map : FuncGodotMap = $FuncGodotMap
+@onready var level_mesh = $FuncGodotMap/entity_0_worldspawn/entity_0_mesh_instance
 var bounding_box : AABB
 
 # Called when the node enters the scene tree for the first time.
@@ -20,8 +20,8 @@ func toDict():
 	}
 
 func generate_bounding_box():
-	func_godot_map = $NavigationRegion3D/FuncGodotMap
-	level_mesh = $NavigationRegion3D/FuncGodotMap/entity_0_worldspawn/entity_0_mesh_instance
+	func_godot_map = $FuncGodotMap
+	level_mesh = $FuncGodotMap/entity_0_worldspawn/entity_0_mesh_instance
 	if func_godot_map == null or level_mesh == null:
 		print("func_godot map/level mesh is required")
 	else:

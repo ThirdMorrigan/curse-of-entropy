@@ -31,6 +31,8 @@ func _process(_delta):
 		player.jumping = Input.is_action_pressed("move_jump")
 	if Input.is_action_just_pressed("crouch") or Input.is_action_just_released("crouch"):
 		player.crouching = Input.is_action_pressed("crouch")
+	if Input.is_action_just_pressed("swing"):
+		player.try_swing()
 		
 
 func _physics_process(delta):
