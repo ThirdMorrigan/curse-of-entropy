@@ -20,7 +20,7 @@
 [node name="WorldMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0643, 10.2793, -75.4105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.1847, 8.80082, -73.1081)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_tfkiy")

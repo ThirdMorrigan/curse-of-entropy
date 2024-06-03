@@ -3,7 +3,7 @@ extends Node
 class_name HealthPool
 
 @export var max_hp : float = 10
-@export var max_hp_loss_ration : float = 0.01
+@export var max_hp_loss_ration : float = 0.1
 @export var hurtboxes : Array[Hurtbox]
 
 var parent :
@@ -21,7 +21,7 @@ var curr_hp : float :
 		return curr_hp
 	set(hp):
 		curr_hp = hp
-		health_change.emit(curr_hp)
+		health_change.emit(curr_hp,curr_max_hp)
 
 func _ready():
 	curr_max_hp = max_hp
@@ -35,8 +35,9 @@ func _ready():
 	parent = $".."
 
 func hurt(di : DamageInstance):
-	curr_hp -= di.damage
 	curr_max_hp -= di.damage * max_hp_loss_ration
+	curr_hp -= di.damage
+	
 	if curr_hp <= 0.0 :
 		parent.die()
 	if can_impulse:

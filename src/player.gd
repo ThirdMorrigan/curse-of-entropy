@@ -159,10 +159,13 @@ func _apply_jump_boots():
 	jump_height = 1
 
 func die():
-	player_death.emit()
+	var death_chance = character.get_death_chance()
+	player_death.emit(randf_range(0,100) < death_chance)
 	get_tree().call_group("creature","stop")
 	
-	
+
+
+
 func _on_game_ui_fade_complete():
 	position = GameDataSingleton.respawn_point
 	get_tree().call_group("creature","delete")

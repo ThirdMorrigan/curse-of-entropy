@@ -863,7 +863,7 @@ script = ExtResource("2_k1kd7")
 
 [node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("3_vwos7")
-max_hp = 1.0
+max_hp = 100.0
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
