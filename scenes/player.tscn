@@ -528,7 +528,7 @@ size = Vector3(0.1, 0.1, 1)
 script = ExtResource("13_qgojy")
 damage = 5.0
 impulse = 2.0
-damage_types = 1
+damage_types = 5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bqkju"]
 radius = 0.1
@@ -919,7 +919,7 @@ onHit = true
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_hl5qo")])
-targets = 32
+targets = 40
 hitbox_shape = SubResource("SphereShape3D_bqkju")
 attack_origin = NodePath("../camera_pivot/metarig/Skeleton3D/sword_pivot/sword_hilt")
 range = 1.6

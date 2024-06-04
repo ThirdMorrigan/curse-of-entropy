@@ -6,6 +6,10 @@ class_name HealthPool
 @export var max_hp_loss_ration : float = 0.1
 @export var hurtboxes : Array[Hurtbox]
 
+@export_flags("Physical:1","Magical:2","Heat:4","Blast:8","Prybar:16") var immunities = 0
+@export var invert_immunities : bool = false
+
+
 var parent :
 	set(p):
 		parent = p
@@ -24,8 +28,25 @@ var curr_hp : float :
 		health_change.emit(curr_hp,curr_max_hp)
 
 func _ready():
+	reset()
+
+func hurt(di : DamageInstance):
+	if di.damage_types & ~immunities :
+		curr_max_hp -= di.damage * max_hp_loss_ration
+		curr_hp -= di.damage
+		
+		if curr_hp <= 0.0 :
+			parent.die()
+		if can_impulse:
+			parent.impulse(di.impulse_vector)
+		#print(str("someone's health pool is now ", curr_hp))
+	
+
+func reset() :
 	curr_max_hp = max_hp
 	curr_hp = max_hp
+	if invert_immunities :
+		immunities = ~immunities
 	if hurtboxes == null:			# bind hurtboxes
 		queue_free()
 	else : 
@@ -33,17 +54,6 @@ func _ready():
 			h.health_pool = self
 		hurtboxes = []				# decouple
 	parent = $".."
-
-func hurt(di : DamageInstance):
-	curr_max_hp -= di.damage * max_hp_loss_ration
-	curr_hp -= di.damage
-	
-	if curr_hp <= 0.0 :
-		parent.die()
-	if can_impulse:
-		parent.impulse(di.impulse_vector)
-	#print(str("someone's health pool is now ", curr_hp))
-	
 
 func heal(healing : float):
 	curr_hp = minf(curr_max_hp,curr_hp+healing)

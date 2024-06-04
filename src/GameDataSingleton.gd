@@ -61,6 +61,19 @@ var itemLookupTable = {
 		"name" : "Garden gate key",
 		"type" : item_types.KEY,
 		"visuals" : key_visuals
+	},
+	10 : {
+		"name" : "Block A Cell 4 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A4.",
+		"visuals" : key_visuals
+	},
+	11 : {
+		"name" : "Dungeon airlock inner key",
+		"type" : item_types.KEY,
+		"description" : "This key appears to open one of the doors in the
+		airlock that separates the Dungeon and Castle",
+		"visuals" : key_visuals
 	}
 	
 }

@@ -13,6 +13,9 @@ var parent :
 		return health_pool.parent
 
 func _ready():
+	reset()
+	
+func reset():
 	monitoring = false
 	collision_mask = 0
 	collision_layer = collision_layer & 0b111000
