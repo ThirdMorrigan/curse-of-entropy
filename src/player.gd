@@ -93,6 +93,7 @@ func _ready():
 	crouching = false
 	character = PlayerCharacter.new()
 	add_child(character)
+	character.connect_player()
 
 func _process(delta):
 	if !Engine.is_editor_hint():
@@ -176,4 +177,8 @@ func _on_game_ui_fade_complete():
 	get_tree().call_group("creature","delete")
 	get_tree().call_group("spawner","spawn")
 	character.get_older()
-	
+
+func new_character(new_char):
+	character = new_char
+	character.reparent(self)
+	character.connect_player()

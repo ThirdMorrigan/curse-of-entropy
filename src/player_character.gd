@@ -6,24 +6,41 @@ var max_health
 var age
 var strength
 var intelligence
-@onready var health_pool : HealthPool = $"../HealthPool"
-var latest_age_loss
+var skin_colour : Color = Color(randf(),randf(),randf(),1)
+var hair_colour : Color = Color(randf(),randf(),randf(),1)
+var hair
+var face
+var health_pool : HealthPool
+const FACE_SCENE = preload("res://scenes/face.tscn")
+var latest_age_loss = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	proto_char()
+	var temp_face = FACE_SCENE.instantiate()
+	add_child(temp_face)
+
+	var hair_num = temp_face.hair.hframes
+	var face_num = temp_face.face.hframes
+	temp_face.queue_free()
+	
+	intelligence = randf_range(2,3)
+	strength = 4 - intelligence
+	hair = randi_range(0, hair_num-1)
+	face = randi_range(0, face_num-1)
+	
+	
+
+func connect_player():
 	$"..".player_death.connect(_on_player_death)
 	$"../InventoryUI".character_details = self
 	$"../game_ui".character_details = self
+	health_pool = $"../HealthPool"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func proto_char():
 	character_name = "proto"
 	max_health = 100
-	age = 22
+	age = 80
 	strength = 10
 	intelligence = 5
 

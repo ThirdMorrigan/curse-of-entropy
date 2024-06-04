@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddld4lk0oa4yc"]
+
+[ext_resource type="Script" path="res://src/UI/character_select_panel.gd" id="1_hngdr"]
+[ext_resource type="PackedScene" uid="uid://bqhuchapsof4y" path="res://scenes/face.tscn" id="2_s3o3m"]
+
+[node name="character_select_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hngdr")
+
+[node name="Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -15.5
+offset_right = 27.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Select"
+
+[node name="face" parent="." instance=ExtResource("2_s3o3m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 0.0
+offset_bottom = 0.0
