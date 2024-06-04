@@ -31,6 +31,7 @@ func _ready():
 	reset()
 
 func hurt(di : DamageInstance):
+	print(di.damage)
 	if di.damage_types & ~immunities :
 		curr_max_hp -= di.damage * max_hp_loss_ration
 		curr_hp -= di.damage
@@ -39,6 +40,7 @@ func hurt(di : DamageInstance):
 			parent.die()
 		if can_impulse:
 			parent.impulse(di.impulse_vector)
+		
 		#print(str("someone's health pool is now ", curr_hp))
 	
 

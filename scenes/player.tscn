@@ -885,6 +885,7 @@ script = ExtResource("2_k1kd7")
 
 [node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("3_vwos7")
+max_hp = 1.0
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -941,7 +942,9 @@ offset_right = 400.0
 offset_bottom = 250.0
 catagory_buttons = SubResource("ButtonGroup_rq6di")
 
+[connection signal="pause_player" from="." to="PlayerInputHandler" method="_on_player_pause_player"]
 [connection signal="player_death" from="." to="game_ui" method="_on_player_player_death"]
+[connection signal="unpause_player" from="." to="PlayerInputHandler" method="_on_player_unpause_player"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
 [connection signal="fade_complete" from="game_ui" to="." method="_on_game_ui_fade_complete"]
 [connection signal="fade_complete" from="game_ui" to="HealthPool" method="_on_player_death"]

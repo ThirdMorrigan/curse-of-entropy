@@ -44,3 +44,13 @@ func _physics_process(delta):
 
 func _on_inventory_ui_inventory_state_change(state):
 	lockMouse = state
+
+
+func _on_player_pause_player():
+	set_process(false)
+	set_physics_process(false)
+
+
+func _on_player_unpause_player():
+	set_process(true)
+	set_physics_process(true)
