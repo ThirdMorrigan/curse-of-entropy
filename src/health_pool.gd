@@ -55,17 +55,6 @@ func reset() :
 		hurtboxes = []				# decouple
 	parent = $".."
 
-func hurt(di : DamageInstance):
-	curr_max_hp -= di.damage * max_hp_loss_ration
-	curr_hp -= di.damage
-	
-	if curr_hp <= 0.0 :
-		parent.die()
-	if can_impulse:
-		parent.impulse(di.impulse_vector)
-	#print(str("someone's health pool is now ", curr_hp))
-	
-
 func _process(delta):
 	if Input.is_action_just_pressed("heal"):
 		heal(1)

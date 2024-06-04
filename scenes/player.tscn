@@ -862,7 +862,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -883,9 +883,8 @@ libraries = {
 [node name="PlayerInputHandler" type="Node" parent="."]
 script = ExtResource("2_k1kd7")
 
-[node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
+[node name="HealthPool" type="Node" parent="."]
 script = ExtResource("3_vwos7")
-hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 16
@@ -943,6 +942,4 @@ catagory_buttons = SubResource("ButtonGroup_rq6di")
 
 [connection signal="player_death" from="." to="game_ui" method="_on_player_player_death"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
-[connection signal="fade_complete" from="game_ui" to="." method="_on_game_ui_fade_complete"]
-[connection signal="fade_complete" from="game_ui" to="HealthPool" method="_on_player_death"]
 [connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]

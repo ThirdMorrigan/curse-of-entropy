@@ -425,15 +425,13 @@ script = ExtResource("2_8djno")
 
 [node name="collision_hull_medium" parent="." index="4" instance=ExtResource("4_oppdi")]
 
-[node name="HealthPool" type="Node" parent="." index="5" node_paths=PackedStringArray("hurtboxes")]
+[node name="HealthPool" type="Node" parent="." index="5"]
 script = ExtResource("5_5qyje")
-hurtboxes = [NodePath("../Hurtbox")]
 
-[node name="Hurtbox" type="Area3D" parent="." index="6" node_paths=PackedStringArray("copy_collision_shapes")]
+[node name="Hurtbox" type="Area3D" parent="." index="6"]
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("6_xsdof")
-copy_collision_shapes = [NodePath("../collision_hull_medium")]
 
 [node name="attack_origin" type="Marker3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
