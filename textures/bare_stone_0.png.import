@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ber0vrx84c12f"
-path.s3tc="res://.godot/imported/base_stone_0.png-c3fa3c322bdf436dd64e9ea3944144f8.s3tc.ctex"
+path.s3tc="res://.godot/imported/bare_stone_0.png-215a8baa1af1c14462c764feaaf9c584.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/base_stone_0.png"
-dest_files=["res://.godot/imported/base_stone_0.png-c3fa3c322bdf436dd64e9ea3944144f8.s3tc.ctex"]
+source_file="res://textures/bare_stone_0.png"
+dest_files=["res://.godot/imported/bare_stone_0.png-215a8baa1af1c14462c764feaaf9c584.s3tc.ctex"]
 
 [params]
 

@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c0p2s3ewj3rk1"]
-
-[ext_resource type="Texture2D" uid="uid://ber0vrx84c12f" path="res://textures/base_stone_0.png" id="1_dicow"]
-
-[resource]
-albedo_texture = ExtResource("1_dicow")
-metallic_specular = 0.0
-texture_filter = 2
