@@ -40,6 +40,7 @@ func _on_interactable_look(interact_message):
 func _on_player_player_death(died):
 	if died:
 		death_message.text = "you died for real"
+		get_tree().call_group("char_select","new_character")
 		animation_player.play("death_screen_fade_real")
 	else:
 		death_message.text = "you crawl away bearly surviving. It takes " + str(character_details.calculate_age_gain()) + " years for you to recover and return"

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/UI/character_select_panel.gd" id="1_hngdr"]
 [ext_resource type="PackedScene" uid="uid://bqhuchapsof4y" path="res://scenes/face.tscn" id="2_s3o3m"]
 
-[node name="character_select_panel" type="Control"]
+[node name="character_select_panel" type="Control" groups=["char_select"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hngdr")

@@ -425,8 +425,9 @@ script = ExtResource("2_8djno")
 
 [node name="collision_hull_medium" parent="." index="4" instance=ExtResource("4_oppdi")]
 
-[node name="HealthPool" type="Node" parent="." index="5"]
+[node name="HealthPool" type="Node" parent="." index="5" node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("5_5qyje")
+hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="." index="6"]
 collision_layer = 32
