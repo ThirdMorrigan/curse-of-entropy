@@ -1,15 +1,22 @@
-[gd_scene load_steps=45 format=3 uid="uid://lxnrcvm08whn"]
+[gd_scene load_steps=53 format=3 uid="uid://lxnrcvm08whn"]
 
 [ext_resource type="PackedScene" uid="uid://dq25c0xpdv6yp" path="res://assets/models/creatures/humanoid base/humanoid_base.glb" id="1_ufxch"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="2_8djno"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_75wws"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="3_w1osr"]
-[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
+[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
+[ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="4_x10xd"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="5_5qyje"]
+[ext_resource type="Animation" uid="uid://dxpgwr168tki5" path="res://assets/models/creatures/humanoid base/attack-2h-thrust.res" id="5_lh6c3"]
+[ext_resource type="Animation" uid="uid://fh8elerhgb8b" path="res://assets/models/creatures/humanoid base/idle.res" id="6_ujl7o"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="6_xsdof"]
 [ext_resource type="Script" path="res://src/attack.gd" id="7_kj51n"]
+[ext_resource type="Animation" uid="uid://wqc2q3ml87yr" path="res://assets/models/creatures/humanoid base/idle-1h.res" id="7_m5mvy"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="8_ge3yd"]
+[ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="8_o27l5"]
+[ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="9_48abh"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="9_r6von"]
+[ext_resource type="Animation" uid="uid://cl373jmtxdgub" path="res://assets/models/creatures/humanoid base/walk_proto.res" id="10_ep75r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34wcx"]
 
@@ -243,6 +250,17 @@ shader_parameter/texture_crunch = SubResource("CurveXYZTexture_ma58v")
 [sub_resource type="SphereShape3D" id="SphereShape3D_klpjv"]
 radius = 0.0743231
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1cii"]
+_data = {
+"attack-1h": ExtResource("4_x10xd"),
+"attack-2h-thrust": ExtResource("5_lh6c3"),
+"idle": ExtResource("6_ujl7o"),
+"idle-1h": ExtResource("7_m5mvy"),
+"idle-2h": ExtResource("8_o27l5"),
+"walk": ExtResource("9_48abh"),
+"walk_proto": ExtResource("10_ep75r")
+}
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
 animation = &"attack-1h"
 
@@ -434,6 +452,9 @@ shape = SubResource("SphereShape3D_klpjv")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 root_motion_track = NodePath("rig/Skeleton3D:Bone")
+libraries = {
+"": SubResource("AnimationLibrary_l1cii")
+}
 tree_root = SubResource("AnimationNodeStateMachine_848h1")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/Add2/add_amount = 1.0
@@ -448,7 +469,7 @@ track_target = false
 
 [node name="HealthPool" type="Node" parent="." index="5" node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("5_5qyje")
-hurtboxes = [NodePath("../Hurtbox")]
+hurtboxes = [NodePath("../Hurtbox"), NodePath("../rig/Skeleton3D/BoneAttachment3D/head")]
 
 [node name="Hurtbox" type="Area3D" parent="." index="6"]
 collision_layer = 32
