@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cf01e3k7ar51s"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_s52dg"]
+[ext_resource type="Texture2D" uid="uid://dectof2vw2jem" path="res://assets/materials/tile_grey_stone/tile_grey_stone_albedo.png" id="2_g36y4"]
+[ext_resource type="Texture2D" uid="uid://jk65bpo5gkhu" path="res://assets/materials/tile_grey_stone/tile_grey_stone_crunch.png" id="3_7fd4g"]
+[ext_resource type="Texture2D" uid="uid://cc6r1dawp2vmu" path="res://assets/materials/tile_grey_stone/tile_grey_stone_normal.png" id="4_wk0u3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_s52dg")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 1.085
+shader_parameter/texture_albedo = ExtResource("2_g36y4")
+shader_parameter/texture_normal = ExtResource("4_wk0u3")
+shader_parameter/texture_crunch = ExtResource("3_7fd4g")

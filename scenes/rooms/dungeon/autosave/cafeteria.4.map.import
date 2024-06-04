@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bxtqntey1ssac"
+path="res://.godot/imported/cafeteria.4.map-106e3bce1a2dba7d396639e166c706ae.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/dungeon/autosave/cafeteria.4.map"
+dest_files=["res://.godot/imported/cafeteria.4.map-106e3bce1a2dba7d396639e166c706ae.tres"]
+
+[params]
+

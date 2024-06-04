@@ -1,15 +1,22 @@
-[gd_scene load_steps=45 format=3 uid="uid://lxnrcvm08whn"]
+[gd_scene load_steps=53 format=3 uid="uid://lxnrcvm08whn"]
 
 [ext_resource type="PackedScene" uid="uid://dq25c0xpdv6yp" path="res://assets/models/creatures/humanoid base/humanoid_base.glb" id="1_ufxch"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="2_8djno"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_75wws"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="3_w1osr"]
-[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
+[ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="4_fgo6i"]
+[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="5_5qyje"]
+[ext_resource type="Animation" uid="uid://dxpgwr168tki5" path="res://assets/models/creatures/humanoid base/attack-2h-thrust.res" id="5_cyo40"]
+[ext_resource type="Animation" uid="uid://fh8elerhgb8b" path="res://assets/models/creatures/humanoid base/idle.res" id="6_slbdg"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="6_xsdof"]
+[ext_resource type="Animation" uid="uid://wqc2q3ml87yr" path="res://assets/models/creatures/humanoid base/idle-1h.res" id="7_1vcd4"]
 [ext_resource type="Script" path="res://src/attack.gd" id="7_kj51n"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="8_ge3yd"]
+[ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="8_wx50y"]
+[ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="9_052ou"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="9_r6von"]
+[ext_resource type="Animation" uid="uid://cl373jmtxdgub" path="res://assets/models/creatures/humanoid base/walk_proto.res" id="10_jp2yi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34wcx"]
 
@@ -243,6 +250,17 @@ shader_parameter/texture_crunch = SubResource("CurveXYZTexture_ma58v")
 [sub_resource type="SphereShape3D" id="SphereShape3D_klpjv"]
 radius = 0.0743231
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1cii"]
+_data = {
+"attack-1h": ExtResource("4_fgo6i"),
+"attack-2h-thrust": ExtResource("5_cyo40"),
+"idle": ExtResource("6_slbdg"),
+"idle-1h": ExtResource("7_1vcd4"),
+"idle-2h": ExtResource("8_wx50y"),
+"walk": ExtResource("9_052ou"),
+"walk_proto": ExtResource("10_jp2yi")
+}
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
 animation = &"attack-1h"
 
@@ -340,7 +358,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0165292, 0.978367, -0.0855475)
+bones/1/position = Vector3(0.0171157, 0.974259, -0.0853925)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -348,7 +366,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.148718, -0.0105337, -0.000874444, 0.988823)
+bones/7/rotation = Quaternion(-0.172223, -0.0167216, -0.000175486, 0.984916)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.26114, 0.673809, -0.527406, 0.4468)
@@ -373,18 +391,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.942389, 0.0177893, 0.0278441, 0.332885)
+bones/24/rotation = Quaternion(0.940029, 0.0173398, 0.0275676, 0.339535)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.26578, -1.70243e-09, 4.44458e-10, 0.964034)
+bones/25/rotation = Quaternion(0.280493, -9.56884e-10, -9.77559e-10, 0.959856)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.567749, -0.131168, -0.0322148, 0.812045)
+bones/26/rotation = Quaternion(-0.574472, -0.130965, -0.0312108, 0.807376)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.958833, -0.0479035, -0.0654895, 0.272132)
+bones/29/rotation = Quaternion(0.956991, -0.0479462, -0.0664451, 0.278306)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.269808, -1.3487e-09, -6.30156e-09, 0.962914)
+bones/30/rotation = Quaternion(0.283974, 2.87224e-09, -2.65431e-09, 0.958832)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.616217, 0.168469, 0.017553, 0.769147)
+bones/31/rotation = Quaternion(-0.62245, 0.169376, 0.0159741, 0.763946)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -417,7 +435,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = SubResource("ShaderMaterial_cnkdt")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.998879, -0.00337517, 0.0472179, 0.0219331, 0.91693, -0.398445, -0.0419507, 0.399034, 0.915976, 0.00997266, 1.71446, 0.110017)
+transform = Transform3D(0.999392, -0.00535043, 0.0344483, 0.0172272, 0.934865, -0.354585, -0.0303073, 0.354963, 0.934389, 0.0105592, 1.71035, 0.110172)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -434,12 +452,16 @@ shape = SubResource("SphereShape3D_klpjv")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 root_motion_track = NodePath("rig/Skeleton3D:Bone")
+libraries = {
+"": SubResource("AnimationLibrary_l1cii")
+}
 tree_root = SubResource("AnimationNodeStateMachine_848h1")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/Add2/add_amount = 1.0
 parameters/idle/Blend2/blend_amount = 1.0
 parameters/walk/Add2/add_amount = 1.0
 script = ExtResource("2_8djno")
+track_target = false
 
 [node name="ray" parent="." index="3" instance=ExtResource("3_w1osr")]
 

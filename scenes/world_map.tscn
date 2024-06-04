@@ -15,13 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
 [ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
 [ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
-[ext_resource type="PackedScene" uid="uid://bbggg6dd7nwuw" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
+[ext_resource type="PackedScene" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
+[ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
+[ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
+[ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="20_qitwe"]
 [ext_resource type="Material" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
 [ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
+[ext_resource type="PackedScene" uid="uid://cso3wlwl70aev" path="res://scenes/rooms/dungeon/cafeteria.tscn" id="20_sagju"]
+[ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -118,6 +120,8 @@ omni_attenuation = 4.02682e-05
 [node name="PillarRoom1" parent="Dungeon" instance=ExtResource("18_tf7ma")]
 
 [node name="SideRoom0" parent="Dungeon" instance=ExtResource("19_t0tue")]
+
+[node name="Room" parent="Dungeon" instance=ExtResource("20_sagju")]
 
 [node name="proto_thrall_1h" parent="." instance=ExtResource("20_qitwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0352, 0, -32.7317)
