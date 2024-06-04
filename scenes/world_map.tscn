@@ -98,7 +98,7 @@ id = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0464, 7.06453, -75.8627)
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.7974, -14.9146, -18.877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.7974, -23.8266, -18.877)
 
 [node name="Dungeon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)

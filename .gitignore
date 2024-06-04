@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 scenes/rooms/garden/autosave
+/scenes/rooms/dungeon/autosave
+scenes/rooms/dungeon/autosave/cafeteria.10.map

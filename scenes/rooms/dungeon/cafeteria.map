@@ -2148,6 +2148,7 @@
 "classname" "Door"
 "origin" "-960 304 528"
 "angle" "0"
+"state" "0"
 }
 // entity 27
 {
