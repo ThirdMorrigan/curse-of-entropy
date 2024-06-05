@@ -958,6 +958,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ka6cq")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_13_Item_pickup" parent="FuncGodotMap" instance=ExtResource("11_wtlwq")]
@@ -969,6 +970,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ka6cq")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_14_Item_pickup" parent="FuncGodotMap" instance=ExtResource("11_wtlwq")]
@@ -980,6 +982,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ka6cq")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_15_Item_pickup" parent="FuncGodotMap" instance=ExtResource("11_wtlwq")]
@@ -991,6 +994,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ka6cq")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_16_Item_pickup" parent="FuncGodotMap" instance=ExtResource("11_wtlwq")]
@@ -1002,6 +1006,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ka6cq")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_17_Item_pickup" parent="FuncGodotMap" instance=ExtResource("11_wtlwq")]
@@ -1013,6 +1018,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ka6cq")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_18_func_detail_illusionary" type="Node3D" parent="FuncGodotMap"]
