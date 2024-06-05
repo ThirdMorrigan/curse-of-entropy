@@ -74,6 +74,13 @@ var itemLookupTable = {
 		"description" : "This key appears to open one of the doors in the
 		airlock that separates the Dungeon and Castle",
 		"visuals" : key_visuals
+	},
+	12 : {
+		"name" : "Dungeon kitchen key",
+		"type" : item_types.KEY,
+		"description" : "It would be indistinguishable from all the other dungeon keys,
+		were it not for the \"KITCHEN\" etched into the side.",
+		"visuals" : key_visuals
 	}
 	
 }

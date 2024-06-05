@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://xsunpmc27y3l"
+path="res://.godot/imported/castle_template.1.map-393f6f2337804def77b7c6645518837b.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/autosave/castle_template.1.map"
+dest_files=["res://.godot/imported/castle_template.1.map-393f6f2337804def77b7c6645518837b.tres"]
+
+[params]
+

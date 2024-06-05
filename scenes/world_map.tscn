@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=28 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dyvbnk6yj5r4e" path="res://scenes/rooms/cave/cave_0.tscn" id="4_imm0p"]
 [ext_resource type="PackedScene" uid="uid://gyma5elte04f" path="res://scenes/rooms/garden/garden_2_clifftop_entrance.tscn" id="5_3ma6k"]
 [ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="5_u0wn1"]
-[ext_resource type="PackedScene" uid="uid://d7uk01l6ew2y" path="res://scenes/rooms/castle/castle temp.tscn" id="6_llrit"]
 [ext_resource type="PackedScene" uid="uid://bbpt3c2rpfwl2" path="res://scenes/rooms/garden/garden_4_clifftop.tscn" id="6_lmwv8"]
 [ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
+[ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="9_qkjs2"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
 [ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="20_qitwe"]
 [ext_resource type="PackedScene" uid="uid://cso3wlwl70aev" path="res://scenes/rooms/dungeon/cafeteria.tscn" id="20_sagju"]
 [ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
+[ext_resource type="PackedScene" uid="uid://5mqmt17m8cmo" path="res://scenes/rooms/dungeon/checkpoint_0.tscn" id="21_y2f5h"]
 [ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="24_y7bsn"]
 
@@ -68,9 +69,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.4069, 2.38419e-07, 8.45011
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 39.5987, 0.793831, 6.23055)
 
 [node name="Castle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 15.992)
 
-[node name="Room" parent="Castle" instance=ExtResource("6_llrit")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7508, 4.9872, 16.2351)
+[node name="Room" parent="Castle" instance=ExtResource("9_qkjs2")]
 
 [node name="StaticBody3D" parent="." instance=ExtResource("7_65b00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2448, 2.38419e-07, 4.71408)
@@ -100,7 +101,7 @@ id = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0464, 7.06453, -75.8627)
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7191, -27.4571, -3.76012)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.0913, -31.6346, 7.76198)
 
 [node name="Dungeon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)
@@ -122,6 +123,8 @@ omni_attenuation = 4.02682e-05
 [node name="SideRoom0" parent="Dungeon" instance=ExtResource("19_t0tue")]
 
 [node name="Room" parent="Dungeon" instance=ExtResource("20_sagju")]
+
+[node name="Room2" parent="Dungeon" instance=ExtResource("21_y2f5h")]
 
 [node name="proto_thrall_1h" parent="." instance=ExtResource("20_qitwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0352, 0, -32.7317)

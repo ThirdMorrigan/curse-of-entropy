@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://jnijle2refxr"
+path="res://.godot/imported/checkpoint_0.map-f801b3395768d5bc62a2b26f766fccd4.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/dungeon/checkpoint_0.map"
+dest_files=["res://.godot/imported/checkpoint_0.map-f801b3395768d5bc62a2b26f766fccd4.tres"]
+
+[params]
+
