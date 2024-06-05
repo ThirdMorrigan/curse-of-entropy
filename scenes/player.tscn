@@ -862,12 +862,13 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 
 [node name="Sphere" type="MeshInstance3D" parent="camera_pivot/metarig/Skeleton3D/sword_pivot"]
 transform = Transform3D(0.2, 1.5682e-09, -1.43896e-09, 6.41194e-11, 0.2, 0, 4.83359e-09, 0, 0.2, 0, 0.0143879, 5.96046e-08)
+layers = 2
 mesh = SubResource("ArrayMesh_jrc5h")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_lfa5o")

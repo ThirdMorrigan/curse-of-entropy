@@ -27,7 +27,7 @@ var itemLookupTable = {
 		"name" : "Pickaxe",
 		"type" : item_types.TOOL,
 		"slot" : equipment_slots.TOOL,
-		"visuals" : "res://scenes/visuals/pickaxe_visuals.tscn"
+		"visuals" : "res://assets/models/pickaxe.glb"
 	},
 	4 : {#key for the cell in the tutorial
 		"name" : "South west courtyard key",
