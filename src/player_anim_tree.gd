@@ -11,6 +11,7 @@ extends AnimationTree
 		if !f :
 			attack_closeout()
 
+var character_details : PlayerCharacter
 var player : Player
 var current_state : Creature.State
 var has_hit : Array[HealthPool] = []
@@ -35,7 +36,6 @@ func _physics_process(delta):
 	#print(relative_velocity)
 	if fire_attack :
 		var new_hits : Array[Hurtbox] = player.sword_swing.fire()
-		#print(str(new_hits.size(), ", ", has_hit.size()))
 		for h in range(new_hits.size()) :
 			if has_hit.has(new_hits[h].health_pool):
 				var pool_index : int = has_hit.find(new_hits[h].health_pool)
@@ -53,7 +53,10 @@ func attack_closeout():
 			var d : DamageInstance = player.sword_swing.damage_instances[player.current_swing_damage_instance].copy()
 			d.impulse *= damage_mults[h]
 			d.rotate_impulse(player.global_basis)
+			d.damage += character_details.strength * 0.02
 			d.damage *= damage_mults[h]
+			
+			
 			has_hit[h].hurt(d)
 		has_hit = []
 		damage_mults = []

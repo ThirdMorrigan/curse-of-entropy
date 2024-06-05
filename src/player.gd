@@ -39,6 +39,8 @@ class_name Player
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
 signal player_death
+signal pause_player
+signal unpause_player
 
 var current_max_speed : float
 
@@ -134,7 +136,9 @@ func _physics_process(delta):
 			
 		velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
 		var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
-		if swinging : speed_limit *= sword_swing.weight
+		if swinging :
+			speed_limit *= sword_swing.weight + (character.strength-100) * 0.002
+			print(sword_swing.weight + (character.strength-100) * 0.002)
 		current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
 		velocity = velocity.limit_length(current_max_speed)
 
@@ -165,11 +169,22 @@ func _apply_jump_boots():
 
 func die():
 	get_tree().call_group("creature","stop")
-	var death_chance = character.get_death_chance()
-	player_death.emit(randf_range(0,100) < death_chance)
+	pause()
+	if character != null:
+		var death_chance = character.get_death_chance()
+		player_death.emit(randf_range(0,100) < death_chance)
 	
 	
 
+func pause():
+	pause_player.emit()
+	set_process(false)
+	set_physics_process(false)
+
+func unpause():
+	set_process(true)
+	set_physics_process(true)
+	unpause_player.emit()
 
 
 func _on_game_ui_fade_complete():
@@ -177,6 +192,7 @@ func _on_game_ui_fade_complete():
 	get_tree().call_group("creature","delete")
 	get_tree().call_group("spawner","spawn")
 	character.get_older()
+	unpause()
 
 func new_character(new_char):
 	character = new_char

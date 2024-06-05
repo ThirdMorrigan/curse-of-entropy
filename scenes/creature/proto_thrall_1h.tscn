@@ -471,10 +471,11 @@ track_target = false
 script = ExtResource("5_5qyje")
 hurtboxes = [NodePath("../Hurtbox"), NodePath("../rig/Skeleton3D/BoneAttachment3D/head")]
 
-[node name="Hurtbox" type="Area3D" parent="." index="6"]
+[node name="Hurtbox" type="Area3D" parent="." index="6" node_paths=PackedStringArray("copy_collision_shapes")]
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("6_xsdof")
+copy_collision_shapes = [NodePath("../collision_hull_medium")]
 
 [node name="attack_origin" type="Marker3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
