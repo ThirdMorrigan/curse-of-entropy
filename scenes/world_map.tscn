@@ -137,3 +137,4 @@ creature = ExtResource("20_qitwe")
 
 [node name="Lever" parent="." instance=ExtResource("24_y7bsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
+bidirectional = true
