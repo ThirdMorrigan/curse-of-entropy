@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqhuchapsof4y"]
+
+[ext_resource type="Script" path="res://src/UI/face.gd" id="1_8aodd"]
+[ext_resource type="Texture2D" uid="uid://px8tw8phkd14" path="res://assets/sprites/Face.png" id="1_cn4fw"]
+[ext_resource type="Texture2D" uid="uid://dyre8kfunleiv" path="res://assets/sprites/hair.png" id="2_ega2r"]
+
+[node name="face" type="Control"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.869
+anchor_right = 0.5
+anchor_bottom = 0.869
+offset_top = 0.47998
+offset_bottom = 0.47998
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8aodd")
+
+[node name="face" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_cn4fw")
+
+[node name="hair" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_ega2r")
+hframes = 3
+frame = 1

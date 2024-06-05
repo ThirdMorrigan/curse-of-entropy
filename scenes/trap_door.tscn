@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://daxeeguarq1dq"]
+
+[ext_resource type="Script" path="res://src/interactables/trap_door.gd" id="1_8hijc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4v85c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1l1ox"]
+size = Vector3(1, 0.103027, 1)
+
+[sub_resource type="Animation" id="Animation_ara11"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yktvj"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_80rpe"]
+_data = {
+"RESET": SubResource("Animation_ara11"),
+"open": SubResource("Animation_yktvj")
+}
+
+[node name="TrapDoor" type="StaticBody3D"]
+script = ExtResource("1_8hijc")
+group = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0.50039)
+mesh = SubResource("BoxMesh_4v85c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00170898, 0.50039)
+shape = SubResource("BoxShape3D_1l1ox")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_80rpe")
+}

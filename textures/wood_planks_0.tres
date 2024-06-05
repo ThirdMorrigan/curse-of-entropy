@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bxd1tote47e74"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_oiioi"]
+[ext_resource type="Texture2D" uid="uid://bdnjqihxfi7vp" path="res://assets/materials/wood_planks/wood_planks_albedo.png" id="2_4ivf3"]
+[ext_resource type="Texture2D" uid="uid://bfufqrlp8x1u2" path="res://assets/materials/wood_planks/wood_planks_crunch.png" id="3_jmqw1"]
+[ext_resource type="Texture2D" uid="uid://bxrqms8g8k6ee" path="res://assets/materials/wood_planks/wood_planks_normal.png" id="4_gya16"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_oiioi")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_4ivf3")
+shader_parameter/texture_normal = ExtResource("4_gya16")
+shader_parameter/texture_crunch = ExtResource("3_jmqw1")

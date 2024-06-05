@@ -88,8 +88,8 @@ func impulse(i : Vector3):
 	to_impulse += i
 
 func stop():
-	#if $CreatureAI != null:
-		#$CreatureAI.queue_free()
+	if $CreatureAI != null:
+		$CreatureAI.queue_free()
 	pass
 	
 func delete():

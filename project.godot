@@ -110,6 +110,7 @@ swing={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 occlusion_culling/use_occlusion_culling=true
 environment/defaults/default_environment="res://assets/default_world_environment.tres"
 

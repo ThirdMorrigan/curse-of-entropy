@@ -56,14 +56,29 @@ grow_vertical = 2
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="age" type="Label" parent="view_page"]
+[node name="HBoxContainer" type="HBoxContainer" parent="view_page"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
+anchors_preset = -1
+anchor_left = 0.00738008
+anchor_top = 0.887059
+anchor_right = 0.848709
+anchor_bottom = 0.887059
 offset_right = 40.0
-grow_vertical = 0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="age" type="Label" parent="view_page/HBoxContainer"]
+layout_mode = 2
+text = "age
+"
+
+[node name="strength" type="Label" parent="view_page/HBoxContainer"]
+layout_mode = 2
+text = "srt"
+
+[node name="intelligence" type="Label" parent="view_page/HBoxContainer"]
+layout_mode = 2
+text = "int"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

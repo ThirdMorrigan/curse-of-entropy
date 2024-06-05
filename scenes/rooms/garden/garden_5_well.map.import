@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://fhdhth0mgbh3"
+path="res://.godot/imported/garden_5_well.map-e6d4e4e7b28192fd883d7b3b52dbfcab.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/garden/garden_5_well.map"
+dest_files=["res://.godot/imported/garden_5_well.map-e6d4e4e7b28192fd883d7b3b52dbfcab.tres"]
+
+[params]
+

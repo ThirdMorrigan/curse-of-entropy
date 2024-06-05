@@ -27,7 +27,7 @@ var itemLookupTable = {
 		"name" : "Pickaxe",
 		"type" : item_types.TOOL,
 		"slot" : equipment_slots.TOOL,
-		"visuals" : "res://scenes/visuals/pickaxe_visuals.tscn"
+		"visuals" : "res://assets/models/pickaxe.glb"
 	},
 	4 : {#key for the cell in the tutorial
 		"name" : "South west courtyard key",
@@ -60,6 +60,26 @@ var itemLookupTable = {
 	9 : {
 		"name" : "Garden gate key",
 		"type" : item_types.KEY,
+		"visuals" : key_visuals
+	},
+	10 : {
+		"name" : "Block A Cell 4 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A4.",
+		"visuals" : key_visuals
+	},
+	11 : {
+		"name" : "Dungeon airlock inner key",
+		"type" : item_types.KEY,
+		"description" : "This key appears to open one of the doors in the
+		airlock that separates the Dungeon and Castle",
+		"visuals" : key_visuals
+	},
+	12 : {
+		"name" : "Dungeon kitchen key",
+		"type" : item_types.KEY,
+		"description" : "It would be indistinguishable from all the other dungeon keys,
+		were it not for the \"KITCHEN\" etched into the side.",
 		"visuals" : key_visuals
 	}
 	

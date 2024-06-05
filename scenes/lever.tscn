@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://flnsj2gm6hin"]
+
+[ext_resource type="Script" path="res://src/interactables/lever.gd" id="1_3fmxr"]
+[ext_resource type="PackedScene" uid="uid://byuxxdkcbfsme" path="res://scenes/visuals/lever_visuals.tscn" id="2_axynm"]
+[ext_resource type="Script" path="res://src/interactables/pull_lever.gd" id="3_wfdeb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5whdv"]
+size = Vector3(0.186768, 0.334229, 0.310791)
+
+[node name="Lever" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_3fmxr")
+interactionText = "pull"
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_axynm")]
+
+[node name="pull_lever" type="Node" parent="."]
+script = ExtResource("3_wfdeb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00109863, 0.0562744, 0.152954)
+shape = SubResource("BoxShape3D_5whdv")
