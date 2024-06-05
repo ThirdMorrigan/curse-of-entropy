@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=71 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -31,8 +31,8 @@
 length = 0.99
 slide_on_slope = true
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_mo7o0"]
-length = 0.39
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_1o4ys"]
+length = 0.4
 slide_on_slope = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n5pa7"]
@@ -623,6 +623,9 @@ graph_offset = Vector2(-313, -49)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ti5ro"]
+size = Vector2(0.085, 0.955)
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "current_tool") groups=["player"]]
 floor_block_on_wall = false
 script = ExtResource("1_evqos")
@@ -651,9 +654,17 @@ shape = SubResource("SeparationRayShape3D_g0tft")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -0.37)
 shape = SubResource("SeparationRayShape3D_g0tft")
 
-[node name="separation_ray_mantle_fix" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0532554, 0)
-shape = SubResource("SeparationRayShape3D_mo7o0")
+[node name="mantle_fix_c" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0.01, 0)
+shape = SubResource("SeparationRayShape3D_1o4ys")
+
+[node name="mantle_fix_l" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 0, 0.01, 0)
+shape = SubResource("SeparationRayShape3D_1o4ys")
+
+[node name="mantle_fix_r" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866026, 0, 0.01, 0)
+shape = SubResource("SeparationRayShape3D_1o4ys")
 
 [node name="body_standing" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -707,9 +718,17 @@ remote_path = NodePath("../../separation_ray_right")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
 remote_path = NodePath("../../separation_ray_left")
 
-[node name="mantle_fix_ray_coll" type="RemoteTransform3D" parent="direction_pivot"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0532554, 0)
-remote_path = NodePath("../../separation_ray_mantle_fix")
+[node name="mantle_fix_c" type="RemoteTransform3D" parent="direction_pivot"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0.01, 0)
+remote_path = NodePath("../../mantle_fix_c")
+
+[node name="mantle_fix_l" type="RemoteTransform3D" parent="direction_pivot"]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 0, 0.01, 0)
+remote_path = NodePath("../../mantle_fix_l")
+
+[node name="mantle_fix_r" type="RemoteTransform3D" parent="direction_pivot"]
+transform = Transform3D(-0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866026, 0, 0.01, 0)
+remote_path = NodePath("../../mantle_fix_r")
 
 [node name="camera_pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -730,13 +749,13 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
-visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
 hideInEditor = false
+hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -954,6 +973,10 @@ offset_top = -250.0
 offset_right = 400.0
 offset_bottom = 250.0
 catagory_buttons = SubResource("ButtonGroup_rq6di")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.350498)
+mesh = SubResource("PlaneMesh_ti5ro")
 
 [connection signal="pause_player" from="." to="PlayerInputHandler" method="_on_player_pause_player"]
 [connection signal="player_death" from="." to="game_ui" method="_on_player_player_death"]

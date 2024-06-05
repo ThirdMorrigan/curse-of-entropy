@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="2_bcbt4"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_1c7nr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_a1i7i"]
-[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="5_dmvl6"]
+[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="5_dmvl6"]
 [ext_resource type="Material" uid="uid://d8b07myu3n0y" path="res://textures/hedge_wall_0.tres" id="6_rsn25"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="7_0ywc8"]
 
