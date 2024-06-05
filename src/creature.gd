@@ -15,6 +15,7 @@ var landed = true
 var track_target : bool = true
 signal state_changed
 signal jump_reached
+signal creature_death
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var current_state : State :
@@ -97,5 +98,6 @@ func delete():
 
 
 func die():
-	
+	creature_death.emit()
+	queue_free()
 	pass

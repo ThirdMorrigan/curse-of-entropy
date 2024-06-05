@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDModelPointClass" load_steps=3 format=3 uid="uid://di1oju6wexi17"]
+
+[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_model_point_class.gd" id="1_gfie8"]
+[ext_resource type="PackedScene" uid="uid://daxeeguarq1dq" path="res://scenes/trap_door.tscn" id="1_vabup"]
+
+[resource]
+script = ExtResource("1_gfie8")
+target_map_editor = 0
+models_sub_folder = ""
+scale_expression = ""
+generate_size_property = false
+generate_gd_ignore_file = false
+scene_file = ExtResource("1_vabup")
+apply_rotation_on_map_build = true
+classname = "trap_door"
+description = "Its a trap door that can be activated by a lever"
+func_godot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"group": "",
+"open": false
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+name_property = ""

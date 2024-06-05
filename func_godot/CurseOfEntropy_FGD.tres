@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=18 format=3 uid="uid://c1blhjn6ke38y"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=19 format=3 uid="uid://c1blhjn6ke38y"]
 
 [ext_resource type="Resource" uid="uid://nayxb8n7see2" path="res://addons/func_godot/fgd/phong_base.tres" id="1_co63r"]
 [ext_resource type="Resource" uid="uid://bdji3873bg32h" path="res://addons/func_godot/fgd/worldspawn.tres" id="2_g02gq"]
@@ -12,11 +12,12 @@
 [ext_resource type="Resource" uid="uid://dpnhoeftpe5dh" path="res://func_godot/door.tres" id="9_h3ua6"]
 [ext_resource type="Resource" uid="uid://bv8hiink1giti" path="res://func_godot/nav_link.tres" id="11_6xirn"]
 [ext_resource type="Resource" uid="uid://dtgdc6elp3i0u" path="res://func_godot/breakable_wall.tres" id="12_xnv32"]
-[ext_resource type="Resource" path="res://func_godot/creature_spawn_point.tres" id="14_bw5ed"]
+[ext_resource type="Resource" uid="uid://ntit5rqhcyi3" path="res://func_godot/creature_spawn_point.tres" id="14_bw5ed"]
 [ext_resource type="Resource" uid="uid://bb35glhoatskx" path="res://func_godot/burnable_wall.tres" id="14_ubb2c"]
 [ext_resource type="Resource" uid="uid://hsgdtg4iotvx" path="res://func_godot/func_burnable.tres" id="15_fl1vc"]
-[ext_resource type="Resource" path="res://func_godot/climbable_wall.tres" id="15_xbjrt"]
-[ext_resource type="Resource" uid="uid://2l236n5qoe8r" path="res://func_godot/func_friction.tres" id="16_0irld"]
+[ext_resource type="Resource" uid="uid://bw73b8grpkly6" path="res://func_godot/climbable_wall.tres" id="15_xbjrt"]
+[ext_resource type="Resource" uid="uid://b6c8k17abvvg4" path="res://func_godot/lever.tres" id="16_43dl6"]
+[ext_resource type="Resource" uid="uid://di1oju6wexi17" path="res://func_godot/trap_door.tres" id="17_kq83q"]
 
 [resource]
 script = ExtResource("8_1hv21")
@@ -24,4 +25,4 @@ export_file = false
 model_key_word_supported = true
 fgd_name = "CurseOFEntropy"
 base_fgd_files = Array[Resource]([])
-entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq"), ExtResource("9_bmajx"), ExtResource("9_h3ua6"), ExtResource("11_6xirn"), ExtResource("12_xnv32"), ExtResource("14_ubb2c"), ExtResource("15_xbjrt"), ExtResource("14_bw5ed"), ExtResource("15_fl1vc"), ExtResource("16_0irld")])
+entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq"), ExtResource("9_bmajx"), ExtResource("9_h3ua6"), ExtResource("11_6xirn"), ExtResource("12_xnv32"), ExtResource("14_ubb2c"), ExtResource("15_xbjrt"), ExtResource("14_bw5ed"), ExtResource("15_fl1vc"), ExtResource("16_43dl6"), ExtResource("17_kq83q")])
