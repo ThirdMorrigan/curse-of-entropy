@@ -5,8 +5,14 @@ const PULL_FUNCTION = "activate"
 
 
 func _on_interact():
-	if not interactable.pulled:
-		if interactable.target_group != "":
-			get_tree().call_group(interactable.target_group,PULL_FUNCTION)
+	if interactable.bidirectional:
+		pull()
+	elif not interactable.pulled:
+		pull()
 		interactable.interactionText = ""
-		visuals.play()
+
+func pull():
+	interactable.pulled = !interactable.pulled
+	if interactable.target_group != "":
+			get_tree().call_group(interactable.target_group,PULL_FUNCTION)
+	visuals.play(interactable.pulled)

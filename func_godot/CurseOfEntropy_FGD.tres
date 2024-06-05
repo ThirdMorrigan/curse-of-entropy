@@ -23,4 +23,4 @@ export_file = false
 model_key_word_supported = true
 fgd_name = "CurseOFEntropy"
 base_fgd_files = Array[Resource]([])
-entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq"), ExtResource("9_bmajx"), ExtResource("9_h3ua6"), ExtResource("11_6xirn"), ExtResource("12_xnv32"), ExtResource("14_ubb2c"), ExtResource("15_xbjrt"), ExtResource("14_bw5ed"), ExtResource("15_fl1vc")])
+entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq"), ExtResource("9_bmajx"), ExtResource("9_h3ua6"), ExtResource("11_6xirn"), ExtResource("12_xnv32"), ExtResource("14_ubb2c"), ExtResource("15_xbjrt"), ExtResource("14_bw5ed"), ExtResource("15_fl1vc"), null])
