@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b2krny2hdqqtm"
+path="res://.godot/imported/garden_5_clock_tower.map-81d406bdbf3a8113d5509ae0bbba24f1.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/garden/garden_5_clock_tower.map"
+dest_files=["res://.godot/imported/garden_5_clock_tower.map-81d406bdbf3a8113d5509ae0bbba24f1.tres"]
+
+[params]
+

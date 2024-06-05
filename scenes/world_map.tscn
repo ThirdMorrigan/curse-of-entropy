@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=28 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="5_u0wn1"]
 [ext_resource type="PackedScene" uid="uid://d7uk01l6ew2y" path="res://scenes/rooms/castle/castle temp.tscn" id="6_llrit"]
 [ext_resource type="PackedScene" uid="uid://bbpt3c2rpfwl2" path="res://scenes/rooms/garden/garden_4_clifftop.tscn" id="6_lmwv8"]
+[ext_resource type="PackedScene" uid="uid://cq13kyxu7jxsk" path="res://scenes/rooms/garden/garden_5_clock_tower.tscn" id="6_s4c2g"]
 [ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
@@ -56,6 +57,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9382, 7.48331, 135.114)
 [node name="Room4" parent="Garden" instance=ExtResource("6_lmwv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.3604, 6.06453, -63.4947)
 
+[node name="Room5" parent="Garden" instance=ExtResource("6_s4c2g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.48, 7.25366, -91.5885)
+
 [node name="Cave" type="Node3D" parent="."]
 
 [node name="Room" parent="Cave" instance=ExtResource("4_imm0p")]
@@ -100,7 +104,7 @@ id = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0464, 7.06453, -75.8627)
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0426, -28.4745, 33.3404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.329, 9.04922, -72.7265)
 
 [node name="Dungeon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)

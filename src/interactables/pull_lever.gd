@@ -14,5 +14,6 @@ func _on_interact():
 func pull():
 	interactable.pulled = !interactable.pulled
 	if interactable.target_group != "":
-			get_tree().call_group(interactable.target_group,PULL_FUNCTION)
+		print(interactable.target_group)
+		get_tree().call_group(interactable.target_group,PULL_FUNCTION)
 	visuals.play(interactable.pulled)

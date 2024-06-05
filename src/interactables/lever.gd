@@ -12,3 +12,5 @@ func _ready():
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
 	target_group = props["target"]
+	bidirectional = props["bidirectional"]
+	print(props["bidirectional"])
