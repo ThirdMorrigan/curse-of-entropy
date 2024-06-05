@@ -17,12 +17,13 @@ description = "a lever that can be pulled once and it will call the activate fun
 func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
-"target": ""
+"target": "empty"
 }
 class_property_descriptions = {}
 meta_properties = {
 "color": Color(0.8, 0.8, 0.8, 1),
-"size": AABB(-8, -8, -8, 8, 8, 8)
+"size": AABB(-8, -8, -8, 8, 8, 8),
+"studio": "\"Lever.glb\""
 }
 node_class = ""
 name_property = ""
