@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=27 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -15,14 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
 [ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
 [ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
-[ext_resource type="PackedScene" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
+[ext_resource type="PackedScene" uid="uid://bbggg6dd7nwuw" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
 [ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
 [ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="20_qitwe"]
 [ext_resource type="PackedScene" uid="uid://cso3wlwl70aev" path="res://scenes/rooms/dungeon/cafeteria.tscn" id="20_sagju"]
-[ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
+[ext_resource type="Material" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
+[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
+[ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="24_y7bsn"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -47,13 +48,13 @@ directional_shadow_max_distance = 800.0
 [node name="Room" parent="Garden" instance=ExtResource("3_4a6ae")]
 
 [node name="Room2" parent="Garden" instance=ExtResource("4_5b8cs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3671, 0.4929, -51.5055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.9894, 0.4929, -51.5055)
 
 [node name="Room3" parent="Garden" instance=ExtResource("5_3ma6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9382, 7.48331, 135.114)
 
 [node name="Room4" parent="Garden" instance=ExtResource("6_lmwv8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.9778, 6.06453, -63.4947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.3604, 6.06453, -63.4947)
 
 [node name="Cave" type="Node3D" parent="."]
 
@@ -133,3 +134,6 @@ surface_material_override/0 = ExtResource("21_x60d4")
 [node name="EnemySpawner" parent="." instance=ExtResource("22_mhtbb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2004, 7.06453, -75.8774)
 creature = ExtResource("20_qitwe")
+
+[node name="Lever" parent="." instance=ExtResource("24_y7bsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)

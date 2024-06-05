@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Script" path="res://_PROTO_/tool_attack.gd" id="12_cios8"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
@@ -862,7 +862,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -928,9 +928,6 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
