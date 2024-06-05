@@ -1,6 +1,5 @@
 extends Node3D
 @onready var music : AudioStreamPlayer = $music
-
 @onready var player_sfx_footsteps : AudioStreamPlayer = $player_sfx_footsteps
 
 @onready var player = $"../../.."
