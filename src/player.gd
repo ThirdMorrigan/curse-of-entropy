@@ -116,7 +116,9 @@ func _physics_process(delta):
 				if pmo != null:
 					floor_friction = pmo.friction
 					#print(floor_friction)
-		
+		$mantle_fix_c.disabled = is_on_floor()
+		$mantle_fix_l.disabled = is_on_floor()
+		$mantle_fix_r.disabled = is_on_floor()
 		if not is_on_floor():
 			if !climbing:
 				velocity.y -= gravity * delta
