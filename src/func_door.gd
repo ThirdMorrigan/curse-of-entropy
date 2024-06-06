@@ -11,6 +11,7 @@ class_name FuncDoor
 @export var interactable : bool
 @export var key : int
 @export var state : int
+@export var openable_from : Vector3
 @export var remote_activation_group : String
 
 signal finished_opening
@@ -28,6 +29,8 @@ func _func_godot_apply_properties(properties: Dictionary) -> void:
 	key = properties["key"]
 	state = properties["state"]
 	remote_activation_group = properties["remote_activation_group"]
+	var f = properties["openable_from"]
+	openable_from = Vector3(f.y, f.z, f.x)
 	
 	setup_interact()
 

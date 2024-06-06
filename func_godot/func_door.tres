@@ -27,6 +27,7 @@ class_properties = {
 "interactable": true,
 "key": 0,
 "open_angle": 89.0,
+"openable_from": Vector3(0, 0, 0),
 "origin": Vector3(0, 0, 0),
 "remote_activation_group": "",
 "speed": 2.0,

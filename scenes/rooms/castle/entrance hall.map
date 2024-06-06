@@ -1259,7 +1259,9 @@
 "key" "0"
 "interactable" "1"
 "open_angle" "-89"
-"state" "1"
+"state" "3"
+"openable_from" "-1 0 0"
+"axis" "0 -1 0"
 "_tb_group" "2"
 // brush 0
 {

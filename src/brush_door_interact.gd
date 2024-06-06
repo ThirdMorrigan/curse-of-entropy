@@ -15,8 +15,7 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 
 func wrong_side_test() -> bool: 
 	var to_player = global_position - cam.global_position
-	
-	return false
+	return to_player.dot($"..".openable_from) < 0.0
 
 func _on_finished_opening():
 	opened.emit()

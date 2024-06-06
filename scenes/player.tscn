@@ -752,7 +752,6 @@ extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
 hideInEditor = false
-hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -894,6 +893,7 @@ bone_idx = 9
 [node name="Sphere" type="MeshInstance3D" parent="camera_pivot/metarig/Skeleton3D/sword_pivot"]
 transform = Transform3D(0.2, 1.5682e-09, -1.43896e-09, 6.41194e-11, 0.2, 0, 4.83359e-09, 0, 0.2, 0, 0.0143879, 5.96046e-08)
 layers = 2
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_jrc5h")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_lfa5o")

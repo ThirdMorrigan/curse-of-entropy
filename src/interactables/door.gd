@@ -19,7 +19,8 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 	keyID = props["key"] as int
 
 func _physics_process(delta):
-	set_interaction_text()
+	if !Engine.is_editor_hint():
+		set_interaction_text()
 
 func set_interaction_text():
 	var text = ""
