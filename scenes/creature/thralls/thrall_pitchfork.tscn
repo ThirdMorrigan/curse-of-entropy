@@ -341,7 +341,7 @@ shader_parameter/texture_crunch = ExtResource("9_1bfv1")
 [sub_resource type="SphereShape3D" id="SphereShape3D_sbtjv"]
 radius = 0.0743231
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_36xux"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_frkid"]
 _data = {
 "attack-1h": ExtResource("4_psqji"),
 "attack-2h-overhead": ExtResource("12_pugg8"),
@@ -531,7 +531,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_gvhv4")
 surface_material_override/1 = SubResource("ShaderMaterial_ajml2")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.990883, 0.0525394, -0.124059, -0.104331, 0.881847, -0.459848, 0.0852406, 0.468598, 0.879289, -0.0214015, 1.37128, 0.640727)
+transform = Transform3D(0.990883, 0.0525396, -0.124059, -0.104331, 0.881847, -0.459848, 0.0852408, 0.468598, 0.879289, -0.0214015, 1.37128, 0.640727)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -549,7 +549,7 @@ shape = SubResource("SphereShape3D_sbtjv")
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 root_motion_track = NodePath("rig/Skeleton3D:Bone")
 libraries = {
-"": SubResource("AnimationLibrary_36xux")
+"": SubResource("AnimationLibrary_frkid")
 }
 tree_root = SubResource("AnimationNodeStateMachine_giyat")
 anim_player = NodePath("../AnimationPlayer")

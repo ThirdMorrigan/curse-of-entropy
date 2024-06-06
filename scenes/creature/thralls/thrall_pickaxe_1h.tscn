@@ -174,7 +174,7 @@ bind/41/pose = Transform3D(1, -6.06535e-07, -3.79084e-07, -2.84217e-13, -0.52999
 [sub_resource type="SphereShape3D" id="SphereShape3D_klpjv"]
 radius = 0.0743231
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_36xux"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_frkid"]
 _data = {
 "attack-1h": ExtResource("5_scp2v"),
 "attack-2h-overhead": ExtResource("4_u2ec5"),
@@ -357,7 +357,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_tu5bb")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.999977, 0.00666228, -0.00124499, -0.00677731, 0.981203, -0.192858, -6.32837e-05, 0.192862, 0.981226, -0.0139405, 1.74472, -0.111585)
+transform = Transform3D(0.999977, 0.00666228, -0.00124499, -0.00677731, 0.981203, -0.19286, -6.32942e-05, 0.192864, 0.981226, -0.0139405, 1.74472, -0.111584)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -373,7 +373,7 @@ transform = Transform3D(1, 1.86265e-09, 0, 0, 1, 0, -7.45058e-09, 2.98023e-08, 1
 shape = SubResource("SphereShape3D_klpjv")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.969572, -0.119363, -0.213736, -0.244157, -0.535072, -0.808755, -0.0178292, 0.836332, -0.547935, -0.275991, 0.970709, -0.0107158)
+transform = Transform3D(0.969572, -0.119362, -0.213736, -0.244157, -0.535072, -0.808756, -0.0178293, 0.836332, -0.547934, -0.275991, 0.970709, -0.0107156)
 bone_name = "weapon"
 bone_idx = 18
 
@@ -385,7 +385,7 @@ transform = Transform3D(-0.665, 9.31323e-10, 1.01762e-07, 4.65661e-10, 0.665, 0,
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 root_motion_track = NodePath("rig/Skeleton3D:Bone")
 libraries = {
-"": SubResource("AnimationLibrary_36xux")
+"": SubResource("AnimationLibrary_frkid")
 }
 tree_root = SubResource("AnimationNodeStateMachine_848h1")
 anim_player = NodePath("../AnimationPlayer")
