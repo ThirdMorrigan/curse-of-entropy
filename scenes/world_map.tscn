@@ -105,10 +105,10 @@ id = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0156, 7.06453, -82.5886)
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.3403, 7.78037, -83.0729)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8778, 1.8991, 12.6739)
 
 [node name="Dungeon" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3877, -34.5406, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, -16, -2)
 
 [node name="ambient_omni" type="OmniLight3D" parent="Dungeon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.651, 31.5357, -16.199)
@@ -145,3 +145,10 @@ creature = ExtResource("20_qitwe")
 [node name="Lever" parent="." instance=ExtResource("24_y7bsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0958, 13.938, 15.85)
+light_energy = 0.5
+light_specular = 0.0
+omni_range = 30.4179
+omni_attenuation = 0.00781251

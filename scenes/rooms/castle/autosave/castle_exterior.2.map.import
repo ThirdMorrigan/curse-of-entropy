@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://uvdu72f1vm1t"
+path="res://.godot/imported/castle_exterior.2.map-9286f84a999567e68030bc492fdf3c5d.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/autosave/castle_exterior.2.map"
+dest_files=["res://.godot/imported/castle_exterior.2.map-9286f84a999567e68030bc492fdf3c5d.tres"]
+
+[params]
+
