@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8xhdf078hp5m"
-path="res://.godot/imported/Pickaxe.glb-f1d128722fc28a8dfd4b94bc37eae761.scn"
+uid="uid://brk1476ra0cyh"
+path="res://.godot/imported/pickaxe.glb-c92e4e7a6b6f7bf4b8198995abadd18e.scn"
 
 [deps]
 
-source_file="res://Pickaxe.glb"
-dest_files=["res://.godot/imported/Pickaxe.glb-f1d128722fc28a8dfd4b94bc37eae761.scn"]
+source_file="res://assets/models/weapons/pickaxe.glb"
+dest_files=["res://.godot/imported/pickaxe.glb-c92e4e7a6b6f7bf4b8198995abadd18e.scn"]
 
 [params]
 

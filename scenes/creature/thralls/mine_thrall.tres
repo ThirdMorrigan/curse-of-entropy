@@ -1,0 +1,31 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://d33wjidddlwk5"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_6ogyu"]
+
+[sub_resource type="Curve" id="Curve_fbmqa"]
+_data = [Vector2(0.420428, 0.419748), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_s6go7"]
+
+[sub_resource type="Curve" id="Curve_xj5df"]
+_data = [Vector2(0.565321, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_8qkr0"]
+curve_x = SubResource("Curve_fbmqa")
+curve_y = SubResource("Curve_s6go7")
+curve_z = SubResource("Curve_xj5df")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6ogyu")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(0.478431, 0.478431, 0.478431, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_crunch = SubResource("CurveXYZTexture_8qkr0")

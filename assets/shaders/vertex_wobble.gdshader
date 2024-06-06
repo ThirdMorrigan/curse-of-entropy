@@ -41,9 +41,9 @@ void vertex() {
     vec3 transformed = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	// VVVV uncomment this line if you're cool VVVV
     //transformed = ( vec4(transformed, 10.0) * PROJECTION_MATRIX * MODELVIEW_MATRIX).xyz * (vec3(-1.0,1.0,1.0));   
-	//transformed *= wobble;
-	//transformed = trunc(transformed);
-	//transformed *= awobble;
+	transformed *= wobble;
+	transformed = trunc(transformed);
+	transformed *= awobble;
 	VERTEX = transformed;
     NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
 }

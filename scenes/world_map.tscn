@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=35 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d0knfchgkblas" path="res://scenes/rooms/castle/entrance_hall_0.tscn" id="11_skyt0"]
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
 [ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
+[ext_resource type="PackedScene" uid="uid://j3i02o1hgxmy" path="res://scenes/rooms/castle/guard_barracks.tscn" id="13_m2yk3"]
 [ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
 [ext_resource type="PackedScene" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
 [ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
@@ -27,6 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://5mqmt17m8cmo" path="res://scenes/rooms/dungeon/checkpoint_0.tscn" id="21_y2f5h"]
 [ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="24_y7bsn"]
+[ext_resource type="PackedScene" uid="uid://pf0f0l2r88ui" path="res://scenes/creature/thralls/thrall_pitchfork.tscn" id="29_1nff6"]
+[ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="30_ax6c3"]
+[ext_resource type="PackedScene" uid="uid://b1fpm3e0vfvl" path="res://scenes/creature/thralls/thrall_pickaxe_1h.tscn" id="31_6kp1r"]
+[ext_resource type="PackedScene" uid="uid://c4tmc25xahc12" path="res://scenes/creature/thralls/thrall_pickaxe_2h.tscn" id="32_ivogg"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -74,11 +79,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.4069, 2.38419e-07, 8.45011
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 39.5987, 0.793831, 6.23055)
 
 [node name="Castle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 15.992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
 
 [node name="Room" parent="Castle" instance=ExtResource("9_qkjs2")]
 
 [node name="Room2" parent="Castle" instance=ExtResource("11_skyt0")]
+
+[node name="Room3" parent="Castle" instance=ExtResource("21_y2f5h")]
+
+[node name="Room4" parent="Castle" instance=ExtResource("13_m2yk3")]
 
 [node name="StaticBody3D" parent="." instance=ExtResource("7_65b00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2448, 2.38419e-07, 4.71408)
@@ -107,9 +116,6 @@ id = 8
 [node name="respawn_point" parent="." instance=ExtResource("16_uxas1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0156, 7.06453, -82.5886)
 
-[node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8819, 7.25335, 12.2108)
-
 [node name="Dungeon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, -16, -2)
 
@@ -120,8 +126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, -16, -2)
 [node name="SideRoom0" parent="Dungeon" instance=ExtResource("19_t0tue")]
 
 [node name="Room" parent="Dungeon" instance=ExtResource("20_sagju")]
-
-[node name="Room2" parent="Dungeon" instance=ExtResource("21_y2f5h")]
 
 [node name="proto_thrall_1h" parent="." instance=ExtResource("20_qitwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0352, 0, -32.7317)
@@ -168,3 +172,18 @@ light_specular = 0.0
 shadow_enabled = true
 omni_range = 30.4179
 omni_attenuation = 0.00781251
+
+[node name="Player" parent="." instance=ExtResource("4_dj85u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.28268, 1.83484, 16.2866)
+
+[node name="proto_thrall_2h" parent="." instance=ExtResource("29_1nff6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7765, 0, 12.5343)
+
+[node name="proto_thrall_1h2" parent="." instance=ExtResource("30_ax6c3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0007, 0, 17.5239)
+
+[node name="proto_thrall_1h3" parent="." instance=ExtResource("31_6kp1r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0701, 0, 14.0317)
+
+[node name="proto_thrall_2h2" parent="." instance=ExtResource("32_ivogg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8932, 0, 15.4338)

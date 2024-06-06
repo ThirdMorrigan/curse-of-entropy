@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dj7of4ca3aj6k" path="res://scenes/visuals/key_visuals.tscn" id="12_ely45"]
 [ext_resource type="PackedScene" path="res://scenes/navigation_link_entity.tscn" id="14_4lvia"]
 [ext_resource type="PackedScene" uid="uid://dkjceehywusxo" path="res://assets/models/pickaxe.glb" id="15_d5omw"]
-[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="17_gaemm"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="17_gaemm"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="18_p35ky"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
