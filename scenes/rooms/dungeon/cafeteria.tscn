@@ -1440,6 +1440,7 @@ func_godot_properties = {
 "creature_id": 0,
 "origin": "112 -200 200"
 }
+repetable = false
 
 [node name="entity_7_Creature" parent="FuncGodotMap" instance=ExtResource("18_v4er8")]
 transform = Transform3D(0.996195, 0, -0.087156, 0, 1, 0, 0.087156, 0, 0.996195, -3.5, 6.25, 3.5)
@@ -1450,6 +1451,7 @@ func_godot_properties = {
 "creature_id": 0,
 "origin": "112 -112 200"
 }
+repetable = false
 
 [node name="entity_8_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_3ewoa")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 7.375, 2)

@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bip2m6o688cku"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_3a2h2"]
+[ext_resource type="Texture2D" uid="uid://i8wbmi34osd7" path="res://assets/materials/carpet_base/carpet_base_albedo.png" id="2_wjun0"]
+[ext_resource type="Texture2D" uid="uid://bpalqdbflhekx" path="res://assets/materials/carpet_base/carpet_base_crunch.png" id="3_phxbb"]
+[ext_resource type="Texture2D" uid="uid://y70ofqqus046" path="res://assets/materials/carpet_base/carpet_base_normal.png" id="4_f4o2i"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3a2h2")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(0.890196, 0.12549, 0.12549, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_wjun0")
+shader_parameter/texture_normal = ExtResource("4_f4o2i")
+shader_parameter/texture_crunch = ExtResource("3_phxbb")

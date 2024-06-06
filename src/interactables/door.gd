@@ -7,7 +7,6 @@ enum states {LOCKED,CLOSED,OPEN, ONEWAY}
 @export var keyID : int = 0
 
 @export var func_godot_properties : Dictionary
-@onready var area_3d = $Area3D
 
 signal opened
 
@@ -30,8 +29,11 @@ func set_interaction_text():
 		states.CLOSED:
 			text = "open"
 		states.ONEWAY:
-			if area_3d.get_overlapping_areas().size():
+			if wrong_side_test():
 				text = "open"
 			else:
 				text = "can't be opened from this side"
 	interactionText = text
+
+func wrong_side_test() -> bool: 
+	return $Area3D.get_overlapping_areas().size()

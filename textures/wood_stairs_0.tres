@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dged3e7i8qd2k"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_76e2c"]
+[ext_resource type="Texture2D" uid="uid://ciq0kijxacdbi" path="res://assets/materials/wood_stairs/wood_stairs_albedo.png" id="2_1widt"]
+[ext_resource type="Texture2D" uid="uid://8sdyx4oxahb1" path="res://assets/materials/wood_stairs/wood_stairs_crunch.png" id="3_omibf"]
+[ext_resource type="Texture2D" uid="uid://bnshe5mldr758" path="res://assets/materials/stone_stairs/stone_stairs_normal.png" id="4_idwt8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_76e2c")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_1widt")
+shader_parameter/texture_normal = ExtResource("4_idwt8")
+shader_parameter/texture_crunch = ExtResource("3_omibf")

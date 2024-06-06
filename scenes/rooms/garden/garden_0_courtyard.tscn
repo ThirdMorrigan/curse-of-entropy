@@ -4,17 +4,17 @@
 [ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="2_w6cqm"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_4x402"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_gxw3r"]
-[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="5_b4jf1"]
+[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="5_b4jf1"]
 [ext_resource type="Material" uid="uid://d8b07myu3n0y" path="res://textures/hedge_wall_0.tres" id="6_y6fck"]
 [ext_resource type="Material" uid="uid://dc7e3jahsipi3" path="res://textures/bare_stone_0.tres" id="7_53ahd"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="7_gvb3l"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="8_nojvb"]
-[ext_resource type="Material" path="res://textures/smooth_stone_0.tres" id="9_egn5x"]
+[ext_resource type="Material" uid="uid://jsufqdhpo58a" path="res://textures/smooth_stone_0.tres" id="9_egn5x"]
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="9_h8t6s"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_5tv3o"]
 [ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="11_r2x8l"]
 [ext_resource type="PackedScene" uid="uid://dj7of4ca3aj6k" path="res://scenes/visuals/key_visuals.tscn" id="12_ely45"]
-[ext_resource type="PackedScene" uid="uid://wmcc6au003b5" path="res://scenes/navigation_link_entity.tscn" id="14_4lvia"]
+[ext_resource type="PackedScene" path="res://scenes/navigation_link_entity.tscn" id="14_4lvia"]
 [ext_resource type="PackedScene" uid="uid://dkjceehywusxo" path="res://assets/models/pickaxe.glb" id="15_d5omw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
@@ -1067,6 +1067,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_ely45")
+interactionText = "pick up South west courtyard key"
 id = 4
 
 [node name="entity_4_Item_pickup" parent="FuncGodotMap" instance=ExtResource("11_5tv3o")]
@@ -1078,6 +1079,7 @@ func_godot_properties = {
 "quantity": 3
 }
 visuals = ExtResource("15_d5omw")
+interactionText = "pick up Pickaxe"
 id = 3
 quantity = 3
 
