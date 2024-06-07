@@ -13,7 +13,7 @@ class_name FuncDoor
 @export var state : int
 @export var openable_from : Vector3
 @export var remote_activation_group : String
-
+var target_angle
 signal finished_opening
 
 var closed_angle : float
@@ -31,7 +31,6 @@ func _func_godot_apply_properties(properties: Dictionary) -> void:
 	remote_activation_group = properties["remote_activation_group"]
 	var f = properties["openable_from"]
 	openable_from = Vector3(f.y, f.z, f.x)
-	
 	setup_interact()
 
 func setup_interact():
@@ -51,16 +50,28 @@ func setup_interact():
 
 func _physics_process(delta):
 	if swinging :
-		rotation.y = move_toward(rotation.y, open_angle, speed * delta)
-		if rotation.y == open_angle:
+		print(target_angle)
+		print(rotation.y)
+		rotation.y = move_toward(rotation.y, target_angle, speed * delta)
+		if is_equal_approx(rotation.y,target_angle):
+			print("stopped")
 			swinging = false
 			finished_opening.emit()
+			if target_angle != 0:
+				target_angle = 0
+			else:
+				target_angle = open_angle
 
 func _ready():
 	#print(interactable)
 	setup_interact()
-	
+	if remote_activation_group != "":
+		add_to_group(remote_activation_group)
+	target_angle = open_angle
 	pass
 
 func start_opening():
 	swinging = true
+
+func activate():
+	start_opening()
