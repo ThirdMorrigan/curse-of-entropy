@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://p7epa18q70ve"]
+
+[ext_resource type="Shader" uid="uid://eam4agpnvqf6" path="res://assets/materials/water/water.tres" id="1_yjiop"]
+[ext_resource type="Texture2D" uid="uid://siv241hl4u83" path="res://assets/materials/water_yucky/water_yucky_albedo.png" id="2_qd567"]
+[ext_resource type="Texture2D" uid="uid://2dwjhvna78xi" path="res://assets/materials/water_yucky/water_yucky_crunch.png" id="3_88dqf"]
+[ext_resource type="Texture2D" uid="uid://b3gjj5b8j23fx" path="res://assets/materials/water_yucky/water_yucky_normal.png" id="4_2eifr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yjiop")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 1.139
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 1.2
+shader_parameter/texture_albedo = ExtResource("2_qd567")
+shader_parameter/texture_normal = ExtResource("4_2eifr")
+shader_parameter/texture_crunch = ExtResource("3_88dqf")
