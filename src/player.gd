@@ -140,7 +140,7 @@ func _physics_process(delta):
 		var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
 		if swinging :
 			speed_limit *= sword_swing.weight + (character.strength-100) * 0.002
-			print(sword_swing.weight + (character.strength-100) * 0.002)
+			#print(sword_swing.weight + (character.strength-100) * 0.002)
 		current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
 		velocity = velocity.limit_length(current_max_speed)
 

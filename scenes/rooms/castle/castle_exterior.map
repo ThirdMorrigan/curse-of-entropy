@@ -543,6 +543,13 @@
 }
 // entity 2
 {
+"classname" "Lever"
+"origin" "248 -184 40"
+"bidirectional" "1"
+"target" "test"
+}
+// entity 3
+{
 "classname" "func_door"
 "origin" "108 0 0"
 "interactable" "1"
@@ -564,11 +571,4 @@
 ( 232 -120 368 ) ( 228 -116 496 ) ( 228 -116 368 ) wood_planks_0 [ -0.7071067811865476 0.7071067811865476 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 232 -116 368 ) ( 232 -116 369 ) ( 232 -115 368 ) wood_planks_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
-}
-// entity 3
-{
-"classname" "Lever"
-"origin" "248 -184 40"
-"bidirectional" "1"
-"target" "test"
 }

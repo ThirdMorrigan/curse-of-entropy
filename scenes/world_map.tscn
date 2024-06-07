@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=34 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
 [ext_resource type="PackedScene" uid="uid://wenq428im3ym" path="res://scenes/rooms/castle/S_E_tower.tscn" id="14_dwwqn"]
 [ext_resource type="PackedScene" uid="uid://bmvoky2qqmm75" path="res://scenes/rooms/castle/back_hall_0.tscn" id="15_win7c"]
+[ext_resource type="PackedScene" uid="uid://ct7b7faorf023" path="res://scenes/rooms/grave yard/grave_yard_0.tscn" id="16_4dqlk"]
 [ext_resource type="PackedScene" uid="uid://bbggg6dd7nwuw" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
 [ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
@@ -91,6 +92,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
 
 [node name="Room6" parent="Castle" instance=ExtResource("15_win7c")]
 
+[node name="Graveyard" type="Node3D" parent="."]
+
+[node name="Room" parent="Graveyard" instance=ExtResource("16_4dqlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.765, 0, 0)
+
 [node name="StaticBody3D" parent="." instance=ExtResource("7_65b00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2448, 2.38419e-07, 4.71408)
 
@@ -101,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4948, 9.53674e-07, -48.711
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 29.042, 0, -49.2395)
 
 [node name="Key2" parent="." instance=ExtResource("11_8bbro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2488, 0, -39.7928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.598, 9.32295, -89.2453)
 visuals = ExtResource("12_1ifis")
 interactionText = "pick up Jump boots"
 id = 7
@@ -188,4 +194,7 @@ omni_range = 30.4179
 omni_attenuation = 0.00781251
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2765, 1.80916, 20.554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.115, 2.74397, -6.82908)
+
+[node name="proto_thrall_1h2" parent="." instance=ExtResource("20_qitwe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.031, 0.49748, -14.4688)

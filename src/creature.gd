@@ -3,9 +3,10 @@ extends CharacterBody3D
 class_name Creature
 
 const JUMP_VELOCITY = 5.0
+const PICKUP = preload("res://scenes/pickup.tscn")
 
 @export var speed = 3.0
-
+@export var loot_table : Dictionary
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, JUMP}
 
 var attacks : Array[Attack]
@@ -84,6 +85,26 @@ func jump(delta):
 		landed = true
 		
 
+func roll_loot_table():
+	var roll = randf_range(0.0,100.0)
+	var chances = loot_table.keys()
+	var count = 0
+	while count < chances.size():
+		print(chances[count])
+		if roll < chances[count]:
+			var drop = PICKUP.instantiate()
+			
+			var properites = {
+				"id" : loot_table[chances[count]],
+				"quantity" : 1
+			}
+			drop._func_godot_apply_properties(properites)
+			$"..".add_child(drop)
+			drop.global_position = global_position
+			break
+		count +=1
+			
+
 func impulse(i : Vector3):
 	aware = true
 	to_impulse += i
@@ -99,5 +120,6 @@ func delete():
 
 func die():
 	creature_death.emit()
+	roll_loot_table()
 	queue_free()
 	pass
