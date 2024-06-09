@@ -50,11 +50,8 @@ func setup_interact():
 
 func _physics_process(delta):
 	if swinging :
-		print(target_angle)
-		print(rotation.y)
 		rotation[axis] = move_toward(rotation[axis], target_angle, speed * delta)
 		if is_equal_approx(rotation[axis],target_angle):
-			print("stopped")
 			swinging = false
 			finished_opening.emit()
 			if target_angle != 0:
