@@ -703,6 +703,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.625, -1.875, -1.25)
 shape = SubResource("BoxShape3D_worb3")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_rs62u")
 script = ExtResource("2_w6cqm")
 
