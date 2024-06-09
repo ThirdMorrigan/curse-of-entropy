@@ -8,7 +8,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_a5hok")
-shader_parameter/vertex_wobble_scale = 0
+shader_parameter/vertex_wobble_scale = 1
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0

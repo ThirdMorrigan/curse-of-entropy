@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://gyma5elte04f" path="res://scenes/rooms/garden/garden_2_clifftop_entrance.tscn" id="5_3ma6k"]
 [ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="5_u0wn1"]
 [ext_resource type="PackedScene" uid="uid://bbpt3c2rpfwl2" path="res://scenes/rooms/garden/garden_4_clifftop.tscn" id="6_lmwv8"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/garden/garden_5_clock_tower.tscn" id="6_s4c2g"]
+[ext_resource type="PackedScene" uid="uid://cq13kyxu7jxsk" path="res://scenes/rooms/garden/garden_5_clock_tower.tscn" id="6_s4c2g"]
 [ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
 [ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="9_qkjs2"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
