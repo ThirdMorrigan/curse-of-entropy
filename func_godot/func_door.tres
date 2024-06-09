@@ -24,12 +24,14 @@ func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
 "axis": Vector3(0, 1, 0),
+"generate_link": false,
 "interactable": true,
 "key": 0,
 "open_angle": 89.0,
 "openable_from": Vector3(0, 0, 0),
 "origin": Vector3(0, 0, 0),
 "remote_activation_group": "",
+"roofless": false,
 "speed": 2.0,
 "state": 0
 }

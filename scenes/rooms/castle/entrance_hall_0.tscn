@@ -1086,6 +1086,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_tut56")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_3_Item_pickup" parent="FuncGodotMap" instance=ExtResource("11_irlun")]
@@ -1097,6 +1098,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_tut56")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_4_func_illusionary" type="Node3D" parent="FuncGodotMap"]
@@ -1123,7 +1125,6 @@ func_godot_properties = {
 "speed": 2.0,
 "state": 1
 }
-axis = Vector3(0, 1, 0)
 open_angle = -1.55334
 speed = 2.0
 interactable = true
@@ -1150,7 +1151,6 @@ func_godot_properties = {
 "speed": 2.0,
 "state": 1
 }
-axis = Vector3(0, 1, 0)
 open_angle = -1.55334
 speed = 2.0
 interactable = true
@@ -1178,7 +1178,6 @@ func_godot_properties = {
 "speed": 2.0,
 "state": 1
 }
-axis = Vector3(0, 1, 0)
 open_angle = 1.55334
 speed = 2.0
 interactable = true
@@ -1209,7 +1208,6 @@ func_godot_properties = {
 "speed": 2.0,
 "state": 3
 }
-axis = Vector3(0, -1, 0)
 open_angle = -1.55334
 speed = 2.0
 interactable = true

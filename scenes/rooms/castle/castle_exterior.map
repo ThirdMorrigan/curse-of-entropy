@@ -528,6 +528,7 @@
 "origin" "-108 0 0"
 "speed" "0.5"
 "remote_activation_group" "test"
+"generate_link" "1"
 // brush 0
 {
 ( -232 -140 164 ) ( -232 -139 164 ) ( -232 -140 165 ) wood_planks_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -560,6 +561,7 @@
 "speed" "0.5"
 "remote_activation_group" "test"
 "axis" "0 1 0"
+"generate_link" "1"
 // brush 0
 {
 ( 0 -140 164 ) ( 0 -139 164 ) ( 0 -140 165 ) wood_planks_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1

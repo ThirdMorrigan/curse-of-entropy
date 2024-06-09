@@ -45,7 +45,11 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+		
+	if to_impulse :
+		velocity += to_impulse
+		to_impulse = Vector3.ZERO
+		
 	match current_state:
 		State.IDLE:
 			if is_on_floor():
@@ -57,7 +61,9 @@ func _physics_process(delta):
 		State.HURT:
 			pass
 		State.DIE:
-			pass
+			move_and_slide()
+			set_physics_process(false)
+			#stop()
 		State.JUMP:
 			jump(delta)
 		_:						# ALL ATTACKS HERE :3
@@ -65,11 +71,7 @@ func _physics_process(delta):
 				velocity = Vector3.ZERO
 				if track_target : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_look.x, -goal_look.z), delta * 10)
 			#attacks[current_state - State.ATTACK_0].fire()
-		
-
-	if to_impulse :
-		velocity += to_impulse
-		to_impulse = Vector3.ZERO
+	
 	move_and_slide()
 
 func current_attack() -> int :
@@ -121,5 +123,6 @@ func delete():
 func die():
 	creature_death.emit()
 	roll_loot_table()
-	queue_free()
+	#queue_free()
+	current_state = State.DIE
 	pass

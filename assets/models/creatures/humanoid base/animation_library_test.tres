@@ -1,0 +1,24 @@
+[gd_resource type="AnimationLibrary" load_steps=10 format=3 uid="uid://cokbdf5h3s2a1"]
+
+[ext_resource type="Animation" uid="uid://f08o6januo84" path="res://assets/models/creatures/humanoid base/die.res" id="1_kgonv"]
+[ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="2_5jc63"]
+[ext_resource type="Animation" uid="uid://dxpgwr168tki5" path="res://assets/models/creatures/humanoid base/attack-2h-thrust.res" id="3_yq0ox"]
+[ext_resource type="Animation" uid="uid://om851uouhsub" path="res://assets/models/creatures/humanoid base/attack-2h-overhead.res" id="3_yq1ox"]
+[ext_resource type="Animation" uid="uid://fh8elerhgb8b" path="res://assets/models/creatures/humanoid base/idle.res" id="4_m6sma"]
+[ext_resource type="Animation" uid="uid://wqc2q3ml87yr" path="res://assets/models/creatures/humanoid base/idle-1h.res" id="5_lfw1s"]
+[ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="6_eempg"]
+[ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="7_cm0nb"]
+[ext_resource type="Animation" uid="uid://cl373jmtxdgub" path="res://assets/models/creatures/humanoid base/walk_proto.res" id="8_to7k8"]
+
+[resource]
+_data = {
+"attack-1h": ExtResource("2_5jc63"),
+"attack-2h-overhead": ExtResource("3_yq1ox"),
+"attack-2h-thrust": ExtResource("3_yq0ox"),
+"die": ExtResource("1_kgonv"),
+"idle": ExtResource("4_m6sma"),
+"idle-1h": ExtResource("5_lfw1s"),
+"idle-2h": ExtResource("6_eempg"),
+"walk": ExtResource("7_cm0nb"),
+"walk_proto": ExtResource("8_to7k8")
+}

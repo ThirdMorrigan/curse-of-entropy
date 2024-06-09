@@ -19,6 +19,7 @@ func wrong_side_test() -> bool:
 
 func _on_finished_opening():
 	opened.emit()
+	_on_opened()
 
 func start_opening():
 	$"..".start_opening()

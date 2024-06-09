@@ -1830,10 +1830,10 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 },
-"attack-2h-overhead": {
+"attack-2h-thrust": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://assets/models/creatures/humanoid base/attack-2h-overhead.res",
+"save_to_file/path": "res://assets/models/creatures/humanoid base/attack-2h-thrust.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -3629,10 +3629,10 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 },
-"attack-2h-thrust": {
+"die": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://assets/models/creatures/humanoid base/attack-2h-thrust.res",
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "res://assets/models/creatures/humanoid base/die.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
