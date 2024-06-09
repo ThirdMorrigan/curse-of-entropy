@@ -693,6 +693,7 @@ func_godot_properties = {
 "origin": "64 8 -0.0806",
 "state": 1
 }
+interactionText = "open"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_rs62u")

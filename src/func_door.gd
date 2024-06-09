@@ -5,7 +5,7 @@ class_name FuncDoor
 
 @export var func_godot_properties : Dictionary
 
-@export var axis : Vector3
+@export var axis : int = 1
 @export var open_angle : float
 @export var speed : float
 @export var interactable : bool
@@ -21,7 +21,7 @@ var closed_angle : float
 var swinging : bool = false
 
 func _func_godot_apply_properties(properties: Dictionary) -> void:
-	axis = properties["axis"]
+	axis = properties["axis"].max_axis_index()
 	open_angle = deg_to_rad(properties["open_angle"])
 	speed = properties["speed"]
 	interactable = properties["interactable"]
@@ -52,8 +52,8 @@ func _physics_process(delta):
 	if swinging :
 		print(target_angle)
 		print(rotation.y)
-		rotation.y = move_toward(rotation.y, target_angle, speed * delta)
-		if is_equal_approx(rotation.y,target_angle):
+		rotation[axis] = move_toward(rotation[axis], target_angle, speed * delta)
+		if is_equal_approx(rotation[axis],target_angle):
 			print("stopped")
 			swinging = false
 			finished_opening.emit()
