@@ -738,6 +738,7 @@ func_godot_properties = {
 "origin": "128 432 0",
 "state": 1
 }
+interactionText = "open"
 
 [node name="entity_2_func_detail_illusionary" type="Node3D" parent="FuncGodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9063, 0.875, 16.0313)
