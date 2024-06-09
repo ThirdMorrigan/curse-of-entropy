@@ -44,17 +44,22 @@ func fire() :
 				h.damage(get_modified_damage_instance(damage_instances[0]))
 
 func create_hitbox():
-	cast = ShapeCast3D.new()
+	cast = _create_hitbox()
 	$"..".add_child(cast)
 	cast.collide_with_areas = true
 	cast.collide_with_bodies = false
 	cast.exclude_parent = true
-	cast.collision_mask = targets #* 8.0
+	cast.collision_mask += targets #* 8.0
 	#print(cast.collision_mask)
 	cast.shape = hitbox_shape
 	cast.global_position = attack_origin.global_position if attack_origin != null else Vector3(0.0, 1.0, 0.0)
 	cast.global_rotation = attack_origin.global_rotation if attack_origin != null else Vector3.ZERO
 	cast.target_position = Vector3.FORWARD * range
+
+func _create_hitbox() -> ShapeCast3D:
+	var h = ShapeCast3D.new()
+	h.collision_mask = 0b0
+	return h
 
 func get_modified_damage_instance(d : DamageInstance) -> DamageInstance :
 	var d_temp = d.copy()
