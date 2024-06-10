@@ -755,7 +755,7 @@ omni_range = 3.0
 [node name="Audio control node" type="Node3D" parent="camera_pivot/Camera3D"]
 script = ExtResource("5_atf2r")
 
-[node name="music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+[node name="music_garden_ambient" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("6_gmdfq")
 
 [node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
