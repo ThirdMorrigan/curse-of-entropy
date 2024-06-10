@@ -494,12 +494,10 @@ func_godot_properties = {
 "speed": 2.0,
 "state": 1
 }
-axis = Vector3(0, 1, 0)
 open_angle = 1.55334
 speed = 2.0
 interactable = true
 state = 1
-openable_from = null
 
 [node name="entity_1_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_1_func_door"]
 mesh = SubResource("ArrayMesh_v4o2n")
@@ -522,12 +520,10 @@ func_godot_properties = {
 "speed": 2.0,
 "state": 1
 }
-axis = Vector3(0, 1, 0)
 open_angle = -1.55334
 speed = 2.0
 interactable = true
 state = 1
-openable_from = null
 
 [node name="entity_2_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_2_func_door"]
 mesh = SubResource("ArrayMesh_wwqd3")
@@ -559,12 +555,10 @@ func_godot_properties = {
 "speed": 2.0,
 "state": 1
 }
-axis = Vector3(0, 1, 0)
 open_angle = 1.55334
 speed = 2.0
 interactable = true
 state = 1
-openable_from = null
 
 [node name="entity_4_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_4_func_door"]
 mesh = SubResource("ArrayMesh_hpii8")

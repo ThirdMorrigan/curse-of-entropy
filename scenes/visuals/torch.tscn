@@ -13,10 +13,10 @@ surface_material_override/1 = ExtResource("3_ks78v")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.416933, 0.405996)
 light_color = Color(1, 0.686275, 0.411765, 1)
-light_energy = 5.0
-light_indirect_energy = 5.0
-light_size = 0.5
+light_energy = 2.0
+light_indirect_energy = 1.5
+light_size = 0.1
 light_specular = 1.5
 shadow_enabled = true
-omni_range = 20.0
+omni_range = 10.0
 omni_attenuation = 0.707105

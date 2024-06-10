@@ -17,7 +17,12 @@ enum DamageType {
 		impulse_vector = Vector3(0,0.45,-0.89) * i
 @export_flags("Physical:1","Magical:2","Heat:4","Blast:8","Prybar:16") var damage_types = 0
 
-var impulse_vector : Vector3
+var impulse_vector : Vector3 :
+	set(v):
+		if !v.is_normalized():
+			v = v.normalized()
+		v *= impulse
+		impulse_vector = v
 
 func rotate_impulse(b:Basis):
 	impulse_vector = b * impulse_vector

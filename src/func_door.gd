@@ -13,10 +13,14 @@ class_name FuncDoor
 @export var state : int
 @export var openable_from : Vector3
 @export var remote_activation_group : String
+@export var generate_link : bool
+@export var roofless : bool
 var target_angle
 signal opened
 
 var closed_angle : float
+
+var link : NavigationLink3D
 
 var swinging : bool = false
 
@@ -31,18 +35,52 @@ func _func_godot_apply_properties(properties: Dictionary) -> void:
 	remote_activation_group = properties["remote_activation_group"]
 	var f = properties["openable_from"]
 	openable_from = Vector3(f.y, f.z, f.x)
+	generate_link = properties["generate_link"]
+	roofless = properties["roofless"]
+	setup_link()
 	setup_interact()
 
+func setup_link():
+	if generate_link:
+		print("generating link")
+		var bbox : AABB = find_child("*_mesh_*").mesh.get_aabb()
+		var forward = openable_from
+		if forward :
+			forward = forward.normalized()
+		else :
+			if bbox.get_shortest_axis_index() == Vector3.AXIS_Y:
+				forward = Vector3(1,0,1) - bbox.get_longest_axis()
+			else :
+				forward = bbox.get_shortest_axis()
+		link = NavigationLink3D.new()
+		link.enabled = false
+		var h = bbox.size.y if !roofless else 1000000.0
+		var w = max(bbox.size.z, bbox.size.x)
+		if h > 2.5 && w > 0.85*2:
+			link.navigation_layers = 0b111
+		elif h > 1.2+0.8 && w > 1.0:
+			link.navigation_layers = 0b11
+		else:
+			link.navigation_layers = 0b1
+		add_child(link)
+		link.position = bbox.get_center()
+		link.position.y = bbox.position.y
+		link.start_position = forward
+		link.end_position = -forward
+		link.top_level = true
+
 func setup_interact():
+	print("setting up")
+	var _int = BrushDoorInteractible.new()
+	add_child(_int)
+	var _prop_dict = {"key":key, "state":state}
+	_int._func_godot_apply_properties(_prop_dict)
+	var _action = BrushDoorAction.new()
+	_int.link = link
+	link = null
+	_int.add_child(_action)
+	var _shapes = find_children("*", "CollisionShape3D")
 	if interactable :
-		print("setting up")
-		var _int = BrushDoorInteractible.new()
-		add_child(_int)
-		var _prop_dict = {"key":key, "state":state}
-		_int._func_godot_apply_properties(_prop_dict)
-		var _action = BrushDoorAction.new()
-		_int.add_child(_action)
-		var _shapes = find_children("*", "CollisionShape3D")
 		for _s in _shapes :
 			var _int_coll = CollisionShape3D.new()
 			_int_coll.shape = _s.shape
@@ -61,6 +99,7 @@ func _physics_process(delta):
 
 func _ready():
 	#print(interactable)
+	setup_link()
 	setup_interact()
 	if remote_activation_group != "":
 		add_to_group(remote_activation_group)
