@@ -1,6 +1,6 @@
 [gd_scene load_steps=317 format=3 uid="uid://ciigjpmulsx0"]
 
-[ext_resource type="ArrayMesh" uid="uid://0i7rdourkbbg" path="res://assets/models/rooms/graveyard_floor_Landscape.res" id="1_xagqu"]
+[ext_resource type="ArrayMesh" uid="uid://mjg5gyfknntc" path="res://assets/models/rooms/graveyard_floor_Landscape_007.res" id="1_nlwhs"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="2_b1ik1"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_4lldr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_x6yrv"]
@@ -1015,7 +1015,7 @@ geometry_source_group_name = &"grave_yard_floor"
 [node name="StaticBody3D" type="Node3D"]
 
 [node name="Landscape_002" type="MeshInstance3D" parent="." groups=["grave_yard_floor"]]
-mesh = ExtResource("1_xagqu")
+mesh = ExtResource("1_nlwhs")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_b1ik1")
 
