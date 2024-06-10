@@ -58,8 +58,8 @@
 [ext_resource type="PackedScene" uid="uid://pf0f0l2r88ui" path="res://scenes/creature/thralls/thrall_pitchfork.tscn" id="54_87phn"]
 [ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="55_60qdn"]
 [ext_resource type="PackedScene" uid="uid://boellojabnr6l" path="res://scenes/rooms/sewer/passage_0.tscn" id="56_wrbb7"]
-[ext_resource type="PackedScene" uid="uid://dwlavpc2mweak" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
-[ext_resource type="PackedScene" uid="uid://86qj40r7aiy2" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -751,6 +751,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.0676, 6.06453, -75.4487)
 
 [node name="Room5" parent="Garden" instance=ExtResource("6_s4c2g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.233, 7.25366, -103.939)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
+transform = Transform3D(-100, 0, 8.74228e-06, 0, 100, 0, -8.74228e-06, 0, -100, 59.7275, -13.0146, -140.682)
 
 [node name="Cave" type="Node3D" parent="."]
 

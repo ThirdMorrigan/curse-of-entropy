@@ -1,5 +1,8 @@
 extends Node3D
+var player_current_zone : GameDataSingleton.map_zone
 @onready var music_garden_ambient : AudioStreamPlayer = $music_garden_ambient
+@onready var music_cave_ambient : AudioStreamPlayer = $music_cave_ambient
+
 @onready var player_sfx_footsteps : AudioStreamPlayer = $player_sfx_footsteps
 
 @onready var player = $"../../.."
@@ -16,10 +19,25 @@ func _process(delta):
 
 func _on_new_room_entered(roomData : Dictionary):
 	#print(roomData)
+	if roomData.indoors == true :
+		print("inside")
+		AudioServer.set_bus_effect_enabled(1,1,true)
+	if roomData.indoors == false :
+		print("OUTSIDE")
+		AudioServer.set_bus_effect_enabled(1,1,false)
+	
+	if roomData.zone == player_current_zone :
+		pass
 	match roomData["zone"]:
 		GameDataSingleton.map_zone.GARDEN:
 			music_garden_ambient.play()
-		# GameDataSingleton.map_zone.GARDEN:
+		GameDataSingleton.map_zone.CAVE:
+			music_cave_ambient.play()
+	player_current_zone = roomData.zone
+	
+func change_zone_music():
+	
+	pass
 
 
 func player_moving():
