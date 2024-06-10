@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=38 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -23,14 +23,12 @@
 [ext_resource type="PackedScene" uid="uid://ct7b7faorf023" path="res://scenes/rooms/graveyard/grave_yard_0.tscn" id="16_4dqlk"]
 [ext_resource type="PackedScene" uid="uid://bbggg6dd7nwuw" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
 [ext_resource type="PackedScene" uid="uid://ciigjpmulsx0" path="res://scenes/rooms/graveyard/graveyard_floor.tscn" id="17_sf65u"]
-[ext_resource type="PackedScene" uid="uid://ct7b7faorf023" path="res://scenes/rooms/graveyard/grave_yard_0.tscn" id="16_4dqlk"]
-[ext_resource type="PackedScene" uid="uid://bbggg6dd7nwuw" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
-[ext_resource type="PackedScene" uid="uid://ciigjpmulsx0" path="res://scenes/rooms/graveyard/graveyard_floor.tscn" id="17_sf65u"]
 [ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
 [ext_resource type="PackedScene" uid="uid://bwsb3kvf0fiu3" path="res://scenes/rooms/graveyard/grave_yard_3_big_mausalailai.tscn" id="18_owlxd"]
-[ext_resource type="PackedScene" uid="uid://bwsb3kvf0fiu3" path="res://scenes/rooms/graveyard/grave_yard_3_big_mausalailai.tscn" id="18_owlxd"]
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
+[ext_resource type="PackedScene" uid="uid://dojjnxic7o5mq" path="res://scenes/rooms/graveyard/grave_yard_1_mausoleum_2.tscn" id="19_qq0ct"]
 [ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
+[ext_resource type="PackedScene" uid="uid://bl118n4pm3wlr" path="res://scenes/rooms/graveyard/grave_yard_2_mausoleum_3.tscn" id="20_5lame"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="20_qitwe"]
 [ext_resource type="PackedScene" uid="uid://cso3wlwl70aev" path="res://scenes/rooms/dungeon/cafeteria.tscn" id="20_sagju"]
 [ext_resource type="Material" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
@@ -101,13 +99,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
 [node name="Graveyard" type="Node3D" parent="."]
 
 [node name="Room" parent="Graveyard" instance=ExtResource("16_4dqlk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.885, 0.721506, -2.97167)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.971, 0.721506, 29.6529)
 
 [node name="StaticBody3D" parent="Graveyard" instance=ExtResource("17_sf65u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.071, 0, 0)
 
 [node name="Room2" parent="Graveyard" instance=ExtResource("18_owlxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215, -2.64003, 35)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 200.979, -0.054981, -43.1522)
+
+[node name="Room3" parent="Graveyard" instance=ExtResource("19_qq0ct")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 179.6, 0.187338, 3.47059)
+
+[node name="Room4" parent="Graveyard" instance=ExtResource("20_5lame")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.885, 0.138341, -29.5634)
 
 [node name="StaticBody3D" parent="." instance=ExtResource("7_65b00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2448, 2.38419e-07, 4.71408)
@@ -206,7 +210,7 @@ omni_range = 30.4179
 omni_attenuation = 0.00781251
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.402, -2.95964, 1.00926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.538, -4.77646, -66.3267)
 
 [node name="proto_thrall_1h2" parent="." instance=ExtResource("20_qitwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.002, 1.56917, -12.3488)

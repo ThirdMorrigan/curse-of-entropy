@@ -14,7 +14,7 @@ class_name FuncDoor
 @export var openable_from : Vector3
 @export var remote_activation_group : String
 var target_angle
-signal finished_opening
+signal opened
 
 var closed_angle : float
 
@@ -53,7 +53,7 @@ func _physics_process(delta):
 		rotation[axis] = move_toward(rotation[axis], target_angle, speed * delta)
 		if is_equal_approx(rotation[axis],target_angle):
 			swinging = false
-			finished_opening.emit()
+			opened.emit()
 			if target_angle != 0:
 				target_angle = 0
 			else:

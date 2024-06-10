@@ -10,6 +10,8 @@ class_name CreatureAI
 @export var ai_tickrate : int = 4
 @export var vision_range : float = 15
 @export var vision_angle : float = 45
+
+var overwirte_target_position : Marker3D
 var attacks : Array[Attack]
 var attack_timer : float = 0.0
 
@@ -50,6 +52,7 @@ func _ready():
 		print("dies xd")
 		queue_free()
 	
+	overwirte_target_position = creature.overwirte_target_position
 	##nav.target_position = wander_goal
 	nav.link_reached.connect(_on_link_reached)
 	nav.target_reached.connect(_on_target_reached)
@@ -78,13 +81,15 @@ func _ready():
 	vision_area_shape.shape.radius = vision_range
 	vision_area.collision_mask = 16
 	vision_area.collision_layer = 0
-	
+
 	wander_goal = random_pos_in_wander_range()
-	
+
 	
 	ai_loop.start(_ai_loop)
 	
 func _physics_process(delta):
+	if overwirte_target_position != null:
+		print(current_nav_goal)
 	if creature.current_state == Creature.State.DIE:
 		nav.queue_free()
 		queue_free()
@@ -100,7 +105,10 @@ func _physics_process(delta):
 			creature.current_state = next_state
 	if creature.current_state < Creature.State.ATTACK_0 :
 		attack_timer -= delta
-	nav.target_position = current_nav_goal
+	if overwirte_target_position == null:
+		nav.target_position = current_nav_goal
+	else:
+		nav.target_position = overwirte_target_position.position
 	if player != null:														# LOOKING FOR PLAYER
 		if look_for(player):
 			player_last_seen = player.global_position
@@ -139,7 +147,9 @@ func _physics_process(delta):
 	
 func _on_target_reached():
 	if player == null && creature.current_state == Creature.State.WALK && !waiting :
+
 		wander_goal = random_pos_in_wander_range()
+
 		if waiting_thread.is_started() : waiting_thread.wait_to_finish()
 		waiting_thread.start(wait)
 

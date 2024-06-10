@@ -7,6 +7,7 @@ const PICKUP = preload("res://scenes/pickup.tscn")
 
 @export var speed = 3.0
 @export var loot_table : Dictionary
+@export var overwirte_target_position: Marker3D
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, JUMP}
 
 var attacks : Array[Attack]

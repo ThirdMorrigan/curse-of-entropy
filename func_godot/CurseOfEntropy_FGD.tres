@@ -20,7 +20,7 @@
 [ext_resource type="Resource" uid="uid://di1oju6wexi17" path="res://func_godot/trap_door.tres" id="17_kq83q"]
 [ext_resource type="Resource" uid="uid://baogn3rcmucr5" path="res://func_godot/func_door.tres" id="18_0c0bc"]
 [ext_resource type="Resource" uid="uid://2l236n5qoe8r" path="res://func_godot/func_friction.tres" id="19_ydhbc"]
-[ext_resource type="Resource" uid="uid://bk3w6jfiu3gh" path="res://func_godot/wall-torch.tres" id="20_nd4wd"]
+[ext_resource type="Resource" path="res://func_godot/wall-torch.tres" id="20_nd4wd"]
 
 [resource]
 script = ExtResource("8_1hv21")
