@@ -81,6 +81,12 @@ var itemLookupTable = {
 		"description" : "It would be indistinguishable from all the other dungeon keys,
 		were it not for the \"KITCHEN\" etched into the side.",
 		"visuals" : key_visuals
+	},
+	13 : {
+		"name" : "Castle front door key",
+		"type" : item_types.KEY,
+		"description" : "Good find.",
+		"visuals" : key_visuals
 	}
 	
 }

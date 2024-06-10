@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cx0i3dxidand0"
+path="res://.godot/imported/entrance hall.map-b4bb4d9d07a4c99e41888c8efa20fa24.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/entrance hall.map"
+dest_files=["res://.godot/imported/entrance hall.map-b4bb4d9d07a4c99e41888c8efa20fa24.tres"]
+
+[params]
+

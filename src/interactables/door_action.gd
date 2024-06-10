@@ -1,11 +1,14 @@
 extends InteractableAction
 class_name DoorAction
-@onready var animation_player = $"../Container/AnimationPlayer"
-@onready var area_3d = $"../Area3D"
+var animation_player
 
 
 var inventory = preload("res://_PROTO_/inventroy.tres")
 
+func _ready():
+	super()
+	if has_node("../Container/AnimationPlayer") :
+		animation_player = $"../Container/AnimationPlayer"
 
 func _on_interact():
 	match interactable.state:
@@ -19,7 +22,7 @@ func _on_interact():
 		interactable.states.OPEN:
 			print("already open")
 		interactable.states.ONEWAY:
-			if area_3d.get_overlapping_areas().size():
+			if $"..".wrong_side_test():
 				open()
 	interactable.set_interaction_text()
 

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dfjmsr8yoj750"
+path="res://.godot/imported/guard_barracks_0.map-6b25db5a582dbed1fc5a917abd329956.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/guard_barracks_0.map"
+dest_files=["res://.godot/imported/guard_barracks_0.map-6b25db5a582dbed1fc5a917abd329956.tres"]
+
+[params]
+

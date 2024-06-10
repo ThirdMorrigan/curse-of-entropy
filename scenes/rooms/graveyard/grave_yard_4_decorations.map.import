@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://4wxsfnss55g"
+path="res://.godot/imported/grave_yard_4_decorations.map-55539d25564da4d40d3e59faa7719344.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/graveyard/grave_yard_4_decorations.map"
+dest_files=["res://.godot/imported/grave_yard_4_decorations.map-55539d25564da4d40d3e59faa7719344.tres"]
+
+[params]
+

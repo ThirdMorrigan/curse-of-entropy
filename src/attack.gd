@@ -4,6 +4,8 @@ class_name Attack
 
 signal hit
 
+var requirement
+
 @export var damage_instances : Array[DamageInstance]
 @export_flags("destructible:8","player:16","creature:32") var targets : int :
 	get:
@@ -29,6 +31,7 @@ var cast : ShapeCast3D
 
 func _ready():
 	await get_tree().physics_frame
+	requirement = get_node_or_null("requirement")
 	create_hitbox()
 
 func fire() :
@@ -44,19 +47,30 @@ func fire() :
 				h.damage(get_modified_damage_instance(damage_instances[0]))
 
 func create_hitbox():
-	cast = ShapeCast3D.new()
+	cast = _create_hitbox()
 	$"..".add_child(cast)
 	cast.collide_with_areas = true
 	cast.collide_with_bodies = false
 	cast.exclude_parent = true
-	cast.collision_mask = targets #* 8.0
+	cast.collision_mask += targets #* 8.0
 	#print(cast.collision_mask)
 	cast.shape = hitbox_shape
 	cast.global_position = attack_origin.global_position if attack_origin != null else Vector3(0.0, 1.0, 0.0)
 	cast.global_rotation = attack_origin.global_rotation if attack_origin != null else Vector3.ZERO
 	cast.target_position = Vector3.FORWARD * range
 
+func _create_hitbox() -> ShapeCast3D:
+	var h = ShapeCast3D.new()
+	h.collision_mask = 0b0
+	return h
+
 func get_modified_damage_instance(d : DamageInstance) -> DamageInstance :
 	var d_temp = d.copy()
 	d_temp.rotate_impulse(global_basis)
 	return d_temp
+
+func check() -> bool:
+	if requirement == null:
+		print("attack should have attached requirent if it is going to be checked")
+		return false
+	return requirement.check()

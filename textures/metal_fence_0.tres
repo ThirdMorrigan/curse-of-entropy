@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c10xh3hstsunr"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_pe6j0"]
+[ext_resource type="Texture2D" uid="uid://buj4qnsm44h2y" path="res://assets/materials/metal_fence/metal_fence_albedo.png" id="2_5keyv"]
+[ext_resource type="Texture2D" uid="uid://b3vgvu15f3nnf" path="res://assets/materials/metal_fence/metal_fence_crunch.png" id="3_urcvc"]
+[ext_resource type="Texture2D" uid="uid://4loxkxt18kne" path="res://assets/materials/metal_fence/metal_fence_normal.png" id="4_6elde"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pe6j0")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_5keyv")
+shader_parameter/texture_normal = ExtResource("4_6elde")
+shader_parameter/texture_crunch = ExtResource("3_urcvc")

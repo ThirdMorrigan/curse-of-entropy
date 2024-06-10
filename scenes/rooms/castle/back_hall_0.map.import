@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ctwvy1b63dnak"
+path="res://.godot/imported/back_hall_0.map-f67b77b3628dc4265d248fd0c2483ca6.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/back_hall_0.map"
+dest_files=["res://.godot/imported/back_hall_0.map-f67b77b3628dc4265d248fd0c2483ca6.tres"]
+
+[params]
+

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvqp56mo6pfb"]
+
+[ext_resource type="PackedScene" uid="uid://bo564mn1uhw3h" path="res://assets/models/world/torch.glb" id="1_cyr7v"]
+[ext_resource type="Material" uid="uid://dkhwphf5k7ymb" path="res://textures/metal_rusty_0.tres" id="2_cm6ch"]
+[ext_resource type="Material" uid="uid://buvsa5yo2mpy5" path="res://textures/wood_misc_0.tres" id="3_ks78v"]
+
+[node name="torch" instance=ExtResource("1_cyr7v")]
+
+[node name="Cylinder" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cm6ch")
+surface_material_override/1 = ExtResource("3_ks78v")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.416933, 0.405996)
+light_color = Color(1, 0.686275, 0.411765, 1)
+light_energy = 2.0
+light_indirect_energy = 1.5
+light_size = 0.1
+light_specular = 1.5
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.707105

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bangq65ng6det"
+path="res://.godot/imported/S_E_tower_0.map-e6782ac6e56e3493437c0e8dd1723fcd.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/S_E_tower_0.map"
+dest_files=["res://.godot/imported/S_E_tower_0.map-e6782ac6e56e3493437c0e8dd1723fcd.tres"]
+
+[params]
+

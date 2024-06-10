@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d33wjidddlwk5"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_6ogyu"]
+[ext_resource type="Texture2D" uid="uid://bkbndw6xx75tp" path="res://assets/materials/creatures/thralls/thrall_mine_albedo.png" id="2_f1mvw"]
+[ext_resource type="Texture2D" uid="uid://cerk4vx2q3iol" path="res://assets/materials/creatures/thralls/thrall_mine_crunch.png" id="3_uan2x"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6ogyu")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_f1mvw")
+shader_parameter/texture_crunch = ExtResource("3_uan2x")

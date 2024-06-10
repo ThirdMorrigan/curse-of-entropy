@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cpqtk6cfjnvom"
+path="res://.godot/imported/grave_yard_1_mausalium_2.map-ceec1b68105a042d941083224cb62b80.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/graveyard/grave_yard_1_mausalium_2.map"
+dest_files=["res://.godot/imported/grave_yard_1_mausalium_2.map-ceec1b68105a042d941083224cb62b80.tres"]
+
+[params]
+

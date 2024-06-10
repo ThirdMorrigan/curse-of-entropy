@@ -46,7 +46,6 @@ _data = {
 
 [node name="TrapDoor" type="StaticBody3D"]
 script = ExtResource("1_8hijc")
-group = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0.50039)
