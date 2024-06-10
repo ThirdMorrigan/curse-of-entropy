@@ -755,7 +755,7 @@ omni_range = 3.0
 [node name="Audio control node" type="Node3D" parent="camera_pivot/Camera3D"]
 script = ExtResource("5_atf2r")
 
-[node name="music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+[node name="music_garden_ambient" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("6_gmdfq")
 
 [node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
@@ -876,7 +876,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 

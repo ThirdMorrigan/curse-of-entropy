@@ -1491,20 +1491,4 @@ shape = SubResource("ConcavePolygonShape3D_viw0m")
 navigation_mesh = SubResource("NavigationMesh_rs62u")
 script = ExtResource("4_oinhr")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2713, 10.8757, -11.3512)
-light_energy = 0.2
-light_size = 18.525
-light_specular = 0.0
-omni_range = 108.137
-omni_attenuation = 0.00116134
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33342, 18.2403, -27.7523)
-light_energy = 0.2
-light_size = 18.525
-light_specular = 0.0
-omni_range = 108.137
-omni_attenuation = 0.00116134
-
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

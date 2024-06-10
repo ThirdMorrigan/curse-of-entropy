@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://du42ycd7383by"
+path="res://.godot/imported/Cave - Ambient.wav-c6b191e48782dffacb95e106e7ce579e.sample"
+
+[deps]
+
+source_file="res://audio/Cave - Ambient.wav"
+dest_files=["res://.godot/imported/Cave - Ambient.wav-c6b191e48782dffacb95e106e7ce579e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

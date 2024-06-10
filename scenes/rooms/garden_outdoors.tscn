@@ -7,11 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://622b6tyw60y0" path="res://assets/materials/brick/wall_0/tex/wall_brick_albedo.png" id="5_0t73u"]
 [ext_resource type="Texture2D" uid="uid://l2qw2xyg40np" path="res://assets/materials/brick/wall_0/tex/wall_brick_crunch.png" id="6_a5ea3"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="7_dxs8t"]
-[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="8_bk1rp"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_rs62u"]
+[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="8_bk1rp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkrlj"]
 render_priority = 0
@@ -80,10 +76,52 @@ points = PackedVector3Array(-5.5, 1.5, -3, -5.5, -0.5, -3, -1.5, -0.5, -3, -1.5,
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_trdkw"]
 points = PackedVector3Array(-1.5, 0.5, -3, -1.5, -0.5, -3, 0.5, -0.5, -3, 0.5, 0.5, -3, -1.5, 0.5, -2, -1.5, -0.5, -2, 0.5, -0.5, -2, 0.5, 0.5, -2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_rs62u"]
+geometry_parsed_geometry_type = 1
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"room2_source_group"
+
 [node name="Room" type="Area3D"]
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_hgfdm")
+
+[node name="FuncGodotMap" type="Node3D" parent="." groups=["room2_source_group"]]
+script = ExtResource("2_52nnk")
+local_map_file = "res://_PROTO_/test maps/garden_1.map"
+map_settings = ExtResource("3_ppni1")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap"]
+collision_mask = 0
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
+mesh = SubResource("ArrayMesh_iw3bf")
+
+[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
+occluder = SubResource("ArrayOccluder3D_u6by5")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_8vqhq")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_m3m1f")
+
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_h84f1")
+
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_5sar5")
+
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_qhuda")
+
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_me73s")
+
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_trdkw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20035, 0)
@@ -91,38 +129,3 @@ shape = SubResource("BoxShape3D_worb3")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_rs62u")
-
-[node name="FuncGodotMap" type="Node3D" parent="NavigationRegion3D"]
-script = ExtResource("2_52nnk")
-local_map_file = "res://_PROTO_/test maps/garden_1.map"
-map_settings = ExtResource("3_ppni1")
-
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="NavigationRegion3D/FuncGodotMap"]
-collision_mask = 0
-
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-mesh = SubResource("ArrayMesh_iw3bf")
-
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-occluder = SubResource("ArrayOccluder3D_u6by5")
-
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_8vqhq")
-
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_m3m1f")
-
-[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_h84f1")
-
-[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_5sar5")
-
-[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_qhuda")
-
-[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_me73s")
-
-[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_trdkw")

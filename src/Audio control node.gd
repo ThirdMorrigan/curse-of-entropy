@@ -1,6 +1,5 @@
 extends Node3D
-@onready var music : AudioStreamPlayer = $music
-
+@onready var music_garden_ambient : AudioStreamPlayer = $music_garden_ambient
 @onready var player_sfx_footsteps : AudioStreamPlayer = $player_sfx_footsteps
 
 @onready var player = $"../../.."
@@ -19,7 +18,7 @@ func _on_new_room_entered(roomData : Dictionary):
 	#print(roomData)
 	match roomData["zone"]:
 		GameDataSingleton.map_zone.GARDEN:
-			music.play()
+			music_garden_ambient.play()
 		# GameDataSingleton.map_zone.GARDEN:
 
 

@@ -58,6 +58,8 @@
 [ext_resource type="PackedScene" uid="uid://pf0f0l2r88ui" path="res://scenes/creature/thralls/thrall_pitchfork.tscn" id="54_87phn"]
 [ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="55_60qdn"]
 [ext_resource type="PackedScene" uid="uid://boellojabnr6l" path="res://scenes/rooms/sewer/passage_0.tscn" id="56_wrbb7"]
+[ext_resource type="PackedScene" uid="uid://dwlavpc2mweak" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
+[ext_resource type="PackedScene" uid="uid://86qj40r7aiy2" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -848,29 +850,21 @@ repetable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4576, 20.5537, 16.0985)
-light_energy = 0.523
-light_indirect_energy = 6.143
-light_size = 0.625
-shadow_enabled = true
-omni_range = 40.0
-omni_attenuation = 0.307787
-
 [node name="ambient_omni" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.5626, 3.47926, 12.681)
-light_energy = 0.37
-light_size = 13.13
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.5733, 3.47926, 7.22617)
+visible = false
+light_energy = 0.215
+light_indirect_energy = 5.065
 light_specular = 0.0
-shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 20.0
 omni_range = 141.208
-omni_attenuation = 0.00207937
+omni_attenuation = 0.1756
 
 [node name="ambient_omni2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.2649, 13.099, -24.4956)
+visible = false
 light_energy = 0.25
 light_size = 2.435
 light_specular = 0.0
@@ -883,6 +877,7 @@ omni_attenuation = 0.00207937
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.6816, 11.8105, -6.08104)
+visible = false
 light_energy = 0.5
 light_specular = 0.0
 shadow_enabled = true
@@ -890,7 +885,7 @@ omni_range = 30.4179
 omni_attenuation = 0.00781251
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.977, 1.1586, -28.8736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.8572, -28.0645, -39.0848)
 
 [node name="proto_thrall_1h2" parent="." instance=ExtResource("34_mctcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2944, 0, 11.8975)
@@ -911,6 +906,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1625, 0, 15.9964)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5226, -4.76837e-07, 15.8935)
 
 [node name="sewer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -30, 30)
 
 [node name="Room" parent="sewer" instance=ExtResource("56_wrbb7")]
+
+[node name="Room2" parent="sewer" instance=ExtResource("57_0efr4")]
+
+[node name="Room3" parent="sewer" instance=ExtResource("58_vwm5l")]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dfislc8ijlsrf"
+path="res://.godot/imported/passage_0.6.map-35c209750b87e5adebb5d73f5f02a8fd.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/sewer/autosave/passage_0.6.map"
+dest_files=["res://.godot/imported/passage_0.6.map-35c209750b87e5adebb5d73f5f02a8fd.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://duxtap5yf1f3k"
+path="res://.godot/imported/to_dungeon.map-71c8bbde2fef10e193b1d2debb05c9da.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/sewer/to_dungeon.map"
+dest_files=["res://.godot/imported/to_dungeon.map-71c8bbde2fef10e193b1d2debb05c9da.tres"]
+
+[params]
+
