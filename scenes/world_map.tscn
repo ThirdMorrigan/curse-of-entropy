@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=92 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -55,6 +55,7 @@
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="49_nn234"]
 [ext_resource type="PackedScene" uid="uid://pf0f0l2r88ui" path="res://scenes/creature/thralls/thrall_pitchfork.tscn" id="54_87phn"]
 [ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="55_60qdn"]
+[ext_resource type="PackedScene" uid="uid://boellojabnr6l" path="res://scenes/rooms/sewer/passage_0.tscn" id="56_wrbb7"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -881,7 +882,7 @@ omni_range = 30.4179
 omni_attenuation = 0.00781251
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8673, 8.324, 11.4533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.15, -23.7664, -0.411866)
 
 [node name="proto_thrall_1h2" parent="." instance=ExtResource("34_mctcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2944, 0, 11.8975)
@@ -900,3 +901,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1625, 0, 15.9964)
 
 [node name="proto_thrall_2h4" parent="." instance=ExtResource("54_87phn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5226, -4.76837e-07, 15.8935)
+
+[node name="sewer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -35, 0)
+
+[node name="Room" parent="sewer" instance=ExtResource("56_wrbb7")]
