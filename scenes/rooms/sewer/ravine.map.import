@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://e2q4b4k1wxg1"
+path="res://.godot/imported/ravine.map-65251b639021bdccec37f5b68fcc1bc6.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/sewer/ravine.map"
+dest_files=["res://.godot/imported/ravine.map-65251b639021bdccec37f5b68fcc1bc6.tres"]
+
+[params]
+

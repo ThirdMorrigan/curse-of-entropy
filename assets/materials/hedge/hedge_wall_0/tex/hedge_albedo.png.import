@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://485gc3mix5ti"
-path="res://.godot/imported/hedge_crunch.png-5cf9dba256dab638ee24fef69142824d.ctex"
+uid="uid://bb5e7meotedft"
+path.s3tc="res://.godot/imported/hedge_albedo.png-424a2301116cfd9a80282b7dd02ada63.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/materials/hedge/hedge_wall_0/tex/hedge_crunch.png"
-dest_files=["res://.godot/imported/hedge_crunch.png-5cf9dba256dab638ee24fef69142824d.ctex"]
+source_file="res://assets/materials/hedge/hedge_wall_0/tex/hedge_albedo.png"
+dest_files=["res://.godot/imported/hedge_albedo.png-424a2301116cfd9a80282b7dd02ada63.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -23,8 +24,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=7
-roughness/src_normal="res://assets/materials/hedge/hedge_wall_0/tex/hedge_normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

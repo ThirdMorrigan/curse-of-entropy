@@ -12,7 +12,8 @@ description = "The spawn point of a creature. The creature is assigned with an i
 func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
-"creature_id": 0
+"creature_id": 0,
+"repeatable": false
 }
 class_property_descriptions = {}
 meta_properties = {

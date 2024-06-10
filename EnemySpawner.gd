@@ -3,7 +3,7 @@ extends Marker3D
 
 @export var creature : Resource
 @export var func_godot_properties : Dictionary
-@export var repetable : bool =false
+@export var repetable : bool = false
 @onready var timer = $Timer
 
 const PROTO_THRALL_1H = preload("res://scenes/creature/proto_thrall_1h.tscn")
@@ -29,10 +29,11 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 			creature = PROTO_THRALL_1H
 		1:
 			creature = PROTO_THRALL_2H
-
+	repetable = props["repeatable"]
 func _on_creature_death():
-	timer.wait_time = randf_range(20,30)
-	timer.start()
+	if repetable:
+		timer.wait_time = randf_range(20,30)
+		timer.start()
 
 func _on_timer_timeout():
 	spawn()
