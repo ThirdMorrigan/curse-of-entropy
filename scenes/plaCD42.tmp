@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=67 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
+[ext_resource type="Script" path="res://scenes/tool_use_from_inventory.gd" id="13_mqnn4"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
 [ext_resource type="Texture2D" uid="uid://colnbw341lllq" path="res://assets/materials/sword/sword_normal.png" id="14_3edft"]
 [ext_resource type="Script" path="res://_PROTO_/requirement.gd" id="15_m0vcd"]
@@ -918,13 +919,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
 shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
 
-[node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
+[node name="PickaxeSwing" parent="." instance=ExtResource("11_pcjyh")]
 damage_instances = Array[ExtResource("13_qgojy")]([])
 targets = 0
-attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+hitbox_shape = null
+range = 0.0
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
 script = ExtResource("15_m0vcd")
+
+[node name="ToolAction" type="Node" parent="PickaxeSwing"]
+script = ExtResource("13_mqnn4")
+onHit = true
 
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")

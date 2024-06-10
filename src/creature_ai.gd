@@ -88,8 +88,8 @@ func _ready():
 	ai_loop.start(_ai_loop)
 	
 func _physics_process(delta):
-	if overwirte_target_position != null:
-		print(current_nav_goal)
+	#if overwirte_target_position != null:
+		#print(current_nav_goal)
 	if creature.current_state == Creature.State.DIE:
 		nav.queue_free()
 		queue_free()
