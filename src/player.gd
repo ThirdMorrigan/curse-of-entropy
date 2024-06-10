@@ -34,8 +34,8 @@ class_name Player
 @export var sword_swing : Attack
 @export var current_swing_damage_instance : int = 0
 @export var swinging : bool = false
-
-@export var current_tool : Attack
+@export var tool_attacks : Array[Attack]
+var current_tool : Attack
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
 signal player_death
@@ -96,6 +96,8 @@ func _ready():
 	character = PlayerCharacter.new()
 	add_child(character)
 	character.connect_player()
+	if not tool_attacks.is_empty():
+		current_tool = tool_attacks[0]
 
 func _process(delta):
 	if !Engine.is_editor_hint():
@@ -200,3 +202,12 @@ func new_character(new_char):
 	character = new_char
 	character.reparent(self)
 	character.connect_player()
+
+func cycle_current_tool(dir : int):
+	var size = tool_attacks.size()
+	var new_index = tool_attacks.find(current_tool) + dir
+	if new_index >= size:
+		new_index = 0
+	elif new_index < 0:
+		new_index = size -1
+	current_tool = tool_attacks[new_index]

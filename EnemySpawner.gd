@@ -3,7 +3,7 @@ extends Marker3D
 
 @export var creature : Resource
 @export var func_godot_properties : Dictionary
-@export var repetable : bool
+@export var repetable : bool =false
 @onready var timer = $Timer
 
 const PROTO_THRALL_1H = preload("res://scenes/creature/proto_thrall_1h.tscn")

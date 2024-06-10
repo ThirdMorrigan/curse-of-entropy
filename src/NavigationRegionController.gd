@@ -5,7 +5,7 @@ var func_godot_map
 func _ready():
 	func_godot_map = $"..".find_children("*", "FuncGodotMap")[0]
 	for entity in func_godot_map.get_children():
-		if entity is Door or entity is BreakableWall:
+		if entity is Door or entity is BreakableWall or entity is FuncDoor:
 			entity.opened.connect(_reload_nav_mesh)
 	bake_finished.connect(_on_bake_finished)
 

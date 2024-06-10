@@ -10,7 +10,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cokbdf5h3s2a1" path="res://assets/models/creatures/humanoid base/animation_library_test.tres" id="8_02tr2"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="12_kwh46"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="13_xmkyw"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="14_y5owp"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="14_y5owp"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="15_1ykr4"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://csiew5vbvnir1" path="res://assets/models/creatures/humanoid base/humanoid_1H.tres" id="15_an630"]
 [ext_resource type="Script" path="res://src/attack.gd" id="16_cy4tl"]

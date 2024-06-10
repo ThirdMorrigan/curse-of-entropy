@@ -7,7 +7,7 @@ var cam
 func _ready():
 	_interactable_ready()
 	cam = get_viewport().get_camera_3d()
-	$"..".finished_opening.connect(_on_finished_opening)
+	$"..".opened.connect(_on_finished_opening)
 	
 func _func_godot_apply_properties(props: Dictionary) -> void:
 	state = props["state"] as int
