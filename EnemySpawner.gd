@@ -36,9 +36,11 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 		min_time = props["min_time"] as float
 	if "max_time" in props:
 		min_time = props["max_time"] as float
+
+
 func _on_creature_death():
 	if repetable:
-		timer.wait_time = randf_range(20,30)
+		timer.wait_time = randf_range(min_time,max_time)
 		timer.start()
 
 func _on_timer_timeout():
