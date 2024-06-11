@@ -28,7 +28,7 @@ func _on_new_room_entered(roomData : Dictionary):
 	#print(roomData)
 	if roomData.indoors == true :
 		#print("inside")
-		AudioServer.set_bus_effect_enabled(2,0,true)
+		AudioServer.set_bus_effect_enabled(2,1,true)
 	if roomData.indoors == false :
 		#print("OUTSIDE")
 		AudioServer.set_bus_effect_enabled(2,0,false)
@@ -44,11 +44,13 @@ func _on_new_room_entered(roomData : Dictionary):
 func change_zone_music(next_track):
 	if current_music.stream != null :
 		next_music.stream = next_track
+		print("restarts?")
 		animation_player.play("crossfade_audio_in")
 	else :
 		print(current_music.volume_db)
 		current_music.stream = next_track
 		current_music.play()
+	_on_crossfade_finished()
 
 
 func player_moving():
@@ -59,7 +61,7 @@ func player_moving():
 		player_sfx_footsteps.stop()
 
 
-func _on_crossfade_finished(anim_name):
+func _on_crossfade_finished():
 	var old = current_music
 	current_music = next_music
 	next_music = old
