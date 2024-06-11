@@ -21,10 +21,10 @@ func _on_new_room_entered(roomData : Dictionary):
 	#print(roomData)
 	if roomData.indoors == true :
 		print("inside")
-		AudioServer.set_bus_effect_enabled(1,1,true)
+		AudioServer.set_bus_effect_enabled(2,0,true)
 	if roomData.indoors == false :
 		print("OUTSIDE")
-		AudioServer.set_bus_effect_enabled(1,1,false)
+		AudioServer.set_bus_effect_enabled(2,0,false)
 	
 	if roomData.zone == player_current_zone :
 		pass
