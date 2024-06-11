@@ -28,6 +28,8 @@ var curr_hp : float :
 		health_change.emit(curr_hp,curr_max_hp)
 
 func _ready():
+	if invert_immunities :
+		immunities = ~immunities
 	reset()
 
 func hurt(di : DamageInstance):
@@ -47,8 +49,7 @@ func hurt(di : DamageInstance):
 func reset() :
 	curr_max_hp = max_hp
 	curr_hp = max_hp
-	if invert_immunities :
-		immunities = ~immunities
+	
 	if hurtboxes == null:			# bind hurtboxes
 		queue_free()
 	else : 
