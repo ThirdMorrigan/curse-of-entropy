@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b4xc4y284os01"
-path="res://.godot/imported/slime.glb-497f91b8feb9816dcbfca8c93879e7ba.scn"
+uid="uid://chjg8dumvhrmk"
+path="res://.godot/imported/clock_face.glb-3fbcd1cbac09668d91e4ed2fddcd0fc0.scn"
 
 [deps]
 
-source_file="res://assets/models/slime.glb"
-dest_files=["res://.godot/imported/slime.glb-497f91b8feb9816dcbfca8c93879e7ba.scn"]
+source_file="res://assets/models/rooms/clock_face.glb"
+dest_files=["res://.godot/imported/clock_face.glb-3fbcd1cbac09668d91e4ed2fddcd0fc0.scn"]
 
 [params]
 

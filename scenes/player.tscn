@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=66 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -11,11 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 [ext_resource type="AudioStream" uid="uid://bw0w66wvjfni0" path="res://audio/Footsteps1.wav" id="7_7kgrb"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
-[ext_resource type="AudioStream" uid="uid://du42ycd7383by" path="res://scenes/Cave - Ambient.wav" id="7_dj5be"]
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -123,7 +122,6 @@ shader_parameter/texture_crunch = ExtResource("13_lu8wx")
 [sub_resource type="Animation" id="Animation_6cham"]
 resource_name = "idle"
 length = 9.95833
-loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -519,11 +517,11 @@ height = 1.9
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxkqm"]
 height = 1.25
 
-[sub_resource type="Resource" id="Resource_3i0y2"]
+[sub_resource type="Resource" id="Resource_hl5qo"]
 script = ExtResource("13_qgojy")
 damage = 5.0
-impulse = 5.0
-damage_types = 1
+impulse = 2.0
+damage_types = 5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bqkju"]
 radius = 0.1
@@ -724,6 +722,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="Camera3D" type="Camera3D" parent="camera_pivot"]
 doppler_tracking = 2
 projection = 2
+current = true
 fov = 90.0
 size = 0.035
 near = 0.02
@@ -737,12 +736,13 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
-hideInEditor = false
+hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -750,7 +750,6 @@ light_color = Color(1, 0.980392, 0.878431, 1)
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 1.0
-light_bake_mode = 0
 shadow_blur = 0.0
 omni_range = 3.0
 
@@ -759,9 +758,6 @@ script = ExtResource("5_atf2r")
 
 [node name="music_garden_ambient" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("6_gmdfq")
-
-[node name="music_cave_ambient" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
-stream = ExtResource("7_dj5be")
 
 [node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("7_7kgrb")
@@ -828,21 +824,21 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(-0.243498, 0.249873, -0.937162, -0.413903, 0.847073, 0.333395, 0.877151, 0.469075, -0.102837, 0.00779793, 0.200791, 0.0203825)
 bones/6/enabled = true
 bones/6/position = Vector3(0.00779793, 0.200791, 0.0203825)
-bones/6/rotation = Quaternion(-0.0134537, -0.39085, -0.658081, 0.643416)
+bones/6/rotation = Quaternion(-0.0283563, -0.383243, -0.660882, 0.644636)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "forearm.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.996715, 0.0800764, 0.0120918, -0.0791007, 0.930606, 0.357372, 0.0173643, -0.357155, 0.933884, 1.18825e-08, 0.28851, -9.31323e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.18825e-08, 0.28851, -9.31323e-09)
-bones/7/rotation = Quaternion(-0.293586, -0.00130227, -0.0654028, 0.953692)
+bones/7/rotation = Quaternion(-0.267618, -0.00131319, -0.059618, 0.961678)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "hand.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.998386, 0.0565106, 0.00569056, -0.0561545, 0.997156, -0.0502579, -0.00851448, 0.0498572, 0.99872, -2.33994e-08, 0.262836, 1.86265e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-2.33994e-08, 0.262836, 1.86265e-08)
-bones/8/rotation = Quaternion(0.00436862, 0.296316, -0.0420244, 0.954155)
+bones/8/rotation = Quaternion(-0.00473945, 0.317899, -0.0515293, 0.946711)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "hold.R"
 bones/9/parent = 8
@@ -869,8 +865,8 @@ bones/12/name = "IK.R"
 bones/12/parent = -1
 bones/12/rest = Transform3D(-0.550248, 0.825611, 0.124872, -0.835001, -0.544067, -0.0822447, 3.64929e-05, -0.149523, 0.988758, 0.6594, -0.395923, 0.0486656)
 bones/12/enabled = true
-bones/12/position = Vector3(0.32457, -0.313915, -0.511961)
-bones/12/rotation = Quaternion(-0.0109765, -0.665218, 0.744064, 0.0610975)
+bones/12/position = Vector3(0.329899, -0.309917, -0.516264)
+bones/12/rotation = Quaternion(-0.0229601, -0.664478, 0.743643, 0.0702735)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "IK.L"
 bones/13/parent = -1
@@ -881,7 +877,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.992296, 0.0975967, -0.0763187, 0.105501, 0.98859, -0.10751, 0.0649553, -0.114733, -0.99127, 0.317956, -0.323107, -0.592189)
+transform = Transform3D(-0.98907, 0.127539, -0.0739953, 0.13503, 0.985039, -0.107074, 0.0592321, -0.115896, -0.991494, 0.323693, -0.318972, -0.597021)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -933,18 +929,15 @@ script = ExtResource("15_m0vcd")
 
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")
-damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_3i0y2")])
+damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_hl5qo")])
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_bqkju")
 attack_origin = NodePath("../camera_pivot/metarig/Skeleton3D/sword_pivot/sword_hilt")
-range = 1.4
+range = 1.6
 weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
