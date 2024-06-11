@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://vci1quloydjn"]
+
+[ext_resource type="Shader" path="res://assets/models/creatures/lichma/lich_outards.gdshader" id="1_a7m2g"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3gq2a"]
+frequency = 0.1169
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_5nt7u"]
+seamless = true
+noise = SubResource("FastNoiseLite_3gq2a")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_a7m2g")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(1, 0.560784, 0.0588235, 1)
+shader_parameter/alpha_hash_scale = 0.045
+shader_parameter/fresnel_power = 0.88
+shader_parameter/noise = SubResource("NoiseTexture3D_5nt7u")
