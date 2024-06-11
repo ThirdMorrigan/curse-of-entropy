@@ -1,5 +1,7 @@
 extends Node3D
 var player_current_zone : GameDataSingleton.map_zone
+var current_music : AudioStreamPlayer
+var next_music : AudioStreamPlayer
 @onready var music_garden_ambient : AudioStreamPlayer = $music_garden_ambient
 @onready var music_cave_ambient : AudioStreamPlayer = $music_cave_ambient
 

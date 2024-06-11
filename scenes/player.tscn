@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=73 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cas70e2qpascn" path="res://audio/Garden - Ambient 1.wav" id="6_gmdfq"]
 [ext_resource type="AudioStream" uid="uid://bw0w66wvjfni0" path="res://audio/Footsteps1.wav" id="7_7kgrb"]
 [ext_resource type="Script" path="res://src/room_detector.gd" id="7_beu1l"]
-[ext_resource type="AudioStream" uid="uid://du42ycd7383by" path="res://audio/Cave - Ambient.wav" id="7_giupo"]
+[ext_resource type="AudioStream" uid="uid://du42ycd7383by" path="res://scenes/Cave - Ambient.wav" id="7_giupo"]
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
@@ -829,6 +829,7 @@ bus = &"Music"
 
 [node name="music_cave_ambient" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 stream = ExtResource("7_giupo")
+volume_db = -50.0
 bus = &"Music"
 
 [node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
