@@ -62,9 +62,9 @@
 [ext_resource type="PackedScene" uid="uid://pf0f0l2r88ui" path="res://scenes/creature/thralls/thrall_pitchfork.tscn" id="54_87phn"]
 [ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="55_60qdn"]
 [ext_resource type="PackedScene" uid="uid://boellojabnr6l" path="res://scenes/rooms/sewer/passage_0.tscn" id="56_wrbb7"]
-[ext_resource type="PackedScene" uid="uid://dwlavpc2mweak" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
-[ext_resource type="PackedScene" uid="uid://86qj40r7aiy2" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
-[ext_resource type="PackedScene" uid="uid://62hjd1xvqhd5" path="res://scenes/rooms/sewer/passage_1.tscn" id="61_jo345"]
+[ext_resource type="PackedScene" uid="uid://dvyqna3vsw5nt" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/sewer/passage_1.tscn" id="61_jo345"]
 [ext_resource type="PackedScene" uid="uid://b6b3ekwg8o2oo" path="res://scenes/creature/slime/slime.tscn" id="65_mb2n1"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
@@ -750,23 +750,23 @@ directional_shadow_max_distance = 800.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.6503, 0.4929, -62.9531)
 
 [node name="Room3" parent="Garden" instance=ExtResource("5_3ma6k")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.60282, -17.4607, 155.334)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 156.457, -0.48, 119.502)
 
 [node name="Room4" parent="Garden" instance=ExtResource("6_lmwv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.0676, 6.06453, -75.4487)
 
 [node name="Room5" parent="Garden" instance=ExtResource("6_s4c2g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.078, 7.07321, -103.939)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
-transform = Transform3D(-100, 0, 8.74228e-06, 0, 100, 0, -8.74228e-06, 0, -100, 59.7275, -13.4137, -140.682)
-mesh = ExtResource("7_bifhs")
-surface_material_override/0 = ExtResource("8_tsvcb")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.977, 7.09419, -103.423)
 
 [node name="Room6" parent="Garden" instance=ExtResource("9_1f8lr")]
 
 [node name="Room7" parent="Garden" instance=ExtResource("10_fhry0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.979, 7.11004, -104.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.979, 7.11004, -103.417)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 117.436, -11.8517, -142.765)
+mesh = ExtResource("7_bifhs")
+surface_material_override/0 = ExtResource("8_tsvcb")
 
 [node name="Cave" type="Node3D" parent="."]
 
@@ -901,7 +901,7 @@ omni_range = 30.4179
 omni_attenuation = 0.00781251
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5599, 1.49182, 15.7039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.024, 8.06888, -116.295)
 
 [node name="proto_thrall_1h2" parent="." instance=ExtResource("34_mctcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2944, 0, 11.8975)
@@ -934,3 +934,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -30, 30)
 
 [node name="slime" parent="." instance=ExtResource("65_mb2n1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6623, -9.53674e-07, -37.9714)
+
+[node name="slime2" parent="." instance=ExtResource("65_mb2n1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.11, 7.55297, -114.941)

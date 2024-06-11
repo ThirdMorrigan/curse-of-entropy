@@ -21,7 +21,7 @@ collision_mask = 64
 [node name="Room2" parent="." instance=ExtResource("2_0li6j")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, -6)
 collision_mask = 64
-indoors = false
+zone = 5
 
 [node name="Player" parent="." instance=ExtResource("3_fnj7l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26956, 0, -8.91298)
