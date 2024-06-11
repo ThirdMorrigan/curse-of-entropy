@@ -118,6 +118,9 @@ func _physics_process(delta):
 				if pmo != null:
 					floor_friction = pmo.friction
 					#print(floor_friction)
+			elif col is Creature:
+				floor_friction = 0
+				velocity += Vector3.FORWARD* 100
 		$mantle_fix_c.disabled = is_on_floor()
 		$mantle_fix_l.disabled = is_on_floor()
 		$mantle_fix_r.disabled = is_on_floor()

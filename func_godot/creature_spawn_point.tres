@@ -13,6 +13,8 @@ func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
 "creature_id": 0,
+"max_time": 30.0,
+"min_time": 20.0,
 "repeatable": false
 }
 class_property_descriptions = {}
