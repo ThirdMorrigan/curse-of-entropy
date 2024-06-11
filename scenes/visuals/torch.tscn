@@ -8,14 +8,14 @@
 _data = [Vector2(0.336761, 0.685587), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_v1ng1"]
+[sub_resource type="CurveTexture" id="CurveTexture_5jga6"]
 curve = SubResource("Curve_n6j3a")
 
 [sub_resource type="Gradient" id="Gradient_0soht"]
 offsets = PackedFloat32Array(0, 0.066482, 0.437673)
 colors = PackedColorArray(1, 1, 1, 1, 0.79, 0.552473, 0.1422, 1, 0.0475577, 0.0475576, 0.0475576, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qjlhd"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5licl"]
 gradient = SubResource("Gradient_0soht")
 
 [sub_resource type="Curve" id="Curve_kdxrc"]
@@ -24,14 +24,14 @@ max_value = 2.0
 _data = [Vector2(0, -1.00296), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_s25rn"]
+[sub_resource type="CurveTexture" id="CurveTexture_y3sak"]
 curve = SubResource("Curve_kdxrc")
 
 [sub_resource type="Curve" id="Curve_nsit0"]
 _data = [Vector2(0, 1), 0.0, -2.11204, 0, 0, Vector2(1, 0.371175), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_y0xcj"]
+[sub_resource type="CurveTexture" id="CurveTexture_m311f"]
 curve = SubResource("Curve_nsit0")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8c8hj"]
@@ -44,18 +44,18 @@ initial_velocity_min = 0.2
 initial_velocity_max = 0.66
 orbit_velocity_min = -0.12
 orbit_velocity_max = 0.081
-orbit_velocity_curve = SubResource("CurveTexture_s25rn")
+orbit_velocity_curve = SubResource("CurveTexture_y3sak")
 radial_velocity_min = 0.05
 radial_velocity_max = 0.25
 gravity = Vector3(0, 0, 0)
 scale_min = 2.5
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_y0xcj")
-color_ramp = SubResource("GradientTexture1D_qjlhd")
-alpha_curve = SubResource("CurveTexture_v1ng1")
+scale_curve = SubResource("CurveTexture_m311f")
+color_ramp = SubResource("GradientTexture1D_5licl")
+alpha_curve = SubResource("CurveTexture_5jga6")
 turbulence_noise_scale = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcyqq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x75tv"]
 transparency = 3
 alpha_hash_scale = 2.0
 alpha_antialiasing_mode = 0
@@ -72,7 +72,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_oonvp"]
-material = SubResource("StandardMaterial3D_wcyqq")
+material = SubResource("StandardMaterial3D_x75tv")
 size = Vector2(0.03, 0.03)
 
 [node name="torch" instance=ExtResource("1_cyr7v")]

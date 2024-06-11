@@ -81,8 +81,11 @@ func _ready():
 	vision_area_shape.shape.radius = vision_range
 	vision_area.collision_mask = 16
 	vision_area.collision_layer = 0
-
-	wander_goal = random_pos_in_wander_range()
+	
+	if overwirte_target_position == null :
+		wander_goal = random_pos_in_wander_range()
+	else :
+		wander_goal = overwirte_target_position.global_position
 
 	
 	ai_loop.start(_ai_loop)
@@ -105,10 +108,11 @@ func _physics_process(delta):
 			creature.current_state = next_state
 	if creature.current_state < Creature.State.ATTACK_0 :
 		attack_timer -= delta
-	if overwirte_target_position == null:
+	
+	if current_nav_goal != nav.target_position :
 		nav.target_position = current_nav_goal
-	else:
-		nav.target_position = overwirte_target_position.position
+	
+		
 	if player != null:														# LOOKING FOR PLAYER
 		if look_for(player):
 			player_last_seen = player.global_position
@@ -146,7 +150,7 @@ func _physics_process(delta):
 		creature.goal_look = player.global_position - creature.global_position
 	
 func _on_target_reached():
-	if player == null && creature.current_state == Creature.State.WALK && !waiting :
+	if player == null && creature.current_state == Creature.State.WALK && !waiting && overwirte_target_position == null :
 
 		wander_goal = random_pos_in_wander_range()
 
@@ -164,15 +168,18 @@ func _ai_loop():
 		
 		if player == null :
 			mut.lock()
-			if wander_range :
-				if waiting:
-					#print("player null, waiting, setting to idle")
-					next_state = Creature.State.IDLE
-				else:
-					#print("player null, not waiting, setting to walk")
-					next_state = Creature.State.WALK
-					if current_nav_goal != wander_goal:
-						current_nav_goal = wander_goal
+			if overwirte_target_position == null:
+				if wander_range :
+					if waiting:
+						#print("player null, waiting, setting to idle")
+						next_state = Creature.State.IDLE
+					else:
+						#print("player null, not waiting, setting to walk")
+						next_state = Creature.State.WALK
+						if current_nav_goal != wander_goal:
+							current_nav_goal = wander_goal
+		
+
 			mut.unlock()
 		else:
 			var num_attacks = min(attacks.size(),5)

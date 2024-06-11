@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://duys0fqx15igc"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_swo73"]
+[ext_resource type="Texture2D" uid="uid://ep2g1ehuavcg" path="res://assets/materials/boots/boots_albedo.png" id="2_rok5b"]
+[ext_resource type="Texture2D" uid="uid://cp1rgbm47pleo" path="res://assets/materials/boots/boots_crunch.png" id="3_5mmco"]
+[ext_resource type="Texture2D" uid="uid://c83ggq4n36nsp" path="res://assets/materials/boots/boots_normal.png" id="4_dbwrx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_swo73")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 1.352
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_rok5b")
+shader_parameter/texture_normal = ExtResource("4_dbwrx")
+shader_parameter/texture_crunch = ExtResource("3_5mmco")

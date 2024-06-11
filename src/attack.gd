@@ -44,7 +44,9 @@ func fire() :
 			var h = cast.get_collider(t)
 			if h is Hurtbox:
 				hit.emit()
-				h.damage(get_modified_damage_instance(damage_instances[0]))
+				var d = get_modified_damage_instance(damage_instances[0])
+				print(d.impulse)
+				h.damage(d)
 
 func create_hitbox():
 	cast = _create_hitbox()
@@ -66,6 +68,7 @@ func _create_hitbox() -> ShapeCast3D:
 
 func get_modified_damage_instance(d : DamageInstance) -> DamageInstance :
 	var d_temp = d.copy()
+	print(str(d.impulse, ", ", d_temp.impulse))
 	d_temp.rotate_impulse(global_basis)
 	return d_temp
 

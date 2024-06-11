@@ -62,8 +62,9 @@
 [ext_resource type="PackedScene" uid="uid://pf0f0l2r88ui" path="res://scenes/creature/thralls/thrall_pitchfork.tscn" id="54_87phn"]
 [ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="55_60qdn"]
 [ext_resource type="PackedScene" uid="uid://boellojabnr6l" path="res://scenes/rooms/sewer/passage_0.tscn" id="56_wrbb7"]
-[ext_resource type="PackedScene" uid="uid://dvyqna3vsw5nt" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
+[ext_resource type="PackedScene" uid="uid://dwlavpc2mweak" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
+[ext_resource type="PackedScene" uid="uid://86qj40r7aiy2" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
+[ext_resource type="PackedScene" uid="uid://62hjd1xvqhd5" path="res://scenes/rooms/sewer/passage_1.tscn" id="61_jo345"]
 [ext_resource type="PackedScene" uid="uid://b6b3ekwg8o2oo" path="res://scenes/creature/slime/slime.tscn" id="65_mb2n1"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
@@ -822,7 +823,7 @@ transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 29.042, 0, -49.2395)
 [node name="Key2" parent="." instance=ExtResource("11_8bbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.598, 9.32295, -89.2453)
 visuals = ExtResource("12_1ifis")
-interactionText = "pick up Jump boots"
+interactionText = "pick up Highjump Boots"
 id = 7
 
 [node name="Climable" parent="." instance=ExtResource("13_fdyd1")]
@@ -900,7 +901,7 @@ omni_range = 30.4179
 omni_attenuation = 0.00781251
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8317, 1.5758, -39.0848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5599, 1.49182, 15.7039)
 
 [node name="proto_thrall_1h2" parent="." instance=ExtResource("34_mctcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2944, 0, 11.8975)
@@ -929,5 +930,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -30, 30)
 
 [node name="Room3" parent="sewer" instance=ExtResource("58_vwm5l")]
 
+[node name="Room4" parent="sewer" instance=ExtResource("61_jo345")]
 [node name="slime" parent="." instance=ExtResource("65_mb2n1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6623, -9.53674e-07, -37.9714)

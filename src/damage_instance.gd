@@ -9,20 +9,18 @@ enum DamageType {
 	PRYBAR = 16
 }
 
-@export var damage : float
-@export var impulse : float :
-	get:
-		return impulse_vector.length()
-	set(i):
-		impulse_vector = Vector3(0,0.45,-0.89) * i
+@export var damage : float = 1
+@export var impulse : float = 1
 @export_flags("Physical:1","Magical:2","Heat:4","Blast:8","Prybar:16") var damage_types = 0
 
-var impulse_vector : Vector3 :
+var impulse_vector : Vector3 = Vector3(0,0.45,-0.89) :
+	get:
+		return impulse_vector * impulse
 	set(v):
 		if !v.is_normalized():
 			v = v.normalized()
-		v *= impulse
 		impulse_vector = v
+
 
 func rotate_impulse(b:Basis):
 	impulse_vector = b * impulse_vector
@@ -34,5 +32,6 @@ func copy() -> DamageInstance:
 	var d = DamageInstance.new()
 	d.damage = damage
 	d.impulse_vector = impulse_vector
+	d.impulse = impulse
 	d.damage_types = damage_types
 	return d

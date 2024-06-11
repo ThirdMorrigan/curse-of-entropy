@@ -47,9 +47,9 @@ var itemLookupTable = {
 		"visuals" : "res://scenes/visuals/potion_visuals.tscn"
 	},
 	7 : {
-		"name" : "Jump boots",
+		"name" : "Highjump Boots",
 		"type" : item_types.TOOL,
-		"description" : "She jump on my boot until i shit my pants",
+		"description" : "FOR YOUR OWN SAFETY DO NOT WEAR THEM ON YOUR HANDS AND PUNCH A WALL",
 		"visuals" : "res://scenes/visuals/boots_visuals.tscn"
 	},
 	8 : {

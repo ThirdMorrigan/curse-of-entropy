@@ -33,7 +33,8 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 
 func _on_opened():
 	print("opened")
-	link.enabled = true
+	if link != null :
+		link.enabled = true
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
