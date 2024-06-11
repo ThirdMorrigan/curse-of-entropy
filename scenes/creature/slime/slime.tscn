@@ -1,0 +1,161 @@
+[gd_scene load_steps=30 format=3 uid="uid://b6b3ekwg8o2oo"]
+
+[ext_resource type="PackedScene" uid="uid://bq17qn6ht6lm8" path="res://assets/models/creatures/slime/slime.glb" id="1_tupnk"]
+[ext_resource type="Material" uid="uid://bvve875ktrb27" path="res://scenes/creature/slime/slime_material_0.tres" id="2_volj6"]
+[ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="3_3ysba"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_8i1x0"]
+[ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="5_c3cqd"]
+[ext_resource type="Script" path="res://src/hurtbox.gd" id="6_yeefr"]
+[ext_resource type="Script" path="res://src/health_pool.gd" id="7_o5lod"]
+[ext_resource type="Script" path="res://src/attack.gd" id="8_w4843"]
+[ext_resource type="Script" path="res://src/creature_ai.gd" id="9_ck24e"]
+[ext_resource type="Script" path="res://src/damage_instance.gd" id="9_lym1g"]
+
+[sub_resource type="GDScript" id="GDScript_hkwnx"]
+script/source = "extends Node3D
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	global_rotation.y = 0
+"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
+animation = &"attack_0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yic6n"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7w85m"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h4mty"]
+graph_offset = Vector2(-311.998, -39.0496)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7w85m")
+nodes/Animation/position = Vector2(-260, 80)
+nodes/output/position = Vector2(120, 80)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dx8hi"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_axw71"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_dx8hi")
+nodes/Animation/position = Vector2(340, 100)
+nodes/output/position = Vector2(800, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y2t8u"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rn25o"]
+xfade_time = 0.5
+advance_mode = 2
+advance_expression = "current_state == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kfogt"]
+xfade_time = 0.5
+advance_mode = 2
+advance_expression = "current_state == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cijib"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 4"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rnuc3"]
+xfade_time = 0.25
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1s0fs"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i1n8o"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m3vm0"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 3"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y0tkb"]
+states/Start/position = Vector2(13, 100)
+states/attack_0/node = SubResource("AnimationNodeAnimation_pjh3y")
+states/attack_0/position = Vector2(425, 100)
+states/die/node = SubResource("AnimationNodeAnimation_yic6n")
+states/die/position = Vector2(281, -13)
+states/idle/node = SubResource("AnimationNodeBlendTree_h4mty")
+states/idle/position = Vector2(162, 100)
+states/walk/node = SubResource("AnimationNodeBlendTree_axw71")
+states/walk/position = Vector2(281, 176)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y2t8u"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_rn25o"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_kfogt"), "walk", "attack_0", SubResource("AnimationNodeStateMachineTransition_cijib"), "attack_0", "walk", SubResource("AnimationNodeStateMachineTransition_rnuc3"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_1s0fs"), "attack_0", "die", SubResource("AnimationNodeStateMachineTransition_i1n8o"), "walk", "die", SubResource("AnimationNodeStateMachineTransition_m3vm0")]
+graph_offset = Vector2(-266, -77)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_74jrr"]
+radius = 1.28339
+
+[sub_resource type="Resource" id="Resource_j1hw5"]
+script = ExtResource("9_lym1g")
+damage = 1.0
+impulse = 1000.0
+damage_types = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4xssm"]
+height = 0.5
+radius = 1.5
+
+[node name="slime" instance=ExtResource("1_tupnk")]
+
+[node name="Armature" parent="." index="0"]
+script = SubResource("GDScript_hkwnx")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/scale = Vector3(1.0177, 0.986097, 1.0177)
+
+[node name="Sphere" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_volj6")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_y0tkb")
+anim_player = NodePath("../AnimationPlayer")
+script = ExtResource("3_3ysba")
+fire_attack = true
+
+[node name="collision_hull_medium" parent="." index="3" instance=ExtResource("4_8i1x0")]
+
+[node name="ray" parent="." index="4" instance=ExtResource("5_c3cqd")]
+
+[node name="Hurtbox" type="Area3D" parent="." index="5"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("6_yeefr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" index="0"]
+shape = SubResource("SphereShape3D_74jrr")
+
+[node name="HealthPool" type="Node" parent="." index="6" node_paths=PackedStringArray("hurtboxes")]
+script = ExtResource("7_o5lod")
+hurtboxes = [NodePath("../Hurtbox")]
+
+[node name="Attack" type="Node3D" parent="." index="7" node_paths=PackedStringArray("attack_origin")]
+script = ExtResource("8_w4843")
+damage_instances = Array[ExtResource("9_lym1g")]([SubResource("Resource_j1hw5")])
+targets = 16
+hitbox_shape = SubResource("CylinderShape3D_4xssm")
+attack_origin = NodePath("../Marker3D")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="8"]
+avoidance_enabled = true
+
+[node name="CreatureAI" type="Node" parent="." index="9" node_paths=PackedStringArray("eyes")]
+script = ExtResource("9_ck24e")
+eyes = NodePath("../Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399511, 0)
