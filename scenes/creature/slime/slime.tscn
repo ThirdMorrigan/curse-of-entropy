@@ -116,7 +116,7 @@ radius = 1.5
 script = SubResource("GDScript_hkwnx")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1, 1, 1)
+bones/0/scale = Vector3(1.06452, 0.949331, 1.06452)
 
 [node name="Sphere" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_volj6")
@@ -140,7 +140,7 @@ shape = SubResource("SphereShape3D_74jrr")
 
 [node name="HealthPool" type="Node" parent="." index="6" node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("7_o5lod")
-hurtboxes = [NodePath("")]
+hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Attack" type="Node3D" parent="." index="7"]
 script = ExtResource("8_w4843")
@@ -151,8 +151,9 @@ hitbox_shape = SubResource("CylinderShape3D_4xssm")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="8"]
 avoidance_enabled = true
 
-[node name="CreatureAI" type="Node" parent="." index="9"]
+[node name="CreatureAI" type="Node" parent="." index="9" node_paths=PackedStringArray("eyes")]
 script = ExtResource("9_ck24e")
+eyes = NodePath("../Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399511, 0)

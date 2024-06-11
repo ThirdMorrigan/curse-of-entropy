@@ -14,7 +14,7 @@ func _create_hitbox():
 
 func fire():
 	cast.damage = damage_instances[0]
-	cast.set_movement_vector((attack_origin.global_basis * Vector3.FORWARD) * range)
+	cast.set_movement_vector((attack_origin.global_basis * Vector3.FORWARD) * range,1)
 	cast.global_rotation = Vector3.ZERO
 	var _vis = visuals.instantiate()
 	if visuals != null :
@@ -23,4 +23,5 @@ func fire():
 		_vis.global_basis = attack_origin.global_basis
 	cast.travelling = true
 	cast.top_level = true
-	cast = create_hitbox()
+	create_hitbox()
+	#print(cast)

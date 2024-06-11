@@ -210,4 +210,5 @@ func cycle_current_tool(dir : int):
 		new_index = 0
 	elif new_index < 0:
 		new_index = size -1
+	print_debug(new_index)
 	current_tool = tool_attacks[new_index]

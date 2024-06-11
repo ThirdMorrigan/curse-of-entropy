@@ -38,7 +38,7 @@ func _process(_delta):
 func _physics_process(delta):
 	if Input.is_action_just_pressed("cycle_tool_up"):
 		player.cycle_current_tool(-1)
-	if Input.is_action_just_pressed("cycle_tool_up"):
+	if Input.is_action_just_pressed("cycle_tool_down"):
 		player.cycle_current_tool(1)
 	if Input.is_action_just_pressed("use_tool"):
 		if player.current_tool.check():
