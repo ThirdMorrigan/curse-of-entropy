@@ -1,9 +1,14 @@
 extends Node3D
-var current_music : AudioStreamPlayer
-var next_music : AudioStreamPlayer
+@export var current_music : AudioStreamPlayer = AudioStreamPlayer.new()
+@export var next_music : AudioStreamPlayer = AudioStreamPlayer.new()
 var player_current_zone
-@onready var music_garden_ambient : AudioStreamPlayer = $music_garden_ambient
-@onready var music_cave_ambient : AudioStreamPlayer = $music_cave_ambient
+
+#@onready var music_garden_ambient : AudioStreamPlayer = $music_garden_ambient
+#@onready var music_cave_ambient : AudioStreamPlayer = $music_cave_ambient
+
+@onready var animation_player = $AnimationPlayer
+const CAVE___AMBIENT = preload("res://audio/Cave - Ambient.wav")
+const GARDEN___AMBIENT_1 = preload("res://audio/Garden - Ambient 1.wav")
 
 @onready var player_sfx_footsteps : AudioStreamPlayer = $player_sfx_footsteps
 
@@ -22,23 +27,28 @@ func _process(delta):
 func _on_new_room_entered(roomData : Dictionary):
 	#print(roomData)
 	if roomData.indoors == true :
-		print("inside")
+		#print("inside")
 		AudioServer.set_bus_effect_enabled(2,0,true)
 	if roomData.indoors == false :
-		print("OUTSIDE")
+		#print("OUTSIDE")
 		AudioServer.set_bus_effect_enabled(2,0,false)
 	
 	if roomData.zone != player_current_zone :
 		match roomData["zone"]:
 			GameDataSingleton.map_zone.GARDEN:
-				music_garden_ambient.play()
+				change_zone_music(GARDEN___AMBIENT_1)
 			GameDataSingleton.map_zone.CAVE:
-				music_cave_ambient.play()
+				change_zone_music(CAVE___AMBIENT)
 		player_current_zone = roomData.zone
 	
-func change_zone_music():
-	
-	pass
+func change_zone_music(next_track):
+	if current_music.stream != null :
+		next_music.stream = next_track
+		animation_player.play("crossfade_audio_in")
+	else :
+		print(current_music.volume_db)
+		current_music.stream = next_track
+		current_music.play()
 
 
 func player_moving():
@@ -47,3 +57,9 @@ func player_moving():
 			player_sfx_footsteps.play()
 	else:
 		player_sfx_footsteps.stop()
+
+
+func _on_crossfade_finished(anim_name):
+	var old = current_music
+	current_music = next_music
+	next_music = old
