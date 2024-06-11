@@ -93,6 +93,36 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "A key for the nearby clocktower and its side path",
 		"visuals" : key_visuals
+	},
+	15 : {
+		"name" : "Block A Cell 5 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A5.",
+		"visuals" : key_visuals
+	},
+	16 : {
+		"name" : "Block A Cell 2 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A2.",
+		"visuals" : key_visuals
+	},
+	17 : {
+		"name" : "Block A Cell 8 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A8.",
+		"visuals" : key_visuals
+	},
+	18 : {
+		"name" : "Dungeon Internal Gate Key",
+		"type" : item_types.KEY,
+		"description" : "This key opens a gate somewhere in the dungeon.",
+		"visuals" : key_visuals
+	},
+	19 : {
+		"name" : "Dungeon Storage Room Key",
+		"type" : item_types.KEY,
+		"description" : "This key opens a storage room in the dungeon.",
+		"visuals" : key_visuals
 	}
 	
 }

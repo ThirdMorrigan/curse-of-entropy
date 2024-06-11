@@ -1,15 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj7of4ca3aj6k"]
+[gd_scene load_steps=7 format=3 uid="uid://dj7of4ca3aj6k"]
 
 [ext_resource type="PackedScene" uid="uid://c4xkpqedewkc1" path="res://assets/models/key.glb" id="1_tbn8n"]
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_v6a4p"]
+[ext_resource type="Texture2D" uid="uid://cfdcti48dwc3e" path="res://assets/materials/metal_rusty/metal_rusty_albedo.png" id="3_7rroh"]
+[ext_resource type="Texture2D" uid="uid://bhg4c8ako3ko5" path="res://assets/materials/metal_rusty/metal_rusty_crunch.png" id="4_0mldr"]
+[ext_resource type="Texture2D" uid="uid://brbli0cf8pwck" path="res://assets/materials/metal_rusty/metal_rusty_normal.png" id="5_aqqbh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eg605"]
+render_priority = 0
+shader = ExtResource("2_v6a4p")
+shader_parameter/vertex_wobble_scale = 2
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 2.0
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/texture_albedo = ExtResource("3_7rroh")
+shader_parameter/texture_normal = ExtResource("5_aqqbh")
+shader_parameter/texture_crunch = ExtResource("4_0mldr")
 
 [node name="key" instance=ExtResource("1_tbn8n")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="Torus" parent="." index="0"]
-transform = Transform3D(0.538449, 0, 0, 0, 0.538449, 0, 0, 0, 0.538449, 0, 0, 1.01295)
+[node name="key" parent="." index="0"]
+layers = 17
+surface_material_override/0 = SubResource("ShaderMaterial_eg605")
 
-[node name="Cylinder" parent="." index="1"]
-transform = Transform3D(0.390763, 0, 0, 0, -1.70808e-08, -0.390763, 0, 0.390763, -1.70808e-08, 0, 0, -0.857498)
-
-[node name="Cube" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.857498)
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392264, 0)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_size = 0.12
+light_specular = 0.02
+omni_range = 0.57
+omni_attenuation = 8.57413
