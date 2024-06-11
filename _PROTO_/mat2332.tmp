@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dudwrccn7lcpl"]
+
+[ext_resource type="PackedScene" uid="uid://brmohyve6krtp" path="res://scenes/rooms/garden_indoors.tscn" id="1_cdwrb"]
+[ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_iuymp"]
+[ext_resource type="PackedScene" uid="uid://66ndekmplaj1" path="res://scenes/rooms/garden_outdoors.tscn" id="2_0li6j"]
+[ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="3_fnj7l"]
+
+[node name="Matt test scene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_iuymp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 16.2761, 3.22032, 0)
+light_energy = 5.0
+shadow_enabled = true
+
+[node name="Room" parent="." instance=ExtResource("1_cdwrb")]
+collision_mask = 64
+
+[node name="Room2" parent="." instance=ExtResource("2_0li6j")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, -6)
+collision_mask = 64
+zone = 5
+
+[node name="Player" parent="." instance=ExtResource("3_fnj7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26956, 0, -8.91298)
+
+[connection signal="area_entered" from="Room2" to="Room2" method="_on_area_entered"]
