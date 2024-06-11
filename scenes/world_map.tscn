@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=100 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cq13kyxu7jxsk" path="res://scenes/rooms/garden/garden_5_clock_tower.tscn" id="6_s4c2g"]
 [ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
 [ext_resource type="ArrayMesh" uid="uid://cyotejmtkuxry" path="res://assets/models/rooms/hilll_side_Landscape_002.res" id="7_bifhs"]
-[ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="8_tsvcb"]
 [ext_resource type="PackedScene" uid="uid://vrhh38m676t5" path="res://scenes/rooms/room.tscn" id="9_1f8lr"]
 [ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="9_qkjs2"]
 [ext_resource type="PackedScene" uid="uid://cqj0rh3ilfdg5" path="res://scenes/rooms/garden/garden_6_outside_clocktower.tscn" id="10_fhry0"]
@@ -765,7 +764,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.979, 7.11004, -103.417)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 117.436, -11.8517, -142.765)
 mesh = ExtResource("7_bifhs")
-surface_material_override/0 = ExtResource("8_tsvcb")
 
 [node name="Cave" type="Node3D" parent="."]
 
@@ -860,6 +858,8 @@ surface_material_override/0 = ExtResource("21_x60d4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2004, 7.06453, -75.8774)
 creature = SubResource("PackedScene_p6abw")
 repetable = false
+boss = null
+wander_range = null
 
 [node name="Lever" parent="." instance=ExtResource("24_y7bsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)

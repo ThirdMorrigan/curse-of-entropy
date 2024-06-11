@@ -30,7 +30,7 @@ var current_state : State :
 var goal_look : Vector3
 var goal_vel : Vector3 = Vector3.ZERO
 var to_impulse : Vector3 = Vector3.ZERO
-
+var wander_range : float
 var aware : bool = false
 
 func _ready():

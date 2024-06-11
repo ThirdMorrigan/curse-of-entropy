@@ -87,6 +87,7 @@ func _ready():
 	else :
 		wander_goal = overwirte_target_position.global_position
 
+	wander_range = creature.wander_range
 	
 	ai_loop.start(_ai_loop)
 	

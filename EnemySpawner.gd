@@ -8,6 +8,9 @@ extends Marker3D
 @export var max_time : float = 30
 @export var overwrite_loot_table: bool = false
 @export var drop : int = 0
+@export var boss : bool = false
+@export var wander_range : float
+var dead : bool = false
 @onready var timer = $Timer
 
 const PROTO_THRALL_1H = "res://scenes/creature/proto_thrall_1h.tscn"
@@ -21,13 +24,16 @@ func _ready():
 
 
 func spawn():
-	timer.stop()
-	if creature != null:
-		var instance = creature.instantiate()
-		add_child(instance)
-		instance.creature_death.connect(_on_creature_death)
-		if overwrite_loot_table:
-			instance.loot_table = {100.0 : drop}
+	if not dead:
+		timer.stop()
+		if creature != null:
+			var instance = creature.instantiate()
+			instance.wander_range = wander_range
+			add_child(instance)
+			instance.creature_death.connect(_on_creature_death)
+			
+			if overwrite_loot_table:
+				instance.loot_table = {100.0 : drop}
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
 	match props["creature_id"]:
@@ -36,6 +42,8 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 		1:
 			creature = preload(PROTO_THRALL_2H)
 	repetable = props["repeatable"]
+	boss = props["boss"]
+	wander_range = props["wander"]
 	if "min_time" in props:
 		min_time = props["min_time"] as float
 	if "max_time" in props:
@@ -47,6 +55,8 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 
 func _on_creature_death():
 	overwrite_loot_table = false
+	if boss:
+		dead = true
 	if repetable:
 		timer.wait_time = randf_range(min_time,max_time)
 		timer.start()
