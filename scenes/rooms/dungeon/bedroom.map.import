@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dyvw8vfyopa7k"
+path="res://.godot/imported/bedroom.map-54b5ad5c7b3b6f19568fa473e85c7882.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/dungeon/bedroom.map"
+dest_files=["res://.godot/imported/bedroom.map-54b5ad5c7b3b6f19568fa473e85c7882.tres"]
+
+[params]
+

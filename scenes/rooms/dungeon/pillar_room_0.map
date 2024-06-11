@@ -497,6 +497,98 @@
 }
 // entity 12
 {
+"classname" "Torch"
+"origin" "-200 880 96"
+"angle" "90"
+}
+// entity 13
+{
+"classname" "Torch"
+"origin" "-240 920 96"
+}
+// entity 14
+{
+"classname" "Torch"
+"origin" "-160 920 96"
+"angle" "180"
+}
+// entity 15
+{
+"classname" "Torch"
+"origin" "-200 960 96"
+"angle" "270"
+}
+// entity 16
+{
+"classname" "Torch"
+"origin" "432 1216 80"
+}
+// entity 17
+{
+"classname" "Torch"
+"origin" "432 1080 80"
+}
+// entity 18
+{
+"classname" "Torch"
+"origin" "64 528 80"
+"angle" "270"
+}
+// entity 19
+{
+"classname" "Torch"
+"origin" "-64 528 80"
+"angle" "270"
+}
+// entity 20
+{
+"classname" "Torch"
+"origin" "-420 532 96"
+"angle" "315"
+}
+// entity 21
+{
+"classname" "Torch"
+"origin" "-632 176 64"
+}
+// entity 22
+{
+"classname" "Torch"
+"origin" "-592 216 64"
+"angle" "270"
+}
+// entity 23
+{
+"classname" "Torch"
+"origin" "-592 136 64"
+"angle" "90"
+}
+// entity 24
+{
+"classname" "Torch"
+"origin" "-552 176 64"
+"angle" "180"
+}
+// entity 25
+{
+"classname" "Torch"
+"origin" "-784 952 84"
+"angle" "180"
+}
+// entity 26
+{
+"classname" "Torch"
+"origin" "-784 1216 84"
+"angle" "180"
+}
+// entity 27
+{
+"classname" "Torch"
+"origin" "-784 632 84"
+"angle" "180"
+}
+// entity 28
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "current"
@@ -600,7 +692,7 @@
 ( -552 188 -16 ) ( -548 188 -32 ) ( -548 164 -32 ) wall_brick_0 [ 0 1 0 -280 ] [ 0 0 -1 -16 ] 0 1 1
 }
 }
-// entity 13
+// entity 29
 {
 "classname" "func_group"
 "_tb_type" "_tb_group"
@@ -643,14 +735,14 @@
 ( -160 932 0 ) ( -156 932 -16 ) ( -156 908 -16 ) wall_brick_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 14
+// entity 30
 {
 "classname" "Door"
 "origin" "456 1120 0"
 "angle" "180"
 "_tb_layer" "2"
 }
-// entity 15
+// entity 31
 {
 "classname" "Door"
 "origin" "520 1024 0"

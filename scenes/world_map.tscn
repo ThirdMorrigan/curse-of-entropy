@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=103 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -15,7 +15,7 @@
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="8_tsvcb"]
 [ext_resource type="PackedScene" uid="uid://vrhh38m676t5" path="res://scenes/rooms/room.tscn" id="9_1f8lr"]
 [ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="9_qkjs2"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/garden/garden_6_outside_clocktower.tscn" id="10_fhry0"]
+[ext_resource type="PackedScene" uid="uid://cqj0rh3ilfdg5" path="res://scenes/rooms/garden/garden_6_outside_clocktower.tscn" id="10_fhry0"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
 [ext_resource type="PackedScene" uid="uid://d0knfchgkblas" path="res://scenes/rooms/castle/entrance_hall_0.tscn" id="11_skyt0"]
 [ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://b1fpm3e0vfvl" path="res://scenes/creature/thralls/thrall_pickaxe_1h.tscn" id="34_mctcq"]
 [ext_resource type="Animation" uid="uid://fh8elerhgb8b" path="res://assets/models/creatures/humanoid base/idle.res" id="35_0rnhh"]
 [ext_resource type="PackedScene" uid="uid://c4tmc25xahc12" path="res://scenes/creature/thralls/thrall_pickaxe_2h.tscn" id="35_nmwqm"]
+[ext_resource type="PackedScene" uid="uid://cf5i2dni4sdhv" path="res://scenes/rooms/dungeon/bedroom.tscn" id="35_pf6jt"]
 [ext_resource type="Animation" uid="uid://wqc2q3ml87yr" path="res://assets/models/creatures/humanoid base/idle-1h.res" id="36_63g08"]
 [ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="37_l3gd1"]
 [ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="38_skbdo"]
@@ -62,9 +63,9 @@
 [ext_resource type="PackedScene" uid="uid://pf0f0l2r88ui" path="res://scenes/creature/thralls/thrall_pitchfork.tscn" id="54_87phn"]
 [ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="55_60qdn"]
 [ext_resource type="PackedScene" uid="uid://boellojabnr6l" path="res://scenes/rooms/sewer/passage_0.tscn" id="56_wrbb7"]
-[ext_resource type="PackedScene" uid="uid://dvyqna3vsw5nt" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/sewer/passage_1.tscn" id="61_jo345"]
+[ext_resource type="PackedScene" uid="uid://dwlavpc2mweak" path="res://scenes/rooms/sewer/ravine.tscn" id="57_0efr4"]
+[ext_resource type="PackedScene" uid="uid://86qj40r7aiy2" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="58_vwm5l"]
+[ext_resource type="PackedScene" uid="uid://62hjd1xvqhd5" path="res://scenes/rooms/sewer/passage_1.tscn" id="61_jo345"]
 [ext_resource type="PackedScene" uid="uid://b6b3ekwg8o2oo" path="res://scenes/creature/slime/slime.tscn" id="65_mb2n1"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
@@ -848,6 +849,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, -16, -2)
 [node name="SideRoom0" parent="Dungeon" instance=ExtResource("19_t0tue")]
 
 [node name="Room" parent="Dungeon" instance=ExtResource("20_sagju")]
+
+[node name="CellHallway0" parent="Dungeon" instance=ExtResource("35_pf6jt")]
 
 [node name="proto_thrall_1h" parent="." instance=ExtResource("20_qitwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0352, 0, -32.7317)
