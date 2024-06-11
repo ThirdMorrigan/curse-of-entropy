@@ -17,7 +17,6 @@ shadow_enabled = true
 
 [node name="Room" parent="." instance=ExtResource("1_cdwrb")]
 collision_mask = 64
-zone = 5
 
 [node name="Room2" parent="." instance=ExtResource("2_0li6j")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, -6)
