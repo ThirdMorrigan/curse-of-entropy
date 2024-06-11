@@ -63,7 +63,9 @@ func _physics_process(delta):
 			pass
 		State.DIE:
 			move_and_slide()
-			set_physics_process(false)
+			if is_on_floor():
+				velocity *= 0.9
+			#set_physics_process(false)
 			#stop()
 		State.JUMP:
 			jump(delta)
@@ -127,3 +129,10 @@ func die():
 	#queue_free()
 	current_state = State.DIE
 	pass
+
+func final_death():
+	
+	set_physics_process(false)
+	
+	
+	queue_free()

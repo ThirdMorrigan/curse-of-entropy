@@ -40,6 +40,8 @@ func _on_animation_finished(anim_name : String):
 		#print("setting state in anim controller anim fginished")
 		creature.current_state = creature.State.IDLE
 		attack_finished.emit()
+	elif anim_name.contains("DIE"):
+		creature.final_death()
 
 func fire_current_attack():
 	#print("trying to fire")
