@@ -1,8 +1,8 @@
 extends Node3D
-@export var current_music : AudioStreamPlayer = AudioStreamPlayer.new()
-@export var next_music : AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var current_music : AudioStreamPlayer = $current_music
+@onready var next_music : AudioStreamPlayer = $next_music
 var player_current_zone
-
+var flipped = false
 #@onready var music_garden_ambient : AudioStreamPlayer = $music_garden_ambient
 #@onready var music_cave_ambient : AudioStreamPlayer = $music_cave_ambient
 
@@ -42,14 +42,15 @@ func _on_new_room_entered(roomData : Dictionary):
 		player_current_zone = roomData.zone
 	
 func change_zone_music(next_track):
+	#print(next_track)
 	if current_music.stream != null :
 		next_music.stream = next_track
 		animation_player.play("crossfade_audio_in")
 	else :
-		print(current_music.volume_db)
 		current_music.stream = next_track
 		current_music.play()
-
+	
+	
 
 func player_moving():
 	if player.velocity.length_squared()>0.001 && player.is_on_floor():
@@ -60,6 +61,15 @@ func player_moving():
 
 
 func _on_crossfade_finished(anim_name):
-	var old = current_music
-	current_music = next_music
-	next_music = old
+	print(current_music.stream)
+	print(next_music.stream)
+	if flipped:
+		current_music = $current_music
+		next_music = $next_music
+	else:
+		current_music = $next_music
+		next_music = $current_music
+	flipped = !flipped
+	print(current_music.stream)
+	print(next_music.stream)
+	print("CLEAR/n/n/n")

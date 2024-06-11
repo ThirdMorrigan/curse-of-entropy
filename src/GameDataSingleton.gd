@@ -87,6 +87,12 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "Good find.",
 		"visuals" : key_visuals
+	},
+	14 : {
+		"name" : "Clock Tower key",
+		"type" : item_types.KEY,
+		"description" : "A key for the nearby clocktower and its side path",
+		"visuals" : key_visuals
 	}
 	
 }

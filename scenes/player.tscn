@@ -58,6 +58,21 @@ shader = ExtResource("3_34caj")
 flip_faces = true
 size = Vector2(10, 10)
 
+[sub_resource type="Animation" id="Animation_rnkcc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("current_music:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_tmkp4"]
 resource_name = "crossfade_audio_in"
 length = 5.0
@@ -108,21 +123,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_rnkcc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("current_music:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jy8l7"]
@@ -818,13 +818,12 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
-hideInEditor = false
-hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -835,15 +834,14 @@ light_specular = 1.0
 shadow_blur = 0.0
 omni_range = 3.0
 
-[node name="Audio control node" type="Node3D" parent="camera_pivot/Camera3D" node_paths=PackedStringArray("current_music", "next_music")]
+[node name="Audio control node" type="Node3D" parent="camera_pivot/Camera3D"]
 script = ExtResource("5_atf2r")
-current_music = NodePath("current_music")
-next_music = NodePath("next_music")
 
 [node name="current_music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 bus = &"Music"
 
 [node name="next_music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+volume_db = -50.0
 bus = &"Music"
 
 [node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
@@ -918,21 +916,21 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(-0.243498, 0.249873, -0.937162, -0.413903, 0.847073, 0.333395, 0.877151, 0.469075, -0.102837, 0.00779793, 0.200791, 0.0203825)
 bones/6/enabled = true
 bones/6/position = Vector3(0.00779793, 0.200791, 0.0203825)
-bones/6/rotation = Quaternion(-0.0481051, -0.379858, -0.657258, 0.649157)
+bones/6/rotation = Quaternion(-0.016284, -0.389266, -0.658766, 0.64361)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "forearm.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.996715, 0.0800764, 0.0120918, -0.0791007, 0.930606, 0.357372, 0.0173643, -0.357155, 0.933884, 1.18825e-08, 0.28851, -9.31323e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.18825e-08, 0.28851, -9.31323e-09)
-bones/7/rotation = Quaternion(-0.247833, -0.00132074, -0.0552104, 0.967227)
+bones/7/rotation = Quaternion(-0.288387, -0.00130453, -0.0642448, 0.955355)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "hand.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.998386, 0.0565106, 0.00569056, -0.0561545, 0.997156, -0.0502579, -0.00851448, 0.0498572, 0.99872, -2.33994e-08, 0.262836, 1.86265e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-2.33994e-08, 0.262836, 1.86265e-08)
-bones/8/rotation = Quaternion(-0.00997638, 0.355825, -0.0617234, 0.932459)
+bones/8/rotation = Quaternion(0.00250547, 0.300265, -0.0438503, 0.952844)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "hold.R"
 bones/9/parent = 8
@@ -959,8 +957,8 @@ bones/12/name = "IK.R"
 bones/12/parent = -1
 bones/12/rest = Transform3D(-0.550248, 0.825611, 0.124872, -0.835001, -0.544067, -0.0822447, 3.64929e-05, -0.149523, 0.988758, 0.6594, -0.395923, 0.0486656)
 bones/12/enabled = true
-bones/12/position = Vector3(0.339775, -0.301901, -0.520707)
-bones/12/rotation = Quaternion(-0.0430245, -0.664164, 0.741505, 0.0848829)
+bones/12/position = Vector3(0.325586, -0.313153, -0.512781)
+bones/12/rotation = Quaternion(-0.0131783, -0.665061, 0.744027, 0.0628029)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "IK.L"
 bones/13/parent = -1
@@ -971,7 +969,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.981881, 0.17661, -0.0686959, 0.183083, 0.977643, -0.103414, 0.0488962, -0.114117, -0.992263, 0.334524, -0.310064, -0.600532)
+transform = Transform3D(-0.991765, 0.103139, -0.0759236, 0.110977, 0.987992, -0.107503, 0.0639241, -0.115043, -0.991302, 0.318982, -0.322395, -0.593192)
 bone_name = "hold.R"
 bone_idx = 9
 
