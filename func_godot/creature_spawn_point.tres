@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=3 format=3 uid="uid://dggjxubrq3bgo"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="1_kh8rm"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="1_lslab"]
+[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="1_lslab"]
 
 [resource]
 script = ExtResource("1_kh8rm")

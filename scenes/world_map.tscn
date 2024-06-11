@@ -749,23 +749,23 @@ directional_shadow_max_distance = 800.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.6503, 0.4929, -62.9531)
 
 [node name="Room3" parent="Garden" instance=ExtResource("5_3ma6k")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.60282, -17.4607, 155.334)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 156.457, -0.48, 119.502)
 
 [node name="Room4" parent="Garden" instance=ExtResource("6_lmwv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.0676, 6.06453, -75.4487)
 
 [node name="Room5" parent="Garden" instance=ExtResource("6_s4c2g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.078, 7.07321, -103.939)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
-transform = Transform3D(-100, 0, 8.74228e-06, 0, 100, 0, -8.74228e-06, 0, -100, 59.7275, -13.4137, -140.682)
-mesh = ExtResource("7_bifhs")
-surface_material_override/0 = ExtResource("8_tsvcb")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.977, 7.09419, -103.423)
 
 [node name="Room6" parent="Garden" instance=ExtResource("9_1f8lr")]
 
 [node name="Room7" parent="Garden" instance=ExtResource("10_fhry0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.979, 7.11004, -104.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.979, 7.11004, -103.417)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Garden"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 117.436, -11.8517, -142.765)
+mesh = ExtResource("7_bifhs")
+surface_material_override/0 = ExtResource("8_tsvcb")
 
 [node name="Cave" type="Node3D" parent="."]
 
