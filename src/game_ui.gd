@@ -7,6 +7,8 @@ extends Control
 @onready var animation_player = $"AnimationPlayer"
 @onready var death_message = $death_screen/death_message
 @onready var face = $face
+@onready var tool = $tool
+@onready var consumeable = $consumeable
 
 var character_details : PlayerCharacter:
 	get:
@@ -36,6 +38,10 @@ func _on_health_change(new_hp,new_max):
 func _on_interactable_look(interact_message):
 	interactable.text = interact_message
 
+func set_selected_item_text(consumeable_name, tool_name):
+	consumeable.text = consumeable_name
+	tool.text = tool_name
+	
 
 func _on_player_player_death(died):
 	if died:

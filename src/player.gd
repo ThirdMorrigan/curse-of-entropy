@@ -38,6 +38,7 @@ class_name Player
 var current_tool : Attack
 var current_consumeable : int
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
+@onready var game_ui = $game_ui
 
 signal player_death
 signal pause_player
@@ -218,6 +219,7 @@ func cycle_current_tool(dir : int):
 		new_index = size -1
 	print_debug(new_index)
 	current_tool = tool_attacks[new_index]
+	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name, current_tool.display_name)
 
 func cycle_consumeable():
 	var consumable_array = inventory.bags[GameDataSingleton.item_types.CONSUMABLE].keys()
@@ -232,6 +234,7 @@ func cycle_consumeable():
 			index = 0
 		current_consumeable = consumable_array[index]
 	print(current_consumeable)
+	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name, current_tool.display_name)
 
 func use_consumeable():
 	var item = GameDataSingleton.itemLookupTable[current_consumeable]

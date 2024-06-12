@@ -84,7 +84,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(100, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -80.0]
 }
@@ -95,10 +95,10 @@ tracks/1/path = NodePath("current_music:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1012,6 +1012,7 @@ shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
 
 [node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
+display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([])
 targets = 0
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
@@ -1022,6 +1023,7 @@ script = ExtResource("15_m0vcd")
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
 visuals = ExtResource("21_qf3k0")
+display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_oqgs6")

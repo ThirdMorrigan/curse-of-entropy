@@ -6,6 +6,7 @@ signal hit
 
 var requirement
 
+@export var display_name : String = "change me"
 @export var damage_instances : Array[DamageInstance]
 @export_flags("destructible:8","player:16","creature:32") var targets : int :
 	get:
