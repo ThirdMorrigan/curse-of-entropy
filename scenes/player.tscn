@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=73 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -591,6 +591,12 @@ height = 1.9
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxkqm"]
 height = 1.25
 
+[sub_resource type="Resource" id="Resource_mj8bx"]
+script = ExtResource("13_qgojy")
+damage = 1.0
+impulse = 1.0
+damage_types = 16
+
 [sub_resource type="Resource" id="Resource_6t3cp"]
 script = ExtResource("13_qgojy")
 damage = 1.0
@@ -694,7 +700,7 @@ graph_offset = Vector2(-313, -49)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "tool_attacks") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing") groups=["player"]]
 floor_block_on_wall = false
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
@@ -704,7 +710,6 @@ friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
 sword_swing = NodePath("sword_swing")
-tool_attacks = [NodePath("Fireball"), NodePath("PickaxeSwing")]
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
@@ -1013,7 +1018,7 @@ disabled = true
 
 [node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
 display_name = "Pickaxe"
-damage_instances = Array[ExtResource("13_qgojy")]([])
+damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 targets = 0
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 

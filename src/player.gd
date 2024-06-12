@@ -39,6 +39,8 @@ var current_tool : Attack
 var current_consumeable : int
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 @onready var game_ui = $game_ui
+@onready var fireball = $Fireball
+@onready var pickaxe_swing = $PickaxeSwing
 
 signal player_death
 signal pause_player
@@ -94,14 +96,19 @@ var jumping : bool :
 func _ready():
 	current_max_speed = speed
 	inventory.jump_boots.connect(_apply_jump_boots)
+	inventory.fireball.connect(_add_fireball)
+	inventory.pickaxe.connect(_add_pickaxe)
+	inventory.setup_tools()
 	crouching = false
 	character = PlayerCharacter.new()
 	add_child(character)
 	character.connect_player()
 	if not tool_attacks.is_empty():
 		current_tool = tool_attacks[0]
-	inventory.add(6,3)
-	cycle_consumeable()
+	
+	if inventory.bags[GameDataSingleton.item_types.CONSUMABLE].is_empty():
+		inventory.add(6,3)
+		cycle_consumeable()
 
 func _process(delta):
 	if !Engine.is_editor_hint():
@@ -178,6 +185,14 @@ func jump():
 func _apply_jump_boots():
 	jump_height = 1
 
+func _add_fireball():
+	if not (fireball in tool_attacks):
+		tool_attacks.append(fireball)
+
+func _add_pickaxe():
+	if not (pickaxe_swing in tool_attacks):
+		tool_attacks.append(pickaxe_swing)
+
 func die():
 	get_tree().call_group("creature","stop")
 	pause()
@@ -212,14 +227,15 @@ func new_character(new_char):
 
 func cycle_current_tool(dir : int):
 	var size = tool_attacks.size()
-	var new_index = tool_attacks.find(current_tool) + dir
-	if new_index >= size:
-		new_index = 0
-	elif new_index < 0:
-		new_index = size -1
-	print_debug(new_index)
-	current_tool = tool_attacks[new_index]
-	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name, current_tool.display_name)
+	if size:
+		var new_index = tool_attacks.find(current_tool) + dir
+		if new_index >= size:
+			new_index = 0
+		elif new_index < 0:
+			new_index = size -1
+		print_debug(new_index)
+		current_tool = tool_attacks[new_index]
+		set_ui_items()
 
 func cycle_consumeable():
 	var consumable_array = inventory.bags[GameDataSingleton.item_types.CONSUMABLE].keys()
@@ -233,8 +249,9 @@ func cycle_consumeable():
 		else:
 			index = 0
 		current_consumeable = consumable_array[index]
-	print(current_consumeable)
-	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name, current_tool.display_name)
+	set_ui_items()
+	
+	
 
 func use_consumeable():
 	var item = GameDataSingleton.itemLookupTable[current_consumeable]
@@ -248,5 +265,13 @@ func use_consumeable():
 			GameDataSingleton.consumeable_type.STAMINA:
 				pass
 
+func set_ui_items():
+	var tool_name
+	if current_tool != null:
+		tool_name = current_tool.display_name
+	else:
+		tool_name = ""
+	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name, tool_name)
+	
 func heal_health(strength):
 	$HealthPool.heal(strength)

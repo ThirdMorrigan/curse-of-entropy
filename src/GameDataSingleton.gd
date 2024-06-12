@@ -139,8 +139,12 @@ var itemLookupTable = {
 		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
 		"resource" : consumeable_type.HEALTH,
 		"strength" : 50
-	}
-	
+	},
+	22 : {
+		"name" : "Staff of fireball",
+		"type" : item_types.TOOL,
+		"description" : "this staff is preety cool"
+		}
 }
 
 	
