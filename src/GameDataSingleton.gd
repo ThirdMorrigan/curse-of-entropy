@@ -3,6 +3,7 @@ extends Node
 
 
 enum item_types {KEY, CONSUMABLE, TOOL,NOTE}
+enum consumeable_type {HEALTH,MANA,STAMINA}
 enum map_zone {GARDEN,GRAVEYARD,CASTLE,CRYPT,DUNGEON,CAVE,SEWER}
 enum equipment_slots {TOOL, HEAD, BODY, FEET, HANDS}
 
@@ -44,7 +45,9 @@ var itemLookupTable = {
 	6 : {
 		"name" : "Small health potion",
 		"type" : item_types.CONSUMABLE,
-		"visuals" : "res://scenes/visuals/potion_visuals.tscn"
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"resource" : consumeable_type.HEALTH,
+		"strength" : 25
 	},
 	7 : {
 		"name" : "Highjump Boots",
@@ -123,8 +126,30 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "This key opens a storage room in the dungeon.",
 		"visuals" : key_visuals
-	}
-	
+	},
+	20 : {
+		"name" : "Chapel",
+		"type" : item_types.KEY,
+		"description" : "A key to the castle chapel.",
+		"visuals" : key_visuals
+	},
+	21 : {
+		"name" : "Large health potion",
+		"type" : item_types.CONSUMABLE,
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"resource" : consumeable_type.HEALTH,
+		"strength" : 50
+	},
+	22 : {
+		"name" : "Staff of fireball",
+		"type" : item_types.TOOL,
+		"description" : "this staff is preety cool"
+	},
+	23 : {
+		"name" : "Staff of arcane burst",
+		"type" : item_types.TOOL,
+		"description" : "this staff is preety cool"
+		}
 }
 
 	

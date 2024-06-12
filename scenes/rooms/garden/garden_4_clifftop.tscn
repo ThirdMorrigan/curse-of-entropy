@@ -1075,6 +1075,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 3.5, -60.25)
 shape = SubResource("BoxShape3D_worb3")
 
 [node name="FuncGodotMap" type="Node3D" parent="." groups=["garden_4_clifftop_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00357676, 0.0102463, -0.00846863)
 script = ExtResource("3_kmt2a")
 local_map_file = "res://scenes/rooms/garden/garden_4_cliffside_top.map"
 map_settings = ExtResource("4_nixh8")
@@ -1890,6 +1891,7 @@ func_godot_properties = {
 "origin": "-512 96 16",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_2_Climbable_wall" parent="FuncGodotMap" instance=ExtResource("8_to2o3")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -16.75, 1.25, -38)
@@ -1907,6 +1909,7 @@ func_godot_properties = {
 "origin": "-1904 -480 32",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_5_Door" parent="FuncGodotMap" instance=ExtResource("7_ek1q3")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -15, 1, -79.5)
@@ -1928,6 +1931,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("14_7oqmc")
+interactionText = "pick up Garden gate key"
 id = 9
 
 [node name="entity_7_Door" parent="FuncGodotMap" instance=ExtResource("7_ek1q3")]
@@ -1940,6 +1944,7 @@ func_godot_properties = {
 "origin": "-2176 400 32",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_8_Door" parent="FuncGodotMap" instance=ExtResource("7_ek1q3")]
 transform = Transform3D(1.39071e-07, 0, 1, 0, 1, 0, -1, 0, 1.39071e-07, 23, 1, -23)
@@ -1951,6 +1956,7 @@ func_godot_properties = {
 "origin": "-736 736 32",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_9_Light" parent="FuncGodotMap" instance=ExtResource("13_8pnpk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 5.75, -50.25)

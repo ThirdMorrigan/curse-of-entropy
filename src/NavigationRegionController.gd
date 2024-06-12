@@ -14,8 +14,9 @@ func _ready():
 func _reload_nav_mesh():
 	if baking:
 		queue = true
-	bake_navigation_mesh(true)
-	baking = true
+	else:
+		bake_navigation_mesh(true)
+		baking = true
 	
 
 
@@ -23,5 +24,5 @@ func _reload_nav_mesh():
 func _on_bake_finished():
 	print("new nav mesh generated")
 	baking = false
-	if queue:
-		_reload_nav_mesh()
+	#if queue:
+		#_reload_nav_mesh()

@@ -42,6 +42,14 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 
+[node name="quantity" type="Label" parent="view_page"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 53.0
+grow_horizontal = 2
+
 [node name="descrition" type="Label" parent="view_page"]
 layout_mode = 1
 anchors_preset = -1

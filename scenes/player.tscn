@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=76 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://src/sword_attack.gd" id="19_h8in8"]
 [ext_resource type="Script" path="res://src/ranged_attack.gd" id="20_h8pbd"]
 [ext_resource type="PackedScene" uid="uid://dj7of4ca3aj6k" path="res://scenes/visuals/key_visuals.tscn" id="21_qf3k0"]
+[ext_resource type="Script" path="res://src/attack.gd" id="22_fs7io"]
 [ext_resource type="Script" path="res://src/player_anim_tree.gd" id="26_xowfa"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
@@ -591,6 +592,12 @@ height = 1.9
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxkqm"]
 height = 1.25
 
+[sub_resource type="Resource" id="Resource_mj8bx"]
+script = ExtResource("13_qgojy")
+damage = 1.0
+impulse = 1.0
+damage_types = 16
+
 [sub_resource type="Resource" id="Resource_6t3cp"]
 script = ExtResource("13_qgojy")
 damage = 1.0
@@ -598,6 +605,15 @@ impulse = 1.0
 damage_types = 4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oqgs6"]
+
+[sub_resource type="Resource" id="Resource_r7jtp"]
+script = ExtResource("13_qgojy")
+damage = 5.0
+impulse = 20.0
+damage_types = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uu0um"]
+radius = 2.0
 
 [sub_resource type="Resource" id="Resource_hl5qo"]
 script = ExtResource("13_qgojy")
@@ -704,7 +720,7 @@ friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
 sword_swing = NodePath("sword_swing")
-tool_attacks = [NodePath("PickaxeSwing"), NodePath("Fireball")]
+tool_attacks = [NodePath("ArcaneSpell")]
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
@@ -969,7 +985,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -994,7 +1010,7 @@ script = ExtResource("2_k1kd7")
 
 [node name="HealthPool" type="Node" parent="." node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("3_vwos7")
-max_hp = 1.0
+max_hp = 100.0
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -1012,7 +1028,8 @@ shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
 
 [node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
-damage_instances = Array[ExtResource("13_qgojy")]([])
+display_name = "Pickaxe"
+damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 targets = 0
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 
@@ -1022,11 +1039,21 @@ script = ExtResource("15_m0vcd")
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
 visuals = ExtResource("21_qf3k0")
+display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_oqgs6")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 range = 10.0
+
+[node name="ArcaneSpell" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
+script = ExtResource("22_fs7io")
+display_name = "Arcane"
+damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_r7jtp")])
+targets = 40
+hitbox_shape = SubResource("SphereShape3D_uu0um")
+attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+range = 0.1
 
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")
@@ -1039,9 +1066,6 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0

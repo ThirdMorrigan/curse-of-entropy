@@ -22,6 +22,8 @@ const THRALL_PICKAXE_LARGE = "res://scenes/creature/thralls/thrall_pickaxe_2h.ts
 const THRALL_SWORD = "res://scenes/creature/thralls/thrall_sword.tscn"
 const THRALL_SPEAR = "res://scenes/creature/thralls/thrall_spear.tscn"
 const THRALL_POLEARM = "res://scenes/creature/thralls/thrall_polearm.tscn"
+const SLIME = "res://scenes/creature/slime/slime.tscn"
+const KING_SLIME = "res://scenes/creature/slime/king_slime.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,10 +37,10 @@ func spawn():
 		timer.stop()
 		if creature != null:
 			var instance = creature.instantiate()
-			instance.wander_range = wander_range
+			
 			add_child(instance)
 			instance.creature_death.connect(_on_creature_death)
-			
+			instance.wander_range = wander_range
 			if overwrite_loot_table:
 				instance.loot_table = {100.0 : drop}
 
@@ -62,6 +64,10 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 			creature = preload(THRALL_SPEAR)
 		8:
 			creature = preload(THRALL_POLEARM)
+		9:	
+			creature = preload(SLIME)
+		10:
+			creature = preload(KING_SLIME)
 	
 	repetable = props["repeatable"]
 	boss = props["boss"]
