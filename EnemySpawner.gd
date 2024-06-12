@@ -15,6 +15,8 @@ var dead : bool = false
 
 const PROTO_THRALL_1H = "res://scenes/creature/proto_thrall_1h.tscn"
 const PROTO_THRALL_2H = "res://scenes/creature/proto_thrall_2h.tscn"
+const SLIME = "res://scenes/creature/slime/slime.tscn"
+const KING_SLIME = "res://scenes/creature/slime/king_slime.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +43,10 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 			creature = preload(PROTO_THRALL_1H)
 		1:
 			creature = preload(PROTO_THRALL_2H)
+		2:
+			creature = preload(SLIME)
+		3:
+			creature = preload(KING_SLIME)
 	
 	repetable = props["repeatable"]
 	boss = props["boss"]

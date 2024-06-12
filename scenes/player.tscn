@@ -694,7 +694,7 @@ graph_offset = Vector2(-313, -49)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "tool_attacks") groups=["player"]]
 floor_block_on_wall = false
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
@@ -704,6 +704,7 @@ friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
 sword_swing = NodePath("sword_swing")
+tool_attacks = [NodePath("Fireball"), NodePath("PickaxeSwing")]
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
