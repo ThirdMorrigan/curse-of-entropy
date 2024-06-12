@@ -46,3 +46,7 @@ func playerHas(id):
 func consumeItem(id):
 	var item = GameDataSingleton.itemLookupTable[id]
 	bags[item["type"]][id] -= 1
+
+func get_quantity(id):
+	var item = GameDataSingleton.itemLookupTable[id]
+	return bags[item["type"]][id]
