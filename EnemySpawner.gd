@@ -15,8 +15,19 @@ var dead : bool = false
 
 const PROTO_THRALL_1H = "res://scenes/creature/proto_thrall_1h.tscn"
 const PROTO_THRALL_2H = "res://scenes/creature/proto_thrall_2h.tscn"
+const THRALL_SICLE = "res://scenes/creature/thralls/thrall_sicle.tscn"
+const THRALL_PITCHFORK = "res://scenes/creature/thralls/thrall_pitchfork.tscn"
+const THRALL_PICKAXE_SMALL = "res://scenes/creature/thralls/thrall_pickaxe_1h.tscn"
+const THRALL_PICKAXE_LARGE = "res://scenes/creature/thralls/thrall_pickaxe_2h.tscn"
+const THRALL_SWORD = "res://scenes/creature/thralls/thrall_sword.tscn"
+const THRALL_SPEAR = "res://scenes/creature/thralls/thrall_spear.tscn"
+const THRALL_POLEARM = "res://scenes/creature/thralls/thrall_polearm.tscn"
+const THRALL_TENTACLE = "res://scenes/creature/thralls/thrall_tentacle.tscn"
+const THRALL_SWORD_WEAK = "res://scenes/creature/thralls/thrall_sword_weak.tscn"
+const THRALL_SPEAR_WEAK = "res://scenes/creature/thralls/thrall_spear_weak.tscn"
 const SLIME = "res://scenes/creature/slime/slime.tscn"
 const KING_SLIME = "res://scenes/creature/slime/king_slime.tscn"
+const JAILER = "res://scenes/creature/jailer/jailer.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,9 +55,31 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 		1:
 			creature = preload(PROTO_THRALL_2H)
 		2:
-			creature = preload(SLIME)
+			creature = preload(THRALL_SICLE)
 		3:
+			creature = preload(THRALL_PITCHFORK)
+		4:
+			creature = preload(THRALL_PICKAXE_SMALL)
+		5:
+			creature = preload(THRALL_PICKAXE_LARGE)
+		6:
+			creature = preload(THRALL_SWORD)
+		7:
+			creature = preload(THRALL_SPEAR)
+		8:
+			creature = preload(THRALL_POLEARM)
+		9:	
+			creature = preload(SLIME)
+		10:
 			creature = preload(KING_SLIME)
+		11:
+			creature = preload(THRALL_TENTACLE)
+		12:
+			creature = preload(THRALL_SWORD_WEAK)
+		13:
+			creature = preload(THRALL_SPEAR_WEAK)
+		14:
+			creature = preload(JAILER)
 	
 	repetable = props["repeatable"]
 	boss = props["boss"]

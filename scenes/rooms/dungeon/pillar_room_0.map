@@ -562,12 +562,14 @@
 "classname" "Creature"
 "origin" "-368 1072 8"
 "angle" "150"
+"creature_id" "11"
 }
 // entity 2
 {
 "classname" "Creature"
 "origin" "-593 676 8"
 "angle" "120"
+"creature_id" "11"
 }
 // entity 3
 {
@@ -738,6 +740,7 @@
 {
 "classname" "Creature"
 "origin" "251 745 8"
+"creature_id" "11"
 }
 // entity 30
 {
@@ -745,6 +748,7 @@
 "origin" "-522 19 -24"
 "drop" "19"
 "repeatable" "0"
+"creature_id" "11"
 }
 // entity 31
 {

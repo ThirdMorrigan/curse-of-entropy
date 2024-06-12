@@ -795,11 +795,13 @@
 "classname" "Creature"
 "origin" "94.4841 53.657 -8"
 "angle" "105"
+"creature_id" "11"
 }
 // entity 21
 {
 "classname" "Item_pickup"
 "origin" "328 -24 -104"
+"id" "6"
 }
 // entity 22
 {
@@ -812,6 +814,7 @@
 "classname" "Creature"
 "origin" "-347.314 384 -104"
 "angle" "225"
+"creature_id" "11"
 }
 // entity 24
 {
@@ -1383,17 +1386,20 @@
 {
 "classname" "Creature"
 "origin" "338 455 -96"
+"creature_id" "11"
 "_tb_layer" "15"
 }
 // entity 37
 {
 "classname" "Creature"
 "origin" "328 355 -104"
+"creature_id" "11"
 "_tb_layer" "15"
 }
 // entity 38
 {
 "classname" "Creature"
 "origin" "248 444 -90"
+"creature_id" "11"
 "_tb_layer" "15"
 }
