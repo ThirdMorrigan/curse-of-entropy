@@ -44,7 +44,8 @@ var itemLookupTable = {
 	6 : {
 		"name" : "Small health potion",
 		"type" : item_types.CONSUMABLE,
-		"visuals" : "res://scenes/visuals/potion_visuals.tscn"
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"strength" : 25
 	},
 	7 : {
 		"name" : "Highjump Boots",
@@ -133,7 +134,8 @@ var itemLookupTable = {
 	21 : {
 		"name" : "Large health potion",
 		"type" : item_types.CONSUMABLE,
-		"visuals" : "res://scenes/visuals/potion_visuals.tscn"
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"strength" : 50
 	}
 	
 }
