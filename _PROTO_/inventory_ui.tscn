@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://g4jm5a62hdsg"]
+[gd_scene load_steps=7 format=3 uid="uid://g4jm5a62hdsg"]
 
 [ext_resource type="Script" path="res://_PROTO_/inventory_ui.gd" id="1_odtb2"]
 [ext_resource type="ButtonGroup" path="res://_PROTO_/inventory_ui_catagory_buttongroup.tres" id="2_fso8h"]
 [ext_resource type="Script" path="res://src/UI/view_page.gd" id="3_g8dbn"]
+[ext_resource type="Texture2D" uid="uid://dxqlonm2vnkji" path="res://assets/sprites/timer_icon.png" id="4_bfu31"]
+[ext_resource type="Texture2D" uid="uid://du1pvqt8h6577" path="res://assets/sprites/arm_icon.png" id="5_57qtr"]
+[ext_resource type="Texture2D" uid="uid://c14es0nhsiokf" path="res://assets/sprites/brain_icon.png" id="6_f0u2n"]
 
 [node name="InventoryUI" type="Control"]
 custom_minimum_size = Vector2(800, 500)
@@ -64,29 +67,56 @@ grow_vertical = 2
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="view_page"]
+[node name="age" type="Label" parent="view_page"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00738008
-anchor_top = 0.887059
-anchor_right = 0.848709
-anchor_bottom = 0.887059
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
-[node name="age" type="Label" parent="view_page/HBoxContainer"]
-layout_mode = 2
+anchor_top = 0.946
+anchor_right = 0.103
+anchor_bottom = 1.0
+offset_top = -0.0500183
+offset_right = 0.0870037
+grow_vertical = 0
 text = "age
 "
 
-[node name="strength" type="Label" parent="view_page/HBoxContainer"]
-layout_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="view_page/age"]
+position = Vector2(13, -4)
+texture = ExtResource("4_bfu31")
+
+[node name="strength" type="Label" parent="view_page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.461
+anchor_top = 0.946
+anchor_right = 0.539
+anchor_bottom = 1.0
+offset_left = 0.0689926
+offset_top = -0.0500183
+offset_right = -0.0690002
+grow_horizontal = 2
+grow_vertical = 0
 text = "srt"
 
-[node name="intelligence" type="Label" parent="view_page/HBoxContainer"]
-layout_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="view_page/strength"]
+position = Vector2(11, -4)
+texture = ExtResource("5_57qtr")
+
+[node name="intelligence" type="Label" parent="view_page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.923
+anchor_top = 0.946
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.133011
+offset_top = -0.0500183
+grow_horizontal = 0
+grow_vertical = 0
 text = "int"
+
+[node name="Sprite2D" type="Sprite2D" parent="view_page/intelligence"]
+position = Vector2(10, -6)
+texture = ExtResource("6_f0u2n")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

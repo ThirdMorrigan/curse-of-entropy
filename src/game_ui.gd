@@ -10,6 +10,7 @@ extends Control
 @onready var maxhealth_missing_bar = $Character_info/healthbar/maxhealth_missing_bar
 @onready var health_bar = $Character_info/healthbar/Health_bar
 @onready var health_lost_bar = $Character_info/healthbar/Health_lost_bar
+@onready var consumeable_quantity = $Character_info/consume/consumeable_quantity
 
 
 @onready var consumeable = $Character_info/consume/consumeable
@@ -43,25 +44,26 @@ signal fade_complete
 func _process(delta):
 	#print(health_bar.value-health_target)
 	if !is_equal_approx(health_bar.value,health_target):
-		#print("test")
-		health_bar.value = int(lerpf(health_bar.value,health_target,delta))
+		health_bar.value = move_toward(health_bar.value,health_target,delta*50)
 		
 	if !is_equal_approx(health_lost_bar.value,health_lost_target):
-
-		health_lost_bar.value = int(lerpf(health_lost_bar.value,health_lost_target,delta*0.1))
+		print("eorg")
+		health_lost_bar.value = move_toward(health_lost_bar.value,health_lost_target,delta*10)
 
 
 func _on_health_change(new_hp,new_max):
 	#health_bar.value = new_hp
 	health_target = new_hp
+	print(new_hp)
 	maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
 	timer.start()
 
 func _on_interactable_look(interact_message):
 	interactable.text = interact_message
 
-func set_selected_item_text(consumeable_name, tool_name):
+func set_selected_item_text(consumeable_name,quant, tool_name):
 	consumeable.text = consumeable_name
+	consumeable_quantity.text = str(quant)
 	tool.text = tool_name
 	
 

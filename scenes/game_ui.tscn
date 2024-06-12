@@ -382,6 +382,7 @@ offset_right = 2.0
 offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
+step = 0.001
 value = 50.0
 texture_under = ExtResource("3_xasrb")
 texture_progress = ExtResource("4_a2pbj")
@@ -401,6 +402,7 @@ offset_right = 2.0
 offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
+step = 0.001
 value = 50.0
 fill_mode = 1
 texture_progress = ExtResource("4_a2pbj")
@@ -420,6 +422,7 @@ offset_right = 2.0
 offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
+step = 0.001
 value = 50.0
 texture_progress = ExtResource("4_a2pbj")
 tint_progress = Color(0.95, 0, 0, 1)
@@ -452,6 +455,19 @@ offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
+
+[node name="consumeable_quantity" type="Label" parent="Character_info/consume"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="tool2" type="Sprite2D" parent="Character_info"]
 position = Vector2(270, -49)

@@ -110,7 +110,8 @@ func _ready():
 	
 	if inventory.bags[GameDataSingleton.item_types.CONSUMABLE].is_empty():
 		inventory.add(6,3)
-		cycle_consumeable()
+		
+	cycle_consumeable()
 
 func _process(delta):
 	if !Engine.is_editor_hint():
@@ -265,6 +266,7 @@ func use_consumeable():
 	var item = GameDataSingleton.itemLookupTable[current_consumeable]
 	if inventory.playerHas(current_consumeable):
 		inventory.consumeItem(current_consumeable)
+		set_ui_items()
 		match item["resource"]:
 			GameDataSingleton.consumeable_type.HEALTH:
 				heal_health(item["strength"])
@@ -279,7 +281,7 @@ func set_ui_items():
 		tool_name = current_tool.display_name
 	else:
 		tool_name = ""
-	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name, tool_name)
+	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name,inventory.get_quantity(current_consumeable), tool_name)
 	
 func heal_health(strength):
 	$HealthPool.heal(strength)
