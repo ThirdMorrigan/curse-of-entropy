@@ -192,6 +192,7 @@ func _ai_loop():
 						picked_attack = _a
 			if picked_attack > -1 && attack_timer <= 0.0:
 				next_state = Creature.State.ATTACK_0 + picked_attack
+				print(next_state)
 				attack_timer = attacks[picked_attack].wind_down
 				
 			elif creature.current_state < Creature.State.ATTACK_0:

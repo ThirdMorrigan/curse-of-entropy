@@ -40,7 +40,6 @@ func hurt(di : DamageInstance):
 		if curr_hp <= 0.0 :
 			parent.die()
 		if can_impulse:
-			print(di.impulse)
 			parent.impulse(di.impulse_vector)
 		
 		#print(str("someone's health pool is now ", curr_hp))

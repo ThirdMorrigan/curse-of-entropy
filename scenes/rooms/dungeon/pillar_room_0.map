@@ -726,6 +726,7 @@
 "interactable" "1"
 "speed" "1"
 "open_angle" "35"
+"generate_link" "1"
 // brush 0
 {
 ( -768 -176 -32 ) ( -768 -175 -32 ) ( -768 -176 -31 ) metal_fence_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1

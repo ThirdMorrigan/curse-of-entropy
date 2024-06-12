@@ -1,10 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://ct0ufd3dj7oqw"]
+[gd_scene load_steps=34 format=3 uid="uid://ct0ufd3dj7oqw"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_ocpfp"]
-[ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="2_bcbt4"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_1c7nr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_a1i7i"]
-[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="5_dmvl6"]
+[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="5_dmvl6"]
 [ext_resource type="Material" uid="uid://d8b07myu3n0y" path="res://textures/hedge_wall_0.tres" id="6_rsn25"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
@@ -116,13 +115,6 @@ points = PackedVector3Array(-47, 2.5, -5.99999, -47, 1, -7, -43, 1, -7, -43, 2.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mpquq"]
 points = PackedVector3Array(-47, -1, -6, -47, -2, -6, -43, -2, -6, -43, -1, -6, -47, -1, -4, -47, -2, -4, -43, -2, -4, -43, -1, -4)
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_rs62u"]
-vertices = PackedVector3Array(-43, 2.99447, -5.5, -46.5, 2.99447, -5.5, -46.5, 2.99447, -4.5, -41, 3.24447, -4.5, -1, 10.4945, -10.5, -3.25, 9.99447, -9.25, 1.5, 10.4945, -9.25, 0.25, 10.4945, -11, 1.5, 10.4945, -15.5, 0.25, 10.4945, -15.5, 0.25, 10.4945, -11, 1.5, 10.4945, -9.25, -3.25, 9.99447, -9.25, -1, 10.4945, -10.5, -43, 2.99447, -5.5, -41, 3.24447, -4.5, -46.5, -0.505529, -5.25, -46.5, -0.505529, -4.5, -43.25, -0.505529, -4.5, -42.5, -0.505529, -5.25, 0.25, 6.99447, -10.25, -2.75, 6.49447, -10.25, -1.5, 6.74447, -9.75, 1.5, 6.99447, -9.5, 1.5, 6.99447, -15.5, 0.75, 6.99447, -15.5, 0.75, 6.99447, -10.75, 1.5, 6.99447, -9.5, -43.25, -0.505529, -4.5, -1.5, 6.74447, -9.75, -2.75, 6.49447, -10.25, -42.5, -0.505529, -5.25, 1.5, 6.99447, -9.5, 0.75, 6.99447, -10.75, 0.25, 6.99447, -10.25)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27), PackedInt32Array(31, 30, 28), PackedInt32Array(28, 30, 29), PackedInt32Array(34, 33, 32)]
-geometry_parsed_geometry_type = 1
-geometry_source_geometry_mode = 1
-geometry_source_group_name = &"garden_1_tunnel_world"
-
 [node name="Room" type="Area3D"]
 collision_layer = 0
 collision_mask = 64
@@ -220,9 +212,5 @@ shape = SubResource("ConvexPolygonShape3D_b5yeu")
 
 [node name="entity_0_brush_24_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_mpquq")
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_rs62u")
-script = ExtResource("2_bcbt4")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

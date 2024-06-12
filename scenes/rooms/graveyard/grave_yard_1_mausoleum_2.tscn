@@ -1,14 +1,13 @@
-[gd_scene load_steps=148 format=3 uid="uid://dojjnxic7o5mq"]
+[gd_scene load_steps=146 format=3 uid="uid://bdnrlqk32j2k1"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_1x8cs"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_5xh1q"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_p5s2c"]
-[ext_resource type="Material" path="res://textures/smooth_stone_0.tres" id="4_7yf7d"]
-[ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="4_gxg3d"]
+[ext_resource type="Material" uid="uid://jsufqdhpo58a" path="res://textures/smooth_stone_0.tres" id="4_7yf7d"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="5_sgbut"]
 [ext_resource type="Material" uid="uid://buvsa5yo2mpy5" path="res://textures/wood_misc_0.tres" id="6_dxcoa"]
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="7_yix2v"]
-[ext_resource type="PackedScene" path="res://scenes/visuals/torch.tscn" id="8_r4lim"]
+[ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="8_r4lim"]
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="9_8fwbw"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="10_vqdma"]
 
@@ -453,11 +452,6 @@ points = PackedVector3Array(18.5, -21, 1.5, 18.5, -23, 1.5, 19, -23, 1.5, 19, -2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_82y3o"]
 points = PackedVector3Array(18, -22, 1, 18, -23, 1, 18.5, -23, 1, 18.5, -22, 1, 18, -22, 1.5, 18, -23, 1.5, 18.5, -23, 1.5, 18.5, -22, 1.5)
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_rs62u"]
-geometry_parsed_geometry_type = 1
-geometry_source_geometry_mode = 1
-geometry_source_group_name = &"changeme"
 
 [node name="Room" type="Area3D"]
 collision_layer = 0
@@ -953,9 +947,5 @@ func_godot_properties = {
 "origin": "40 536 -728",
 "quantity": 1
 }
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_rs62u")
-script = ExtResource("4_gxg3d")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
