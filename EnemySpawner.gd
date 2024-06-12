@@ -23,8 +23,11 @@ const THRALL_SWORD = "res://scenes/creature/thralls/thrall_sword.tscn"
 const THRALL_SPEAR = "res://scenes/creature/thralls/thrall_spear.tscn"
 const THRALL_POLEARM = "res://scenes/creature/thralls/thrall_polearm.tscn"
 const THRALL_TENTACLE = "res://scenes/creature/thralls/thrall_tentacle.tscn"
+const THRALL_SWORD_WEAK = "res://scenes/creature/thralls/thrall_sword_weak.tscn"
+const THRALL_SPEAR_WEAK = "res://scenes/creature/thralls/thrall_spear_weak.tscn"
 const SLIME = "res://scenes/creature/slime/slime.tscn"
 const KING_SLIME = "res://scenes/creature/slime/king_slime.tscn"
+const JAILER = "res://scenes/creature/jailer/jailer.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,6 +74,12 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 			creature = preload(KING_SLIME)
 		11:
 			creature = preload(THRALL_TENTACLE)
+		12:
+			creature = preload(THRALL_SWORD_WEAK)
+		13:
+			creature = preload(THRALL_SPEAR_WEAK)
+		14:
+			creature = preload(JAILER)
 	
 	repetable = props["repeatable"]
 	boss = props["boss"]

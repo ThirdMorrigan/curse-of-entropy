@@ -72,7 +72,7 @@ var itemLookupTable = {
 		"visuals" : key_visuals
 	},
 	11 : {
-		"name" : "Dungeon airlock inner key",
+		"name" : "Dungeon airlock inner key", # IN CAFETERIA GRAPPLE AREA
 		"type" : item_types.KEY,
 		"description" : "This key appears to open one of the doors in the
 		airlock that separates the Dungeon and Castle",
@@ -98,7 +98,7 @@ var itemLookupTable = {
 		"visuals" : key_visuals
 	},
 	15 : {
-		"name" : "Block A Cell 5 key",
+		"name" : "Block A Cell 5 key", # IN SIDE ROOM
 		"type" : item_types.KEY,
 		"description" : "The key to a cell in the Dungeon. Opens cell A5.",
 		"visuals" : key_visuals
@@ -116,13 +116,13 @@ var itemLookupTable = {
 		"visuals" : key_visuals
 	},
 	18 : {
-		"name" : "Dungeon Internal Gate Key",
+		"name" : "Dungeon Internal Gate Key", # IN CELL 5
 		"type" : item_types.KEY,
 		"description" : "This key opens a gate somewhere in the dungeon.",
 		"visuals" : key_visuals
 	},
 	19 : {
-		"name" : "Dungeon Storage Room Key",
+		"name" : "Dungeon Storage Room Key", # ON THRALL IN PILLAR 0
 		"type" : item_types.KEY,
 		"description" : "This key opens a storage room in the dungeon.",
 		"visuals" : key_visuals
@@ -149,7 +149,19 @@ var itemLookupTable = {
 		"name" : "Staff of arcane burst",
 		"type" : item_types.TOOL,
 		"description" : "this staff is preety cool"
-		}
+		},
+	24 : {
+		"name" : "Dungeon Trapdoor key", # 
+		"type" : item_types.KEY,
+		"description" : "This key opens a trapdoor somewhere in the dungeon.",
+		"visuals" : key_visuals
+	},
+	25 : {
+		"name" : "Jailer's Quarters key", # 
+		"type" : item_types.KEY,
+		"description" : "the key to the Jailer's quarters.",
+		"visuals" : key_visuals
+	}
 }
 
 	

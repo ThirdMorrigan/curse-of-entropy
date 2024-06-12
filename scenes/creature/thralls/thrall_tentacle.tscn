@@ -360,10 +360,10 @@ shader_parameter/ao_light_affect = 0.5
 shader_parameter/texture_albedo = SubResource("NoiseTexture2D_hujxf")
 shader_parameter/texture_crunch = SubResource("NoiseTexture2D_h0ar2")
 
-[sub_resource type="Resource" id="Resource_glj08"]
+[sub_resource type="Resource" id="Resource_1ts05"]
 script = ExtResource("14_dprqd")
-damage = 15.0
-impulse = 5.0
+damage = 6.0
+impulse = 8.0
 damage_types = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s5txy"]
@@ -377,7 +377,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0168882, 0.975853, -0.0854526)
+bones/1/position = Vector3(0.0176122, 0.970781, -0.0852613)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -385,7 +385,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.163077, -0.0143118, -0.000447839, 0.98651)
+bones/7/rotation = Quaternion(-0.192365, -0.022038, 0.000426033, 0.981076)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.26114, 0.673809, -0.527406, 0.4468)
@@ -410,18 +410,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.940937, 0.017513, 0.0276768, 0.336995)
+bones/24/rotation = Quaternion(0.938063, 0.0169634, 0.0273183, 0.344969)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.27491, -2.20019e-09, -1.80654e-09, 0.96147)
+bones/25/rotation = Quaternion(0.292529, -6.25583e-10, -8.58523e-10, 0.956257)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.571906, -0.131047, -0.0315934, 0.809167)
+bones/26/rotation = Quaternion(-0.57995, -0.130771, -0.0303966, 0.803513)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.9577, -0.0479277, -0.0660749, 0.275949)
+bones/29/rotation = Quaternion(0.955452, -0.0479947, -0.0672585, 0.283344)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.27857, 2.1879e-09, -4.53144e-09, 0.960416)
+bones/30/rotation = Quaternion(0.295529, 1.16559e-09, -9.35883e-11, 0.955334)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.620071, 0.169026, 0.0165812, 0.765943)
+bones/31/rotation = Quaternion(-0.627527, 0.170141, 0.0146604, 0.759636)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -449,7 +449,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_rwhuc")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.999211, -0.0046532, 0.0394352, 0.018995, 0.928126, -0.371781, -0.0348708, 0.372237, 0.927482, 0.0103317, 1.71195, 0.110112)
+transform = Transform3D(0.999705, -0.00656167, 0.0233915, 0.0136238, 0.94861, -0.316154, -0.0201149, 0.316379, 0.948419, 0.0110557, 1.70687, 0.110303)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -492,6 +492,7 @@ script = ExtResource("9_4r4bg")
 
 [node name="HealthPool" type="Node" parent="." index="5" node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("12_rj13q")
+max_hp = 20.0
 hurtboxes = [NodePath("../Hurtbox"), NodePath("../rig/Skeleton3D/BoneAttachment3D/head")]
 
 [node name="Hurtbox" type="Area3D" parent="." index="6" node_paths=PackedStringArray("copy_collision_shapes")]
@@ -505,7 +506,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30315, 0)
 
 [node name="Attack" type="Node3D" parent="." index="8" node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("13_4cdfc")
-damage_instances = Array[ExtResource("14_dprqd")]([SubResource("Resource_glj08")])
+damage_instances = Array[ExtResource("14_dprqd")]([SubResource("Resource_1ts05")])
 targets = 16
 hitbox_shape = SubResource("CapsuleShape3D_s5txy")
 attack_origin = NodePath("../attack_origin")

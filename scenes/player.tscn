@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -827,7 +827,7 @@ near = 0.02
 
 [node name="RayCast3D" type="RayCast3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150992, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -1.3)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
@@ -932,21 +932,21 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(-0.243498, 0.249873, -0.937162, -0.413903, 0.847073, 0.333395, 0.877151, 0.469075, -0.102837, 0.00779793, 0.200791, 0.0203825)
 bones/6/enabled = true
 bones/6/position = Vector3(0.00779793, 0.200791, 0.0203825)
-bones/6/rotation = Quaternion(-0.0465314, -0.378478, -0.659381, 0.647925)
+bones/6/rotation = Quaternion(-0.0313912, -0.381933, -0.661193, 0.644954)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "forearm.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.996715, 0.0800764, 0.0120918, -0.0791007, 0.930606, 0.357372, 0.0173643, -0.357155, 0.933884, 1.18825e-08, 0.28851, -9.31323e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.18825e-08, 0.28851, -9.31323e-09)
-bones/7/rotation = Quaternion(-0.245612, -0.00132156, -0.0547157, 0.967822)
+bones/7/rotation = Quaternion(-0.262814, -0.00131509, -0.0585479, 0.963068)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "hand.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.998386, 0.0565106, 0.00569056, -0.0561545, 0.997156, -0.0502579, -0.00851448, 0.0498572, 0.99872, -2.33994e-08, 0.262836, 1.86265e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-2.33994e-08, 0.262836, 1.86265e-08)
-bones/8/rotation = Quaternion(-0.0112566, 0.350182, -0.0616831, 0.934581)
+bones/8/rotation = Quaternion(-0.00635553, 0.32256, -0.053418, 0.945019)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "hold.R"
 bones/9/parent = 8
@@ -973,8 +973,8 @@ bones/12/name = "IK.R"
 bones/12/parent = -1
 bones/12/rest = Transform3D(-0.550248, 0.825611, 0.124872, -0.835001, -0.544067, -0.0822447, 3.64929e-05, -0.149523, 0.988758, 0.6594, -0.395923, 0.0486656)
 bones/12/enabled = true
-bones/12/position = Vector3(0.338397, -0.303229, -0.521311)
-bones/12/rotation = Quaternion(-0.0402756, -0.664016, 0.742004, 0.083007)
+bones/12/position = Vector3(0.331033, -0.309066, -0.51718)
+bones/12/rotation = Quaternion(-0.0255221, -0.664352, 0.743486, 0.0722038)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "IK.L"
 bones/13/parent = -1
@@ -985,7 +985,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.98827, 0.133893, -0.0734572, 0.141282, 0.984187, -0.106845, 0.0579897, -0.11597, -0.991558, 0.324962, -0.317998, -0.597869)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -1066,6 +1066,9 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
+libraries = {
+"": SubResource("AnimationLibrary_vtxm4")
+}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0

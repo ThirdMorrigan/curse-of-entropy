@@ -2858,12 +2858,14 @@
 "classname" "Creature"
 "origin" "1114 1206 184"
 "angle" "199"
+"creature_id" "12"
 }
 // entity 37
 {
 "classname" "Creature"
 "origin" "978 749 8"
 "angle" "326"
+"creature_id" "13"
 }
 // entity 38
 {

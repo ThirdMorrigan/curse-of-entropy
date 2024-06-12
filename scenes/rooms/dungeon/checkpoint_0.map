@@ -607,3 +607,16 @@
 "angle" "180"
 "state" "1"
 }
+// entity 7
+{
+"classname" "Creature"
+"origin" "-1192 408 24"
+"creature_id" "6"
+}
+// entity 8
+{
+"classname" "Creature"
+"origin" "-1320 552 24"
+"angle" "180"
+"creature_id" "7"
+}
