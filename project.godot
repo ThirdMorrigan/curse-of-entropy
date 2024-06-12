@@ -30,6 +30,10 @@ window/stretch/scale=2.0
 
 enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 
+[gui]
+
+theme/default_font_antialiasing=2
+
 [input]
 
 move_f={

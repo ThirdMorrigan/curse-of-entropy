@@ -2432,6 +2432,7 @@ func_godot_properties = {
 "origin": "568 536 1728",
 "quantity": 1
 }
+interactionText = "pick up Chapel"
 id = 20
 
 [node name="entity_59_Item_pickup" parent="FuncGodotMap" instance=ExtResource("15_a74nl")]
@@ -2443,6 +2444,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("19_uen55")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_60_Item_pickup" parent="FuncGodotMap" instance=ExtResource("15_a74nl")]
@@ -2453,6 +2455,7 @@ func_godot_properties = {
 "origin": "312 528 1488",
 "quantity": 1
 }
+interactionText = "pick up Large health potion"
 id = 21
 
 [node name="entity_61_func_arcane_lock" type="StaticBody3D" parent="FuncGodotMap"]

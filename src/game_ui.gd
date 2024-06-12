@@ -1,14 +1,21 @@
 extends Control
 
-@onready var health = $health
 @onready var healthPool = $"../HealthPool"
 @onready var interactable = $interactable
 @onready var ray_cast_3d = $"../camera_pivot/Camera3D/RayCast3D"
 @onready var animation_player = $"AnimationPlayer"
 @onready var death_message = $death_screen/death_message
-@onready var face = $face
-@onready var tool = $tool
-@onready var consumeable = $consumeable
+@onready var face = $Character_info/face
+@onready var timer = $Timer
+@onready var maxhealth_missing_bar = $Character_info/healthbar/maxhealth_missing_bar
+@onready var health_bar = $Character_info/healthbar/Health_bar
+@onready var health_lost_bar = $Character_info/healthbar/Health_lost_bar
+
+
+@onready var consumeable = $Character_info/consume/consumeable
+@onready var tool = $Character_info/tool2/tool
+var health_target : float
+var health_lost_target : float
 
 var character_details : PlayerCharacter:
 	get:
@@ -21,7 +28,11 @@ var character_details : PlayerCharacter:
 func _ready():
 	if healthPool is HealthPool:
 		healthPool.health_change.connect(_on_health_change)
-		health.text = str(healthPool.curr_hp) + " / " + str(healthPool.curr_max_hp)
+		health_bar.value = healthPool.curr_hp
+		health_target = healthPool.curr_hp
+		health_lost_bar.value = healthPool.curr_hp
+		health_lost_target = healthPool.curr_hp
+		maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
 	if ray_cast_3d != null:
 		ray_cast_3d.interactable_target_changed.connect(_on_interactable_look)
 	
@@ -30,10 +41,21 @@ signal fade_complete
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#print(health_bar.value-health_target)
+	if !is_equal_approx(health_bar.value,health_target):
+		#print("test")
+		health_bar.value = int(lerpf(health_bar.value,health_target,delta))
+		
+	if !is_equal_approx(health_lost_bar.value,health_lost_target):
+
+		health_lost_bar.value = int(lerpf(health_lost_bar.value,health_lost_target,delta*0.1))
+
 
 func _on_health_change(new_hp,new_max):
-	health.text = str(new_hp) + " / " + str(new_max)
+	#health_bar.value = new_hp
+	health_target = new_hp
+	maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
+	timer.start()
 
 func _on_interactable_look(interact_message):
 	interactable.text = interact_message
@@ -68,3 +90,7 @@ func reload():
 
 func update_data():
 	face.update_face(character_details.face,character_details.hair,character_details.skin_colour,character_details.hair_colour)
+
+
+func _on_timer_timeout():
+	health_lost_target = healthPool.curr_hp
