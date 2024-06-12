@@ -28,7 +28,7 @@ func _on_new_room_entered(roomData : Dictionary):
 	#print(roomData)
 	if roomData.indoors == true :
 		#print("inside")
-		AudioServer.set_bus_effect_enabled(2,0,true)
+		AudioServer.set_bus_effect_enabled(2,1,true)
 	if roomData.indoors == false :
 		#print("OUTSIDE")
 		AudioServer.set_bus_effect_enabled(2,0,false)
