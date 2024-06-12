@@ -582,7 +582,7 @@
 "classname" "Door"
 "origin" "-1600 232 16"
 "angle" "180"
-"state" "r"
+"state" "0"
 "key" "11"
 }
 // entity 5
