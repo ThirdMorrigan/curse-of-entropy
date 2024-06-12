@@ -3,6 +3,7 @@ extends Node
 
 
 enum item_types {KEY, CONSUMABLE, TOOL,NOTE}
+enum consumeable_type {HEALTH,MANA,STAMINA}
 enum map_zone {GARDEN,GRAVEYARD,CASTLE,CRYPT,DUNGEON,CAVE,SEWER}
 enum equipment_slots {TOOL, HEAD, BODY, FEET, HANDS}
 
@@ -45,6 +46,7 @@ var itemLookupTable = {
 		"name" : "Small health potion",
 		"type" : item_types.CONSUMABLE,
 		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"resource" : consumeable_type.HEALTH,
 		"strength" : 25
 	},
 	7 : {
@@ -135,6 +137,7 @@ var itemLookupTable = {
 		"name" : "Large health potion",
 		"type" : item_types.CONSUMABLE,
 		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"resource" : consumeable_type.HEALTH,
 		"strength" : 50
 	}
 	

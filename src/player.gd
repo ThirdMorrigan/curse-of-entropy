@@ -234,10 +234,16 @@ func cycle_consumeable():
 	print(current_consumeable)
 
 func use_consumeable():
+	var item = GameDataSingleton.itemLookupTable[current_consumeable]
 	if inventory.playerHas(current_consumeable):
 		inventory.consumeItem(current_consumeable)
-		if current_consumeable == 6 or current_consumeable == 21:
-			heal_health(GameDataSingleton.itemLookupTable[current_consumeable]["strength"])
+		match item["resource"]:
+			GameDataSingleton.consumeable_type.HEALTH:
+				heal_health(item["strength"])
+			GameDataSingleton.consumeable_type.MANA:
+				pass
+			GameDataSingleton.consumeable_type.STAMINA:
+				pass
 
 func heal_health(strength):
 	$HealthPool.heal(strength)
