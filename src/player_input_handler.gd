@@ -44,7 +44,6 @@ func _physics_process(delta):
 		if player.current_tool != null:
 			if player.current_tool.check():
 				player.current_tool.fire()
-				print("tool")
 	if Input.is_action_just_pressed("cycle_consumeable"):
 		player.cycle_consumeable()
 	if Input.is_action_just_pressed("use_consumeable"):

@@ -103,7 +103,7 @@ func _on_player_death(died):
 		queue_free()
 
 func update_stats():
-	var base = (float(age) * 0.25 -13)
+	var base = (float(age) * 0.25 -9)
 	var power = -1.0 * pow(base,2)
 	strength = int(strength_ratio * (power +100))
 	intelligence = int(age * intelligence_ratio)

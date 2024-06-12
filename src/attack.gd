@@ -6,6 +6,7 @@ signal hit
 signal fired
 var requirement
 
+@export var spell : bool = false 
 @export var mana_cost : float = 0
 @export var display_name : String = "change me"
 @export var damage_instances : Array[DamageInstance]
@@ -30,14 +31,16 @@ var requirement
 @export var weight : float = 1.0
 @export var wind_down : float = 1.0
 var cast : ShapeCast3D
-
+var spell_damage_scale : float = 1
 func _ready():
 	await get_tree().physics_frame
 	requirement = get_node_or_null("requirement")
 	create_hitbox()
 
 func fire() :
-	fired.emit(mana_cost)
+	if spell:
+		scale_attack()
+		
 	if attack_origin != null :
 		cast.global_position = attack_origin.global_position
 		cast.global_rotation = attack_origin.global_rotation
@@ -73,6 +76,9 @@ func get_modified_damage_instance(d : DamageInstance) -> DamageInstance :
 	var d_temp = d.copy()
 	print(str(d.impulse, ", ", d_temp.impulse))
 	d_temp.rotate_impulse(global_basis)
+	print(d_temp.damage)
+	d_temp.damage *= spell_damage_scale
+	print(d_temp.damage)
 	return d_temp
 
 func check() -> bool:
@@ -80,3 +86,11 @@ func check() -> bool:
 		print("attack should have attached requirent if it is going to be checked defualting to true")
 		return true
 	return requirement.check()
+
+func scale_attack():
+	var inteli = $"../".character.intelligence
+	var discount = (150.0 - inteli) / 100.0
+	print(discount)
+	spell_damage_scale = (25.0 + inteli) / 100.0
+	fired.emit(mana_cost * discount)
+	

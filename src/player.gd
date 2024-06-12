@@ -234,6 +234,7 @@ func _on_game_ui_fade_complete():
 	position = GameDataSingleton.respawn_point
 	get_tree().call_group("creature","delete")
 	get_tree().call_group("spawner","spawn")
+	curr_mana = max_mana
 	character.get_older()
 	unpause()
 

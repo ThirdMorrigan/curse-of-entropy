@@ -50,14 +50,14 @@ signal fade_complete
 func _process(delta):
 	#print(health_bar.value-health_target)
 	if !is_equal_approx(health_bar.value,health_target):
-		health_bar.value = move_toward(health_bar.value,health_target,delta*50)
+		health_bar.value = move_toward(health_bar.value,health_target,delta*200)
 		
 	if !is_equal_approx(health_lost_bar.value,health_lost_target):
 		print("eorg")
-		health_lost_bar.value = move_toward(health_lost_bar.value,health_lost_target,delta*10)
+		health_lost_bar.value = move_toward(health_lost_bar.value,health_lost_target,delta*70)
 	
 	if !is_equal_approx(mana_bar.value,mana_target):
-		mana_bar.value = move_toward(mana_bar.value,mana_target,delta*50)
+		mana_bar.value = move_toward(mana_bar.value,mana_target,delta*200)
 
 func _on_health_change(new_hp,new_max):
 	#health_bar.value = new_hp

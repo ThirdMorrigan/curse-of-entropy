@@ -68,6 +68,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character_info:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pm35w"]
 resource_name = "death_screen_fade"
@@ -94,6 +106,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Character_info:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_5w2we"]
@@ -158,6 +182,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character_info:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_6a1mo"]
 resource_name = "death_screen_unfade"
@@ -221,6 +257,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character_info:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oiocy"]
@@ -287,14 +335,11 @@ offset_bottom = 40.0
 [node name="character_select_panel" parent="death_screen" instance=ExtResource("2_yt4s0")]
 visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.437
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.437
 anchor_bottom = 0.5
-offset_left = -118.04
-offset_right = 120.96
-grow_horizontal = 2
+offset_left = 239.0
+offset_right = 239.0
 grow_vertical = 2
 
 [node name="character_select_panel2" parent="death_screen" instance=ExtResource("2_yt4s0")]
@@ -312,13 +357,11 @@ grow_vertical = 2
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.630458
+anchor_left = 0.818229
 anchor_top = 0.5
-anchor_right = 0.630458
+anchor_right = 0.818229
 anchor_bottom = 0.5
-offset_left = 1.5199
-offset_right = 1.5199
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
