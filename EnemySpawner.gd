@@ -22,6 +22,7 @@ const THRALL_PICKAXE_LARGE = "res://scenes/creature/thralls/thrall_pickaxe_2h.ts
 const THRALL_SWORD = "res://scenes/creature/thralls/thrall_sword.tscn"
 const THRALL_SPEAR = "res://scenes/creature/thralls/thrall_spear.tscn"
 const THRALL_POLEARM = "res://scenes/creature/thralls/thrall_polearm.tscn"
+const THRALL_TENTACLE = "res://scenes/creature/thralls/thrall_tentacle.tscn"
 const SLIME = "res://scenes/creature/slime/slime.tscn"
 const KING_SLIME = "res://scenes/creature/slime/king_slime.tscn"
 
@@ -68,6 +69,8 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 			creature = preload(SLIME)
 		10:
 			creature = preload(KING_SLIME)
+		11:
+			creature = preload(THRALL_TENTACLE)
 	
 	repetable = props["repeatable"]
 	boss = props["boss"]
