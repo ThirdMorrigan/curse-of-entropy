@@ -3481,3 +3481,15 @@
 "origin" "568 536 1728"
 "id" "20"
 }
+// entity 68
+{
+"classname" "Item_pickup"
+"origin" "288 528 1488"
+"id" "6"
+}
+// entity 69
+{
+"classname" "Item_pickup"
+"origin" "312 528 1488"
+"id" "21"
+}

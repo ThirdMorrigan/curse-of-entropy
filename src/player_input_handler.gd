@@ -43,7 +43,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("use_tool"):
 		if player.current_tool.check():
 			player.current_tool.fire()
-
+	if Input.is_action_just_pressed("cycle_consumeable"):
+		player.cycle_consumeable()
+	if Input.is_action_just_pressed("use_consumeable"):
+		player.use_consumeable()
 
 
 func _on_inventory_ui_inventory_state_change(state):

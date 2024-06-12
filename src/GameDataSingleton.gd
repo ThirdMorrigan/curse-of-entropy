@@ -129,6 +129,11 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "A key to the castle chapel.",
 		"visuals" : key_visuals
+	},
+	21 : {
+		"name" : "Large health potion",
+		"type" : item_types.CONSUMABLE,
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn"
 	}
 	
 }

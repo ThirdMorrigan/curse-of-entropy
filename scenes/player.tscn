@@ -694,7 +694,7 @@ graph_offset = Vector2(-313, -49)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "tool_attacks") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing") groups=["player"]]
 floor_block_on_wall = false
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
@@ -704,7 +704,6 @@ friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
 sword_swing = NodePath("sword_swing")
-tool_attacks = [NodePath("PickaxeSwing"), NodePath("Fireball")]
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
@@ -969,7 +968,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 

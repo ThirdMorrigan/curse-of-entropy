@@ -28,10 +28,10 @@ func spawn():
 		timer.stop()
 		if creature != null:
 			var instance = creature.instantiate()
-			instance.wander_range = wander_range
+			
 			add_child(instance)
 			instance.creature_death.connect(_on_creature_death)
-			
+			instance.wander_range = wander_range
 			if overwrite_loot_table:
 				instance.loot_table = {100.0 : drop}
 

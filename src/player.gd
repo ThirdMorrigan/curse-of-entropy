@@ -36,6 +36,7 @@ class_name Player
 @export var swinging : bool = false
 @export var tool_attacks : Array[Attack]
 var current_tool : Attack
+var current_consumeable : int
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
 signal player_death
@@ -98,6 +99,8 @@ func _ready():
 	character.connect_player()
 	if not tool_attacks.is_empty():
 		current_tool = tool_attacks[0]
+	inventory.add(6,3)
+	cycle_consumeable()
 
 func _process(delta):
 	if !Engine.is_editor_hint():
@@ -215,3 +218,24 @@ func cycle_current_tool(dir : int):
 		new_index = size -1
 	print_debug(new_index)
 	current_tool = tool_attacks[new_index]
+
+func cycle_consumeable():
+	var consumable_array = inventory.bags[GameDataSingleton.item_types.CONSUMABLE].keys()
+	print(consumable_array)
+	if consumable_array.size():
+		var index = consumable_array.find(current_consumeable)
+		if index > -1:
+			index += 1
+			if index >= consumable_array.size():
+				index = 0
+		else:
+			index = 0
+		current_consumeable = consumable_array[index]
+	print(current_consumeable)
+
+func use_consumeable():
+	if inventory.playerHas(current_consumeable):
+		inventory.consumeItem(current_consumeable)
+		print("used")
+	else:
+		print("you are out")
