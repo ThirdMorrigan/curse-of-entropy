@@ -161,6 +161,14 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "the key to the Jailer's quarters.",
 		"visuals" : key_visuals
+	},
+	26 : {
+		"name" : "Small Mana potion", # 
+		"type" : item_types.CONSUMABLE,
+		"description" : "A potion that restores 25 mana",
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"resource" : consumeable_type.MANA,
+		"strength" : 25
 	}
 }
 

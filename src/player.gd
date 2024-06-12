@@ -46,8 +46,16 @@ var current_consumeable : int
 signal player_death
 signal pause_player
 signal unpause_player
-
+signal mana_changed
 var current_max_speed : float
+
+var max_mana : float = 100
+var curr_mana : float = max_mana:
+	get:
+		return curr_mana
+	set(m):
+		curr_mana = m
+		mana_changed.emit(curr_mana,max_mana)
 
 var jump_power : float
 var climbing : bool = false
@@ -107,7 +115,7 @@ func _ready():
 	character.connect_player()
 	if not tool_attacks.is_empty():
 		current_tool = tool_attacks[0]
-	
+	#curr_mana = max_mana
 	if inventory.bags[GameDataSingleton.item_types.CONSUMABLE].is_empty():
 		inventory.add(6,3)
 		
@@ -271,7 +279,7 @@ func use_consumeable():
 			GameDataSingleton.consumeable_type.HEALTH:
 				heal_health(item["strength"])
 			GameDataSingleton.consumeable_type.MANA:
-				pass
+				heal_mana(item["strength"])
 			GameDataSingleton.consumeable_type.STAMINA:
 				pass
 
@@ -285,3 +293,9 @@ func set_ui_items():
 	
 func heal_health(strength):
 	$HealthPool.heal(strength)
+
+func heal_mana(strength):
+	curr_mana = minf(max_mana,curr_mana + strength)
+	
+func _on_spell_fired(cost):
+	curr_mana -= cost

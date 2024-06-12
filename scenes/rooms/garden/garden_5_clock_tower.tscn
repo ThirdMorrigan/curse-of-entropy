@@ -2445,7 +2445,8 @@ func_godot_properties = {
 }
 visuals = ExtResource("19_uen55")
 interactionText = "pick up Small health potion"
-id = 6
+id = 26
+quantity = 50
 
 [node name="entity_60_Item_pickup" parent="FuncGodotMap" instance=ExtResource("15_a74nl")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.5, 46.5, 9.75)

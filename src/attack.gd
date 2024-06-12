@@ -3,9 +3,10 @@ extends Node3D
 class_name Attack
 
 signal hit
-
+signal fired
 var requirement
 
+@export var mana_cost : float = 0
 @export var display_name : String = "change me"
 @export var damage_instances : Array[DamageInstance]
 @export_flags("destructible:8","player:16","creature:32") var targets : int :
@@ -36,6 +37,7 @@ func _ready():
 	create_hitbox()
 
 func fire() :
+	fired.emit(mana_cost)
 	if attack_origin != null :
 		cast.global_position = attack_origin.global_position
 		cast.global_rotation = attack_origin.global_rotation

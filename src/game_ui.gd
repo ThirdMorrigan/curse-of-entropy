@@ -11,12 +11,14 @@ extends Control
 @onready var health_bar = $Character_info/healthbar/Health_bar
 @onready var health_lost_bar = $Character_info/healthbar/Health_lost_bar
 @onready var consumeable_quantity = $Character_info/consume/consumeable_quantity
-
+@onready var mana_bar = $Character_info/healthbar/mana_bar
+@onready var player = $".."
 
 @onready var consumeable = $Character_info/consume/consumeable
 @onready var tool = $Character_info/tool2/tool
 var health_target : float
 var health_lost_target : float
+var mana_target : float
 
 var character_details : PlayerCharacter:
 	get:
@@ -27,12 +29,16 @@ var character_details : PlayerCharacter:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player.mana_changed.connect(_on_mana_change)
 	if healthPool is HealthPool:
 		healthPool.health_change.connect(_on_health_change)
 		health_bar.value = healthPool.curr_hp
 		health_target = healthPool.curr_hp
 		health_lost_bar.value = healthPool.curr_hp
 		health_lost_target = healthPool.curr_hp
+		mana_bar.value = player.curr_mana
+		print("mana" + str(player.curr_mana))
+		mana_target = mana_bar.value
 		maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
 	if ray_cast_3d != null:
 		ray_cast_3d.interactable_target_changed.connect(_on_interactable_look)
@@ -49,7 +55,9 @@ func _process(delta):
 	if !is_equal_approx(health_lost_bar.value,health_lost_target):
 		print("eorg")
 		health_lost_bar.value = move_toward(health_lost_bar.value,health_lost_target,delta*10)
-
+	
+	if !is_equal_approx(mana_bar.value,mana_target):
+		mana_bar.value = move_toward(mana_bar.value,mana_target,delta*50)
 
 func _on_health_change(new_hp,new_max):
 	#health_bar.value = new_hp
@@ -96,3 +104,6 @@ func update_data():
 
 func _on_timer_timeout():
 	health_lost_target = healthPool.curr_hp
+
+func _on_mana_change(new_mana,new_max):
+	mana_target = new_mana
