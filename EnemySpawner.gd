@@ -41,6 +41,7 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 			creature = preload(PROTO_THRALL_1H)
 		1:
 			creature = preload(PROTO_THRALL_2H)
+	
 	repetable = props["repeatable"]
 	boss = props["boss"]
 	wander_range = props["wander"]
