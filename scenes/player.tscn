@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -932,21 +932,21 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(-0.243498, 0.249873, -0.937162, -0.413903, 0.847073, 0.333395, 0.877151, 0.469075, -0.102837, 0.00779793, 0.200791, 0.0203825)
 bones/6/enabled = true
 bones/6/position = Vector3(0.00779793, 0.200791, 0.0203825)
-bones/6/rotation = Quaternion(-0.0465314, -0.378478, -0.659381, 0.647925)
+bones/6/rotation = Quaternion(-0.0474901, -0.379022, -0.65842, 0.648514)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "forearm.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.996715, 0.0800764, 0.0120918, -0.0791007, 0.930606, 0.357372, 0.0173643, -0.357155, 0.933884, 1.18825e-08, 0.28851, -9.31323e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.18825e-08, 0.28851, -9.31323e-09)
-bones/7/rotation = Quaternion(-0.245612, -0.00132156, -0.0547157, 0.967822)
+bones/7/rotation = Quaternion(-0.246311, -0.00132131, -0.0548715, 0.967635)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "hand.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.998386, 0.0565106, 0.00569056, -0.0561545, 0.997156, -0.0502579, -0.00851448, 0.0498572, 0.99872, -2.33994e-08, 0.262836, 1.86265e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-2.33994e-08, 0.262836, 1.86265e-08)
-bones/8/rotation = Quaternion(-0.0112566, 0.350182, -0.0616831, 0.934581)
+bones/8/rotation = Quaternion(-0.0107834, 0.35314, -0.0618548, 0.933461)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "hold.R"
 bones/9/parent = 8
@@ -973,8 +973,8 @@ bones/12/name = "IK.R"
 bones/12/parent = -1
 bones/12/rest = Transform3D(-0.550248, 0.825611, 0.124872, -0.835001, -0.544067, -0.0822447, 3.64929e-05, -0.149523, 0.988758, 0.6594, -0.395923, 0.0486656)
 bones/12/enabled = true
-bones/12/position = Vector3(0.338397, -0.303229, -0.521311)
-bones/12/rotation = Quaternion(-0.0402756, -0.664016, 0.742004, 0.083007)
+bones/12/position = Vector3(0.339222, -0.302477, -0.521205)
+bones/12/rotation = Quaternion(-0.0417434, -0.664074, 0.741757, 0.0840218)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "IK.L"
 bones/13/parent = -1
@@ -985,7 +985,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.98239, 0.173534, -0.0692467, 0.180106, 0.978149, -0.103858, 0.0497105, -0.114501, -0.992179, 0.333682, -0.310793, -0.600758)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -1046,14 +1046,21 @@ hitbox_shape = SubResource("SphereShape3D_oqgs6")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 range = 10.0
 
+[node name="requirement" type="Node" parent="Fireball"]
+script = ExtResource("15_m0vcd")
+
 [node name="ArcaneSpell" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("22_fs7io")
+mana_cost = 15.0
 display_name = "Arcane"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_r7jtp")])
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_uu0um")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 range = 0.1
+
+[node name="requirement" type="Node" parent="ArcaneSpell"]
+script = ExtResource("15_m0vcd")
 
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")
@@ -1066,9 +1073,6 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
@@ -1089,6 +1093,7 @@ catagory_buttons = SubResource("ButtonGroup_rq6di")
 [connection signal="unpause_player" from="." to="PlayerInputHandler" method="_on_player_unpause_player"]
 [connection signal="animation_finished" from="camera_pivot/Camera3D/Audio control node/AnimationPlayer" to="camera_pivot/Camera3D/Audio control node" method="_on_crossfade_finished"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
+[connection signal="fired" from="ArcaneSpell" to="." method="_on_spell_fired"]
 [connection signal="fade_complete" from="game_ui" to="." method="_on_game_ui_fade_complete"]
 [connection signal="fade_complete" from="game_ui" to="HealthPool" method="_on_player_death"]
 [connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]

@@ -8,7 +8,7 @@ var strength_ratio
 var intelligence_ratio
 var strength
 var intelligence
-var skin_colour : Color = Color(randf(),randf(),randf(),1)
+var skin_colour : Color
 var hair_colour : Color = Color(randf(),randf(),randf(),1)
 var hair
 var face
@@ -17,6 +17,24 @@ var face_num
 var health_pool : HealthPool
 const FACE_SCENE = preload("res://scenes/face.tscn")
 var latest_age_loss = 0
+var skin_tones = [
+		Color(45,34,30),
+		Color(60,46,40),
+		Color(75,57,50),
+		Color(90,69,60),
+		Color(105,80,70),
+		Color(120,92,80),
+		Color(135,103,90),
+		Color(150,114,100),
+		Color(165,126,110),
+		Color(180,138,120),
+		Color(195,149,130),
+		Color(210,161,140),
+		Color(225,172,150),
+		Color(240,184,160),
+		Color(255,195,170),
+		Color(255,206,180)
+	]
 var age:
 	get:
 		return age
@@ -27,7 +45,7 @@ var age:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#proto_char()
-	
+	skin_colour = skin_tones.pick_random() / Color(255,255,255)
 	var temp_face = FACE_SCENE.instantiate()
 	add_child(temp_face)
 	hair_num = temp_face.hair.hframes

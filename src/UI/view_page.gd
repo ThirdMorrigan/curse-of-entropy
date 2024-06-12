@@ -2,9 +2,9 @@ extends Control
 
 @onready var title = $title
 @onready var descrition = $descrition
-@onready var age_label = $HBoxContainer/age
-@onready var strength_label = $HBoxContainer/strength
-@onready var intelligence_label = $HBoxContainer/intelligence
+@onready var age_label = $age
+@onready var strength_label = $strength
+@onready var intelligence_label = $intelligence
 @onready var quantity = $quantity
 
 var inventory = preload("res://_PROTO_/inventroy.tres")

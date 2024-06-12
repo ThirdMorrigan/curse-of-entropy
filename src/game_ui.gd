@@ -1,14 +1,24 @@
 extends Control
 
-@onready var health = $health
 @onready var healthPool = $"../HealthPool"
 @onready var interactable = $interactable
 @onready var ray_cast_3d = $"../camera_pivot/Camera3D/RayCast3D"
 @onready var animation_player = $"AnimationPlayer"
 @onready var death_message = $death_screen/death_message
-@onready var face = $face
-@onready var tool = $tool
-@onready var consumeable = $consumeable
+@onready var face = $Character_info/face
+@onready var timer = $Timer
+@onready var maxhealth_missing_bar = $Character_info/healthbar/maxhealth_missing_bar
+@onready var health_bar = $Character_info/healthbar/Health_bar
+@onready var health_lost_bar = $Character_info/healthbar/Health_lost_bar
+@onready var consumeable_quantity = $Character_info/consume/consumeable_quantity
+@onready var mana_bar = $Character_info/healthbar/mana_bar
+@onready var player = $".."
+
+@onready var consumeable = $Character_info/consume/consumeable
+@onready var tool = $Character_info/tool2/tool
+var health_target : float
+var health_lost_target : float
+var mana_target : float
 
 var character_details : PlayerCharacter:
 	get:
@@ -19,9 +29,17 @@ var character_details : PlayerCharacter:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player.mana_changed.connect(_on_mana_change)
 	if healthPool is HealthPool:
 		healthPool.health_change.connect(_on_health_change)
-		health.text = str(healthPool.curr_hp) + " / " + str(healthPool.curr_max_hp)
+		health_bar.value = healthPool.curr_hp
+		health_target = healthPool.curr_hp
+		health_lost_bar.value = healthPool.curr_hp
+		health_lost_target = healthPool.curr_hp
+		mana_bar.value = player.curr_mana
+		print("mana" + str(player.curr_mana))
+		mana_target = mana_bar.value
+		maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
 	if ray_cast_3d != null:
 		ray_cast_3d.interactable_target_changed.connect(_on_interactable_look)
 	
@@ -30,16 +48,30 @@ signal fade_complete
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#print(health_bar.value-health_target)
+	if !is_equal_approx(health_bar.value,health_target):
+		health_bar.value = move_toward(health_bar.value,health_target,delta*50)
+		
+	if !is_equal_approx(health_lost_bar.value,health_lost_target):
+		print("eorg")
+		health_lost_bar.value = move_toward(health_lost_bar.value,health_lost_target,delta*10)
+	
+	if !is_equal_approx(mana_bar.value,mana_target):
+		mana_bar.value = move_toward(mana_bar.value,mana_target,delta*50)
 
 func _on_health_change(new_hp,new_max):
-	health.text = str(new_hp) + " / " + str(new_max)
+	#health_bar.value = new_hp
+	health_target = new_hp
+	print(new_hp)
+	maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
+	timer.start()
 
 func _on_interactable_look(interact_message):
 	interactable.text = interact_message
 
-func set_selected_item_text(consumeable_name, tool_name):
+func set_selected_item_text(consumeable_name,quant, tool_name):
 	consumeable.text = consumeable_name
+	consumeable_quantity.text = str(quant)
 	tool.text = tool_name
 	
 
@@ -68,3 +100,10 @@ func reload():
 
 func update_data():
 	face.update_face(character_details.face,character_details.hair,character_details.skin_colour,character_details.hair_colour)
+
+
+func _on_timer_timeout():
+	health_lost_target = healthPool.curr_hp
+
+func _on_mana_change(new_mana,new_max):
+	mana_target = new_mana
