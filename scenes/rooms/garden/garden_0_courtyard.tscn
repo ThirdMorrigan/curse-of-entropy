@@ -1484,12 +1484,6 @@ func_godot_properties = {
 "repeatable": false
 }
 repetable = false
-min_time = null
-max_time = null
-overwrite_loot_table = null
-drop = null
-boss = null
-wander_range = null
 
 [node name="entity_14_Door" parent="FuncGodotMap" instance=ExtResource("9_h8t6s")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 30, 0, 32.5)

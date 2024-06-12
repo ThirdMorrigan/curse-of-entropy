@@ -123,6 +123,12 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "This key opens a storage room in the dungeon.",
 		"visuals" : key_visuals
+	},
+	20 : {
+		"name" : "Chapel",
+		"type" : item_types.KEY,
+		"description" : "A key to the castle chapel.",
+		"visuals" : key_visuals
 	}
 	
 }
