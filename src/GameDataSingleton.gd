@@ -151,13 +151,13 @@ var itemLookupTable = {
 		"description" : "this staff is preety cool"
 		},
 	24 : {
-		"name" : "Dungeon Trapdoor key", # 
+		"name" : "Dungeon Trapdoor key", # IN CELL 8
 		"type" : item_types.KEY,
 		"description" : "This key opens a trapdoor somewhere in the dungeon.",
 		"visuals" : key_visuals
 	},
 	25 : {
-		"name" : "Jailer's Quarters key", # 
+		"name" : "Jailer's Quarters key", # ON JAILER
 		"type" : item_types.KEY,
 		"description" : "the key to the Jailer's quarters.",
 		"visuals" : key_visuals

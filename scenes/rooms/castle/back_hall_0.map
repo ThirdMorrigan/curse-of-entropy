@@ -665,7 +665,7 @@
 "classname" "func_door"
 "origin" "-42 0 0"
 "key" "0"
-"interactable" "1"
+"interactable" "0"
 "open_angle" "89"
 "state" "1"
 "_tb_group" "5"
@@ -687,4 +687,33 @@
 ( -872 900 316 ) ( -868 896 320 ) ( -868 900 320 ) smooth_stone_0 [ 3.8285686989269494e-16 -1 0 528 ] [ 0.7071067811865476 2.7072068892498036e-16 0.7071067811865476 67.88223 ] 70.52878 1 1
 ( -872 900 324 ) ( -868 896 320 ) ( -872 896 324 ) smooth_stone_0 [ -3.8285686989269494e-16 1 0 -528 ] [ 0.7071067811865476 2.7072068892498036e-16 -0.7071067811865476 67.88226 ] 289.47122 1 1
 }
+}
+// entity 11
+{
+"classname" "Torch"
+"origin" "-576 688 368"
+"angle" "90"
+}
+// entity 12
+{
+"classname" "Torch"
+"origin" "-1024 688 368"
+"angle" "90"
+}
+// entity 13
+{
+"classname" "Torch"
+"origin" "-1248 656 368"
+}
+// entity 14
+{
+"classname" "Torch"
+"origin" "-480 896 384"
+"angle" "90"
+}
+// entity 15
+{
+"classname" "Torch"
+"origin" "-896 896 384"
+"angle" "90"
 }

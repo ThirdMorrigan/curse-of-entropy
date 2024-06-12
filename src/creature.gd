@@ -8,9 +8,10 @@ const PICKUP = preload("res://scenes/pickup.tscn")
 @export var speed = 3.0
 @export var loot_table : Dictionary
 @export var overwirte_target_position: Marker3D
+@export var attacks : Array[Attack]
+
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, JUMP}
 
-var attacks : Array[Attack]
 var jump_target : Vector3
 var jump_land_error = 0.5
 var landed = true
@@ -36,11 +37,12 @@ var aware : bool = false
 func _ready():
 	goal_look = basis * Vector3.FORWARD
 	add_to_group("creature")
-	var _attacks = find_children("*", "Attack")
-	for a in _attacks:
-		if a is Attack:
-			attacks.append(a)
-	if attacks.size() > 5 : print("someone's got too many attacks :3")
+	if attacks == []:
+		var _attacks = find_children("*", "Attack")
+		for a in _attacks:
+			if a is Attack:
+				attacks.append(a)
+		if attacks.size() > 5 : print("someone's got too many attacks :3")
 
 func _physics_process(delta):
 	
@@ -78,6 +80,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func current_attack() -> int :
+	print(current_state)
 	return current_state - 4 if current_state > 3 else -1
 
 func jump(delta):

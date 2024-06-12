@@ -1,25 +1,24 @@
-[gd_scene load_steps=278 format=3 uid="uid://cq13kyxu7jxsk"]
+[gd_scene load_steps=276 format=3 uid="uid://cq13kyxu7jxsk"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_4gxw1"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_pjw4g"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_hphq3"]
-[ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="4_6fmak"]
-[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="4_tkqbi"]
+[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="4_tkqbi"]
 [ext_resource type="Material" uid="uid://cf01e3k7ar51s" path="res://textures/tile_grey_stone_0.tres" id="5_b6rkw"]
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="6_hvvws"]
 [ext_resource type="Material" uid="uid://bxd1tote47e74" path="res://textures/wood_planks_0.tres" id="6_knx46"]
 [ext_resource type="Material" uid="uid://d8b07myu3n0y" path="res://textures/hedge_wall_0.tres" id="6_ktef6"]
 [ext_resource type="Material" uid="uid://buvsa5yo2mpy5" path="res://textures/wood_misc_0.tres" id="8_nq4u0"]
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="9_g5u51"]
-[ext_resource type="Material" path="res://textures/wood_stairs_0.tres" id="10_3gd7s"]
-[ext_resource type="Material" uid="uid://waac3ms0ofu3" path="res://textures/invisable_wall.tres" id="10_lguhe"]
-[ext_resource type="Material" path="res://textures/wire_fence_0.tres" id="11_qjhcl"]
+[ext_resource type="Material" uid="uid://dged3e7i8qd2k" path="res://textures/wood_stairs_0.tres" id="10_3gd7s"]
+[ext_resource type="Material" path="res://textures/invisable_wall.tres" id="10_lguhe"]
+[ext_resource type="Material" uid="uid://bnjai24iy3731" path="res://textures/wire_fence_0.tres" id="11_qjhcl"]
 [ext_resource type="Script" path="res://src/func_door.gd" id="12_n0hgl"]
-[ext_resource type="PackedScene" path="res://scenes/visuals/torch.tscn" id="14_86v3o"]
+[ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="14_86v3o"]
 [ext_resource type="PackedScene" uid="uid://chjg8dumvhrmk" path="res://assets/models/rooms/clock_face.glb" id="14_u37x5"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="15_a74nl"]
 [ext_resource type="Material" uid="uid://dwoe8oy072dgo" path="res://assets/materials/clock_face/clock_face.tres" id="15_amrms"]
-[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="17_n2gdn"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="17_n2gdn"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="18_w2cki"]
 [ext_resource type="PackedScene" uid="uid://cidvofjq6nuku" path="res://scenes/visuals/potion_visuals.tscn" id="19_uen55"]
 [ext_resource type="Script" path="res://src/func_arcane_lock.gd" id="20_b0unt"]
@@ -1119,11 +1118,6 @@ _surfaces = [{
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8howv"]
 points = PackedVector3Array(-0.25, 1, -2, -0.25, -1, -2, 0.25, -1, -2, 0.25, 1, -2, -0.25, 1, 2, -0.25, -1, 2, 0.25, -1, 2, 0.25, 1, 2)
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_rs62u"]
-geometry_parsed_geometry_type = 1
-geometry_source_geometry_mode = 1
-geometry_source_group_name = &"changeme"
 
 [node name="Room" type="Area3D"]
 collision_layer = 0
@@ -2432,6 +2426,7 @@ func_godot_properties = {
 "origin": "568 536 1728",
 "quantity": 1
 }
+interactionText = "pick up Chapel"
 id = 20
 
 [node name="entity_59_Item_pickup" parent="FuncGodotMap" instance=ExtResource("15_a74nl")]
@@ -2443,6 +2438,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("19_uen55")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_60_Item_pickup" parent="FuncGodotMap" instance=ExtResource("15_a74nl")]
@@ -2453,6 +2449,7 @@ func_godot_properties = {
 "origin": "312 528 1488",
 "quantity": 1
 }
+interactionText = "pick up Large health potion"
 id = 21
 
 [node name="entity_61_func_arcane_lock" type="StaticBody3D" parent="FuncGodotMap"]
@@ -2464,10 +2461,6 @@ mesh = SubResource("ArrayMesh_p83f5")
 
 [node name="entity_61_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_61_func_arcane_lock"]
 shape = SubResource("ConvexPolygonShape3D_8howv")
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_rs62u")
-script = ExtResource("4_6fmak")
 
 [node name="clock_face" parent="." instance=ExtResource("14_u37x5")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 12.5094, 56.2315, 5.96213)

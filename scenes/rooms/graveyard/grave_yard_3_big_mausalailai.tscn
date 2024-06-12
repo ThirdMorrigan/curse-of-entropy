@@ -1,20 +1,19 @@
-[gd_scene load_steps=237 format=3 uid="uid://bwsb3kvf0fiu3"]
+[gd_scene load_steps=235 format=3 uid="uid://bwsb3kvf0fiu3"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_lmsnw"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_0t53k"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_amppr"]
-[ext_resource type="Script" path="res://src/NavigationRegionController.gd" id="4_2toa0"]
-[ext_resource type="Material" path="res://textures/smooth_stone_0.tres" id="4_nmfxf"]
+[ext_resource type="Material" uid="uid://jsufqdhpo58a" path="res://textures/smooth_stone_0.tres" id="4_nmfxf"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="5_s4yfq"]
-[ext_resource type="Material" path="res://textures/wood_stairs_0.tres" id="6_14fxc"]
-[ext_resource type="Material" path="res://textures/metal_fence_0.tres" id="6_lrarh"]
+[ext_resource type="Material" uid="uid://dged3e7i8qd2k" path="res://textures/wood_stairs_0.tres" id="6_14fxc"]
+[ext_resource type="Material" uid="uid://c10xh3hstsunr" path="res://textures/metal_fence_0.tres" id="6_lrarh"]
 [ext_resource type="Script" path="res://src/func_door.gd" id="6_uckte"]
 [ext_resource type="Script" path="res://src/interactables/func_door_controllergd.gd" id="8_4yjru"]
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="8_7itr2"]
-[ext_resource type="PackedScene" path="res://scenes/visuals/torch.tscn" id="8_h8pm7"]
+[ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="8_h8pm7"]
 [ext_resource type="Script" path="res://src/func_burnable.gd" id="9_s0csb"]
 [ext_resource type="Material" uid="uid://buvsa5yo2mpy5" path="res://textures/wood_misc_0.tres" id="10_kyogu"]
-[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="11_mbj02"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="11_mbj02"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="12_m273a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
@@ -866,11 +865,6 @@ _surfaces = [{
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2jxxf"]
 points = PackedVector3Array(-0.25, 1.125, -1.75, -0.25, -1.125, -1.75, 0.25, -1.125, -1.75, 0.25, 1.125, -1.75, -0.25, 1.125, 1.75, -0.25, -1.125, 1.75, 0.25, -1.125, 1.75, 0.25, 1.125, 1.75)
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_rs62u"]
-geometry_parsed_geometry_type = 1
-geometry_source_geometry_mode = 1
-geometry_source_group_name = &"changeme"
 
 [node name="Room" type="Area3D"]
 collision_layer = 0
@@ -1789,10 +1783,6 @@ mesh = SubResource("ArrayMesh_ksfuc")
 
 [node name="entity_23_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_23_func_burnable"]
 shape = SubResource("ConvexPolygonShape3D_2jxxf")
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_rs62u")
-script = ExtResource("4_2toa0")
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("doors")]
 script = ExtResource("8_4yjru")
