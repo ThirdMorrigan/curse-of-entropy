@@ -59,8 +59,9 @@ func reset() :
 	parent = $".."
 
 func _process(delta):
-	if Input.is_action_just_pressed("heal"):
-		heal(1)
+	#if Input.is_action_just_pressed("heal"):
+		#heal(1)
+	pass
 
 func heal(healing : float):
 	curr_hp = minf(curr_max_hp,curr_hp+healing)

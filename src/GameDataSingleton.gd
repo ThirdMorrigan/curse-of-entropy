@@ -3,6 +3,7 @@ extends Node
 
 
 enum item_types {KEY, CONSUMABLE, TOOL,NOTE}
+enum consumeable_type {HEALTH,MANA,STAMINA}
 enum map_zone {GARDEN,GRAVEYARD,CASTLE,CRYPT,DUNGEON,CAVE,SEWER}
 enum equipment_slots {TOOL, HEAD, BODY, FEET, HANDS}
 
@@ -44,7 +45,9 @@ var itemLookupTable = {
 	6 : {
 		"name" : "Small health potion",
 		"type" : item_types.CONSUMABLE,
-		"visuals" : "res://scenes/visuals/potion_visuals.tscn"
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"resource" : consumeable_type.HEALTH,
+		"strength" : 25
 	},
 	7 : {
 		"name" : "Highjump Boots",
@@ -87,6 +90,55 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "Good find.",
 		"visuals" : key_visuals
+	},
+	14 : {
+		"name" : "Clock Tower key",
+		"type" : item_types.KEY,
+		"description" : "A key for the nearby clocktower and its side path",
+		"visuals" : key_visuals
+	},
+	15 : {
+		"name" : "Block A Cell 5 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A5.",
+		"visuals" : key_visuals
+	},
+	16 : {
+		"name" : "Block A Cell 2 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A2.",
+		"visuals" : key_visuals
+	},
+	17 : {
+		"name" : "Block A Cell 8 key",
+		"type" : item_types.KEY,
+		"description" : "The key to a cell in the Dungeon. Opens cell A8.",
+		"visuals" : key_visuals
+	},
+	18 : {
+		"name" : "Dungeon Internal Gate Key",
+		"type" : item_types.KEY,
+		"description" : "This key opens a gate somewhere in the dungeon.",
+		"visuals" : key_visuals
+	},
+	19 : {
+		"name" : "Dungeon Storage Room Key",
+		"type" : item_types.KEY,
+		"description" : "This key opens a storage room in the dungeon.",
+		"visuals" : key_visuals
+	},
+	20 : {
+		"name" : "Chapel",
+		"type" : item_types.KEY,
+		"description" : "A key to the castle chapel.",
+		"visuals" : key_visuals
+	},
+	21 : {
+		"name" : "Large health potion",
+		"type" : item_types.CONSUMABLE,
+		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"resource" : consumeable_type.HEALTH,
+		"strength" : 50
 	}
 	
 }

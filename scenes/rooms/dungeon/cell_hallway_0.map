@@ -728,6 +728,8 @@
 "classname" "Door"
 "origin" "-56 352 0"
 "angle" "180"
+"key" "17"
+"state" "0"
 }
 // entity 11
 {
@@ -765,11 +767,15 @@
 "classname" "Door"
 "origin" "-56 -224 0"
 "angle" "180"
+"state" "0"
+"key" "15"
 }
 // entity 17
 {
 "classname" "Door"
 "origin" "56 224 0"
+"key" "16"
+"state" "0"
 }
 // entity 18
 {
@@ -781,7 +787,7 @@
 // entity 19
 {
 "classname" "Item_pickup"
-"origin" "-360 -24 -104"
+"origin" "-344 -40 -104"
 "id" "6"
 }
 // entity 20
@@ -796,6 +802,18 @@
 "origin" "328 -24 -104"
 }
 // entity 22
+{
+"classname" "Item_pickup"
+"origin" "-344 -200 -104"
+"id" "18"
+}
+// entity 23
+{
+"classname" "Creature"
+"origin" "-347.314 384 -104"
+"angle" "225"
+}
+// entity 24
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1031,7 +1049,7 @@
 ( 303.888386234165 -215.74477633854227 -104.17914499909396 ) ( 312.48787689445766 -210.2127705878919 -109 ) ( 310.6639564210491 -218.30726348680417 -110 ) base_stone_0 [ -0.23975350300293927 0.8727325754839148 0.21991361557994932 -37.862274 ] [ -0.775497462062307 -0.47057738080692946 -0.15583621573436254 14.776173 ] 29.433014 1 1
 }
 }
-// entity 23
+// entity 25
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1039,7 +1057,7 @@
 "_tb_id" "15"
 "_tb_layer_sort_index" "1"
 }
-// entity 24
+// entity 26
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1053,7 +1071,7 @@
 ( 48 385 112 ) ( 48 383 100 ) ( 48 383 112 ) metal_rusty_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 25
+// entity 27
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1088,7 +1106,7 @@
 ( 0 495 112 ) ( 3 623 102 ) ( 3 495 102 ) metal_rusty_0 [ 0 1 0 0 ] [ 0.28734788556634544 0 -0.9578262852211514 0 ] 0 1 1
 }
 }
-// entity 26
+// entity 28
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1139,7 +1157,7 @@
 ( -47 393 112 ) ( -47 391 100 ) ( -47 391 112 ) metal_rusty_0 [ 0 1 0 -8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 27
+// entity 29
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1162,7 +1180,7 @@
 ( 48 190 112 ) ( 48 188 100 ) ( 48 188 112 ) metal_rusty_0 [ 0 1 0 195 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 28
+// entity 30
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1204,7 +1222,7 @@
 ( -47 185 112 ) ( -47 188 100 ) ( -47 186 100 ) metal_rusty_0 [ 0 -1 0 -9 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 29
+// entity 31
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1236,7 +1254,7 @@
 ( 48 -4 112 ) ( 48 -6 100 ) ( 48 -6 112 ) metal_rusty_0 [ 0 1 0 389 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 30
+// entity 32
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1269,7 +1287,7 @@
 ( -47 -5 112 ) ( -47 -2 100 ) ( -47 -4 100 ) metal_rusty_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 31
+// entity 33
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1302,7 +1320,7 @@
 ( 48 -200 112 ) ( 48 -197 100 ) ( 48 -199 100 ) metal_rusty_0 [ 0 -1 0 -394 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 32
+// entity 34
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1326,7 +1344,7 @@
 ( -47 -190 112 ) ( -47 -188 112 ) ( -47 -191 100 ) metal_rusty_0 [ 0 1 0 -4 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 33
+// entity 35
 {
 "classname" "func_detail"
 "_tb_layer" "15"
@@ -1361,19 +1379,19 @@
 ( 0 -256 112 ) ( 3 -128 102 ) ( 3 -256 102 ) metal_rusty_0 [ 0 1 0 751 ] [ 0.28734788556634544 0 -0.9578262852211514 0 ] 0 1 1
 }
 }
-// entity 34
+// entity 36
 {
 "classname" "Creature"
 "origin" "338 455 -96"
 "_tb_layer" "15"
 }
-// entity 35
+// entity 37
 {
 "classname" "Creature"
 "origin" "328 355 -104"
 "_tb_layer" "15"
 }
-// entity 36
+// entity 38
 {
 "classname" "Creature"
 "origin" "248 444 -90"

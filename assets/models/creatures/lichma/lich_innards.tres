@@ -16,4 +16,5 @@ shader_parameter/vertex_wobble_scale = 1
 shader_parameter/albedo = Color(1, 0.560784, 0.0588235, 1)
 shader_parameter/alpha_hash_scale = 0.045
 shader_parameter/fresnel_power = 0.88
+shader_parameter/hide = false
 shader_parameter/noise = SubResource("NoiseTexture3D_5nt7u")

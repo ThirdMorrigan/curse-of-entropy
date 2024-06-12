@@ -2352,6 +2352,9 @@
 {
 "classname" "Creature"
 "origin" "-648 -392 40"
+"drop" "14"
+"boss" "1"
+"wander" "1"
 }
 // entity 19
 {

@@ -119,10 +119,10 @@ tracks/3/path = NodePath("next_music:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jy8l7"]
@@ -704,7 +704,7 @@ friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
 sword_swing = NodePath("sword_swing")
-tool_attacks = [NodePath("PickaxeSwing"), NodePath("Fireball")]
+tool_attacks = [NodePath("Fireball"), NodePath("PickaxeSwing")]
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
@@ -818,13 +818,12 @@ collide_with_bodies = false
 script = ExtResource("5_g8323")
 
 [node name="postprocess" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_61ybn")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_uf0gt")
 script = ExtResource("4_vv5i4")
-hideInEditor = false
-hideInRunTime = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0274304)
@@ -835,10 +834,8 @@ light_specular = 1.0
 shadow_blur = 0.0
 omni_range = 3.0
 
-[node name="Audio control node" type="Node3D" parent="camera_pivot/Camera3D" node_paths=PackedStringArray("current_music", "next_music")]
+[node name="Audio control node" type="Node3D" parent="camera_pivot/Camera3D"]
 script = ExtResource("5_atf2r")
-current_music = NodePath("current_music")
-next_music = NodePath("next_music")
 
 [node name="current_music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
 bus = &"Music"

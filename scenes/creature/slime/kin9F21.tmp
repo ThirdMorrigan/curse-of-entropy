@@ -1,0 +1,247 @@
+[gd_scene load_steps=37 format=3 uid="uid://bsksw6adewru0"]
+
+[ext_resource type="PackedScene" uid="uid://bq17qn6ht6lm8" path="res://assets/models/creatures/slime/slime.glb" id="1_sjumq"]
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_ekti0"]
+[ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="3_310b1"]
+[ext_resource type="PackedScene" uid="uid://42thuhbomywo" path="res://assets/models/creatures/slime/crown.glb" id="3_j4k5y"]
+[ext_resource type="Material" uid="uid://c0k6nxsvkgrev" path="res://assets/materials/crown/crown.tres" id="4_e1w7t"]
+[ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="5_7c4wd"]
+[ext_resource type="Script" path="res://src/hurtbox.gd" id="6_hemr2"]
+[ext_resource type="Script" path="res://src/health_pool.gd" id="7_bdcbp"]
+[ext_resource type="Script" path="res://src/attack.gd" id="8_eu5tc"]
+[ext_resource type="Script" path="res://src/damage_instance.gd" id="9_o41gg"]
+[ext_resource type="Script" path="res://src/creature_ai.gd" id="10_6j4ti"]
+
+[sub_resource type="GDScript" id="GDScript_hkwnx"]
+script/source = "extends Node3D
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	global_rotation.y = 0
+"
+
+[sub_resource type="Curve" id="Curve_3xoxr"]
+_data = [Vector2(1, 0.461538), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_2dwny"]
+_data = [Vector2(0.556017, 0.67033), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_ad3q4"]
+_data = [Vector2(0.42, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_x7ayo"]
+curve_x = SubResource("Curve_3xoxr")
+curve_y = SubResource("Curve_2dwny")
+curve_z = SubResource("Curve_ad3q4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyyv4"]
+render_priority = 0
+shader = ExtResource("2_ekti0")
+shader_parameter/vertex_wobble_scale = 0
+shader_parameter/albedo = Color(0.203922, 0.419608, 0, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_crunch = SubResource("CurveXYZTexture_x7ayo")
+
+[sub_resource type="GDScript" id="GDScript_44md0"]
+script/source = "extends MeshInstance3D
+
+@export var health_pool : HealthPool
+var mat : ShaderMaterial
+var r = 0.204
+var g = 0.42
+var target_colour : Color
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	mat = get_surface_override_material(0)
+	
+	mat.set_shader_parameter(\"albedo\",Color(r, g, 0))
+	target_colour = Color(r, g, 0)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var current_colour = mat.get_shader_parameter(\"albedo\")
+	if current_colour = target_colour:
+		print(\"same\")
+	mat.set_shader_parameter(\"albedo\",Color(lerpf(current_colour.r,target_colour.r,delta), lerpf(current_colour.g,target_colour.g,delta), 0))
+
+
+func _on_health_pool_health_change(curr_hp,curr_max_hp):
+	var max = health_pool.max_hp
+	var curr = health_pool.curr_hp
+	var percentish = curr/max
+	target_colour = Color(r + r*(1-percentish), g*percentish, 0)
+	#mat.set_shader_parameter(\"albedo\",Color(r + r*(1-percentish), g*percentish, 0))
+	
+"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
+animation = &"attack_0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yic6n"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7w85m"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h4mty"]
+graph_offset = Vector2(-311.998, -39.0496)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7w85m")
+nodes/Animation/position = Vector2(-260, 80)
+nodes/output/position = Vector2(120, 80)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dx8hi"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_axw71"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_dx8hi")
+nodes/Animation/position = Vector2(340, 100)
+nodes/output/position = Vector2(800, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y2t8u"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rn25o"]
+xfade_time = 0.5
+advance_mode = 2
+advance_expression = "current_state == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kfogt"]
+xfade_time = 0.5
+advance_mode = 2
+advance_expression = "current_state == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cijib"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 4"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rnuc3"]
+xfade_time = 0.25
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1s0fs"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i1n8o"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m3vm0"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "current_state == 3"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y0tkb"]
+states/Start/position = Vector2(13, 100)
+states/attack_0/node = SubResource("AnimationNodeAnimation_pjh3y")
+states/attack_0/position = Vector2(425, 100)
+states/die/node = SubResource("AnimationNodeAnimation_yic6n")
+states/die/position = Vector2(281, -13)
+states/idle/node = SubResource("AnimationNodeBlendTree_h4mty")
+states/idle/position = Vector2(162, 100)
+states/walk/node = SubResource("AnimationNodeBlendTree_axw71")
+states/walk/position = Vector2(281, 176)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y2t8u"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_rn25o"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_kfogt"), "walk", "attack_0", SubResource("AnimationNodeStateMachineTransition_cijib"), "attack_0", "walk", SubResource("AnimationNodeStateMachineTransition_rnuc3"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_1s0fs"), "attack_0", "die", SubResource("AnimationNodeStateMachineTransition_i1n8o"), "walk", "die", SubResource("AnimationNodeStateMachineTransition_m3vm0")]
+graph_offset = Vector2(-266, -77)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ibsc3"]
+radius = 3.23297
+height = 6.46594
+
+[sub_resource type="Resource" id="Resource_j1hw5"]
+script = ExtResource("9_o41gg")
+damage = 1.0
+impulse = 30.0
+damage_types = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4xssm"]
+height = 0.5
+radius = 4.0
+
+[node name="slime" instance=ExtResource("1_sjumq")]
+
+[node name="Armature" parent="." index="0"]
+script = SubResource("GDScript_hkwnx")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/scale = Vector3(1.00524, 0.995885, 1.00524)
+
+[node name="Sphere" parent="Armature/Skeleton3D" index="0" node_paths=PackedStringArray("health_pool")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_qyyv4")
+script = SubResource("GDScript_44md0")
+health_pool = NodePath("../../../HealthPool")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(1.00524, 0, 0, 0, 0.995885, 0, 0, 0, 1.00524, 0, 0, 0)
+bone_name = "Bone"
+bone_idx = 0
+
+[node name="crown" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("3_j4k5y")]
+transform = Transform3D(0.662594, 0, 0, 0, 1.52673, 0, 0, 0, 0.662594, 0, 3.17066, 0)
+
+[node name="Cylinder" parent="Armature/Skeleton3D/BoneAttachment3D/crown" index="0"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.000126295, 0)
+surface_material_override/0 = ExtResource("4_e1w7t")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_y0tkb")
+anim_player = NodePath("../AnimationPlayer")
+script = ExtResource("3_310b1")
+
+[node name="collision_hull_king" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.15325, 0)
+shape = SubResource("CapsuleShape3D_ibsc3")
+
+[node name="ray" parent="." index="4" instance=ExtResource("5_7c4wd")]
+
+[node name="Hurtbox" type="Area3D" parent="." index="5" node_paths=PackedStringArray("copy_collision_shapes")]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("6_hemr2")
+copy_collision_shapes = [NodePath("../collision_hull_king")]
+
+[node name="HealthPool" type="Node" parent="." index="6" node_paths=PackedStringArray("hurtboxes")]
+script = ExtResource("7_bdcbp")
+max_hp = 100.0
+hurtboxes = [NodePath("../Hurtbox")]
+
+[node name="Attack" type="Node3D" parent="." index="7" node_paths=PackedStringArray("attack_origin")]
+script = ExtResource("8_eu5tc")
+damage_instances = Array[ExtResource("9_o41gg")]([SubResource("Resource_j1hw5")])
+targets = 16
+hitbox_shape = SubResource("CylinderShape3D_4xssm")
+attack_origin = NodePath("../Marker3D")
+ai_range_max = 4.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="8"]
+navigation_layers = 4
+avoidance_enabled = true
+
+[node name="CreatureAI" type="Node" parent="." index="9" node_paths=PackedStringArray("eyes")]
+script = ExtResource("10_6j4ti")
+eyes = NodePath("../Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399511, 0)
+
+[connection signal="health_change" from="HealthPool" to="Armature/Skeleton3D/Sphere" method="_on_health_pool_health_change"]
+
+[editable path="Armature/Skeleton3D/BoneAttachment3D/crown"]
