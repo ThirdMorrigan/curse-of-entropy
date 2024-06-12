@@ -24,7 +24,7 @@ func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
 "axis": Vector3(0, 1, 0),
-"generate_link": false,
+"generate_link": true,
 "interactable": true,
 "key": 0,
 "open_angle": 89.0,

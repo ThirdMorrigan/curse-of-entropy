@@ -246,6 +246,8 @@ impulse = 5.0
 damage_types = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s5txy"]
+radius = 0.4
+height = 1.0
 
 [node name="proto_thrall_2h" groups=["Reload"] instance=ExtResource("1_xj4tm")]
 speed = 2.0
@@ -255,14 +257,14 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0165898, 0.977943, -0.0855314)
+bones/1/position = Vector3(0.017759, 0.969753, -0.0852225)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
 bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.149833, -0.0108268, -0.000841365, 0.988652)
+bones/7/rotation = Quaternion(-0.199518, -0.0239293, 0.000640248, 0.979602)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.05542, 0.740604, -0.27091, 0.612407)
 bones/10/rotation = Quaternion(0.181814, 0.00134163, -0.0405032, 0.982498)
@@ -282,18 +284,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.942204, 0.0177543, 0.0278233, 0.33341)
+bones/24/rotation = Quaternion(0.937538, 0.0168627, 0.0272489, 0.346403)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.266496, -1.54135e-09, 1.46143e-09, 0.963836)
+bones/25/rotation = Quaternion(0.296232, -1.02593e-09, -5.9205e-10, 0.955116)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.568281, -0.131154, -0.0321352, 0.811679)
+bones/26/rotation = Quaternion(-0.581201, -0.130724, -0.0302112, 0.802623)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.958689, -0.0479063, -0.0655635, 0.27262)
+bones/29/rotation = Quaternion(0.955249, -0.0480019, -0.0673673, 0.284003)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.270497, 2.29227e-09, -3.72454e-09, 0.962721)
+bones/30/rotation = Quaternion(0.298774, 3.04273e-09, -1.15135e-09, 0.954324)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.616709, 0.16854, 0.0174296, 0.768739)
+bones/31/rotation = Quaternion(-0.629142, 0.17039, 0.014237, 0.758251)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/rotation = Quaternion(0.402732, -0.527058, 0.680167, -0.312075)
@@ -313,7 +315,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_tsiov")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.998907, -0.00348237, 0.0466157, 0.0216979, 0.917826, -0.39639, -0.0414048, 0.396968, 0.916898, 0.0100333, 1.71404, 0.110033)
+transform = Transform3D(0.999787, -0.00688351, 0.0194418, 0.0124412, 0.953124, -0.302325, -0.0164494, 0.302502, 0.953007, 0.0112025, 1.70585, 0.110342)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -329,7 +331,7 @@ transform = Transform3D(1, 1.86265e-09, 0, 0, 1, 0, -7.45058e-09, 2.98023e-08, 1
 shape = SubResource("SphereShape3D_qe6q0")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.998729, -0.0189265, 0.0467114, 0.0286685, 0.975604, -0.217657, -0.0414523, 0.21872, 0.974907, 1.04035, 0.0229859, -0.337751)
+transform = Transform3D(0.998729, -0.0189265, 0.0467114, 0.0286685, 0.975604, -0.217657, -0.0414523, 0.21872, 0.974907, 1.04152, 0.0147964, -0.337442)
 bone_name = "weapon"
 bone_idx = 18
 
@@ -354,6 +356,9 @@ libraries = {
 }
 tree_root = ExtResource("8_iqx1w")
 anim_player = NodePath("../AnimationPlayer")
+parameters/idle/Add2/add_amount = 0
+parameters/idle/Blend2/blend_amount = 0
+parameters/walk/Add2/add_amount = 0
 script = ExtResource("9_1hdsu")
 
 [node name="ray" parent="." index="3" instance=ExtResource("10_22cma")]
