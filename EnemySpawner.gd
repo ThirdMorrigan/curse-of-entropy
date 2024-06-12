@@ -15,6 +15,13 @@ var dead : bool = false
 
 const PROTO_THRALL_1H = "res://scenes/creature/proto_thrall_1h.tscn"
 const PROTO_THRALL_2H = "res://scenes/creature/proto_thrall_2h.tscn"
+const THRALL_SICLE = "res://scenes/creature/thralls/thrall_sicle.tscn"
+const THRALL_PITCHFORK = "res://scenes/creature/thralls/thrall_pitchfork.tscn"
+const THRALL_PICKAXE_SMALL = "res://scenes/creature/thralls/thrall_pickaxe_1h.tscn"
+const THRALL_PICKAXE_LARGE = "res://scenes/creature/thralls/thrall_pickaxe_2h.tscn"
+const THRALL_SWORD = "res://scenes/creature/thralls/thrall_sword.tscn"
+const THRALL_SPEAR = "res://scenes/creature/thralls/thrall_spear.tscn"
+const THRALL_POLEARM = "res://scenes/creature/thralls/thrall_polearm.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +48,21 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 			creature = preload(PROTO_THRALL_1H)
 		1:
 			creature = preload(PROTO_THRALL_2H)
+		2:
+			creature = preload(THRALL_SICLE)
+		3:
+			creature = preload(THRALL_PITCHFORK)
+		4:
+			creature = preload(THRALL_PICKAXE_SMALL)
+		5:
+			creature = preload(THRALL_PICKAXE_LARGE)
+		6:
+			creature = preload(THRALL_SWORD)
+		7:
+			creature = preload(THRALL_SPEAR)
+		8:
+			creature = preload(THRALL_POLEARM)
+	
 	repetable = props["repeatable"]
 	boss = props["boss"]
 	wander_range = props["wander"]
