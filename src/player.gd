@@ -41,6 +41,7 @@ var current_consumeable : int
 @onready var game_ui = $game_ui
 @onready var fireball = $Fireball
 @onready var pickaxe_swing = $PickaxeSwing
+@onready var arcane_spell = $ArcaneSpell
 
 signal player_death
 signal pause_player
@@ -98,6 +99,7 @@ func _ready():
 	inventory.jump_boots.connect(_apply_jump_boots)
 	inventory.fireball.connect(_add_fireball)
 	inventory.pickaxe.connect(_add_pickaxe)
+	inventory.arcane.connect(_add_arcane)
 	inventory.setup_tools()
 	crouching = false
 	character = PlayerCharacter.new()
@@ -192,6 +194,12 @@ func _add_fireball():
 func _add_pickaxe():
 	if not (pickaxe_swing in tool_attacks):
 		tool_attacks.append(pickaxe_swing)
+
+func _add_arcane():
+	if not (pickaxe_swing in tool_attacks):
+		tool_attacks.append(arcane_spell)
+		
+
 
 func die():
 	get_tree().call_group("creature","stop")

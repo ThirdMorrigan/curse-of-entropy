@@ -144,6 +144,11 @@ var itemLookupTable = {
 		"name" : "Staff of fireball",
 		"type" : item_types.TOOL,
 		"description" : "this staff is preety cool"
+	},
+	23 : {
+		"name" : "Staff of arcane burst",
+		"type" : item_types.TOOL,
+		"description" : "this staff is preety cool"
 		}
 }
 
