@@ -10,8 +10,8 @@
 [ext_resource type="Material" path="res://textures/wire_fence_0.tres" id="8_fg02b"]
 [ext_resource type="PackedScene" path="res://scenes/visuals/torch.tscn" id="9_qpl7h"]
 [ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="11_freql"]
-[ext_resource type="PackedScene" path="res://scenes/creature/thralls/thrall_tentacle.tscn" id="12_fwvm8"]
-[ext_resource type="PackedScene" path="res://scenes/creature/thralls/thrall_polearm.tscn" id="13_t1m36"]
+[ext_resource type="PackedScene" uid="uid://dtd73sjlk5pxr" path="res://scenes/creature/thralls/thrall_tentacle.tscn" id="12_fwvm8"]
+[ext_resource type="PackedScene" uid="uid://bttwrqh715ujk" path="res://scenes/creature/thralls/thrall_polearm.tscn" id="13_t1m36"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ha7hx"]
 _surfaces = [{

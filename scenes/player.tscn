@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -617,6 +617,9 @@ damage_types = 2
 [sub_resource type="SphereShape3D" id="SphereShape3D_uu0um"]
 radius = 2.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_rfwun"]
+radius = 0.1
+
 [sub_resource type="Resource" id="Resource_hl5qo"]
 script = ExtResource("13_qgojy")
 damage = 5.0
@@ -711,9 +714,6 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-313, -49)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_rfwun"]
-radius = 0.1
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "tool_attacks") groups=["player"]]
 floor_block_on_wall = false
@@ -1036,7 +1036,6 @@ disabled = true
 [node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
 display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
-targets = 0
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
@@ -1069,6 +1068,16 @@ attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 [node name="requirement" type="Node" parent="ArcaneSpell"]
 script = ExtResource("15_m0vcd")
 
+[node name="GrappleHook" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
+script = ExtResource("27_vnm8a")
+visuals = ExtResource("28_p1cd6")
+display_name = "Grapple Hook"
+hitbox_shape = SubResource("SphereShape3D_rfwun")
+attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+attack_range = 10.0
+ai_range_max = 5.0
+weight = 0.0
+
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_hl5qo")])
@@ -1079,9 +1088,6 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
@@ -1096,15 +1102,6 @@ offset_top = -250.0
 offset_right = 400.0
 offset_bottom = 250.0
 catagory_buttons = SubResource("ButtonGroup_rq6di")
-
-[node name="GrappleHook" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
-script = ExtResource("27_vnm8a")
-visuals = ExtResource("28_p1cd6")
-hitbox_shape = SubResource("SphereShape3D_rfwun")
-attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-attack_range = 10.0
-ai_range_max = 15.0
-weight = 0.0
 
 [connection signal="animation_finished" from="camera_pivot/Camera3D/Audio control node/AnimationPlayer" to="camera_pivot/Camera3D/Audio control node" method="_on_crossfade_finished"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]

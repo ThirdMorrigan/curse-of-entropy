@@ -20,6 +20,8 @@ shape = SubResource("BoxShape3D_s0n7r")
 script = ExtResource("3_ql4ti")
 max_hp = 1.0
 hurtboxes = [NodePath("../Hurtbox")]
+immunities = 16
+invert_immunities = true
 
 [node name="Hurtbox" type="Area3D" parent="." node_paths=PackedStringArray("copy_collision_shapes")]
 collision_layer = 8

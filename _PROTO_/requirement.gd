@@ -6,4 +6,4 @@ extends Node
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
 func check():
-	return player.curr_mana > attack.mana_cost
+	return inventory.get_quantity(3)

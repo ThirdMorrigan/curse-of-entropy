@@ -169,6 +169,11 @@ var itemLookupTable = {
 		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
 		"resource" : consumeable_type.MANA,
 		"strength" : 25
+	},
+	27 : {
+		"name" : "Grapple Hook", # 
+		"type" : item_types.TOOL,
+		"description" : "Add me ciara",
 	}
 }
 
