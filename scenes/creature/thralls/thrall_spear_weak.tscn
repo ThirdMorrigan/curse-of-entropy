@@ -241,7 +241,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0169555, 0.975381, -0.0854348)
+bones/1/position = Vector3(0.0165327, 0.978343, -0.0855465)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -249,7 +249,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.165664, -0.0149932, -0.00037084, 0.986068)
+bones/7/rotation = Quaternion(-0.148916, -0.0105857, -0.000868571, 0.988793)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.020635, 0.452077, -0.667065, 0.591798)
@@ -274,18 +274,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.940676, 0.0174633, 0.0276458, 0.337726)
+bones/24/rotation = Quaternion(0.942368, 0.0177855, 0.0278418, 0.332942)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.276478, -2.17739e-09, -2.30721e-09, 0.96102)
+bones/25/rotation = Quaternion(0.265907, -1.64923e-09, 6.42102e-10, 0.963999)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.572644, -0.131024, -0.0314833, 0.808653)
+bones/26/rotation = Quaternion(-0.567839, -0.131166, -0.0322013, 0.811983)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.957499, -0.0479326, -0.0661792, 0.276619)
+bones/29/rotation = Quaternion(0.958813, -0.0479039, -0.0654998, 0.2722)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.280101, 3.4395e-09, -8.45861e-10, 0.959971)
+bones/30/rotation = Quaternion(0.269931, -1.09637e-09, -5.24803e-09, 0.96288)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.620746, 0.169125, 0.0164094, 0.765377)
+bones/31/rotation = Quaternion(-0.6163, 0.168481, 0.0175322, 0.769078)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -313,7 +313,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_16aci")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.999265, -0.0048597, 0.0380267, 0.0184866, 0.930063, -0.366933, -0.033584, 0.367366, 0.92947, 0.010399, 1.71148, 0.11013)
+transform = Transform3D(0.998884, -0.00339431, 0.047111, 0.0218913, 0.917089, -0.39808, -0.0418538, 0.398667, 0.91614, 0.00997616, 1.71444, 0.110018)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -329,7 +329,7 @@ transform = Transform3D(1, 1.86265e-09, 0, 0, 1, 0, -7.45058e-09, 2.98023e-08, 1
 shape = SubResource("SphereShape3D_qe6q0")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819498, 0.386427, -0.423198, -0.249737, 0.423847, 0.870623, -0.365927, 1.0578, 0.107813)
+transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819498, 0.386427, -0.423198, -0.249737, 0.423847, 0.870623, -0.36635, 1.06076, 0.107701)
 bone_name = "weapon"
 bone_idx = 18
 
@@ -391,6 +391,7 @@ ai_range_max = 2.5
 [node name="eyes" type="Marker3D" parent="." index="9"]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="10"]
+navigation_layers = 3
 avoidance_enabled = true
 
 [node name="CreatureAI" type="Node" parent="." index="11" node_paths=PackedStringArray("eyes")]

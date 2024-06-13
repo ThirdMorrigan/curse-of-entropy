@@ -238,6 +238,7 @@ func look_for(_player : Player) -> bool:
 
 func _on_link_reached(details):
 	var link : NavigationLink3D = details["owner"]
+	print("link reached??")
 	if link.navigation_layers > 63:
 		next_state = Creature.State.JUMP
 		creature.landed = false

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://d080xth1hhfbg"]
+
+[ext_resource type="PackedScene" uid="uid://cl5gagvhx0rjh" path="res://assets/models/book.glb" id="1_jllts"]
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_p8i4p"]
+[ext_resource type="Texture2D" uid="uid://dnvbxmag7epp1" path="res://assets/materials/book/book_arcane_albedo.png" id="3_nx0w3"]
+[ext_resource type="Texture2D" uid="uid://kdmx0dyu6ia" path="res://assets/materials/book/book_arcane_crunch.png" id="4_g1ih6"]
+[ext_resource type="Texture2D" uid="uid://8c00a1k0squi" path="res://assets/materials/book/book_arcane_normal.png" id="5_hdiyp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s255m"]
+render_priority = 0
+shader = ExtResource("2_p8i4p")
+shader_parameter/vertex_wobble_scale = 2
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("3_nx0w3")
+shader_parameter/texture_normal = ExtResource("5_hdiyp")
+shader_parameter/texture_crunch = ExtResource("4_g1ih6")
+
+[node name="book" instance=ExtResource("1_jllts")]
+
+[node name="Plane" parent="." index="0"]
+transform = Transform3D(0.876172, -0.481998, 0, 0.481998, 0.876172, 0, 0, 0, 1, 0, 0, 0)
+layers = 17
+surface_material_override/0 = SubResource("ShaderMaterial_s255m")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238154, 0.501996, 0.212781)
+light_energy = 0.2
+light_cull_mask = 4293918736

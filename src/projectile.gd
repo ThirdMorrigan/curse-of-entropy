@@ -27,6 +27,7 @@ func _physics_process(_delta):
 		force_shapecast_update()
 		if is_colliding():
 			object_hit = get_collider(0)
+			print(object_hit)
 			if object_hit is Hurtbox:
 				parent_attack.hit.emit()
 				object_hit.damage(damage)
@@ -40,6 +41,8 @@ func _physics_process(_delta):
 				timer.timeout.connect(_on_timer_timeout)
 				timer.start()
 			elif timer_length == 0.0 :
+				_on_timer_timeout()
+			elif object_hit.collision_layer & 0b11:
 				_on_timer_timeout()
 			#queue_free()
 		elif distance_travelled > max_distance:

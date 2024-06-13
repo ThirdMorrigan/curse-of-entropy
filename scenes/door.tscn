@@ -86,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1.26403)
 shape = SubResource("CylinderShape3D_yutrc")
 
 [node name="link" type="NavigationLink3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.359824, 0)
 enabled = false
 navigation_layers = 3
 start_position = Vector3(0, 0, 1.25)
