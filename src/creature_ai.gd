@@ -92,6 +92,7 @@ func _ready():
 	ai_loop.start(_ai_loop)
 	
 func _physics_process(delta):
+	#print(current_nav_goal)
 	#if overwirte_target_position != null:
 		##print(current_nav_goal)
 	if creature.current_state == Creature.State.DIE:
@@ -263,4 +264,6 @@ func _exit_tree():
 func safe_kill():
 	if waiting_thread.is_alive():
 		waiting_thread.wait_to_finish()
+		$"..".queue_free()
+	else:
 		$"..".queue_free()
