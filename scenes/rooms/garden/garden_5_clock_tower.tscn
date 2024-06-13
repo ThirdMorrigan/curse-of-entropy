@@ -15,7 +15,7 @@
 [ext_resource type="Material" uid="uid://waac3ms0ofu3" path="res://textures/invisable_wall.tres" id="10_lguhe"]
 [ext_resource type="Material" path="res://textures/wire_fence_0.tres" id="11_qjhcl"]
 [ext_resource type="Script" path="res://src/func_door.gd" id="12_n0hgl"]
-[ext_resource type="PackedScene" path="res://scenes/visuals/torch.tscn" id="14_86v3o"]
+[ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="14_86v3o"]
 [ext_resource type="PackedScene" uid="uid://chjg8dumvhrmk" path="res://assets/models/rooms/clock_face.glb" id="14_u37x5"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="15_a74nl"]
 [ext_resource type="Material" uid="uid://dwoe8oy072dgo" path="res://assets/materials/clock_face/clock_face.tres" id="15_amrms"]
