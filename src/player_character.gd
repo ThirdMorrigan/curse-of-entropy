@@ -16,6 +16,7 @@ var hair_num
 var face_num
 var health_pool : HealthPool
 const FACE_SCENE = preload("res://scenes/face.tscn")
+const NAMES_JSON = preload("res://assets/data/names_json.tres")
 var latest_age_loss = 0
 var skin_tones = [
 		Color(45,34,30),
@@ -53,8 +54,6 @@ func _ready():
 	temp_face.queue_free()
 	random_character()
 	
-	
-	
 
 func connect_player():
 	$"..".player_death.connect(_on_player_death)
@@ -76,10 +75,22 @@ func random_character():
 	strength_ratio = 4 - intelligence_ratio
 	hair = randi_range(0, hair_num-1)
 	face = randi_range(0, face_num-1)
-	character_name = str(randi())
+	var first_name = NAMES_JSON.data.pick_random()["GivenName"]
+	var last_name = NAMES_JSON.data.pick_random()["Surname"]
+	character_name = first_name + " " + last_name
 	max_health = 100
 	age = randi_range(18,30)
 
+func child_character():
+	intelligence_ratio = randf_range(2,3)
+	strength_ratio = 4 - intelligence_ratio
+	hair = randi_range(0, hair_num-1)
+	face = randi_range(0, face_num-1)
+	var first_name = NAMES_JSON.data.pick_random()["GivenName"]
+	var last_name = NAMES_JSON.data.pick_random()["Surname"]
+	character_name = first_name + " " + last_name
+	max_health = 100
+	age = randi_range(18,30)
 
 func calculate_age_gain():
 	var overkill = abs(health_pool.curr_hp)

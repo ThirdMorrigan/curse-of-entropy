@@ -123,7 +123,7 @@ func stop():
 	pass
 	
 func delete():
-	queue_free()
+	current_state = State.DIE
 
 
 func die():

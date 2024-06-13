@@ -103,6 +103,7 @@ var jumping : bool :
 		
 
 func _ready():
+	print("new players")
 	current_max_speed = speed
 	inventory.jump_boots.connect(_apply_jump_boots)
 	inventory.fireball.connect(_add_fireball)

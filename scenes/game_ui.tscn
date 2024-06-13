@@ -549,6 +549,25 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
 
+[node name="name plate" type="Sprite2D" parent="Character_info"]
+position = Vector2(129, 0)
+texture = ExtResource("3_xasrb")
+
+[node name="name" type="Label" parent="Character_info/name plate"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Eddward
+"
+horizontal_alignment = 1
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true

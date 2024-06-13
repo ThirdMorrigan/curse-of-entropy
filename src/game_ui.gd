@@ -13,6 +13,7 @@ extends Control
 @onready var consumeable_quantity = $Character_info/consume/consumeable_quantity
 @onready var mana_bar = $Character_info/healthbar/mana_bar
 @onready var player = $".."
+@onready var name_display = $"Character_info/name plate/name"
 
 @onready var consumeable = $Character_info/consume/consumeable
 @onready var tool = $Character_info/tool2/tool
@@ -37,9 +38,10 @@ func _ready():
 		health_lost_bar.value = healthPool.curr_hp
 		health_lost_target = healthPool.curr_hp
 		mana_bar.value = player.curr_mana
-		print("mana" + str(player.curr_mana))
+		#print("mana" + str(player.curr_mana))
 		mana_target = mana_bar.value
 		maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
+		
 	if ray_cast_3d != null:
 		ray_cast_3d.interactable_target_changed.connect(_on_interactable_look)
 	
@@ -53,16 +55,17 @@ func _process(delta):
 		health_bar.value = move_toward(health_bar.value,health_target,delta*200)
 		
 	if !is_equal_approx(health_lost_bar.value,health_lost_target):
-		print("eorg")
+		#print("eorg")
 		health_lost_bar.value = move_toward(health_lost_bar.value,health_lost_target,delta*70)
 	
 	if !is_equal_approx(mana_bar.value,mana_target):
 		mana_bar.value = move_toward(mana_bar.value,mana_target,delta*200)
 
+
 func _on_health_change(new_hp,new_max):
 	#health_bar.value = new_hp
 	health_target = new_hp
-	print(new_hp)
+	#print(new_hp)
 	maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
 	timer.start()
 
@@ -100,6 +103,7 @@ func reload():
 
 func update_data():
 	face.update_face(character_details.face,character_details.hair,character_details.skin_colour,character_details.hair_colour)
+	name_display.text = character_details.character_name
 
 
 func _on_timer_timeout():
