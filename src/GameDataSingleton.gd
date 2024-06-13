@@ -145,14 +145,16 @@ var itemLookupTable = {
 		"strength" : 50
 	},
 	22 : {
-		"name" : "Staff of fireball",
+		"name" : "Fireball spell",
 		"type" : item_types.TOOL,
-		"description" : "this staff is preety cool"
+		"description" : "A book that contains the knowledge required to create a ball of fire. The fire can probably burn some wooden walls.",
+		"visuals" : "res://scenes/visuals/book_fire_visuals.tscn"
 	},
 	23 : {
-		"name" : "Staff of arcane burst",
+		"name" : "Arcane burst spell",
 		"type" : item_types.TOOL,
-		"description" : "this staff is preety cool"
+		"description" : "A book that contains the knowledge required to release a burst of arcane energy. Can break arcane locks.",
+		"visuals" : "res://scenes/visuals/book_arcane_visuals.tscn"
 		},
 	24 : {
 		"name" : "Dungeon Trapdoor key", # IN CELL 8

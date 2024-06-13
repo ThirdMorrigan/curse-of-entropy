@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=94 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -53,6 +53,10 @@
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="48_puouv"]
 [ext_resource type="Script" path="res://src/creature_ai.gd" id="49_nn234"]
 [ext_resource type="PackedScene" uid="uid://bepiycrtrcbr8" path="res://assets/models/rooms/graveyard_floor.glb" id="53_aiyni"]
+[ext_resource type="PackedScene" uid="uid://bwsb3kvf0fiu3" path="res://scenes/rooms/graveyard/grave_yard_3_big_mausalailai.tscn" id="54_1whco"]
+[ext_resource type="PackedScene" uid="uid://ct7b7faorf023" path="res://scenes/rooms/graveyard/grave_yard_0.tscn" id="55_0aob7"]
+[ext_resource type="PackedScene" uid="uid://dojjnxic7o5mq" path="res://scenes/rooms/graveyard/grave_yard_1_mausoleum_2.tscn" id="56_a0nb8"]
+[ext_resource type="PackedScene" uid="uid://bl118n4pm3wlr" path="res://scenes/rooms/graveyard/grave_yard_2_mausoleum_3.tscn" id="57_bfmsh"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -784,7 +788,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("tool_attacks") instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.492, 32.6714, -85.4895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.556, 1.94302, 0.231539)
 tool_attacks = []
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]
@@ -866,9 +870,17 @@ mesh = ExtResource("7_bifhs")
 skeleton = NodePath("../../..")
 
 [node name="grave_yard" type="Node3D" parent="world"]
-visible = false
 
 [node name="graveyard_floor" parent="world/grave_yard" instance=ExtResource("53_aiyni")]
+
+[node name="Big maus" parent="world/grave_yard" instance=ExtResource("54_1whco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.922, 0, 0)
+
+[node name="first" parent="world/grave_yard" instance=ExtResource("55_0aob7")]
+
+[node name="second" parent="world/grave_yard" instance=ExtResource("56_a0nb8")]
+
+[node name="third" parent="world/grave_yard" instance=ExtResource("57_bfmsh")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_10dk0")
