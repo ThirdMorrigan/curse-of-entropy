@@ -15,6 +15,7 @@ func _create_hitbox():
 	return p
 
 func fire():
+	cast.collide_with_bodies = true
 	if spell:
 		scale_attack()
 	cast.damage = damage_instances[0]

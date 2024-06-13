@@ -884,7 +884,7 @@ script = ExtResource("7_beu1l")
 shape = SubResource("SphereShape3D_4wjgr")
 
 [node name="attack_origin" type="Marker3D" parent="camera_pivot/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0825062, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.276038, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
 
@@ -1037,7 +1037,6 @@ disabled = true
 display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-attack_range = 1.0
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
 script = ExtResource("15_m0vcd")
@@ -1045,7 +1044,6 @@ script = ExtResource("15_m0vcd")
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
 visuals = ExtResource("21_qf3k0")
-spell = true
 mana_cost = 50.0
 display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])

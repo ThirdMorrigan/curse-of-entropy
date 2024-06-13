@@ -177,7 +177,8 @@ var itemLookupTable = {
 	27 : {
 		"name" : "Grapple Hook", # 
 		"type" : item_types.TOOL,
-		"description" : "Add me ciara",
+		"description" : "Looks like it was designed latch on to the hooks hung around...",
+		"visuals": "res://scenes/visuals/grapple_pickup_visuals.tscn"
 	},
 	28 : {
 		"name" : "Medium Mana potion", # 
