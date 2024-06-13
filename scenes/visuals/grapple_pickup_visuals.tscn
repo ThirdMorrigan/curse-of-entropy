@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://72grccjs6u0w"]
+
+[ext_resource type="PackedScene" uid="uid://bb1te0xo82ocw" path="res://assets/models/grapple_pickup.glb" id="1_lay4i"]
+[ext_resource type="Material" uid="uid://dkhwphf5k7ymb" path="res://textures/metal_rusty_0.tres" id="2_oagoy"]
+[ext_resource type="Material" uid="uid://buvsa5yo2mpy5" path="res://textures/wood_misc_0.tres" id="3_6xk6j"]
+
+[node name="grapple_pickup" instance=ExtResource("1_lay4i")]
+
+[node name="Cylinder" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_oagoy")
+surface_material_override/1 = ExtResource("3_6xk6j")

@@ -190,8 +190,7 @@ func _physics_process(delta):
 		else :
 			var to_target = grapple_target.global_position - $camera_pivot/Camera3D/attack_origin.global_position
 			var to_target_n = to_target.normalized()
-			velocity = to_target_n * 3.0
-			print("wawa")
+			velocity = to_target_n * 6.0
 			var pre = global_position
 			move_and_slide()
 			var post = global_position
@@ -204,7 +203,6 @@ func _physics_process(delta):
 			var dc :bool= (grapple_target.global_position -
 				$camera_pivot/Camera3D/attack_origin.global_position).length_squared() < 0.001
 			
-			print(dc)
 			if dc :
 				grappling = false
 				grapple_disconnect.emit()
