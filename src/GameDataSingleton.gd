@@ -131,7 +131,7 @@ var itemLookupTable = {
 		"visuals" : key_visuals
 	},
 	20 : {
-		"name" : "Chapel",
+		"name" : "Chapel Key",
 		"type" : item_types.KEY,
 		"description" : "A key to the castle chapel.",
 		"visuals" : key_visuals
@@ -200,7 +200,7 @@ var itemLookupTable = {
 		"name" : "Full Health potion",
 		"type" : item_types.CONSUMABLE,
 		"description" : "A potion that heals 100 health",
-		"visuals" : mana_potion_visuals,
+		"visuals" : health_potion_visuals,
 		"resource" : consumeable_type.HEALTH,
 		"strength" : 100
 	},

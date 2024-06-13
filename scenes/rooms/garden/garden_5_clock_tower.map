@@ -3506,3 +3506,39 @@
 ( 384 528 16 ) ( 384 528 17 ) ( 384 529 16 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 71
+{
+"classname" "Item_pickup"
+"origin" "536 360 800"
+"id" "6"
+}
+// entity 72
+{
+"classname" "Item_pickup"
+"origin" "472 360 800"
+"id" "21"
+}
+// entity 73
+{
+"classname" "Item_pickup"
+"origin" "408 360 800"
+"id" "30"
+}
+// entity 74
+{
+"classname" "Item_pickup"
+"origin" "536 440 800"
+"id" "26"
+}
+// entity 75
+{
+"classname" "Item_pickup"
+"origin" "472 440 800"
+"id" "28"
+}
+// entity 76
+{
+"classname" "Item_pickup"
+"origin" "408 440 800"
+"id" "29"
+}
