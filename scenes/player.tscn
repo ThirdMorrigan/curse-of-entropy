@@ -825,7 +825,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="Camera3D" type="Camera3D" parent="camera_pivot"]
 doppler_tracking = 2
 projection = 2
-current = true
 fov = 90.0
 size = 0.035
 near = 0.02
@@ -1038,6 +1037,7 @@ display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 targets = 0
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+attack_range = 1.0
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
 script = ExtResource("15_m0vcd")
@@ -1045,6 +1045,7 @@ script = ExtResource("15_m0vcd")
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
 visuals = ExtResource("21_qf3k0")
+spell = true
 mana_cost = 50.0
 display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])
