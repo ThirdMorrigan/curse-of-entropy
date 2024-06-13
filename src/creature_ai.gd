@@ -49,7 +49,7 @@ func _ready():
 	nav = creature.find_children("*", "NavigationAgent3D")[0]
 	attacks = creature.attacks
 	if !(nav is NavigationAgent3D):
-		#print("dies xd")
+		print("nav missing dies xd")
 		queue_free()
 	
 	overwirte_target_position = creature.overwirte_target_position
@@ -97,7 +97,7 @@ func _physics_process(delta):
 		##print(current_nav_goal)
 	if creature.current_state == Creature.State.DIE:
 		nav.queue_free()
-		queue_free()
+		safe_kill()
 		
 	if !ai_ticker:
 		sem.post()
@@ -105,8 +105,8 @@ func _physics_process(delta):
 	ai_ticker -= 1
 	
 	mut.lock()
-	if next_state != creature.current_state:
-		if !(next_state >= Creature.State.ATTACK_0 && creature.current_state == Creature.State.IDLE) :
+	if next_state != creature.current_state and creature.current_state != Creature.State.DIE:
+		if !(next_state >= Creature.State.ATTACK_0 && creature.current_state == Creature.State.IDLE)  :
 			creature.current_state = next_state
 	if creature.current_state < Creature.State.ATTACK_0 :
 		attack_timer -= delta
@@ -203,6 +203,8 @@ func _ai_loop():
 				else:
 					next_state = Creature.State.JUMP
 			mut.unlock()
+		if creature.current_state == Creature.State.DIE:
+			next_state = Creature.State.DIE
 	
 func wait():
 	randomize()
@@ -257,13 +259,28 @@ func _exit_tree():
 	exit_ai_loop = true
 	mut.unlock()
 	sem.post()
-	ai_loop.wait_to_finish()
+	if ai_loop.is_alive():
+		ai_loop.wait_to_finish()
 	if waiting_thread.is_alive():
 		waiting_thread.wait_to_finish()
 
 func safe_kill():
+	exit_ai_loop = true
+	sem.post()
+	if ai_loop.is_alive():
+		ai_loop.wait_to_finish()
 	if waiting_thread.is_alive():
 		waiting_thread.wait_to_finish()
-		$"..".queue_free()
-	else:
-		$"..".queue_free()
+	
+	queue_free()
+		
+
+func safe_kill_creature():
+	exit_ai_loop = true
+	sem.post()
+	#print(self)
+	if ai_loop.is_alive():
+		ai_loop.wait_to_finish()
+	if waiting_thread.is_alive():
+		waiting_thread.wait_to_finish()
+	$"..".queue_free()

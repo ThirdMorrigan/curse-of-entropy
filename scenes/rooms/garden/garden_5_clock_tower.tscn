@@ -2444,7 +2444,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("19_uen55")
-interactionText = "pick up Small health potion"
+interactionText = "pick up Small Mana potion"
 id = 26
 quantity = 50
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdaxhqrgsnbrq"]
+[gd_scene load_steps=24 format=3 uid="uid://cdaxhqrgsnbrq"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_8fk6u"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_yb4lv"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="11_sqhgr"]
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="12_h6of2"]
 [ext_resource type="PackedScene" uid="uid://bdhp7t0y37pc4" path="res://_PROTO_/proto_creature.tscn" id="12_y0ta5"]
+[ext_resource type="PackedScene" uid="uid://cry2inngfseua" path="res://scenes/creature/thralls/thrall_sicle.tscn" id="13_du8mm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_c8gqp"]
 vertices = PackedVector3Array(-8, 1.25, 7, -6.75, 1.25, 7, -7, 3.5, -1.5, -8, 3.5, -1.5, -8, 3.5, -0.0833333, -6.95833, 3.5, -0.0833333, -0.5, 1, 6.75, -0.5, 1, -1.5, -0.75, 1, 3.75, -0.5, 1, 6.75, -0.75, 1, 3.75, -1.25, 1, 4.25, -5.25, 1, 4.25, -5.75, 1, -1.5, -5.75, 1, 9, -0.5, 1, 6.75, -1.25, 1, 4.25, -5.25, 1, 4.25, -5.75, 1, 9, 1.5, 3.5, -1.5, 0.5, 3.5, -1.5, 0.5, 1.25, 6.75, 1.5, 1, 9.5, 1.5, 1.25, 6.75, 1.5, 3.5, -0.125, 0.5, 3.5, -0.125, 0.5, 1.25, 6.75, -0.5, 1, 6.75, -5.75, 1, 9, 1.5, 1, 9.5, -5.75, 1, 9, -8, 1, 9.25, 1.5, 1, 9.5, -4.5, 3.5, -1.5, -4.5, 3.5, 3, -2, 3.5, 3, -2, 3.5, -1.5)
@@ -189,3 +190,12 @@ interactionText = "can't be opened from this side"
 
 [node name="Player" parent="." instance=ExtResource("4_kakka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 9)
+
+[node name="proto_thrall_1h" parent="." instance=ExtResource("13_du8mm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 6)
+
+[node name="proto_thrall_1h2" parent="." instance=ExtResource("13_du8mm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 5)
+
+[node name="proto_thrall_1h3" parent="." instance=ExtResource("13_du8mm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 6)

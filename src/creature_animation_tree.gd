@@ -32,13 +32,16 @@ func _ready():
 
 func _on_creature_state_changed():
 	current_state = creature.current_state
+	#print(current_state)
 
 
 func _on_animation_finished(anim_name : String):
 	anim_name = anim_name.to_upper()
 	if anim_name.begins_with("ATTACK"):
 		##print("setting state in anim controller anim fginished")
-		creature.current_state = creature.State.IDLE
+		#print("here")
+		if creature.current_state != 3:
+			creature.current_state = creature.State.IDLE
 		attack_finished.emit()
 	elif anim_name.contains("DIE"):
 		creature.final_death()

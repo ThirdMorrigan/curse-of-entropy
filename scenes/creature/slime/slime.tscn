@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b6b3ekwg8o2oo"]
+[gd_scene load_steps=31 format=3 uid="uid://b6b3ekwg8o2oo"]
 
 [ext_resource type="PackedScene" uid="uid://bq17qn6ht6lm8" path="res://assets/models/creatures/slime/slime.glb" id="1_tupnk"]
 [ext_resource type="Material" uid="uid://bvve875ktrb27" path="res://scenes/creature/slime/slime_material_0.tres" id="2_volj6"]
@@ -110,13 +110,30 @@ damage_types = 1
 height = 0.5
 radius = 1.5
 
+[sub_resource type="GDScript" id="GDScript_6tdsc"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	print(\"nav goal\")
+	print($\"..\".current_nav_goal)
+	print(\"wander goal\")
+	print($\"..\".wander_goal)
+"
+
 [node name="slime" instance=ExtResource("1_tupnk")]
 
 [node name="Armature" parent="." index="0"]
 script = SubResource("GDScript_hkwnx")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1.008, 0.993719, 1.008)
+bones/0/scale = Vector3(1.00356, 0.997202, 1.00356)
 
 [node name="Sphere" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_volj6")
@@ -154,6 +171,9 @@ avoidance_enabled = true
 [node name="CreatureAI" type="Node" parent="." index="9" node_paths=PackedStringArray("eyes")]
 script = ExtResource("9_ck24e")
 eyes = NodePath("../Marker3D")
+
+[node name="debug" type="Node" parent="CreatureAI" index="0"]
+script = SubResource("GDScript_6tdsc")
 
 [node name="Marker3D" type="Marker3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399511, 0)

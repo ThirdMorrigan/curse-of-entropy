@@ -13,6 +13,8 @@ func _create_hitbox():
 	return p
 
 func fire():
+	if spell:
+		scale_attack()
 	cast.damage = damage_instances[0]
 	cast.set_movement_vector((attack_origin.global_basis * Vector3.FORWARD) * attack_range,1)
 	cast.global_rotation = Vector3.ZERO
