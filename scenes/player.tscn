@@ -1036,7 +1036,6 @@ disabled = true
 [node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
 display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
-targets = 0
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 attack_range = 1.0
 
