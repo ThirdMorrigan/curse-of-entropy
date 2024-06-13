@@ -1,7 +1,7 @@
 // NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's StandardMaterial3D.
 
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,vertex_lighting,skip_vertex_transform;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,skip_vertex_transform;
 uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable; 
 uniform sampler2D texture_normal : hint_roughness_normal,filter_nearest,repeat_enable;
 uniform sampler2D texture_crunch : hint_default_black,filter_nearest,repeat_enable;
@@ -45,7 +45,12 @@ void vertex() {
 	transformed = trunc(transformed);
 	transformed *= awobble;
 	VERTEX = transformed;
-    NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	vec3 n = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	vec3 t = normalize((MODELVIEW_MATRIX * vec4(BINORMAL, 0.0)).xyz);
+	vec3 b = normalize((MODELVIEW_MATRIX * vec4(TANGENT, 0.0)).xyz);
+    NORMAL = n;
+    TANGENT = t;
+    BINORMAL = b;
 }
 
 

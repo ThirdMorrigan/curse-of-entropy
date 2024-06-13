@@ -12,6 +12,8 @@ var bounding_box : AABB
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	func_godot_map.build_complete.connect(generate_bounding_box)
+	collision_layer = 0b000000
+	collision_mask = 0b1000000
 
 func toDict():
 	return {

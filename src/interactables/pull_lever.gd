@@ -1,7 +1,7 @@
 extends InteractableAction
 
 const PULL_FUNCTION = "activate"
-@onready var visuals = $"../Sketchfab_Scene"
+@onready var visuals = $"../lever"
 
 
 func _on_interact():

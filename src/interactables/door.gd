@@ -34,6 +34,7 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 func _on_opened():
 	#print("opened")
 	if link != null :
+		print("opened")
 		link.enabled = true
 
 func _physics_process(_delta):

@@ -4,6 +4,6 @@ extends Node3D
 
 func play(reverse):
 	if reverse:
-		animation_player.play_backwards("pull")
+		animation_player.play("up")
 	else:
-		animation_player.play("pull")
+		animation_player.play("down")
