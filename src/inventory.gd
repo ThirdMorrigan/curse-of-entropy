@@ -8,6 +8,7 @@ signal jump_boots
 signal fireball
 signal pickaxe
 signal arcane
+signal grapple
 
 #these need definitions for when its empty
 #a manuel check for 0 could work or maybe any negetive value
@@ -66,4 +67,6 @@ func check_tool(id):
 			fireball.emit()
 		23:
 			arcane.emit()
+		27:
+			grapple.emit()
 		
