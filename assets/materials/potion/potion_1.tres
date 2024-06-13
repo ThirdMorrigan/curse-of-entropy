@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c6trrjm67biii"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_bejv1"]
+[ext_resource type="Texture2D" uid="uid://dkshrga4qaj5d" path="res://assets/materials/potion/tex/potion_albedo_mana.png" id="2_q73sr"]
+[ext_resource type="Texture2D" uid="uid://ba3ucbxu7e4ed" path="res://assets/materials/potion/tex/potion_crunch.png" id="3_g8rc2"]
+[ext_resource type="Texture2D" uid="uid://d30lplfrxxmqo" path="res://assets/materials/potion/tex/potion_normal.png" id="4_sfyvg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bejv1")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("2_q73sr")
+shader_parameter/texture_normal = ExtResource("4_sfyvg")
+shader_parameter/texture_crunch = ExtResource("3_g8rc2")
