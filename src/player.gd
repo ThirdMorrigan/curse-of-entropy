@@ -47,6 +47,7 @@ signal player_death
 signal pause_player
 signal unpause_player
 signal mana_changed
+signal grapple_disconnect
 var current_max_speed : float
 
 var max_mana : float = 100
@@ -76,6 +77,11 @@ var crouching : bool :
 			try_uncrouch = true
 var try_uncrouch : bool = false
 var camera_lerp : Node3D
+
+var grappling : bool = false
+var grapple_dc_ticker : int = 0
+var grapple_target : Node3D
+
 
 var yaw : float :
 	get:
@@ -133,55 +139,83 @@ func _process(delta):
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
-		var floor_friction : float = 1.0
-		if $floor_test.is_colliding() :
-			var col = $floor_test.get_collider()
-			if col is StaticBody3D or col is RigidBody3D:
-				var pmo = col.physics_material_override
-				if pmo != null:
-					floor_friction = pmo.friction
-					##print(floor_friction)
-			elif col is Creature:
-				floor_friction = 0
-				velocity += Vector3.FORWARD* 100
-		$mantle_fix_c.disabled = is_on_floor()
-		$mantle_fix_l.disabled = is_on_floor()
-		$mantle_fix_r.disabled = is_on_floor()
-		if not is_on_floor():
+		if !grappling :
+			var floor_friction : float = 1.0
+			if $floor_test.is_colliding() :
+				var col = $floor_test.get_collider()
+				if col is StaticBody3D or col is RigidBody3D:
+					var pmo = col.physics_material_override
+					if pmo != null:
+						floor_friction = pmo.friction
+						#print(floor_friction)
+				elif col is Creature:
+					floor_friction = 0
+					velocity += Vector3.FORWARD* 100
+			$mantle_fix_c.disabled = is_on_floor()
+			$mantle_fix_l.disabled = is_on_floor()
+			$mantle_fix_r.disabled = is_on_floor()
+			if not is_on_floor():
+				if !climbing:
+					velocity.y -= gravity * delta
+					if coyote_timer :
+						coyote_timer-=1
+			else : 
+				coyote_timer = coyote_frames * int(!jumping)
+				can_jump = !jumping
+				
+			var vel_v = velocity.y
+			velocity.y = 0
+			var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
+			var temp_friction = friction
+			temp_friction *= (2 if edge_stop else 1)
+			temp_friction *= floor_friction
+			velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
+				
+			velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
+			var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
+			if swinging :
+				speed_limit *= sword_swing.weight + (character.strength-100) * 0.002
+				#print(sword_swing.weight + (character.strength-100) * 0.002)
+			current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
+			velocity = velocity.limit_length(current_max_speed)
+
 			if !climbing:
-				velocity.y -= gravity * delta
-				if coyote_timer :
-					coyote_timer-=1
-		else : 
-			coyote_timer = coyote_frames * int(!jumping)
-			can_jump = !jumping
-			
-		var vel_v = velocity.y
-		velocity.y = 0
-		var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
-		var temp_friction = friction
-		temp_friction *= (2 if edge_stop else 1)
-		temp_friction *= floor_friction
-		velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
-			
-		velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
-		var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
-		if swinging :
-			speed_limit *= sword_swing.weight + (character.strength-100) * 0.002
-			##print(sword_swing.weight + (character.strength-100) * 0.002)
-		current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
-		velocity = velocity.limit_length(current_max_speed)
+				velocity.y = vel_v
+			else:
+				velocity.y = jump_power
+				velocity.x = 0
+				velocity.z = 0
 
-		if !climbing:
-			velocity.y = vel_v
-		else:
-			velocity.y = jump_power
-			velocity.x = 0
-			velocity.z = 0
-
-		move_and_slide()
-		
+			move_and_slide()
+		else :
+			var to_target = grapple_target.global_position - $camera_pivot/Camera3D/attack_origin.global_position
+			var to_target_n = to_target.normalized()
+			velocity = to_target_n * 3.0
+			print("wawa")
+			var pre = global_position
+			move_and_slide()
+			var post = global_position
+			
+			if (pre - post).length_squared() < 0.1:
+				grapple_dc_ticker += 1
+			else :
+				grapple_dc_ticker = 0
+			
+			var dc :bool= (grapple_target.global_position -
+				$camera_pivot/Camera3D/attack_origin.global_position).length_squared() < 0.001
+			
+			print(dc)
+			if dc :
+				grappling = false
+				grapple_disconnect.emit()
+			
 		$direction_pivot.global_rotation.y = atan2(-velocity.x, -velocity.z)
+
+func start_grapple(target : Node3D):
+	print("wawawa")
+	grappling = true
+	grapple_target = target
+	pass
 
 func try_swing():
 	if !swinging:
