@@ -1,4 +1,4 @@
-[gd_scene load_steps=239 format=3 uid="uid://bwsb3kvf0fiu3"]
+[gd_scene load_steps=238 format=3 uid="uid://bwsb3kvf0fiu3"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_lmsnw"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_0t53k"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="12_m273a"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="15_b7tx2"]
 [ext_resource type="PackedScene" uid="uid://bghtf3ybmnoak" path="res://scenes/visuals/book_fire_visuals.tscn" id="16_mg2l6"]
-[ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="18_4crr3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
 size = Vector3(33.625, 15.1111, 16.875)
@@ -1858,7 +1857,5 @@ script = ExtResource("8_4yjru")
 doors = [null, null]
 target = 3
 group = "big_mausoleum_door"
-
-[node name="Player" parent="." instance=ExtResource("18_4crr3")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
