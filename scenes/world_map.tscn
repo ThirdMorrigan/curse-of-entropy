@@ -784,7 +784,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("tool_attacks") instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9083, 9.32551, -85.2052)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.492, 32.6714, -85.4895)
 tool_attacks = []
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]

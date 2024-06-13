@@ -28,5 +28,6 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		if current_interactable is Interactable:
 			current_interactable.interact.emit()
+			$"../../..".set_ui_items()
 			
 			
