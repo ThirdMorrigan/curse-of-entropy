@@ -19,11 +19,11 @@ var requirement
 			cast.collision_mask = t #* 8.0
 @export var hitbox_shape : Shape3D
 @export var attack_origin : Node3D
-@export var range : float :
+@export var attack_range : float :
 	get:
-		return range
+		return attack_range
 	set(r):
-		range = r
+		attack_range = r
 		if cast != null:
 			cast.target_position = cast.target_position.normalized() * r
 @export var ai_range_min : float = 0.0
@@ -51,7 +51,7 @@ func fire() :
 			if h is Hurtbox:
 				hit.emit()
 				var d = get_modified_damage_instance(damage_instances[0])
-				print(d.impulse)
+				#print(d.impulse)
 				h.damage(d)
 
 func create_hitbox():
@@ -65,7 +65,7 @@ func create_hitbox():
 	cast.shape = hitbox_shape
 	cast.global_position = attack_origin.global_position if attack_origin != null else Vector3(0.0, 1.0, 0.0)
 	cast.global_rotation = attack_origin.global_rotation if attack_origin != null else Vector3.ZERO
-	cast.target_position = Vector3.FORWARD * range
+	cast.target_position = Vector3.FORWARD * attack_range
 
 func _create_hitbox() -> ShapeCast3D:
 	var h = ShapeCast3D.new()
@@ -74,23 +74,23 @@ func _create_hitbox() -> ShapeCast3D:
 
 func get_modified_damage_instance(d : DamageInstance) -> DamageInstance :
 	var d_temp = d.copy()
-	print(str(d.impulse, ", ", d_temp.impulse))
+	#print(str(d.impulse, ", ", d_temp.impulse))
 	d_temp.rotate_impulse(global_basis)
-	print(d_temp.damage)
+	#print(d_temp.damage)
 	d_temp.damage *= spell_damage_scale
-	print(d_temp.damage)
+	#print(d_temp.damage)
 	return d_temp
 
 func check() -> bool:
 	if requirement == null:
-		print("attack should have attached requirent if it is going to be checked defualting to true")
+		#print("attack should have attached requirent if it is going to be checked defualting to true")
 		return true
 	return requirement.check()
 
 func scale_attack():
 	var inteli = $"../".character.intelligence
 	var discount = (150.0 - inteli) / 100.0
-	print(discount)
+	#print(discount)
 	spell_damage_scale = (25.0 + inteli) / 100.0
 	fired.emit(mana_cost * discount)
 	

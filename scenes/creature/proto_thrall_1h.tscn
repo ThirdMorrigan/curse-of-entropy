@@ -370,7 +370,6 @@ damage_instances = Array[ExtResource("8_ge3yd")]([SubResource("Resource_vwpa3")]
 targets = 16
 hitbox_shape = SubResource("CapsuleShape3D_l356f")
 attack_origin = NodePath("../attack_origin")
-range = 1.0
 ai_range_max = 1.0
 
 [node name="eyes" type="Marker3D" parent="." index="9"]

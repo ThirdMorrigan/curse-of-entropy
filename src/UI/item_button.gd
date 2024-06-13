@@ -8,9 +8,5 @@ func _ready():
 	pressed.connect(_on_button_pressed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_button_pressed():
 	display_item.emit(item_id)

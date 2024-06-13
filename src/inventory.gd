@@ -28,7 +28,7 @@ func add(id, amount):
 		bags[item["type"]][id] += amount
 	else:
 		bags[item["type"]][id] = amount
-	print(bags)
+	#print(bags)
 
 func updateEquipment(id):
 	var item = GameDataSingleton.itemLookupTable[id]
@@ -59,7 +59,7 @@ func check_tool(id):
 	match id:
 		7:
 			jump_boots.emit()
-			print("testing 124")
+			#print("testing 124")
 		3:
 			pickaxe.emit()
 		22:

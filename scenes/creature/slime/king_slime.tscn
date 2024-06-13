@@ -18,7 +18,7 @@ script/source = "extends Node3D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	global_rotation.y = 0
 "
 
@@ -74,10 +74,10 @@ func _process(delta):
 		mat.set_shader_parameter(\"albedo\",current_colour.lerp(target_colour,delta))
 
 
-func _on_health_pool_health_change(curr_hp,curr_max_hp):
-	var max = health_pool.max_hp
+func _on_health_pool_health_change(curr_hp,_curr_max_hp):
+	var _max = health_pool.max_hp
 	var curr = health_pool.curr_hp
-	var percentish = curr/max
+	var percentish = curr/_max
 	target_colour = Color(r + r*(1-percentish), g*percentish, 0)
 	#mat.set_shader_parameter(\"albedo\",Color(r + r*(1-percentish), g*percentish, 0))
 	
@@ -182,7 +182,7 @@ loot_table = {
 script = SubResource("GDScript_hkwnx")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1.28728, 0.774411, 1.28728)
+bones/0/scale = Vector3(1.25754, 0.797763, 1.25754)
 
 [node name="Sphere" parent="Armature/Skeleton3D" index="0" node_paths=PackedStringArray("health_pool")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -191,7 +191,7 @@ script = SubResource("GDScript_44md0")
 health_pool = NodePath("../../../HealthPool")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(1.28728, 0, 0, 0, 0.774411, 0, 0, 0, 1.28728, 0, 0, 0)
+transform = Transform3D(1.25754, 0, 0, 0, 0.797763, 0, 0, 0, 1.25754, 0, 0, 0)
 bone_name = "Bone"
 bone_idx = 0
 

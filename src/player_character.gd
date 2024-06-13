@@ -106,7 +106,7 @@ func get_older():
 func get_death_chance():
 	var overkill = abs(health_pool.curr_hp)
 	var max_health_lost = health_pool.max_hp - health_pool.curr_max_hp
-	#print_debug(overkill + max_health_lost + max(0,age - 20) * 2)
+	##print_debug(overkill + max_health_lost + max(0,age - 20) * 2)
 	return overkill + max_health_lost + (max(0,age - 20) * 2)
 
 func _on_player_death(died):

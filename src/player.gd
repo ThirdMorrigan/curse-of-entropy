@@ -103,7 +103,7 @@ var jumping : bool :
 		
 
 func _ready():
-	print("new players")
+	#print("new players")
 	current_max_speed = speed
 	inventory.jump_boots.connect(_apply_jump_boots)
 	inventory.fireball.connect(_add_fireball)
@@ -140,7 +140,7 @@ func _physics_process(delta):
 				var pmo = col.physics_material_override
 				if pmo != null:
 					floor_friction = pmo.friction
-					#print(floor_friction)
+					##print(floor_friction)
 			elif col is Creature:
 				floor_friction = 0
 				velocity += Vector3.FORWARD* 100
@@ -168,7 +168,7 @@ func _physics_process(delta):
 		var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
 		if swinging :
 			speed_limit *= sword_swing.weight + (character.strength-100) * 0.002
-			#print(sword_swing.weight + (character.strength-100) * 0.002)
+			##print(sword_swing.weight + (character.strength-100) * 0.002)
 		current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
 		velocity = velocity.limit_length(current_max_speed)
 
@@ -252,13 +252,13 @@ func cycle_current_tool(dir : int):
 			new_index = 0
 		elif new_index < 0:
 			new_index = size -1
-		print_debug(new_index)
+		#print_debug(new_index)
 		current_tool = tool_attacks[new_index]
 		set_ui_items()
 
 func cycle_consumeable():
 	var consumable_array = inventory.bags[GameDataSingleton.item_types.CONSUMABLE].keys()
-	print(consumable_array)
+	#print(consumable_array)
 	if consumable_array.size():
 		var index = consumable_array.find(current_consumeable)
 		if index > -1:

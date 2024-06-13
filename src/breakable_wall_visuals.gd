@@ -17,12 +17,12 @@ func breakWall():
 	animation_player.play("Animation")
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	broken.emit()
 	timer.start()
 
 func _on_timer_timeout():
-	#print("kill")
+	##print("kill")
 	var rock = get_children().pick_random()
 	if rock is MeshInstance3D:
 		rock.queue_free()

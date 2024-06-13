@@ -40,11 +40,11 @@ func close():
 	
 #Each item type button calls this with the corresponding id for the item type enum
 func populate_inventory(type_id: int):
-	last_tab = type_id
+	last_tab = type_id as GameDataSingleton.item_types
 	#Clear existing itemslots
-	for item_slot in item_slot_container.get_children():
-		item_slot_container.remove_child(item_slot)
-		item_slot.queue_free()
+	for item_slot_inst in item_slot_container.get_children():
+		#item_slot_container.remove_child(item_slot_inst)
+		item_slot_inst.queue_free()
 		
 	var bag = inventory.bags[type_id]
 	var items = bag.keys()

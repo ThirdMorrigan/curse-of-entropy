@@ -7,7 +7,7 @@ const PICKUP = preload("res://scenes/pickup.tscn")
 
 @export var speed = 3.0
 @export var loot_table : Dictionary
-@export var overwirte_target_position: Marker3D
+@export var overwirte_target_position: Marker3D = null
 @export var attacks : Array[Attack]
 
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, JUMP}
@@ -80,7 +80,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func current_attack() -> int :
-	print(current_state)
+	#print(current_state)
 	return current_state - 4 if current_state > 3 else -1
 
 func jump(delta):
@@ -98,7 +98,7 @@ func roll_loot_table():
 	var chances = loot_table.keys()
 	var count = 0
 	while count < chances.size():
-		print(chances[count])
+		#print(chances[count])
 		if roll < chances[count]:
 			var drop = PICKUP.instantiate()
 			
@@ -118,12 +118,11 @@ func impulse(i : Vector3):
 	to_impulse += i
 
 func stop():
-	if $CreatureAI != null:
-		$CreatureAI.queue_free()
+	current_state = State.IDLE
 	pass
 	
 func delete():
-	current_state = State.DIE
+	final_death()
 
 
 func die():
@@ -134,8 +133,7 @@ func die():
 	pass
 
 func final_death():
-	
 	set_physics_process(false)
+	$CreatureAI.safe_kill()
 	
-	
-	queue_free()
+	#queue_free()

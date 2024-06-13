@@ -38,7 +38,7 @@ func _ready():
 		health_lost_bar.value = healthPool.curr_hp
 		health_lost_target = healthPool.curr_hp
 		mana_bar.value = player.curr_mana
-		#print("mana" + str(player.curr_mana))
+		##print("mana" + str(player.curr_mana))
 		mana_target = mana_bar.value
 		maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
 		
@@ -50,22 +50,22 @@ signal fade_complete
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(health_bar.value-health_target)
+	##print(health_bar.value-health_target)
 	if !is_equal_approx(health_bar.value,health_target):
 		health_bar.value = move_toward(health_bar.value,health_target,delta*200)
 		
 	if !is_equal_approx(health_lost_bar.value,health_lost_target):
-		#print("eorg")
+		##print("eorg")
 		health_lost_bar.value = move_toward(health_lost_bar.value,health_lost_target,delta*70)
 	
 	if !is_equal_approx(mana_bar.value,mana_target):
 		mana_bar.value = move_toward(mana_bar.value,mana_target,delta*200)
 
 
-func _on_health_change(new_hp,new_max):
+func _on_health_change(new_hp,_new_max):
 	#health_bar.value = new_hp
 	health_target = new_hp
-	#print(new_hp)
+	##print(new_hp)
 	maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
 	timer.start()
 
@@ -109,5 +109,5 @@ func update_data():
 func _on_timer_timeout():
 	health_lost_target = healthPool.curr_hp
 
-func _on_mana_change(new_mana,new_max):
+func _on_mana_change(new_mana,_new_max):
 	mana_target = new_mana

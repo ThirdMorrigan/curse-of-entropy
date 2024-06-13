@@ -35,7 +35,7 @@ func _process(_delta):
 		player.try_swing()
 		
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("cycle_tool_up"):
 		player.cycle_current_tool(-1)
 	if Input.is_action_just_pressed("cycle_tool_down"):

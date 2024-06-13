@@ -9,7 +9,7 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 	quantity = props["quantity"]
 	visuals = load(GameDataSingleton.itemLookupTable[id]["visuals"])
 	var visuals_instance = visuals.instantiate()
-	print(visuals)
+	#print(visuals)
 	add_child(visuals_instance)
 
 func _ready():

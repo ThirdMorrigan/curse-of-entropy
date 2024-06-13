@@ -12,7 +12,7 @@ func set_movement_vector(direction : Vector3, speed : float):
 	if damage != null :
 		damage.impulse_vector = direction
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if travelling:
 		force_shapecast_update()
 		if is_colliding():

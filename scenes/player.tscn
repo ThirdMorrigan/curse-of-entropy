@@ -1045,7 +1045,6 @@ damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_oqgs6")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-range = 10.0
 
 [node name="requirement" type="Node" parent="Fireball"]
 script = ExtResource("15_m0vcd")
@@ -1059,7 +1058,6 @@ damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_r7jtp")
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_uu0um")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-range = 0.1
 
 [node name="requirement" type="Node" parent="ArcaneSpell"]
 script = ExtResource("15_m0vcd")
@@ -1070,7 +1068,6 @@ damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_hl5qo")
 targets = 32
 hitbox_shape = SubResource("SphereShape3D_bqkju")
 attack_origin = NodePath("../camera_pivot/metarig/Skeleton3D/sword_pivot/sword_hilt")
-range = 1.6
 weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]

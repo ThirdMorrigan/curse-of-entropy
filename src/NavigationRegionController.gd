@@ -22,7 +22,7 @@ func _reload_nav_mesh():
 
 
 func _on_bake_finished():
-	print("new nav mesh generated")
+	#print("new nav mesh generated")
 	baking = false
 	#if queue:
 		#_reload_nav_mesh()

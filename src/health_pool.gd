@@ -14,7 +14,7 @@ var parent :
 	set(p):
 		parent = p
 		can_impulse = parent.has_method("impulse")
-		#print(can_impulse)
+		##print(can_impulse)
 
 signal health_change
 
@@ -42,7 +42,7 @@ func hurt(di : DamageInstance):
 		if can_impulse:
 			parent.impulse(di.impulse_vector)
 		
-		#print(str("someone's health pool is now ", curr_hp))
+		##print(str("someone's health pool is now ", curr_hp))
 	
 
 func reset() :
@@ -57,10 +57,6 @@ func reset() :
 		hurtboxes = []				# decouple
 	parent = $".."
 
-func _process(delta):
-	#if Input.is_action_just_pressed("heal"):
-		#heal(1)
-	pass
 
 func heal(healing : float):
 	curr_hp = minf(curr_max_hp,curr_hp+healing)

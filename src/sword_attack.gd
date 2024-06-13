@@ -2,7 +2,7 @@ extends Attack
 
 class_name SwordAttack
 
-func _process(delta):
+func _process(_delta):
 	cast.global_transform = attack_origin.global_transform
 	
 func fire() -> Array[Hurtbox] :

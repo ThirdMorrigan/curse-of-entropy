@@ -20,7 +20,7 @@ func reset():
 	collision_mask = 0
 	collision_layer = collision_layer & 0b111000
 	if !collision_layer :
-		print("deleting hurtbox with wrongly assigned collision layer")
+		#print("deleting hurtbox with wrongly assigned collision layer")
 		queue_free()
 	if copy_collision_shapes.size() :
 		for s in copy_collision_shapes:
@@ -34,7 +34,7 @@ func reset():
 
 func damage(d : DamageInstance):
 	d.damage *= damage_modifier
-	#print(d.impulse)
+	##print(d.impulse)
 	health_pool.hurt(d)
 
 func startClimb():

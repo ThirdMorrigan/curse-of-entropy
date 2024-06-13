@@ -8,8 +8,8 @@ extends StaticBody3D
 @export var group : String
 
 func _ready():
-	print(group)
-	print("group")
+	#print(group)
+	#print("group")
 	add_to_group(group)
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
@@ -20,7 +20,7 @@ func _func_godot_apply_properties(props: Dictionary) -> void:
 		animation_player.play("open")
 
 func activate():
-	print("trap door")
+	#print("trap door")
 	if open:
 		animation_player.play_backwards("open")
 	else:
