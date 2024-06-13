@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://csvrstwr5xdxn"]
+[gd_scene load_steps=21 format=3 uid="uid://csvrstwr5xdxn"]
 
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="1_dehhm"]
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_v6xkx"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="3_epovl"]
 [ext_resource type="Texture2D" uid="uid://b6sdlr4o2ygh4" path="res://assets/materials/brick/wall_0/tex/wall_brick_normal.png" id="4_ff8a5"]
 [ext_resource type="PackedScene" uid="uid://co3bsbmt86evp" path="res://_PROTO_/default_light.tscn" id="8_nv4e5"]
-[ext_resource type="Script" path="res://src/grapple_target.gd" id="11_fjlsi"]
+[ext_resource type="PackedScene" uid="uid://bckuhwqt3akff" path="res://scenes/visuals/grapple_target.tscn" id="8_typ4b"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6id8d"]
 exposure_multiplier = 2.0
@@ -70,13 +70,6 @@ size = Vector3(5, 1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kn1g7"]
 size = Vector3(5, 1, 5)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_goct3"]
-radius = 0.25
-
-[sub_resource type="SphereMesh" id="SphereMesh_h55jt"]
-radius = 0.2
-height = 0.4
 
 [node name="CiarasProtoScene0" type="Node3D"]
 
@@ -332,12 +325,5 @@ shape = SubResource("BoxShape3D_go2ib")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_kn1g7")
 
-[node name="GrappleTarget" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.31386, 0)
-script = ExtResource("11_fjlsi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GrappleTarget"]
-shape = SubResource("SphereShape3D_goct3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GrappleTarget"]
-mesh = SubResource("SphereMesh_h55jt")
+[node name="GrappleTarget" parent="." instance=ExtResource("8_typ4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8938, 3.79043, -1.25856)

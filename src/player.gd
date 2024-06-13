@@ -192,8 +192,7 @@ func _physics_process(delta):
 		else :
 			var to_target = grapple_target.global_position - $camera_pivot/Camera3D/attack_origin.global_position
 			var to_target_n = to_target.normalized()
-			velocity = to_target_n * 3.0
-			print("wawa")
+			velocity = to_target_n * 6.0
 			var pre = global_position
 			move_and_slide()
 			var post = global_position
@@ -206,7 +205,6 @@ func _physics_process(delta):
 			var dc :bool= (grapple_target.global_position -
 				$camera_pivot/Camera3D/attack_origin.global_position).length_squared() < 0.001
 			
-			print(dc)
 			if dc :
 				grappling = false
 				grapple_disconnect.emit()
@@ -236,19 +234,24 @@ func _apply_jump_boots():
 func _add_fireball():
 	if not (fireball in tool_attacks):
 		tool_attacks.append(fireball)
-
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
 func _add_pickaxe():
 	if not (pickaxe_swing in tool_attacks):
 		tool_attacks.append(pickaxe_swing)
-
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
 func _add_arcane():
 	if not (pickaxe_swing in tool_attacks):
 		tool_attacks.append(arcane_spell)
-		
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
 
 func _add_grapple():
 	if not (grapple_hook in tool_attacks):
 		tool_attacks.append(grapple_hook)
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
 
 func die():
 	get_tree().call_group("creature","stop")

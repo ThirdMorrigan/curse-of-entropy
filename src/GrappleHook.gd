@@ -13,7 +13,7 @@ func _ready():
 func _create_hitbox():
 	var h = super()
 	h.collision_mask = 0b10000011
-	h.max_distance = 5.0
+	h.max_distance = ai_range_max
 	h.free.connect(_on_free)
 	return h
 
