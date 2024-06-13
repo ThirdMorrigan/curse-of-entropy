@@ -201,7 +201,7 @@ func _physics_process(delta):
 				grapple_dc_ticker = 0
 			
 			var dc :bool= (grapple_target.global_position -
-				$camera_pivot/Camera3D/attack_origin.global_position).length_squared() < 0.001
+				$camera_pivot/Camera3D/attack_origin.global_position).length_squared() < 0.01
 			
 			if dc :
 				grappling = false
