@@ -34,6 +34,7 @@ var cast : ShapeCast3D
 var spell_damage_scale : float = 1
 func _ready():
 	await get_tree().physics_frame
+	await get_tree().physics_frame
 	requirement = get_node_or_null("requirement")
 	create_hitbox()
 

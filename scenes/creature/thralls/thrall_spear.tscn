@@ -241,7 +241,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0166318, 0.977648, -0.0855203)
+bones/1/position = Vector3(0.0171436, 0.974063, -0.0853851)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -249,7 +249,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.152172, -0.011442, -0.000771925, 0.988288)
+bones/7/rotation = Quaternion(-0.173388, -0.0170288, -0.00014075, 0.984706)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.020635, 0.452077, -0.667065, 0.591798)
@@ -274,18 +274,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.94201, 0.0177173, 0.0278013, 0.333963)
+bones/24/rotation = Quaternion(0.939914, 0.0173178, 0.0275534, 0.339857)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.26803, -1.41438e-09, 3.12324e-10, 0.96341)
+bones/25/rotation = Quaternion(0.281203, -5.3335e-10, 1.5759e-10, 0.959648)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.568794, -0.131139, -0.0320585, 0.811325)
+bones/26/rotation = Quaternion(-0.574796, -0.130955, -0.0311625, 0.807149)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.958536, -0.0479093, -0.0656426, 0.27314)
+bones/29/rotation = Quaternion(0.956901, -0.0479488, -0.0664924, 0.278604)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.271973, -3.23877e-09, -1.98375e-09, 0.962305)
+bones/30/rotation = Quaternion(0.284647, 2.14248e-09, -2.48355e-09, 0.958632)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.617184, 0.168608, 0.0173104, 0.768346)
+bones/31/rotation = Quaternion(-0.62275, 0.169421, 0.0158971, 0.763692)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -313,7 +313,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_3hnhg")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.998964, -0.00370299, 0.045351, 0.0212083, 0.919691, -0.392068, -0.0402571, 0.392624, 0.918818, 0.0100753, 1.71374, 0.110044)
+transform = Transform3D(0.999413, -0.00543269, 0.0338113, 0.0170078, 0.935701, -0.352383, -0.0297229, 0.352751, 0.935245, 0.0105871, 1.71016, 0.110179)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -329,7 +329,7 @@ transform = Transform3D(1, 1.86265e-09, 0, 0, 1, 0, -7.45058e-09, 2.98023e-08, 1
 shape = SubResource("SphereShape3D_qe6q0")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819498, 0.386427, -0.423198, -0.249737, 0.423847, 0.870623, -0.366251, 1.06007, 0.107727)
+transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819498, 0.386427, -0.423198, -0.249737, 0.423847, 0.870623, -0.365739, 1.05648, 0.107862)
 bone_name = "weapon"
 bone_idx = 18
 
@@ -385,7 +385,7 @@ damage_instances = Array[ExtResource("14_4xl8o")]([SubResource("Resource_c2l0s")
 targets = 16
 hitbox_shape = SubResource("CapsuleShape3D_08yy6")
 attack_origin = NodePath("../attack_origin")
-range = 3.0
+attack_range = 2.8
 ai_range_max = 2.5
 
 [node name="eyes" type="Marker3D" parent="." index="9"]

@@ -715,7 +715,7 @@ graph_offset = Vector2(-313, -49)
 [sub_resource type="SphereShape3D" id="SphereShape3D_rfwun"]
 radius = 0.1
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "tool_attacks") groups=["player"]]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 floor_block_on_wall = false
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
@@ -724,8 +724,6 @@ acceleration_air = 5.0
 friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
-sword_swing = NodePath("sword_swing")
-tool_attacks = [NodePath("GrappleHook")]
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
@@ -825,6 +823,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="Camera3D" type="Camera3D" parent="camera_pivot"]
 doppler_tracking = 2
 projection = 2
+current = true
 fov = 90.0
 size = 0.035
 near = 0.02
@@ -937,21 +936,21 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(-0.243498, 0.249873, -0.937162, -0.413903, 0.847073, 0.333395, 0.877151, 0.469075, -0.102837, 0.00779793, 0.200791, 0.0203825)
 bones/6/enabled = true
 bones/6/position = Vector3(0.00779793, 0.200791, 0.0203825)
-bones/6/rotation = Quaternion(0.0103258, -0.423913, -0.628592, 0.651969)
+bones/6/rotation = Quaternion(-0.0465314, -0.378478, -0.659381, 0.647925)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "forearm.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.996715, 0.0800764, 0.0120918, -0.0791007, 0.930606, 0.357372, 0.0173643, -0.357155, 0.933884, 1.18825e-08, 0.28851, -9.31323e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.18825e-08, 0.28851, -9.31323e-09)
-bones/7/rotation = Quaternion(-0.382427, -0.00125634, -0.0851945, 0.920049)
+bones/7/rotation = Quaternion(-0.245612, -0.00132156, -0.0547157, 0.967822)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "hand.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.998386, 0.0565106, 0.00569056, -0.0561545, 0.997156, -0.0502579, -0.00851448, 0.0498572, 0.99872, -2.33994e-08, 0.262836, 1.86265e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-2.33994e-08, 0.262836, 1.86265e-08)
-bones/8/rotation = Quaternion(0.0396048, 0.2935, -0.0177242, 0.954974)
+bones/8/rotation = Quaternion(-0.0112566, 0.350182, -0.0616831, 0.934581)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "hold.R"
 bones/9/parent = 8
@@ -978,8 +977,8 @@ bones/12/name = "IK.R"
 bones/12/parent = -1
 bones/12/rest = Transform3D(-0.550248, 0.825611, 0.124872, -0.835001, -0.544067, -0.0822447, 3.64929e-05, -0.149523, 0.988758, 0.6594, -0.395923, 0.0486656)
 bones/12/enabled = true
-bones/12/position = Vector3(0.325972, -0.310146, -0.49723)
-bones/12/rotation = Quaternion(-0.00515526, -0.669987, 0.740386, 0.0540293)
+bones/12/position = Vector3(0.338397, -0.303229, -0.521311)
+bones/12/rotation = Quaternion(-0.0402756, -0.664016, 0.742004, 0.083007)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "IK.L"
 bones/13/parent = -1
@@ -990,7 +989,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.994108, 0.0800459, -0.0730881, 0.086927, 0.991539, -0.0964084, 0.0647525, -0.102194, -0.992655, 0.319453, -0.317898, -0.573453)
+transform = Transform3D(-0.982975, 0.170005, -0.0696949, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -1037,7 +1036,6 @@ display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 targets = 0
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-attack_range = 1.0
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
 script = ExtResource("15_m0vcd")
@@ -1045,14 +1043,12 @@ script = ExtResource("15_m0vcd")
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
 visuals = ExtResource("21_qf3k0")
-spell = true
 mana_cost = 50.0
 display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_oqgs6")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-attack_range = 4.0
 
 [node name="requirement" type="Node" parent="Fireball"]
 script = ExtResource("15_m0vcd")
@@ -1098,14 +1094,12 @@ offset_right = 400.0
 offset_bottom = 250.0
 catagory_buttons = SubResource("ButtonGroup_rq6di")
 
-[node name="GrappleHook" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
+[node name="GrappleHook" type="Node3D" parent="."]
 script = ExtResource("27_vnm8a")
 visuals = ExtResource("28_p1cd6")
 hitbox_shape = SubResource("SphereShape3D_rfwun")
-attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-attack_range = 10.0
-ai_range_max = 5.0
 weight = 0.0
+attack_origin = null
 
 [connection signal="animation_finished" from="camera_pivot/Camera3D/Audio control node/AnimationPlayer" to="camera_pivot/Camera3D/Audio control node" method="_on_crossfade_finished"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
