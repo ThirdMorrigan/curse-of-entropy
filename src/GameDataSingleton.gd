@@ -10,6 +10,8 @@ enum equipment_slots {TOOL, HEAD, BODY, FEET, HANDS}
 @export var respawn_point : Vector3 = Vector3.ZERO
 
 var key_visuals = "res://scenes/visuals/key_visuals.tscn"
+var health_potion_visuals = "res://scenes/visuals/potion_visuals.tscn"
+var mana_potion_visuals = "res://scenes/visuals/potion_visuals_mana.tscn"
 
 var itemLookupTable = {
 	0 : {
@@ -45,7 +47,8 @@ var itemLookupTable = {
 	6 : {
 		"name" : "Small health potion",
 		"type" : item_types.CONSUMABLE,
-		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"visuals" : health_potion_visuals,
+		"description" : "A potion that heals 25 health",
 		"resource" : consumeable_type.HEALTH,
 		"strength" : 25
 	},
@@ -134,9 +137,10 @@ var itemLookupTable = {
 		"visuals" : key_visuals
 	},
 	21 : {
-		"name" : "Large health potion",
+		"name" : "Medium health potion",
 		"type" : item_types.CONSUMABLE,
-		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"visuals" : health_potion_visuals,
+		"description" : "A potion that restores 50 health",
 		"resource" : consumeable_type.HEALTH,
 		"strength" : 50
 	},
@@ -166,7 +170,7 @@ var itemLookupTable = {
 		"name" : "Small Mana potion", # 
 		"type" : item_types.CONSUMABLE,
 		"description" : "A potion that restores 25 mana",
-		"visuals" : "res://scenes/visuals/potion_visuals.tscn",
+		"visuals" : mana_potion_visuals,
 		"resource" : consumeable_type.MANA,
 		"strength" : 25
 	},
@@ -174,7 +178,31 @@ var itemLookupTable = {
 		"name" : "Grapple Hook", # 
 		"type" : item_types.TOOL,
 		"description" : "Add me ciara",
-	}
+	},
+	28 : {
+		"name" : "Medium Mana potion", # 
+		"type" : item_types.CONSUMABLE,
+		"description" : "A potion that restores 50 mana",
+		"visuals" : mana_potion_visuals,
+		"resource" : consumeable_type.MANA,
+		"strength" : 50
+	},
+	29 : {
+		"name" : "Full Mana potion", # 
+		"type" : item_types.CONSUMABLE,
+		"description" : "A potion that restores 100 mana",
+		"visuals" : mana_potion_visuals,
+		"resource" : consumeable_type.MANA,
+		"strength" : 100
+	},
+	30 : {
+		"name" : "Full Health potion",
+		"type" : item_types.CONSUMABLE,
+		"description" : "A potion that heals 100 health",
+		"visuals" : mana_potion_visuals,
+		"resource" : consumeable_type.HEALTH,
+		"strength" : 100
+	},
 }
 
 	

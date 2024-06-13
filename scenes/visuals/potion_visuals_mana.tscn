@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxeo6cpt88lfc"]
+
+[ext_resource type="PackedScene" uid="uid://dot6jolk15h1s" path="res://assets/models/potionBottle.glb" id="1_p5vo5"]
+[ext_resource type="Material" uid="uid://c6trrjm67biii" path="res://assets/materials/potion/potion_1.tres" id="2_yvegk"]
+
+[node name="potionBottle" instance=ExtResource("1_p5vo5")]
+
+[node name="Sphere" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_yvegk")
