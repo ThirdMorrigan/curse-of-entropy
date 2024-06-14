@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=11 format=3 uid="uid://qcwmalocle7c"]
+[gd_resource type="AnimationLibrary" load_steps=11 format=3 uid="uid://cokbdf5h3s2a1"]
 
 [ext_resource type="Animation" uid="uid://f08o6januo84" path="res://assets/models/creatures/humanoid base/die.res" id="1_kgonv"]
 [ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="2_5jc63"]
