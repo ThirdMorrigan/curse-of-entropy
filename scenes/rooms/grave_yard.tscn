@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://oddcm8p8t5n8"]
+
+[ext_resource type="PackedScene" uid="uid://bwsb3kvf0fiu3" path="res://scenes/rooms/graveyard/grave_yard_3_big_mausalailai.tscn" id="1_os002"]
+[ext_resource type="PackedScene" uid="uid://ct7b7faorf023" path="res://scenes/rooms/graveyard/grave_yard_0.tscn" id="2_fokqu"]
+[ext_resource type="PackedScene" uid="uid://bdnrlqk32j2k1" path="res://scenes/rooms/graveyard/grave_yard_1_mausoleum_2.tscn" id="3_88llf"]
+[ext_resource type="PackedScene" uid="uid://c3r2p85lxixgf" path="res://scenes/rooms/graveyard/grave_yard_2_mausoleum_3.tscn" id="4_o78e2"]
+[ext_resource type="PackedScene" uid="uid://ciigjpmulsx0" path="res://scenes/rooms/graveyard/graveyard_floor.tscn" id="5_jdtqo"]
+
+[node name="grave_yard" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.077, 0, 0)
+
+[node name="Big maus" parent="." instance=ExtResource("1_os002")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.334503, -0.164618, -42.7954)
+
+[node name="first" parent="." instance=ExtResource("2_fokqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3185, 0.652348, 28.7217)
+
+[node name="second" parent="." instance=ExtResource("3_88llf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20.8509, 0.22444, 3.36323)
+
+[node name="third" parent="." instance=ExtResource("4_o78e2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2027, 0.355034, -29.7311)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("5_jdtqo")]
