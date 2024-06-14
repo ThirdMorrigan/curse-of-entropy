@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=85 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://g4jm5a62hdsg" path="res://_PROTO_/inventory_ui.tscn" id="16_gls4e"]
 [ext_resource type="PackedScene" uid="uid://cpu2r44awjr47" path="res://scenes/game_ui.tscn" id="17_f2jcj"]
 [ext_resource type="Script" path="res://src/sword_attack.gd" id="19_h8in8"]
+[ext_resource type="PackedScene" uid="uid://dkjceehywusxo" path="res://assets/models/pickaxe.glb" id="19_wamoq"]
 [ext_resource type="Script" path="res://src/ranged_attack.gd" id="20_h8pbd"]
 [ext_resource type="PackedScene" uid="uid://dj7of4ca3aj6k" path="res://scenes/visuals/key_visuals.tscn" id="21_qf3k0"]
 [ext_resource type="Script" path="res://src/attack.gd" id="22_fs7io"]
@@ -600,6 +601,21 @@ damage = 1.0
 impulse = 1.0
 damage_types = 16
 
+[sub_resource type="GDScript" id="GDScript_8oqmr"]
+script/source = "extends Node3D
+@onready var pickaxe_swing = $\"..\"
+@onready var animation_player = $\"../AnimationPlayer\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pickaxe_swing.fired.connect(_on_fire)
+
+
+func _on_fire():
+	animation_player.play(\"pickaxe_swing\")
+"
+
 [sub_resource type="GDScript" id="GDScript_pmdj6"]
 script/source = "extends Node
 
@@ -611,6 +627,67 @@ script/source = "extends Node
 func check():
 	return inventory.get_quantity(3)
 "
+
+[sub_resource type="Animation" id="Animation_tmpv7"]
+resource_name = "pickaxe_swing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swang:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.756461, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u6hyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swang:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.756461, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ytl78"]
+_data = {
+"RESET": SubResource("Animation_u6hyf"),
+"pickaxe_swing": SubResource("Animation_tmpv7")
+}
 
 [sub_resource type="Resource" id="Resource_6t3cp"]
 script = ExtResource("13_qgojy")
@@ -1048,9 +1125,23 @@ disabled = true
 display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+attack_range = 1.0
+
+[node name="swang" type="Node3D" parent="PickaxeSwing"]
+transform = Transform3D(1, 0, 0, 0, 0.72727, 0.686352, 0, -0.686352, 0.72727, 0, 0.342983, 0.429461)
+visible = false
+script = SubResource("GDScript_8oqmr")
+
+[node name="pickaxe2" parent="PickaxeSwing/swang" instance=ExtResource("19_wamoq")]
+transform = Transform3D(1, 0, 0, 0, 0.978188, 0.207724, 0, -0.207724, 0.978188, -0.427924, 1.56471, -0.646819)
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
 script = SubResource("GDScript_pmdj6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PickaxeSwing"]
+libraries = {
+"": SubResource("AnimationLibrary_ytl78")
+}
 
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
@@ -1100,9 +1191,6 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
-libraries = {
-"": SubResource("AnimationLibrary_vtxm4")
-}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0

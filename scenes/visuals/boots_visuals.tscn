@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://puxurcrqxtkp"]
+[gd_scene load_steps=3 format=3 uid="uid://puxurcrqxtkp"]
 
 [ext_resource type="PackedScene" uid="uid://dps6w580gvaic" path="res://assets/models/boots.glb" id="1_dvlk7"]
+[ext_resource type="Material" path="res://textures/carpet_white_0.tres" id="2_6rjun"]
 
 [node name="boots" instance=ExtResource("1_dvlk7")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_6rjun")

@@ -42,7 +42,7 @@ func _ready():
 func fire() :
 	if spell:
 		scale_attack()
-		
+	fired.emit()
 	if attack_origin != null :
 		cast.global_position = attack_origin.global_position
 		cast.global_rotation = attack_origin.global_rotation
