@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://t7hytghviug7"]
+[gd_scene load_steps=8 format=3 uid="uid://t7hytghviug7"]
 
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="1_1kk3m"]
 [ext_resource type="Script" path="res://src/breakable_wall.gd" id="1_xj4qg"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="2_ul3dg"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="3_ql4ti"]
 [ext_resource type="PackedScene" uid="uid://bk4d6uw8ij68a" path="res://scenes/visuals/breakable_wall_visuals.tscn" id="4_m2bwn"]
+[ext_resource type="AudioStream" uid="uid://unwhhu3sxjft" path="res://audio/wall break.wav" id="6_pbewl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0n7r"]
 size = Vector3(1.99365, 1.99878, 1)
@@ -33,5 +34,9 @@ copy_collision_shapes = [NodePath("../CollisionShape3D")]
 
 [node name="breakable_wall_visuals" parent="." instance=ExtResource("4_m2bwn")]
 material = ExtResource("2_ul3dg")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_pbewl")
+bus = &"SFX"
 
 [connection signal="broken" from="breakable_wall_visuals" to="." method="_on_wall_broken"]

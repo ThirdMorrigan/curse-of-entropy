@@ -43,6 +43,7 @@ var current_consumeable : int
 @onready var pickaxe_swing = $PickaxeSwing
 @onready var arcane_spell = $ArcaneSpell
 @onready var grapple_hook = $GrappleHook
+@onready var audio_control_node = $"camera_pivot/Camera3D/Audio control node"
 
 signal player_death
 signal pause_player
@@ -173,7 +174,10 @@ func _physics_process(delta):
 					fall_speed += 8.0
 					#fall_speed *= 
 					fall_damage.damage = fall_speed * fall_speed
-					#$HealthPool.hurt(fall_damage)		#	DISABLED COS IT DOESN'T KILL U RIGHT AND I CBA TO MAKE A FALL DAMAGE CANCEL THING
+					$HealthPool.hurt(fall_damage)
+					audio_control_node.fall_damage(true)
+				elif -fall_speed >1:
+					audio_control_node.fall_damage(false)
 				fall_speed = 0
 					
 				coyote_timer = coyote_frames * int(!jumping)
@@ -270,6 +274,7 @@ func _add_grapple():
 
 func die():
 	get_tree().call_group("creature","stop")
+	audio_control_node.player_die()
 	pause()
 	if character != null:
 		var death_chance = character.get_death_chance()

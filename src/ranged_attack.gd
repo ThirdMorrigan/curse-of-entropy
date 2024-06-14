@@ -2,6 +2,7 @@ extends Attack
 
 class_name RangedAttack
 
+
 @export var visuals : PackedScene
 
 var aim_vector : Vector3 = Vector3.FORWARD
@@ -16,6 +17,7 @@ func _create_hitbox():
 	return p
 
 func fire():
+	play_sfx()
 	cast.collide_with_bodies = true
 	if spell:
 		scale_attack()
