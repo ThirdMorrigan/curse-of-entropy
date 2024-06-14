@@ -17,7 +17,7 @@ var parent :
 		##print(can_impulse)
 
 signal health_change
-
+signal hurted
 var can_impulse : bool
 var curr_max_hp : float
 var curr_hp : float :
@@ -40,6 +40,7 @@ func hurt(di : DamageInstance):
 		
 		if curr_hp <= 0.0 :
 			parent.die()
+		hurted.emit()
 		if can_impulse:
 			parent.impulse(di.impulse_vector)
 		

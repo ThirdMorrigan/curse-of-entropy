@@ -129,12 +129,13 @@ func _process(delta):
 "
 
 [node name="slime" instance=ExtResource("1_tupnk")]
+type = 2
 
 [node name="Armature" parent="." index="0"]
 script = SubResource("GDScript_hkwnx")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1.00356, 0.997202, 1.00356)
+bones/0/scale = Vector3(1.29044, 0.771928, 1.29044)
 
 [node name="Sphere" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_volj6")

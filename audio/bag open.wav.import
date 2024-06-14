@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://caalk542a2pii"
+path="res://.godot/imported/bag open.wav-c9b0e22839d15163b623a3e903dfa224.sample"
+
+[deps]
+
+source_file="res://audio/bag open.wav"
+dest_files=["res://.godot/imported/bag open.wav-c9b0e22839d15163b623a3e903dfa224.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

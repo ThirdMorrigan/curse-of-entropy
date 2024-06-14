@@ -10,3 +10,4 @@ func _ready():
 
 func _on_pressed():
 	print("button test")
+	
