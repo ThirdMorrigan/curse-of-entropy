@@ -1905,6 +1905,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("28_occ1j")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_31_Creature" parent="FuncGodotMap" instance=ExtResource("20_g8uy2")]
