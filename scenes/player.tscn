@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=80 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -600,9 +600,21 @@ damage = 1.0
 impulse = 1.0
 damage_types = 16
 
+[sub_resource type="GDScript" id="GDScript_pmdj6"]
+script/source = "extends Node
+
+@onready var attack = $\"..\"
+@onready var player = $\"../..\"
+
+@onready var inventory = preload(\"res://_PROTO_/inventroy.tres\")
+
+func check():
+	return inventory.get_quantity(3)
+"
+
 [sub_resource type="Resource" id="Resource_6t3cp"]
 script = ExtResource("13_qgojy")
-damage = 1.0
+damage = 15.0
 impulse = 1.0
 damage_types = 4
 
@@ -1038,11 +1050,12 @@ damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
-script = ExtResource("15_m0vcd")
+script = SubResource("GDScript_pmdj6")
 
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
 visuals = ExtResource("21_qf3k0")
+spell = true
 mana_cost = 50.0
 display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])

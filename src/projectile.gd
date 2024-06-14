@@ -11,7 +11,7 @@ var timer_length : float = 3
 var distance_travelled : float = 0.0
 var max_distance : float
 var speed : float
-
+var collisions : int = 0
 var object_hit = null
 
 signal free
@@ -26,25 +26,26 @@ func _physics_process(_delta):
 	if travelling:
 		force_shapecast_update()
 		if is_colliding():
-			object_hit = get_collider(0)
-			print(object_hit)
-			if object_hit is Hurtbox:
-				parent_attack.hit.emit()
-				object_hit.damage(damage)
-			elif object_hit is GrappleTarget :
-				parent_attack.hit.emit()
-			travelling = false
-			if timer_length > 0.0 :
-				timer = Timer.new()
-				add_child(timer)
-				timer.wait_time = timer_length
-				timer.timeout.connect(_on_timer_timeout)
-				timer.start()
-			elif timer_length == 0.0 :
-				_on_timer_timeout()
-			elif object_hit.collision_layer & 0b11:
-				_on_timer_timeout()
-			#queue_free()
+			for c in get_collision_count():
+				object_hit = get_collider(c)
+				if object_hit is Hurtbox:
+					parent_attack.hit.emit()
+					object_hit.damage(damage)
+				
+				elif object_hit is GrappleTarget :
+					parent_attack.hit.emit()
+				travelling = false
+				if timer_length > 0.0 :
+					timer = Timer.new()
+					add_child(timer)
+					timer.wait_time = timer_length
+					timer.timeout.connect(_on_timer_timeout)
+					timer.start()
+				elif timer_length == 0.0 :
+					_on_timer_timeout()
+				elif object_hit.collision_layer & 0b11:
+					_on_timer_timeout()
+				#queue_free()
 		elif distance_travelled > max_distance:
 			_on_timer_timeout()
 		global_position += target_position

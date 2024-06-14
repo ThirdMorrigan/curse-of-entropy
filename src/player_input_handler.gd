@@ -16,6 +16,8 @@ var mouselook_active : bool :
 			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func _ready():
+	player.pause_player.connect(_on_player_pause_player)
+	player.unpause_player.connect(_on_player_unpause_player)
 	mouselook_active = true
 
 func _input(event):

@@ -34,7 +34,7 @@ func reset():
 
 func damage(d : DamageInstance):
 	d.damage *= damage_modifier
-	##print(d.impulse)
+	#print(d.damage)
 	health_pool.hurt(d)
 
 func startClimb():

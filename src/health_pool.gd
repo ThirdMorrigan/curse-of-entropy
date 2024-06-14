@@ -33,6 +33,7 @@ func _ready():
 	reset()
 
 func hurt(di : DamageInstance):
+	#print("ouch")
 	if di.damage_types & ~immunities :
 		curr_max_hp -= di.damage * max_hp_loss_ration
 		curr_hp -= di.damage

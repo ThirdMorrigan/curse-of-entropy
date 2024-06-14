@@ -10,6 +10,7 @@ func _create_hitbox():
 	var p = Projectile.new()
 	p.parent_attack = self
 	p.collision_mask = 0b11
+	p.collide_with_areas = true
 	p.travelling = false
 	p.max_distance = 100.0
 	return p
@@ -29,3 +30,5 @@ func fire():
 	cast.travelling = true
 	cast.top_level = true
 	create_hitbox()
+	print(cast.collide_with_areas)
+	print(cast.collide_with_bodies)

@@ -31,6 +31,7 @@ var character_details : PlayerCharacter:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.mana_changed.connect(_on_mana_change)
+	player.player_death.connect(_on_player_player_death)
 	if healthPool is HealthPool:
 		healthPool.health_change.connect(_on_health_change)
 		health_bar.value = healthPool.curr_hp

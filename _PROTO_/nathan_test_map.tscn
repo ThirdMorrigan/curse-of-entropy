@@ -194,5 +194,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 9)
 
 [node name="Key" parent="." instance=ExtResource("13_20a8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 8)
-interactionText = "pick up Staff of fireball"
+interactionText = "pick up Fireball spell"
 id = 22

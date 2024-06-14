@@ -32,6 +32,7 @@ var requirement
 @export var wind_down : float = 1.0
 var cast : ShapeCast3D
 var spell_damage_scale : float = 1
+
 func _ready():
 	await get_tree().physics_frame
 	await get_tree().physics_frame
