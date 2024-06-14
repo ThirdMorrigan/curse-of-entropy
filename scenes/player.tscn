@@ -1079,7 +1079,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982166, 0.174886, -0.0690247, 0.181416, 0.97793, -0.103635, 0.049377, -0.114309, -0.992217, 0.334037, -0.310443, -0.600689)
+transform = Transform3D(-0.982166, 0.174886, -0.0690243, 0.181415, 0.977931, -0.103636, 0.0493764, -0.11431, -0.992217, 0.334037, -0.310444, -0.600689)
 bone_name = "hold.R"
 bone_idx = 9
 

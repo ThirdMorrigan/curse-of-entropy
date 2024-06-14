@@ -20,6 +20,7 @@ signal state_changed
 signal jump_reached
 signal creature_death
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var cam : Camera3D
 
 var current_state : State :
 	get:
@@ -38,6 +39,7 @@ var aware : bool = false
 func _ready():
 	goal_look = basis * Vector3.FORWARD
 	add_to_group("creature")
+	cam = get_viewport().get_camera_3d()
 	if attacks == []:
 		var _attacks = find_children("*", "Attack")
 		for a in _attacks:
@@ -77,8 +79,8 @@ func _physics_process(delta):
 				velocity = Vector3.ZERO
 				if track_target : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_look.x, -goal_look.z), delta * 10)
 			#attacks[current_state - State.ATTACK_0].fire()
-	
-	move_and_slide()
+	if cam.global_position.distance_squared_to(global_position) <= 30*30:
+		move_and_slide()
 
 func current_attack() -> int :
 	#print(current_state)
