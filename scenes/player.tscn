@@ -1125,7 +1125,6 @@ disabled = true
 display_name = "Pickaxe"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-attack_range = 1.0
 
 [node name="swang" type="Node3D" parent="PickaxeSwing"]
 transform = Transform3D(1, 0, 0, 0, 0.72727, 0.686352, 0, -0.686352, 0.72727, 0, 0.342983, 0.429461)

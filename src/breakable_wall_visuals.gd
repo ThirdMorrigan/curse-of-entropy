@@ -3,15 +3,11 @@ extends Node3D
 
 @onready var animation_player = $AnimationPlayer
 @onready var timer = $Timer
-@export var material : ShaderMaterial:
-	get:
-		return material
-	set(m):
-		material = m
-		apply_material()
-
+@export var material : ShaderMaterial
 signal broken
 
+func _ready():
+	apply_material()
 
 func breakWall():
 	animation_player.play("Animation")
@@ -31,6 +27,8 @@ func _on_timer_timeout():
 			timer.stop()
 
 func apply_material():
+	if $"..".material != null:
+		material = $"..".material
 	for child in get_children():
 		if child is MeshInstance3D:
 			for i in child.get_surface_override_material_count():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://t7hytghviug7"]
+[gd_scene load_steps=7 format=3 uid="uid://t7hytghviug7"]
 
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="1_1kk3m"]
 [ext_resource type="Script" path="res://src/breakable_wall.gd" id="1_xj4qg"]
+[ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="2_ul3dg"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="3_ql4ti"]
 [ext_resource type="PackedScene" uid="uid://bk4d6uw8ij68a" path="res://scenes/visuals/breakable_wall_visuals.tscn" id="4_m2bwn"]
 
@@ -11,6 +12,7 @@ size = Vector3(1.99365, 1.99878, 1)
 [node name="breakable_wall" type="StaticBody3D"]
 collision_mask = 0
 script = ExtResource("1_xj4qg")
+material = ExtResource("2_ul3dg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00170898, 1.00361, 0)
@@ -30,5 +32,6 @@ script = ExtResource("1_1kk3m")
 copy_collision_shapes = [NodePath("../CollisionShape3D")]
 
 [node name="breakable_wall_visuals" parent="." instance=ExtResource("4_m2bwn")]
+material = ExtResource("2_ul3dg")
 
 [connection signal="broken" from="breakable_wall_visuals" to="." method="_on_wall_broken"]

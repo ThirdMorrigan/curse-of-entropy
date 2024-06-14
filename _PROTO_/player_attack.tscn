@@ -17,4 +17,4 @@ script = ExtResource("1_fs68s")
 damage_instances = Array[ExtResource("2_lqkbr")]([SubResource("Resource_qtel1")])
 targets = 8
 hitbox_shape = SubResource("BoxShape3D_p8138")
-range = 1.0
+attack_range = 1.0

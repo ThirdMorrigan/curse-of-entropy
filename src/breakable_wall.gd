@@ -1,9 +1,11 @@
+@tool
 extends StaticBody3D
 class_name BreakableWall
 
 @onready var breakable_wall_visuals = $breakable_wall_visuals
 @onready var collision_shape_3d = $CollisionShape3D
 @onready var hurtbox = $Hurtbox
+@export var material : ShaderMaterial
 
 signal opened
 

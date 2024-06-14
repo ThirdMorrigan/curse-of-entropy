@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
 [ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
 [ext_resource type="PackedScene" uid="uid://cso3wlwl70aev" path="res://scenes/rooms/dungeon/cafeteria.tscn" id="20_sagju"]
-[ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
+[ext_resource type="Material" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
 [ext_resource type="PackedScene" uid="uid://5mqmt17m8cmo" path="res://scenes/rooms/dungeon/checkpoint_0.tscn" id="21_y2f5h"]
 [ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="24_y7bsn"]
@@ -49,7 +49,7 @@
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="42_0wwwe"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="43_8mh7o"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="44_bxqge"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="45_u1dbi"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="45_u1dbi"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="46_ve01y"]
 [ext_resource type="Script" path="res://src/attack.gd" id="47_t57yy"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="48_puouv"]
@@ -785,6 +785,9 @@ id = 8
 [node name="respawn_point" parent="." instance=ExtResource("16_uxas1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0156, 7.06453, -82.5886)
 
+[node name="respawn_point2" parent="." instance=ExtResource("16_uxas1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.062, 7.06453, -82.5886)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.882102, 0.835171, 0.00676489)
 mesh = SubResource("PlaneMesh_u546n")
@@ -799,7 +802,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.106, 2.31664, 100.575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2836, 9.799, -84.5514)
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)
@@ -866,7 +869,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, -0.91, 0.001)
 [node name="Room" parent="world/Garden" instance=ExtResource("3_4a6ae")]
 
 [node name="Room2" parent="world/Garden" instance=ExtResource("4_5b8cs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.6503, 0.4929, -62.9531)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0604, 1.07753, -62.4645)
 
 [node name="Room3" parent="world/Garden" instance=ExtResource("5_3ma6k")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 156.457, -0.48, 119.502)

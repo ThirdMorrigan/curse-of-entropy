@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6ci22w6lkkpi"]
+[gd_scene load_steps=13 format=3 uid="uid://bbggg6dd7nwuw"]
 
 [ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_b2dml"]
 [ext_resource type="Script" path="res://src/interactables/respawn_interactable_action.gd" id="2_ouoqb"]
-[ext_resource type="Shader" uid="uid://dl1clctijiv06" path="res://assets/models/world/crystal.tres" id="3_fc8p4"]
+[ext_resource type="Shader" path="res://assets/models/world/crystal.tres" id="3_fc8p4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbyje"]
 

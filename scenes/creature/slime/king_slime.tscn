@@ -174,15 +174,12 @@ height = 0.5
 radius = 4.0
 
 [node name="slime" instance=ExtResource("1_sjumq")]
-loot_table = {
-100.0: 14
-}
 
 [node name="Armature" parent="." index="0"]
 script = SubResource("GDScript_hkwnx")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1.85364, 0.234272, 1.85364)
+bones/0/scale = Vector3(1.00462, 0.996369, 1.00462)
 
 [node name="Sphere" parent="Armature/Skeleton3D" index="0" node_paths=PackedStringArray("health_pool")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -191,7 +188,7 @@ script = SubResource("GDScript_44md0")
 health_pool = NodePath("../../../HealthPool")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(1.85364, 0, 0, 0, 0.234272, 0, 0, 0, 1.85364, 0, 0, 0)
+transform = Transform3D(1.00462, 0, 0, 0, 0.996369, 0, 0, 0, 1.00462, 0, 0, 0)
 bone_name = "Bone"
 bone_idx = 0
 
