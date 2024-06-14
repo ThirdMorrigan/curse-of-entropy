@@ -34,6 +34,7 @@ func _ready():
 	player.player_death.connect(_on_player_player_death)
 	if healthPool is HealthPool:
 		healthPool.health_change.connect(_on_health_change)
+		healthPool.max_health_changed.connect(_on_max_health_change)
 		health_bar.value = healthPool.curr_hp
 		health_target = healthPool.curr_hp
 		health_lost_bar.value = healthPool.curr_hp
@@ -81,11 +82,11 @@ func set_selected_item_text(consumeable_name,quant, tool_name):
 
 func _on_player_player_death(died):
 	if died:
-		death_message.text = "you died for real"
+		death_message.text = "You succumbed to your injuries. Time to choose your heir."
 		get_tree().call_group("char_select","new_character")
 		animation_player.play("death_screen_fade_real")
 	else:
-		death_message.text = "you crawl away bearly surviving. It takes " + str(character_details.calculate_age_gain()) + " years for you to recover and return"
+		death_message.text = "You crawl away bearly surviving. It takes " + str(character_details.calculate_age_gain()) + " years for you to recover and return."
 		animation_player.play("death_screen_fade")
 
 
@@ -110,5 +111,13 @@ func update_data():
 func _on_timer_timeout():
 	health_lost_target = healthPool.curr_hp
 
-func _on_mana_change(new_mana,_new_max):
+func _on_mana_change(new_mana,new_max):
 	mana_target = new_mana
+	mana_bar.max_value = new_max
+
+func _on_max_health_change(curr_max,full_max):
+	print(curr_max)
+	print(full_max)
+	health_bar.max_value = full_max
+	health_lost_bar.max_value = full_max
+	maxhealth_missing_bar.max_value = full_max

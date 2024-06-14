@@ -217,7 +217,32 @@ var itemLookupTable = {
 		"type" : item_types.KEY,
 		"description" : "Opens a a door to the 1st floor East wing of the Castle.",
 		"visuals" : key_visuals
-	}
+	},
+	33 : {
+		"name" : "Health Crystal",
+		"type" : item_types.TOOL,
+		"description" : "A powerful crystal, just holding it fills you with vitality",
+		"visuals" : "res://scenes/visuals/health_crystal_visuals.tscn"
+	},
+	34: {
+		"name" : "Mana Crystal",
+		"type" : item_types.TOOL,
+		"description" : "A powerful crystal, with this in your hands you can cast even more spells",
+		"visuals" : "res://scenes/visuals/mana_crystal_visuals.tscn"
+	},
+	35 : {
+		"name" : "Strength Crystal",
+		"type" : item_types.TOOL,
+		"description" : "A powerful crystal, just holding it makes your mucles grow larger",
+		"visuals" : "res://scenes/visuals/str_crystal_visuals.tscn"
+	},
+	36 : {
+		"name" : "Intelligence Crystal",
+		"type" : item_types.TOOL,
+		"description" : "A powerful crystal, enough of these and your mind will be un-matched",
+		"visuals" : "res://scenes/visuals/int_crystal_visuals.tscn"
+	},
+	
 }
 
 	

@@ -1,10 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbggg6dd7nwuw"]
+[gd_scene load_steps=10 format=3 uid="uid://b56hobyjaf7cb"]
 
-[ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_b2dml"]
-[ext_resource type="Script" path="res://src/interactables/respawn_interactable_action.gd" id="2_ouoqb"]
-[ext_resource type="Shader" uid="uid://dl1clctijiv06" path="res://assets/models/world/crystal.tres" id="3_fc8p4"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_fbyje"]
+[ext_resource type="Shader" uid="uid://dl1clctijiv06" path="res://assets/models/world/crystal.tres" id="1_os4qf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy4ro"]
 
@@ -21,7 +17,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_vxffs"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_jmlpq"]
 resource_name = "crystal_Cylinder_001"
 _surfaces = [{
 "aabb": AABB(-0.204543, 0, -0.231788, 0.347065, 0.853646, 0.502099),
@@ -38,28 +34,28 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r4sdv")
 
-[sub_resource type="Curve" id="Curve_efcjf"]
+[sub_resource type="Curve" id="Curve_jppap"]
 _data = [Vector2(0.518703, 0.219256), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[sub_resource type="Curve" id="Curve_qfnys"]
+[sub_resource type="Curve" id="Curve_a8q4b"]
 _data = [Vector2(0.461347, 0.405148), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[sub_resource type="Curve" id="Curve_pw3t1"]
+[sub_resource type="Curve" id="Curve_l1b3p"]
 _data = [Vector2(0.498753, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_b80tp"]
-curve_x = SubResource("Curve_efcjf")
-curve_y = SubResource("Curve_qfnys")
-curve_z = SubResource("Curve_pw3t1")
+curve_x = SubResource("Curve_jppap")
+curve_y = SubResource("Curve_a8q4b")
+curve_z = SubResource("Curve_l1b3p")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhojq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fndng"]
 render_priority = 0
-shader = ExtResource("3_fc8p4")
+shader = ExtResource("1_os4qf")
 shader_parameter/vertex_wobble_scale = 1
-shader_parameter/albedo = Color(0, 0.501961, 1, 1)
+shader_parameter/albedo = Color(0.0916497, 0.550475, 0.820423, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.5
@@ -68,29 +64,11 @@ shader_parameter/normal_scale = 2.0
 shader_parameter/ao_light_affect = 0.5
 shader_parameter/texture_crunch = SubResource("CurveXYZTexture_b80tp")
 
-[node name="respawn_point" type="Area3D"]
-script = ExtResource("1_b2dml")
-interactionText = "Set spawn"
-
-[node name="respawn_interactable_action" type="Node" parent="."]
-script = ExtResource("2_ouoqb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_fbyje")
+[node name="CrystalVisuals" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00319728, 0)
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, 0, 0, 0)
-mesh = SubResource("ArrayMesh_vxffs")
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("ArrayMesh_jmlpq")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_jhojq")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7333, 0)
-light_color = Color(0, 0.65098, 1, 1)
-light_energy = 2.0
-light_indirect_energy = 1.5
-light_size = 0.07
-light_bake_mode = 1
-omni_range = 8.0
-omni_attenuation = 1.56917
+surface_material_override/0 = SubResource("ShaderMaterial_fndng")

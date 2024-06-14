@@ -9,6 +9,10 @@ signal fireball
 signal pickaxe
 signal arcane
 signal grapple
+signal health_crystal
+signal mana_crystal
+signal str_crystal
+signal int_crystal
 
 #these need definitions for when its empty
 #a manuel check for 0 could work or maybe any negetive value
@@ -69,4 +73,12 @@ func check_tool(id):
 			arcane.emit()
 		27:
 			grapple.emit()
+		33:
+			health_crystal.emit()
+		34:
+			mana_crystal.emit()
+		35:
+			str_crystal.emit()
+		36:
+			int_crystal.emit()
 		
