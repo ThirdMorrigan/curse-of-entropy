@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -628,6 +628,33 @@ func check():
 	return inventory.get_quantity(3)
 "
 
+[sub_resource type="Animation" id="Animation_u6hyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swang:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.756461, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_tmpv7"]
 resource_name = "pickaxe_swing"
 length = 0.5
@@ -654,33 +681,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.756461, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_u6hyf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("swang:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("swang:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.756461, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ytl78"]
@@ -1026,21 +1026,21 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(-0.243498, 0.249873, -0.937162, -0.413903, 0.847073, 0.333395, 0.877151, 0.469075, -0.102837, 0.00779793, 0.200791, 0.0203825)
 bones/6/enabled = true
 bones/6/position = Vector3(0.00779793, 0.200791, 0.0203825)
-bones/6/rotation = Quaternion(-0.0465314, -0.378478, -0.659381, 0.647925)
+bones/6/rotation = Quaternion(-0.047822, -0.379332, -0.657952, 0.648784)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "forearm.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.996715, 0.0800764, 0.0120918, -0.0791007, 0.930606, 0.357372, 0.0173643, -0.357155, 0.933884, 1.18825e-08, 0.28851, -9.31323e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.18825e-08, 0.28851, -9.31323e-09)
-bones/7/rotation = Quaternion(-0.245612, -0.00132156, -0.0547157, 0.967822)
+bones/7/rotation = Quaternion(-0.246862, -0.0013211, -0.0549943, 0.967488)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "hand.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.998386, 0.0565106, 0.00569056, -0.0561545, 0.997156, -0.0502579, -0.00851448, 0.0498572, 0.99872, -2.33994e-08, 0.262836, 1.86265e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-2.33994e-08, 0.262836, 1.86265e-08)
-bones/8/rotation = Quaternion(-0.0112566, 0.350182, -0.0616831, 0.934581)
+bones/8/rotation = Quaternion(-0.0104659, 0.354328, -0.0618271, 0.933016)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "hold.R"
 bones/9/parent = 8
@@ -1067,8 +1067,8 @@ bones/12/name = "IK.R"
 bones/12/parent = -1
 bones/12/rest = Transform3D(-0.550248, 0.825611, 0.124872, -0.835001, -0.544067, -0.0822447, 3.64929e-05, -0.149523, 0.988758, 0.6594, -0.395923, 0.0486656)
 bones/12/enabled = true
-bones/12/position = Vector3(0.338397, -0.303229, -0.521311)
-bones/12/rotation = Quaternion(-0.0402756, -0.664016, 0.742004, 0.083007)
+bones/12/position = Vector3(0.339563, -0.30216, -0.521127)
+bones/12/rotation = Quaternion(-0.042308, -0.664111, 0.741649, 0.0844029)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "IK.L"
 bones/13/parent = -1
@@ -1079,7 +1079,7 @@ bones/13/rotation = Quaternion(-0.0355688, -0.0659981, 0.877934, 0.472875)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="sword_pivot" type="BoneAttachment3D" parent="camera_pivot/metarig/Skeleton3D"]
-transform = Transform3D(-0.982975, 0.170005, -0.0696948, 0.17667, 0.978719, -0.104384, 0.0504658, -0.11492, -0.992092, 0.33281, -0.311597, -0.600838)
+transform = Transform3D(-0.982166, 0.174886, -0.0690247, 0.181416, 0.97793, -0.103635, 0.049377, -0.114309, -0.992217, 0.334037, -0.310443, -0.600689)
 bone_name = "hold.R"
 bone_idx = 9
 
@@ -1191,6 +1191,9 @@ weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
+libraries = {
+"": SubResource("AnimationLibrary_vtxm4")
+}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
