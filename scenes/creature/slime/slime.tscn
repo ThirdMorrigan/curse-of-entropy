@@ -121,10 +121,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(\"nav goal\")
-	print($\"..\".current_nav_goal)
-	print(\"wander goal\")
-	print($\"..\".wander_goal)
+	pass
+	#print(\"nav goal\")
+	#print($\"..\".current_nav_goal)
+	#print(\"wander goal\")
+	#print($\"..\".wander_goal)
 "
 
 [node name="slime" instance=ExtResource("1_tupnk")]

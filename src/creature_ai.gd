@@ -82,12 +82,12 @@ func _ready():
 	vision_area.collision_mask = 16
 	vision_area.collision_layer = 0
 	
+	wander_range = creature.wander_range
 	if overwirte_target_position == null :
 		wander_goal = random_pos_in_wander_range()
 	else :
 		wander_goal = overwirte_target_position.global_position
 
-	wander_range = creature.wander_range
 	
 	ai_loop.start(_ai_loop)
 	
@@ -180,6 +180,8 @@ func _ai_loop():
 						next_state = Creature.State.WALK
 						if current_nav_goal != wander_goal:
 							current_nav_goal = wander_goal
+				else :
+					next_state = Creature.State.IDLE
 		
 
 			mut.unlock()

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://d2yojn23yvrur"
+path="res://.godot/imported/tank.map-1b7b86794ceee6146d23331a453614e3.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/sewer/tank.map"
+dest_files=["res://.godot/imported/tank.map-1b7b86794ceee6146d23331a453614e3.tres"]
+
+[params]
+

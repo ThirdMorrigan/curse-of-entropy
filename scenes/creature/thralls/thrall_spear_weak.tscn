@@ -313,7 +313,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_16aci")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.998884, -0.00339431, 0.047111, 0.0218913, 0.917089, -0.39808, -0.0418538, 0.398667, 0.91614, 0.00997616, 1.71444, 0.110018)
+transform = Transform3D(0.998884, -0.00339419, 0.0471109, 0.0218911, 0.917089, -0.39808, -0.0418537, 0.398667, 0.91614, 0.00997623, 1.71444, 0.110018)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -329,7 +329,7 @@ transform = Transform3D(1, 1.86265e-09, 0, 0, 1, 0, -7.45058e-09, 2.98023e-08, 1
 shape = SubResource("SphereShape3D_qe6q0")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819498, 0.386427, -0.423198, -0.249737, 0.423847, 0.870623, -0.36635, 1.06076, 0.107701)
+transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819499, 0.386427, -0.423197, -0.249737, 0.423847, 0.870623, -0.36635, 1.06076, 0.107701)
 bone_name = "weapon"
 bone_idx = 18
 

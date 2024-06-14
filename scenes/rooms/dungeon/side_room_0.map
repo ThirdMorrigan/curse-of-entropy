@@ -1953,7 +1953,7 @@
 {
 "classname" "Item_pickup"
 "origin" "1049 1354 184"
-"id" "6"
+"id" "21"
 }
 // entity 19
 {
@@ -3107,7 +3107,7 @@
 // entity 42
 {
 "classname" "Torch"
-"origin" "1136 892 257"
+"origin" "1152 892 257"
 }
 // entity 43
 {
@@ -3125,7 +3125,7 @@
 {
 "classname" "Item_pickup"
 "origin" "568 776 184"
-"id" "6"
+"id" "26"
 }
 // entity 46
 {
@@ -3328,19 +3328,19 @@
 {
 "classname" "Item_pickup"
 "origin" "632 1192 184"
-"id" "6"
+"id" "28"
 }
 // entity 54
 {
 "classname" "Item_pickup"
 "origin" "568 1208 184"
-"id" "6"
+"id" "29"
 }
 // entity 55
 {
 "classname" "Item_pickup"
 "origin" "584 1096 184"
-"id" "6"
+"id" "30"
 }
 // entity 56
 {

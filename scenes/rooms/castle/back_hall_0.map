@@ -670,7 +670,7 @@
 "classname" "func_door"
 "origin" "-42 0 0"
 "key" "0"
-"interactable" "0"
+"interactable" "1"
 "open_angle" "89"
 "state" "1"
 "generate_link" "1"
@@ -727,4 +727,76 @@
 "origin" "-896 896 384"
 "angle" "90"
 "generate_link" "1"
+}
+// entity 16
+{
+"classname" "Creature"
+"origin" "-510 468 280"
+"angle" "150"
+"creature_id" "6"
+"wander" "1"
+}
+// entity 17
+{
+"classname" "Creature"
+"origin" "-506 406 280"
+"wander" "1"
+"creature_id" "8"
+}
+// entity 18
+{
+"classname" "Creature"
+"origin" "-744 400 280"
+"wander" "0"
+"repeatable" "0"
+"creature_id" "12"
+"drop" "32"
+}
+// entity 19
+{
+"classname" "Creature"
+"origin" "-1158 416 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 20
+{
+"classname" "Creature"
+"origin" "-1150 604 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 21
+{
+"classname" "Creature"
+"origin" "-996 446 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 22
+{
+"classname" "Creature"
+"origin" "-1112 538 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 23
+{
+"classname" "Creature"
+"origin" "-930 526 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 24
+{
+"classname" "Creature"
+"origin" "-1058 634 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
 }

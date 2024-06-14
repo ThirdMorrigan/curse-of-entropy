@@ -107,13 +107,13 @@ var itemLookupTable = {
 		"visuals" : key_visuals
 	},
 	16 : {
-		"name" : "Block A Cell 2 key",
+		"name" : "Block A Cell 2 key", # in jailer arena
 		"type" : item_types.KEY,
 		"description" : "The key to a cell in the Dungeon. Opens cell A2.",
 		"visuals" : key_visuals
 	},
 	17 : {
-		"name" : "Block A Cell 8 key",
+		"name" : "Block A Cell 8 key", # on thrall in pillar 1
 		"type" : item_types.KEY,
 		"description" : "The key to a cell in the Dungeon. Opens cell A8.",
 		"visuals" : key_visuals
@@ -204,6 +204,18 @@ var itemLookupTable = {
 		"resource" : consumeable_type.HEALTH,
 		"strength" : 100
 	},
+	31 : {
+		"name" : "Castle garbage chute key", # IN EAST MAINTINANCE
+		"type" : item_types.KEY,
+		"description" : "Opens a garbage disposal chute in the Castle.",
+		"visuals" : key_visuals
+	},
+	32 : {
+		"name" : "Castle 1st floot East wing key", # IN WEST WING ON THRALL
+		"type" : item_types.KEY,
+		"description" : "Opens a a door to the 1st floor East wing of the Castle.",
+		"visuals" : key_visuals
+	}
 }
 
 	

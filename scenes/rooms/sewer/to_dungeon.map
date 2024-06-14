@@ -422,3 +422,13 @@
 ( 624 -720 608 ) ( 624 -656 608 ) ( 624 -656 570.6666666666661 ) invisable_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 10
+{
+"classname" "Torch"
+"origin" "656 -640 608"
+}
+// entity 11
+{
+"classname" "Torch"
+"origin" "656 -640 224"
+}

@@ -343,3 +343,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42219, 2.38419e-07, -1.289
 [node name="Interactable" parent="." instance=ExtResource("10_dywoc")]
 transform = Transform3D(0.294357, 0, 0.955695, 0, 1, 0, -0.955695, 0, 0.294357, -7.92374, -4.76837e-07, -8.63996)
 state = 1
+interactionText = "open"

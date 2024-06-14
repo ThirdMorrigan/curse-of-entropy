@@ -946,6 +946,7 @@ func_godot_properties = {
 "origin": "-72 -1056 192",
 "state": 1
 }
+interactionText = "open"
 
 [node name="entity_2_NavLink" parent="FuncGodotMap" instance=ExtResource("11_n1uyk")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -32.3125, 9.75, -2)
@@ -980,6 +981,7 @@ func_godot_properties = {
 "origin": "-968 256 192",
 "state": 1
 }
+interactionText = "open"
 
 [node name="entity_5_Door" parent="FuncGodotMap" instance=ExtResource("7_l2t0u")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 6.5, 6, 1.25)
@@ -1039,6 +1041,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_w05ca")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_9_func_detail_illusionary" type="Node3D" parent="FuncGodotMap"]
@@ -1149,6 +1152,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_w05ca")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_23_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_3ewoa")]
@@ -1160,6 +1164,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_w05ca")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_24_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_3ewoa")]
@@ -1171,6 +1176,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_w05ca")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_25_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_3ewoa")]
@@ -1183,6 +1189,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("22_t5qp5")
+interactionText = "pick up Dungeon kitchen key"
 id = 12
 
 [node name="entity_26_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_3ewoa")]
@@ -1195,6 +1202,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("22_t5qp5")
+interactionText = "pick up Dungeon airlock inner key"
 id = 11
 
 [node name="entity_27_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_3ewoa")]
@@ -1206,6 +1214,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_w05ca")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_28_Creature" parent="FuncGodotMap" instance=ExtResource("18_v4er8")]

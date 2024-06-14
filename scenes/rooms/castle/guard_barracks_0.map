@@ -138,3 +138,24 @@
 "classname" "Door"
 "origin" "-1048 592 16"
 }
+// entity 2
+{
+"classname" "Creature"
+"origin" "-808 248 24"
+"creature_id" "6"
+"wander" "3"
+}
+// entity 3
+{
+"classname" "Creature"
+"origin" "-488 584 24"
+"creature_id" "7"
+"wander" "3"
+}
+// entity 4
+{
+"classname" "Creature"
+"origin" "-440 200 24"
+"creature_id" "6"
+"wander" "3"
+}

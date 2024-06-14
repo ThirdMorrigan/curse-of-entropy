@@ -108,6 +108,8 @@ var jumping : bool :
 			jump()
 		jumping = j
 		
+var fall_damage : DamageInstance
+var fall_speed : float = 0.0
 
 func _ready():
 	#print("new players")
@@ -128,6 +130,10 @@ func _ready():
 	if inventory.bags[GameDataSingleton.item_types.CONSUMABLE].is_empty():
 		inventory.add(6,3)
 		
+	fall_damage = DamageInstance.new()
+	fall_damage.impulse_vector = Vector3.UP
+	fall_damage.damage_types = 1
+	
 	cycle_consumeable()
 
 func _process(delta):
@@ -157,13 +163,22 @@ func _physics_process(delta):
 			$mantle_fix_l.disabled = is_on_floor()
 			$mantle_fix_r.disabled = is_on_floor()
 			if not is_on_floor():
+				fall_speed = velocity.y
 				if !climbing:
 					velocity.y -= gravity * delta
 					if coyote_timer :
 						coyote_timer-=1
-			else : 
+			else :
+				if -fall_speed > 8.0 :
+					fall_speed += 8.0
+					#fall_speed *= 
+					fall_damage.damage = fall_speed * fall_speed
+					#$HealthPool.hurt(fall_damage)		#	DISABLED COS IT DOESN'T KILL U RIGHT AND I CBA TO MAKE A FALL DAMAGE CANCEL THING
+				fall_speed = 0
+					
 				coyote_timer = coyote_frames * int(!jumping)
 				can_jump = !jumping
+				
 				
 			var vel_v = velocity.y
 			velocity.y = 0

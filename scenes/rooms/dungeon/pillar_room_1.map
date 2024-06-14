@@ -238,52 +238,40 @@
 // entity 7
 {
 "classname" "Torch"
-"origin" "-640 -796 96"
-"angle" "90"
-}
-// entity 8
-{
-"classname" "Torch"
-"origin" "-640 -1052 96"
-"angle" "90"
-}
-// entity 9
-{
-"classname" "Torch"
 "origin" "-640 -1308 96"
 "angle" "90"
 }
-// entity 10
+// entity 8
 {
 "classname" "Creature"
 "origin" "-632 -632 24"
 "creature_id" "11"
 }
-// entity 11
+// entity 9
 {
 "classname" "Creature"
 "origin" "-808 -968 24"
 "creature_id" "11"
 }
-// entity 12
+// entity 10
 {
 "classname" "Creature"
 "origin" "-520 -1176 24"
 "creature_id" "11"
 }
-// entity 13
+// entity 11
 {
 "classname" "Creature"
 "origin" "-856 -1368 24"
 "creature_id" "11"
 }
-// entity 14
+// entity 12
 {
 "classname" "Creature"
 "origin" "-488 -1400 24"
 "creature_id" "11"
 }
-// entity 15
+// entity 13
 {
 "classname" "Creature"
 "origin" "-712 -1480 24"
