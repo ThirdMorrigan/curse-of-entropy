@@ -132,7 +132,8 @@ func impulse(i : Vector3):
 	to_impulse += i
 
 func stop():
-	$CreatureAI.safe_kill()
+	if has_node("CreatureAI"):
+		$CreatureAI.safe_kill()
 	pass
 	
 func delete():

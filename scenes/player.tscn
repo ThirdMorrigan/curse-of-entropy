@@ -963,6 +963,12 @@ libraries = {
 "": SubResource("AnimationLibrary_jy8l7")
 }
 
+[node name="fall_damage" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+bus = &"SFX"
+
+[node name="damage" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+max_polyphony = 4
+
 [node name="room_detector" type="Area3D" parent="camera_pivot/Camera3D"]
 collision_layer = 64
 collision_mask = 0

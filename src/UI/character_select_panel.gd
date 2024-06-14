@@ -5,6 +5,7 @@ extends Control
 @onready var age_label = $VBoxContainer/age
 @onready var strength_label = $VBoxContainer/strength
 @onready var intelligence_label = $VBoxContainer/intelligence
+@onready var player = $"../../.."
 
 var character
 # Called when the node enters the scene tree for the first time.
@@ -15,10 +16,15 @@ func _ready():
 
 
 func new_character():
+	var player_char = player.character
+
 	character = PlayerCharacter.new()
+	character.child = true
+	character.prev_name = player_char.last_name
+	character.prev_skin = player_char.skin_colour_index
 	add_child(character)
 	face.update_face(character.face,character.hair,character.skin_colour,character.hair_colour)
-	name_label.text = character.character_name
+	name_label.text = character.first_name + " " + character.last_name
 	age_label.text = str(character.age)
 	strength_label.text = "Strength: " + str(character.strength)
 	intelligence_label.text = "Intelligence: " + str(character.intelligence)
