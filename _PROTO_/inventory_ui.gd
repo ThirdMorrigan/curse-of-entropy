@@ -5,7 +5,11 @@ var last_tab = GameDataSingleton.item_types.TOOL
 @onready var inventory = load("res://_PROTO_/inventroy.tres")
 @onready var item_slot_container = $ItemSlotContainer
 @onready var view_page = $view_page
-var character_details : PlayerCharacter
+var character_details : PlayerCharacter:
+	set(d):
+		character_details = d
+		print("setter")
+		print(d.strength)
 @onready var audio_stream_player = $AudioStreamPlayer
 const BAG_CLOSE = preload("res://audio/bag close.wav")
 const BAG_OPEN = preload("res://audio/bag open.wav")

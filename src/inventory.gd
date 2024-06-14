@@ -28,12 +28,12 @@ func bagHasByID(id,type):
 
 func add(id, amount):
 	var item = GameDataSingleton.itemLookupTable[id]
-	check_tool(id)
+	
 	if id in bags[item["type"]]:
 		bags[item["type"]][id] += amount
 	else:
 		bags[item["type"]][id] = amount
-	#print(bags)
+	check_tool(id)
 
 func updateEquipment(id):
 	var item = GameDataSingleton.itemLookupTable[id]
@@ -53,7 +53,10 @@ func consumeItem(id):
 
 func get_quantity(id):
 	var item = GameDataSingleton.itemLookupTable[id]
-	return bags[item["type"]][id]
+	if bagHasByID(id,item["type"]):
+		return bags[item["type"]][id]
+	else:
+		return 0
 
 func setup_tools():
 	for item in bags[GameDataSingleton.item_types.TOOL].keys():
@@ -79,6 +82,7 @@ func check_tool(id):
 			mana_crystal.emit()
 		35:
 			str_crystal.emit()
+			print("emit")
 		36:
 			int_crystal.emit()
 		

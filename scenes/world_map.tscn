@@ -1,41 +1,13 @@
-[gd_scene load_steps=73 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=11 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
-[ext_resource type="PackedScene" uid="uid://t7hytghviug7" path="res://scenes/breakable_wall.tscn" id="4_3kt52"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_dj85u"]
-[ext_resource type="PackedScene" uid="uid://dr1suyanyixg0" path="res://_PROTO_/pickaxe.tscn" id="5_u0wn1"]
-[ext_resource type="PackedScene" uid="uid://bmunsafi1e12j" path="res://scenes/burnable_wall.tscn" id="7_65b00"]
-[ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
-[ext_resource type="PackedScene" uid="uid://puxurcrqxtkp" path="res://scenes/visuals/boots_visuals.tscn" id="12_1ifis"]
-[ext_resource type="PackedScene" uid="uid://cwkmv4kg16oj4" path="res://scenes/climable.tscn" id="13_fdyd1"]
-[ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
-[ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
-[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
-[ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="24_y7bsn"]
-[ext_resource type="PackedScene" uid="uid://ojbnw4rvnxdx" path="res://scenes/rooms/castle.tscn" id="31_a5e28"]
-[ext_resource type="Script" path="res://src/creature.gd" id="32_5s3ca"]
-[ext_resource type="PackedScene" uid="uid://e6iyy134iowi" path="res://scenes/rooms/dungeon.tscn" id="32_x4rpi"]
-[ext_resource type="PackedScene" uid="uid://bskhruril6hag" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
-[ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="33_eg25f"]
-[ext_resource type="Animation" uid="uid://dxpgwr168tki5" path="res://assets/models/creatures/humanoid base/attack-2h-thrust.res" id="34_e4b25"]
-[ext_resource type="PackedScene" uid="uid://d1frlam5pfndn" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
-[ext_resource type="Animation" uid="uid://fh8elerhgb8b" path="res://assets/models/creatures/humanoid base/idle.res" id="35_0rnhh"]
-[ext_resource type="PackedScene" uid="uid://oddcm8p8t5n8" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
-[ext_resource type="Animation" uid="uid://wqc2q3ml87yr" path="res://assets/models/creatures/humanoid base/idle-1h.res" id="36_63g08"]
-[ext_resource type="PackedScene" uid="uid://c8qurahdclhh6" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
-[ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="37_l3gd1"]
-[ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="38_skbdo"]
-[ext_resource type="Animation" uid="uid://cl373jmtxdgub" path="res://assets/models/creatures/humanoid base/walk_proto.res" id="39_m7dtc"]
-[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="40_0d54k"]
-[ext_resource type="Material" uid="uid://bapvghxu8wmry" path="res://scenes/creature/thralls/base_thrall.tres" id="41_mfmgq"]
-[ext_resource type="Script" path="res://src/hurtbox.gd" id="42_0wwwe"]
-[ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="43_8mh7o"]
-[ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="44_bxqge"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="45_u1dbi"]
-[ext_resource type="Script" path="res://src/health_pool.gd" id="46_ve01y"]
-[ext_resource type="Script" path="res://src/attack.gd" id="47_t57yy"]
-[ext_resource type="Script" path="res://src/damage_instance.gd" id="48_puouv"]
-[ext_resource type="Script" path="res://src/creature_ai.gd" id="49_nn234"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/castle.tscn" id="31_a5e28"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/dungeon.tscn" id="32_x4rpi"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -61,17 +33,8 @@ shadow_enabled = true
 shadow_blur = 0.5
 directional_shadow_max_distance = 800.0
 
-[node name="Lever" parent="." instance=ExtResource("24_y7bsn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
-bidirectional = true
-
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24972, 4.50928, 4.08004)
-
-[node name="Key4" parent="." instance=ExtResource("11_8bbro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)
-interactionText = "pick up Grapple Hook"
-id = 27
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_10dk0")

@@ -13,6 +13,7 @@ func connect_button(item : ItemButton):
 	item.display_item.connect(_display_item)
 
 func _display_item(item):
+	print($"..".character_details.strength)
 	if item:
 		title.text = GameDataSingleton.itemLookupTable[item].name
 		quantity.text = "Held: " + str(inventory.get_quantity(item))

@@ -23,6 +23,8 @@ var child : bool = false
 var prev_name : String = ""
 var prev_skin : int
 
+var inventory = preload("res://_PROTO_/inventroy.tres")
+
 var latest_age_loss = 0
 var skin_tones = [
 		Color(45,34,30),
@@ -66,6 +68,7 @@ func _ready():
 
 func connect_player():
 	$"..".player_death.connect(_on_player_death)
+	print(strength)
 	$"../InventoryUI".character_details = self
 	$"../game_ui".character_details = self
 	$"../viewmodel_animation_tree".character_details = self
@@ -126,5 +129,7 @@ func _on_player_death(died):
 func update_stats():
 	var base = (float(age) * 0.25 -9)
 	var power = -1.0 * pow(base,2)
-	strength = int(strength_ratio * (power +100))
-	intelligence = int(age * intelligence_ratio)
+	print(int(strength_ratio * (power +100)))
+	print(inventory.get_quantity(35))
+	strength = int(strength_ratio * (power +100)) + inventory.get_quantity(35)
+	intelligence = int(age * intelligence_ratio) + inventory.get_quantity(36)

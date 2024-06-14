@@ -278,6 +278,7 @@ func _add_grapple():
 
 func die():
 	get_tree().call_group("creature","stop")
+
 	audio_control_node.player_die()
 	pause()
 	if character != null:
@@ -308,7 +309,15 @@ func _on_game_ui_fade_complete():
 func new_character(new_char):
 	character = new_char
 	character.reparent(self)
+	tool_attacks = []
+	$HealthPool.max_hp = 100
+	max_mana = 100
+	curr_mana = 100
+	
+	
+	inventory.setup_tools()
 	character.connect_player()
+	character.update_stats()
 
 func cycle_current_tool(dir : int):
 	var size = tool_attacks.size()
@@ -377,8 +386,8 @@ func _gain_max_mana():
 	curr_mana += 10
 
 func _gain_str():
-	character.strength += 1
+	character.update_stats()
 	
 
 func _gain_int():
-	character.intelligence += 1
+	character.update_stats()
