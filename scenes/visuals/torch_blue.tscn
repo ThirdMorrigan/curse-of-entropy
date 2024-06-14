@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvs1m2rbnt2jd"]
+
+[ext_resource type="PackedScene" uid="uid://bo564mn1uhw3h" path="res://assets/models/world/torch.glb" id="1_lghk3"]
+[ext_resource type="Material" uid="uid://dkhwphf5k7ymb" path="res://textures/metal_rusty_0.tres" id="2_7d3e6"]
+[ext_resource type="Material" uid="uid://buvsa5yo2mpy5" path="res://textures/wood_misc_0.tres" id="3_s3y8p"]
+
+[sub_resource type="Curve" id="Curve_n6j3a"]
+_data = [Vector2(0.336761, 0.685587), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5jga6"]
+curve = SubResource("Curve_n6j3a")
+
+[sub_resource type="Gradient" id="Gradient_0soht"]
+offsets = PackedFloat32Array(0, 0.066482, 0.437673)
+colors = PackedColorArray(1, 1, 1, 1, 0.1422, 0.59566, 0.79, 1, 0, 0.0198334, 0.17, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5licl"]
+gradient = SubResource("Gradient_0soht")
+
+[sub_resource type="Curve" id="Curve_kdxrc"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, -1.00296), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y3sak"]
+curve = SubResource("Curve_kdxrc")
+
+[sub_resource type="Curve" id="Curve_nsit0"]
+_data = [Vector2(0, 1), 0.0, -2.11204, 0, 0, Vector2(1, 0.371175), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m311f"]
+curve = SubResource("Curve_nsit0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7y8j1"]
+emission_shape = 2
+emission_sphere_radius = 0.05
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 4.327
+initial_velocity_min = 0.2
+initial_velocity_max = 0.66
+orbit_velocity_min = -0.12
+orbit_velocity_max = 0.081
+orbit_velocity_curve = SubResource("CurveTexture_y3sak")
+radial_velocity_min = 0.05
+radial_velocity_max = 0.25
+gravity = Vector3(0, 0, 0)
+scale_min = 2.5
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_m311f")
+color_ramp = SubResource("GradientTexture1D_5licl")
+alpha_curve = SubResource("CurveTexture_5jga6")
+turbulence_noise_scale = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x75tv"]
+transparency = 3
+alpha_hash_scale = 2.0
+alpha_antialiasing_mode = 0
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+texture_filter = 0
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_oonvp"]
+material = SubResource("StandardMaterial3D_x75tv")
+size = Vector2(0.03, 0.03)
+
+[node name="torch" instance=ExtResource("1_lghk3")]
+
+[node name="Cylinder" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_7d3e6")
+surface_material_override/1 = ExtResource("3_s3y8p")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.416933, 0.405996)
+light_color = Color(0.411765, 0.72549, 1, 1)
+light_energy = 2.5
+light_indirect_energy = 1.5
+light_size = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.707105
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161954, 0.21311)
+cast_shadow = 0
+gi_mode = 0
+amount = 16
+lifetime = 0.7
+fixed_fps = 15
+visibility_aabb = AABB(-0.437246, -0.21777, -0.417656, 0.874491, 1.39941, 0.835311)
+process_material = SubResource("ParticleProcessMaterial_7y8j1")
+draw_pass_1 = SubResource("QuadMesh_oonvp")

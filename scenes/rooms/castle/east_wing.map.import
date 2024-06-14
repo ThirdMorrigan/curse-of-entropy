@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c1oac72u8s528"
+path="res://.godot/imported/east_wing.map-1b9209ab1a783d1e45fadb2acb1fb18f.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/east_wing.map"
+dest_files=["res://.godot/imported/east_wing.map-1b9209ab1a783d1e45fadb2acb1fb18f.tres"]
+
+[params]
+
