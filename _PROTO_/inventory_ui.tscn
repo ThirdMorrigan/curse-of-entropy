@@ -164,6 +164,9 @@ offset_bottom = 493.0
 layout_mode = 2
 text = "test"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
 [connection signal="pressed" from="HBoxContainer/ButtonKeys" to="." method="populate_inventory" binds= [0]]
 [connection signal="pressed" from="HBoxContainer/ButtonConsumables" to="." method="populate_inventory" binds= [1]]
 [connection signal="pressed" from="HBoxContainer/ButtonTools" to="." method="populate_inventory" binds= [2]]

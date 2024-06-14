@@ -801,7 +801,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2836, 9.799, -84.5514)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.1674, 9.799, -88.7177)
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)

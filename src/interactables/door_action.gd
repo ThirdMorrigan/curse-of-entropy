@@ -1,6 +1,7 @@
 extends InteractableAction
 class_name DoorAction
 var animation_player
+var audio_stream_player
 
 
 var inventory = preload("res://_PROTO_/inventroy.tres")
@@ -9,6 +10,8 @@ func _ready():
 	super()
 	if has_node("../Container/AnimationPlayer") :
 		animation_player = $"../Container/AnimationPlayer"
+	if has_node("../AudioStreamPlayer"):
+		audio_stream_player = $"../AudioStreamPlayer"
 
 func _on_interact():
 	match interactable.state:
@@ -28,7 +31,7 @@ func _on_interact():
 
 func open():
 	animation_player.play("open")
-	
+	audio_stream_player.play()
 	interactable.state = interactable.states.OPEN
 
 func failedOpen():

@@ -15,6 +15,9 @@ class_name FuncDoor
 @export var remote_activation_group : String
 @export var generate_link : bool
 @export var roofless : bool
+var audio : AudioStreamPlayer3D
+const DOOR_CLOSE = preload("res://audio/door close.wav")
+const DOOR_OPEN = preload("res://audio/door open.wav")
 var target_angle
 signal opened
 
@@ -38,7 +41,8 @@ func _func_godot_apply_properties(properties: Dictionary) -> void:
 	generate_link = properties["generate_link"]
 	roofless = properties["roofless"]
 	setup_link()
-	setup_interact()
+	if interactable:
+		setup_interact()
 
 func setup_link():
 	if generate_link:
@@ -94,19 +98,24 @@ func _physics_process(delta):
 			opened.emit()
 			if target_angle != 0:
 				target_angle = 0
+				audio.stream = DOOR_CLOSE
 			else:
 				target_angle = open_angle
+				audio.stream = DOOR_OPEN
 
 func _ready():
 	##print(interactable)
 	setup_link()
 	setup_interact()
+	audio = AudioStreamPlayer3D.new()
+	add_child(audio)
 	if remote_activation_group != "":
 		add_to_group(remote_activation_group)
 	target_angle = open_angle
 	pass
 
 func start_opening():
+	audio.play()
 	swinging = true
 
 func activate():
