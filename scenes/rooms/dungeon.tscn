@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://e6iyy134iowi"]
+[gd_scene load_steps=8 format=3 uid="uid://d4jp6etcswn1q"]
 
 [ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="1_q6rou"]
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="2_7yv85"]

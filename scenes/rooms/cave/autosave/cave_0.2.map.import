@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://fdohb1ml0a61"
+path="res://.godot/imported/cave_0.2.map-2ad3f97a54b5ffd1a10774fd6f0dd98c.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/cave/autosave/cave_0.2.map"
+dest_files=["res://.godot/imported/cave_0.2.map-2ad3f97a54b5ffd1a10774fd6f0dd98c.tres"]
+
+[params]
+

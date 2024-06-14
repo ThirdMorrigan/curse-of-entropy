@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=11 format=3 uid="uid://okyny1oy2we8"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_dj85u"]
 [ext_resource type="PackedScene" path="res://scenes/rooms/castle.tscn" id="31_a5e28"]
 [ext_resource type="PackedScene" path="res://scenes/rooms/dungeon.tscn" id="32_x4rpi"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
+[ext_resource type="PackedScene" uid="uid://cn7brxlnfdiis" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
+[ext_resource type="PackedScene" uid="uid://cv3vgjdboysxf" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
 [ext_resource type="PackedScene" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
 [ext_resource type="PackedScene" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
 
@@ -34,7 +34,7 @@ shadow_blur = 0.5
 directional_shadow_max_distance = 800.0
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24972, 4.50928, 4.08004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3796, -7.34853, -7.28924)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_10dk0")
