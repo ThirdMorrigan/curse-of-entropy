@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="12_tpe7d"]
 [ext_resource type="Script" path="res://src/func_door.gd" id="13_fp3pq"]
 [ext_resource type="Material" uid="uid://dkhwphf5k7ymb" path="res://textures/metal_rusty_0.tres" id="14_4vpy5"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="15_llh2a"]
+[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="15_llh2a"]
 [ext_resource type="PackedScene" uid="uid://bnulvmgwd4rig" path="res://scenes/creature/thralls/thrall_sword.tscn" id="16_cwx4o"]
 [ext_resource type="PackedScene" uid="uid://hxbkerqq4mii" path="res://scenes/creature/thralls/thrall_spear.tscn" id="17_iht6s"]
 [ext_resource type="Material" uid="uid://c10xh3hstsunr" path="res://textures/metal_fence_0.tres" id="18_6gj1g"]
@@ -622,7 +622,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -641,7 +640,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 

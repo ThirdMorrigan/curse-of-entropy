@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="17_qbef0"]
 [ext_resource type="Material" uid="uid://bnjai24iy3731" path="res://textures/wire_fence_0.tres" id="18_bqh5g"]
 [ext_resource type="Material" uid="uid://dkhwphf5k7ymb" path="res://textures/metal_rusty_0.tres" id="19_s3d2s"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="20_81xli"]
+[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="20_81xli"]
 [ext_resource type="PackedScene" uid="uid://bnulvmgwd4rig" path="res://scenes/creature/thralls/thrall_sword.tscn" id="21_y55j7"]
 [ext_resource type="PackedScene" uid="uid://bttwrqh715ujk" path="res://scenes/creature/thralls/thrall_polearm.tscn" id="22_1js5d"]
 [ext_resource type="PackedScene" uid="uid://b2yll6ecii7hn" path="res://scenes/creature/thralls/thrall_sword_weak.tscn" id="23_bqwjw"]
@@ -1812,7 +1812,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 overwrite_loot_table = true
 drop = 28
@@ -1832,7 +1831,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 overwrite_loot_table = true
 drop = 21
@@ -1853,7 +1851,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2026,7 +2023,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2044,7 +2040,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2062,7 +2057,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2080,7 +2074,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2098,7 +2091,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2116,7 +2108,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
