@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://e6iyy134iowi"]
+
+[ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="1_q6rou"]
+[ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="2_7yv85"]
+[ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="3_wcs0f"]
+[ext_resource type="PackedScene" uid="uid://cso3wlwl70aev" path="res://scenes/rooms/dungeon/cafeteria.tscn" id="4_xtpi7"]
+[ext_resource type="PackedScene" uid="uid://cf5i2dni4sdhv" path="res://scenes/rooms/dungeon/bedroom.tscn" id="5_0b6dc"]
+[ext_resource type="PackedScene" uid="uid://j4mjsrwb7hnl" path="res://scenes/rooms/dungeon/pillar_room_1.tscn" id="6_6ukpu"]
+[ext_resource type="PackedScene" uid="uid://c6qfn027fmu3a" path="res://scenes/rooms/dungeon/arena.tscn" id="7_jqkj1"]
+
+[node name="world#Dungeon" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, -16, -2)
+
+[node name="arena" parent="." instance=ExtResource("7_jqkj1")]
+collision_layer = 0
+collision_mask = 64
+
+[node name="bedroom" parent="." instance=ExtResource("5_0b6dc")]
+
+[node name="cafeteria" parent="." instance=ExtResource("4_xtpi7")]
+
+[node name="cell_hall" parent="." instance=ExtResource("1_q6rou")]
+collision_layer = 0
+collision_mask = 64
+
+[node name="pillar_0" parent="." instance=ExtResource("2_7yv85")]
+collision_layer = 0
+collision_mask = 64
+
+[node name="side_room" parent="." instance=ExtResource("3_wcs0f")]
+
+[node name="pillar_1" parent="." instance=ExtResource("6_6ukpu")]
+collision_layer = 0
+collision_mask = 64
