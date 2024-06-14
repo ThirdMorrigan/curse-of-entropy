@@ -967,6 +967,7 @@ libraries = {
 bus = &"SFX"
 
 [node name="damage" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+max_polyphony = 4
 
 [node name="room_detector" type="Area3D" parent="camera_pivot/Camera3D"]
 collision_layer = 64

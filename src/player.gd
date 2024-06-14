@@ -176,7 +176,7 @@ func _physics_process(delta):
 					fall_damage.damage = fall_speed * fall_speed
 					$HealthPool.hurt(fall_damage)
 					audio_control_node.fall_damage(true)
-				elif -fall_speed >1:
+				elif -fall_speed >4:
 					audio_control_node.fall_damage(false)
 				fall_speed = 0
 					

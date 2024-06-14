@@ -1,7 +1,8 @@
 extends Node
 class_name PlayerCharacter
 
-var character_name
+var first_name
+var last_name
 var max_health
 
 var strength_ratio
@@ -9,6 +10,7 @@ var intelligence_ratio
 var strength
 var intelligence
 var skin_colour : Color
+var skin_colour_index : int
 var hair_colour : Color = Color(randf(),randf(),randf(),1)
 var hair
 var face
@@ -17,6 +19,10 @@ var face_num
 var health_pool : HealthPool
 const FACE_SCENE = preload("res://scenes/face.tscn")
 const NAMES_JSON = preload("res://assets/data/names_json.tres")
+var child : bool = false
+var prev_name : String = ""
+var prev_skin : int
+
 var latest_age_loss = 0
 var skin_tones = [
 		Color(45,34,30),
@@ -46,13 +52,16 @@ var age:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#proto_char()
-	skin_colour = skin_tones.pick_random() / Color(255,255,255)
+	
 	var temp_face = FACE_SCENE.instantiate()
 	add_child(temp_face)
 	hair_num = temp_face.hair.hframes
 	face_num = temp_face.face.hframes
 	temp_face.queue_free()
-	random_character()
+	if child:
+		child_character(prev_name, prev_skin)
+	else:
+		random_character()
 	
 
 func connect_player():
@@ -63,32 +72,33 @@ func connect_player():
 	health_pool = $"../HealthPool"
 
 
-func proto_char():
-	character_name = "proto"
-	max_health = 100
-	age = 80
-	strength = 10
-	intelligence = 5
 
 func random_character():
+	skin_colour_index = randi_range(0, skin_tones.size() - 1)
+	skin_colour = skin_tones[skin_colour_index] / Color(255,255,255)
 	intelligence_ratio = randf_range(2,3)
 	strength_ratio = 4 - intelligence_ratio
 	hair = randi_range(0, hair_num-1)
 	face = randi_range(0, face_num-1)
-	var first_name = NAMES_JSON.data.pick_random()["GivenName"]
-	var last_name = NAMES_JSON.data.pick_random()["Surname"]
-	character_name = first_name + " " + last_name
+	first_name = NAMES_JSON.data.pick_random()["GivenName"]
+	last_name = NAMES_JSON.data.pick_random()["Surname"]
+	#character_name = first_name + " " + last_name
 	max_health = 100
 	age = randi_range(18,30)
 
-func child_character():
+func child_character(old_last_name, old_skin_index):
+	skin_colour_index = randi_range(old_skin_index -2,old_skin_index+2)
+	skin_colour_index = clampi(skin_colour_index,0, skin_tones.size() - 1)
+	skin_colour = skin_tones[skin_colour_index] / Color(255,255,255)
 	intelligence_ratio = randf_range(2,3)
 	strength_ratio = 4 - intelligence_ratio
 	hair = randi_range(0, hair_num-1)
 	face = randi_range(0, face_num-1)
-	var first_name = NAMES_JSON.data.pick_random()["GivenName"]
-	var last_name = NAMES_JSON.data.pick_random()["Surname"]
-	character_name = first_name + " " + last_name
+	first_name = NAMES_JSON.data.pick_random()["GivenName"]
+	if randf_range(0.0,100) < 60:
+		last_name = old_last_name
+	else:
+		last_name = NAMES_JSON.data.pick_random()["Surname"]
 	max_health = 100
 	age = randi_range(18,30)
 

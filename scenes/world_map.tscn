@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=100 format=3 uid="uid://bbaki6pwgq3ad"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="3_4a6ae"]
@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
 [ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
 [ext_resource type="PackedScene" uid="uid://cso3wlwl70aev" path="res://scenes/rooms/dungeon/cafeteria.tscn" id="20_sagju"]
-[ext_resource type="Material" uid="uid://bxjeajv0ofhcy" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
+[ext_resource type="Material" path="res://textures/carpet_white_0.tres" id="21_x60d4"]
 [ext_resource type="PackedScene" uid="uid://5mqmt17m8cmo" path="res://scenes/rooms/dungeon/checkpoint_0.tscn" id="21_y2f5h"]
 [ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="22_mhtbb"]
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="24_y7bsn"]
@@ -48,7 +48,7 @@
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="42_0wwwe"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="43_8mh7o"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="44_bxqge"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="45_u1dbi"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="45_u1dbi"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="46_ve01y"]
 [ext_resource type="Script" path="res://src/attack.gd" id="47_t57yy"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="48_puouv"]
@@ -60,9 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://62hjd1xvqhd5" path="res://scenes/rooms/sewer/passage_1.tscn" id="55_sal06"]
 [ext_resource type="PackedScene" uid="uid://bdnrlqk32j2k1" path="res://scenes/rooms/graveyard/grave_yard_1_mausoleum_2.tscn" id="56_a0nb8"]
 [ext_resource type="PackedScene" uid="uid://dwlavpc2mweak" path="res://scenes/rooms/sewer/ravine.tscn" id="56_gihlg"]
-[ext_resource type="PackedScene" uid="uid://86qj40r7aiy2" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="57_5s3pe"]
 [ext_resource type="PackedScene" uid="uid://c3r2p85lxixgf" path="res://scenes/rooms/graveyard/grave_yard_2_mausoleum_3.tscn" id="57_bfmsh"]
-[ext_resource type="PackedScene" uid="uid://cuxomaeoe0sfp" path="res://scenes/rooms/sewer/tank.tscn" id="58_dw5o6"]
 [ext_resource type="PackedScene" uid="uid://ciigjpmulsx0" path="res://scenes/rooms/graveyard/graveyard_floor.tscn" id="58_xafsv"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
@@ -795,7 +793,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24972, 4.50928, 4.08004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28608, 68.8663, 15.4585)
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)
@@ -913,6 +911,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -30, 30)
 
 [node name="Room3" parent="world/sewer" instance=ExtResource("56_gihlg")]
 
-S[node name="Room4" parent="world/sewer" instance=ExtResource("57_5s3pe")]
-
-[node name="Room5" parent="world/sewer" instance=ExtResource("58_dw5o6")]
+[node name="EnemySpawner2" parent="." instance=ExtResource("22_mhtbb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70343, 0, 17.3588)

@@ -104,7 +104,7 @@ func reload():
 
 func update_data():
 	face.update_face(character_details.face,character_details.hair,character_details.skin_colour,character_details.hair_colour)
-	name_display.text = character_details.character_name
+	name_display.text = character_details.first_name + " " + character_details.last_name
 
 
 func _on_timer_timeout():

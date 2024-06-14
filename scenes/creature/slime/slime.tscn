@@ -135,7 +135,7 @@ type = 2
 script = SubResource("GDScript_hkwnx")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1.0803, 0.93694, 1.0803)
+bones/0/scale = Vector3(1.27235, 0.786134, 1.27235)
 
 [node name="Sphere" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_volj6")
