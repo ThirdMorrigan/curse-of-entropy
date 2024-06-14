@@ -1877,6 +1877,15 @@
 ( 800 32 16 ) ( 801 32 16 ) ( 800 32 17 ) wall_brick_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 800 32 16 ) ( 800 32 17 ) ( 800 33 16 ) wall_brick_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+// brush 210
+{
+( 224 432 1760 ) ( 224 433 1760 ) ( 224 432 1761 ) wood_planks_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 512 208 1768 ) ( 504 208 1768 ) ( 504 208 1896 ) wood_planks_0 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 360 432 1752 ) ( 361 432 1752 ) ( 360 433 1752 ) wood_planks_0 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 512 560 1768 ) ( 512 561 1768 ) ( 513 560 1768 ) wood_planks_0 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 512 592 1768 ) ( 504 592 1896 ) ( 504 592 1768 ) wood_planks_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 400 560 1768 ) ( 400 560 1769 ) ( 400 561 1768 ) wood_planks_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
 // entity 1
 {
@@ -1888,9 +1897,10 @@
 // entity 2
 {
 "classname" "Lever"
-"origin" "272 600 24"
+"origin" "272 656 24"
 "bidirectional" "1"
 "target" "clock_tower_trap"
+"angle" "270"
 }
 // entity 3
 {
@@ -2481,6 +2491,7 @@
 "origin" "640 400 200"
 "bidirectional" "1"
 "target" "clock_tower_trap"
+"angle" "180"
 }
 // entity 13
 {
@@ -2517,7 +2528,7 @@
 // entity 17
 {
 "classname" "Torch"
-"origin" "416 592 280"
+"origin" "416 624 280"
 "angle" "90"
 }
 // entity 18
@@ -2529,10 +2540,10 @@
 // entity 19
 {
 "classname" "Lever"
-"origin" "416 240 184"
+"origin" "416 176 184"
 "bidirectional" "1"
 "target" "clock_tower_trap"
-"angle" "270"
+"angle" "90"
 }
 // entity 20
 {
@@ -2613,7 +2624,7 @@
 {
 "classname" "func_door"
 "origin" "32 0 0"
-"remote_activation_group" "clock_tower_trap"
+"remote_activation_group" "clock_tower_trap_2"
 // brush 0
 {
 ( 480 408 496 ) ( 488 400 624 ) ( 488 400 496 ) wire_fence_0 [ 0.7071067811865476 -0.7071067811865476 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2632,7 +2643,7 @@
 {
 "classname" "func_door"
 "origin" "-32 0 0"
-"remote_activation_group" "clock_tower_trap"
+"remote_activation_group" "clock_tower_trap_2"
 // brush 0
 {
 ( 288 408 496 ) ( 296 400 624 ) ( 296 400 496 ) wire_fence_0 [ 0.7071067811865476 -0.7071067811865476 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2651,7 +2662,7 @@
 {
 "classname" "func_door"
 "origin" "0 32 0"
-"remote_activation_group" "clock_tower_trap"
+"remote_activation_group" "clock_tower_trap_2"
 // brush 0
 {
 ( 416 536 448 ) ( 416 536 449 ) ( 416 535 448 ) wire_fence_0 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -2670,7 +2681,7 @@
 {
 "classname" "func_door"
 "origin" "0 32 0"
-"remote_activation_group" "clock_tower_trap"
+"remote_activation_group" "clock_tower_trap_2"
 // brush 0
 {
 ( 448 288 448 ) ( 448 288 449 ) ( 448 287 448 ) wire_fence_0 [ 0 1.0000000000000002 0 0 ] [ 0 0 -1.0000000000000002 0 ] 0 1 1
@@ -2689,7 +2700,7 @@
 {
 "classname" "func_door"
 "origin" "0 32 0"
-"remote_activation_group" "clock_tower_trap"
+"remote_activation_group" "clock_tower_trap_2"
 "open_angle" "-89"
 // brush 0
 {
@@ -2708,41 +2719,41 @@
 // entity 32
 {
 "classname" "Lever"
-"origin" "416 216 496"
-"angle" "270"
-"target" "clock_tower_trap"
+"origin" "416 208 496"
+"angle" "90"
+"target" "clock_tower_trap_2"
 "bidirectional" "1"
 }
 // entity 33
 {
 "classname" "Lever"
-"origin" "232 320 496"
-"angle" "270"
-"target" "clock_tower_trap"
+"origin" "224 336 496"
+"angle" "0"
+"target" "clock_tower_trap_2"
 "bidirectional" "1"
 }
 // entity 34
 {
 "classname" "Lever"
-"origin" "592 328 496"
-"angle" "270"
-"target" "clock_tower_trap"
+"origin" "608 336 496"
+"angle" "180"
+"target" "clock_tower_trap_2"
 "bidirectional" "1"
 }
 // entity 35
 {
 "classname" "Lever"
-"origin" "504 560 496"
+"origin" "496 592 496"
 "angle" "270"
-"target" "clock_tower_trap"
+"target" "clock_tower_trap_2"
 "bidirectional" "1"
 }
 // entity 36
 {
 "classname" "Lever"
-"origin" "328 576 496"
+"origin" "336 592 496"
 "angle" "270"
-"target" "clock_tower_trap"
+"target" "clock_tower_trap_2"
 "bidirectional" "1"
 }
 // entity 37
@@ -2750,24 +2761,28 @@
 "classname" "Creature"
 "origin" "304 520 456"
 "repeatable" "1"
+"creature_id" "3"
 }
 // entity 38
 {
 "classname" "Creature"
 "origin" "520 496 456"
 "repeatable" "1"
+"creature_id" "2"
 }
 // entity 39
 {
 "classname" "Creature"
 "origin" "544 296 456"
 "repeatable" "1"
+"creature_id" "2"
 }
 // entity 40
 {
 "classname" "Creature"
 "origin" "280 288 456"
 "repeatable" "1"
+"creature_id" "3"
 }
 // entity 41
 {
@@ -2848,9 +2863,10 @@
 // entity 42
 {
 "classname" "Lever"
-"origin" "568 512 1624"
+"origin" "576 520 1624"
 "target" "clock_tower_trap"
 "bidirectional" "1"
+"angle" "180"
 }
 // entity 43
 {
@@ -3513,50 +3529,54 @@
 }
 // entity 70
 {
-"classname" "func_arcane_lock"
-// brush 0
-{
-( 256 512 0 ) ( 256 513 0 ) ( 256 512 1 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 256 512 0 ) ( 256 512 1 ) ( 257 512 0 ) __TB_empty [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 256 512 0 ) ( 257 512 0 ) ( 256 513 0 ) __TB_empty [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 384 528 64 ) ( 384 529 64 ) ( 385 528 64 ) __TB_empty [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 384 528 16 ) ( 385 528 16 ) ( 384 528 17 ) __TB_empty [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 384 528 16 ) ( 384 528 17 ) ( 384 529 16 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
+"classname" "grapple_target"
+"origin" "424 552 432"
+"angle" "90"
 }
 // entity 71
 {
-"classname" "Item_pickup"
-"origin" "536 360 800"
-"id" "6"
+"classname" "grapple_target"
+"origin" "448 232 760"
 }
 // entity 72
 {
-"classname" "Item_pickup"
-"origin" "472 360 800"
-"id" "21"
+"classname" "grapple_target"
+"origin" "464 584 760"
 }
 // entity 73
 {
-"classname" "Item_pickup"
-"origin" "408 360 800"
-"id" "30"
+"classname" "grapple_target"
+"origin" "544 216 1720"
 }
 // entity 74
 {
-"classname" "Item_pickup"
-"origin" "536 440 800"
-"id" "26"
+"classname" "Torch"
+"origin" "224 384 1824"
+"angle" "180"
 }
 // entity 75
 {
-"classname" "Item_pickup"
-"origin" "472 440 800"
-"id" "28"
+"classname" "grapple_target"
+"origin" "384 584 1816"
 }
 // entity 76
 {
 "classname" "Item_pickup"
-"origin" "408 440 800"
+"origin" "320 280 1776"
+"quantity" "5"
+"id" "30"
+}
+// entity 77
+{
+"classname" "Item_pickup"
+"origin" "320 520 1776"
 "id" "29"
+"quantity" "5"
+}
+// entity 78
+{
+"classname" "Item_pickup"
+"origin" "312 408 1776"
+"id" "3"
+"quantity" "3"
 }

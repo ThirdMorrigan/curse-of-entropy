@@ -284,7 +284,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("3_i3cmm")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.998964, -0.00370079, 0.0453638, 0.0212132, 0.919673, -0.392112, -0.0402687, 0.392668, 0.918798, 0.0100748, 1.71375, 0.110044)
+transform = Transform3D(0.998964, -0.00370057, 0.0453636, 0.021213, 0.919672, -0.392114, -0.0402686, 0.392669, 0.918798, 0.0100748, 1.71375, 0.110044)
 bone_name = "spine.006"
 bone_idx = 7
 
