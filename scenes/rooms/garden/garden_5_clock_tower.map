@@ -3580,3 +3580,14 @@
 "id" "3"
 "quantity" "3"
 }
+// entity 79
+{
+"classname" "respawn"
+"origin" "400 416 8"
+"angle" "90"
+}
+// entity 80
+{
+"classname" "respawn"
+"origin" "456 560 1672"
+}

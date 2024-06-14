@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://dl0emdiiwkt1k" path="res://scenes/visuals/gloves_visuals.tscn" id="14_1joox"]
 [ext_resource type="PackedScene" uid="uid://wenq428im3ym" path="res://scenes/rooms/castle/S_E_tower.tscn" id="14_dwwqn"]
 [ext_resource type="PackedScene" uid="uid://bmvoky2qqmm75" path="res://scenes/rooms/castle/back_hall_0.tscn" id="15_win7c"]
-[ext_resource type="PackedScene" uid="uid://b6ci22w6lkkpi" path="res://scenes/respawn_point.tscn" id="16_uxas1"]
 [ext_resource type="PackedScene" uid="uid://bv48han6pex4l" path="res://scenes/rooms/dungeon/cell_hallway_0.tscn" id="17_uikiu"]
 [ext_resource type="PackedScene" uid="uid://1ys730eex1ru" path="res://scenes/rooms/dungeon/pillar_room_0.tscn" id="18_tf7ma"]
 [ext_resource type="PackedScene" uid="uid://bl2l2llegxa2p" path="res://scenes/rooms/dungeon/side_room_0.tscn" id="19_t0tue"]
@@ -42,7 +41,7 @@
 [ext_resource type="Animation" uid="uid://dw2ir61wqr0os" path="res://assets/models/creatures/humanoid base/idle-2h.res" id="37_l3gd1"]
 [ext_resource type="PackedScene" uid="uid://cbt3wmfyuln3u" path="res://scenes/rooms/castle/east_maintinance.tscn" id="38_h5hmn"]
 [ext_resource type="Animation" uid="uid://ghdpnrd7ae11" path="res://assets/models/creatures/humanoid base/walk.res" id="38_skbdo"]
-[ext_resource type="PackedScene" uid="uid://bbaoc4g7gv4cv" path="res://scenes/rooms/castle/chapel.tscn" id="39_2nvdw"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/castle/chapel.tscn" id="39_2nvdw"]
 [ext_resource type="Animation" uid="uid://cl373jmtxdgub" path="res://assets/models/creatures/humanoid base/walk_proto.res" id="39_m7dtc"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="40_0d54k"]
 [ext_resource type="PackedScene" uid="uid://ovoypcub0che" path="res://scenes/rooms/castle/east_wing.tscn" id="40_kw4d6"]
@@ -783,12 +782,6 @@ visuals = ExtResource("14_1joox")
 interactionText = "pick up Climbers gloves"
 id = 8
 
-[node name="respawn_point" parent="." instance=ExtResource("16_uxas1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0156, 7.06453, -82.5886)
-
-[node name="respawn_point2" parent="." instance=ExtResource("16_uxas1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.062, 7.06453, -82.5886)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.882102, 0.835171, 0.00676489)
 mesh = SubResource("PlaneMesh_u546n")
@@ -803,7 +796,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(-0.447993, 0, -0.894037, 0, 1, 0, 0.894037, 0, -0.447993, 208.476, 17.2646, 121.163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24972, 4.50928, 4.08004)
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)
@@ -923,6 +916,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -30, 30)
 
 [node name="Room3" parent="world/sewer" instance=ExtResource("56_gihlg")]
 
-[node name="Room4" parent="world/sewer" instance=ExtResource("57_5s3pe")]
+S[node name="Room4" parent="world/sewer" instance=ExtResource("57_5s3pe")]
 
 [node name="Room5" parent="world/sewer" instance=ExtResource("58_dw5o6")]

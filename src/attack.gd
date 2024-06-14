@@ -1,7 +1,8 @@
 extends Node3D
 
 class_name Attack
-
+enum attack_sfx {NONE,SWORD,MAGIC,GRAPPLE}
+@export var sfx : attack_sfx
 signal hit
 signal fired
 var requirement
@@ -30,17 +31,26 @@ var requirement
 @export var ai_range_max : float = 2.0
 @export var weight : float = 1.0
 @export var wind_down : float = 1.0
+var audio : AudioStreamPlayer
 var cast : ShapeCast3D
 var spell_damage_scale : float = 1
+
+const MAGIC = preload("res://audio/magic.wav")
+const GRAPPLE_FIRE = preload("res://audio/grapple fire.wav")
+const SWORD_SWING_MISS = preload("res://audio/sword swing miss.wav")
 
 func _ready():
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	requirement = get_node_or_null("requirement")
+	audio = AudioStreamPlayer.new()
+	add_child(audio)
+	#audio.bus = "sfx"
 	create_hitbox()
 
 func fire() :
-	print("swing")
+	print("test")
+	play_sfx()
 	if spell:
 		scale_attack()
 	fired.emit()
@@ -96,4 +106,16 @@ func scale_attack():
 	#print(discount)
 	spell_damage_scale = (25.0 + inteli) / 100.0
 	fired.emit(mana_cost * discount)
-	
+
+func play_sfx():
+	match sfx:
+		attack_sfx.SWORD:
+			print("b")
+			audio.stream = SWORD_SWING_MISS
+		attack_sfx.MAGIC:
+			audio.stream  = MAGIC
+		attack_sfx.GRAPPLE:
+			audio.stream = GRAPPLE_FIRE
+	if sfx:
+		audio.play()
+		
