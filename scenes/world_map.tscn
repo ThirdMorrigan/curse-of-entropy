@@ -798,7 +798,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.71144, 8.39871, 51.8044)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2588, 8.39871, -4.07564)
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)
@@ -863,7 +863,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, -0.91, 0.001)
 [node name="Room" parent="world/Garden" instance=ExtResource("3_4a6ae")]
 
 [node name="Room2" parent="world/Garden" instance=ExtResource("4_5b8cs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.6503, 0.4929, -62.9531)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0604, 1.07753, -62.4645)
 
 [node name="Room3" parent="world/Garden" instance=ExtResource("5_3ma6k")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 156.457, -0.48, 119.502)

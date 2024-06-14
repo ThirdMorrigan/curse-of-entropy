@@ -40,6 +40,7 @@ func _ready():
 	create_hitbox()
 
 func fire() :
+	print("swing")
 	if spell:
 		scale_attack()
 	fired.emit()

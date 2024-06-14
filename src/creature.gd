@@ -132,8 +132,8 @@ func die():
 		creature_death.emit()
 		roll_loot_table()
 		$CreatureAI.next_state = State.DIE
-		#collision_layer = 0
-		#collision_mask = 1
+		collision_layer = 0
+		collision_mask = 1
 		$Hurtbox.collision_layer = 0
 		$Hurtbox.collision_mask = 0
 	pass
