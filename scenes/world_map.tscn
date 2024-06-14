@@ -784,6 +784,9 @@ id = 8
 [node name="respawn_point" parent="." instance=ExtResource("16_uxas1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0156, 7.06453, -82.5886)
 
+[node name="respawn_point2" parent="." instance=ExtResource("16_uxas1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.062, 7.06453, -82.5886)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.882102, 0.835171, 0.00676489)
 mesh = SubResource("PlaneMesh_u546n")
@@ -798,7 +801,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
 bidirectional = true
 
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2588, 8.39871, -4.07564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2836, 9.799, -84.5514)
 
 [node name="Key4" parent="." instance=ExtResource("11_8bbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)
