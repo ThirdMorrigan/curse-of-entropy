@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cwsgb5jhqjtee"
+path="res://.godot/imported/chapel.map-2a96b21481eeb1014fc002c541873b70.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/chapel.map"
+dest_files=["res://.godot/imported/chapel.map-2a96b21481eeb1014fc002c541873b70.tres"]
+
+[params]
+

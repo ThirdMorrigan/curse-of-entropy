@@ -4,10 +4,10 @@ class_name GrappleHook
 
 var firing : bool = false
 var reeling : bool = false
-
 var cable_visuals : Node3D
-
+const GRAPPLE_REEL = preload("res://audio/grapple reel.wav")
 func _ready():
+	
 	hit.connect(_on_hit)
 	$"..".grapple_disconnect.connect(_on_grapple_disconnect)
 	super()
@@ -32,11 +32,16 @@ func _physics_process(delta):
 	elif cast != null && !cable_visuals.global_position.is_equal_approx(cast.global_position) :
 		cable_visuals.look_at(cast.global_position)
 		cable_visuals.scale.z = (cast.global_position - attack_origin.global_position).length()
+	if reeling and !audio.playing:
+		audio.stream = GRAPPLE_REEL
+		audio.play()
+		
 		
 
 func fire():
 	cast.collide_with_bodies = true
 	if !(firing || reeling) :
+		play_sfx()
 		cast.set_movement_vector((attack_origin.global_basis * Vector3.FORWARD), attack_range)
 		cast.global_rotation = Vector3.ZERO
 		cast.travelling = true
@@ -58,6 +63,7 @@ func _on_grapple_disconnect():
 	cast._on_timer_timeout()
 	reeling = false
 	cable_visuals.visible = false
+	audio.stop()
 
 func _on_free():
 	firing = false

@@ -11,7 +11,8 @@ const PICKUP = preload("res://scenes/pickup.tscn")
 @export var attacks : Array[Attack]
 
 enum State {IDLE, WALK, HURT, DIE, ATTACK_0, ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, JUMP}
-
+enum creature_type {thrall,jailer,slime,final}
+@export var type : creature_type
 var jump_target : Vector3
 var jump_land_error = 0.5
 var landed = true
@@ -20,7 +21,14 @@ signal state_changed
 signal jump_reached
 signal creature_death
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var cam : Camera3D
 
+const ENEMY_HIT_1 = preload("res://audio/enemy hit 1.wav")
+const ENEMY_HIT_2 = preload("res://audio/enemy hit 2.wav")
+const ENEMY_HIT_3 = preload("res://audio/enemy hit 3.wav")
+const SLIME_SQUELCH = preload("res://audio/slime squelch.wav")
+var screams = [ENEMY_HIT_1,ENEMY_HIT_2,ENEMY_HIT_3,SLIME_SQUELCH]
+var audio : AudioStreamPlayer3D
 var current_state : State :
 	get:
 		return current_state
@@ -38,6 +46,11 @@ var aware : bool = false
 func _ready():
 	goal_look = basis * Vector3.FORWARD
 	add_to_group("creature")
+	cam = get_viewport().get_camera_3d()
+	audio = AudioStreamPlayer3D.new()
+	add_child(audio)
+	if has_node("HealthPool"):
+		$HealthPool.hurted.connect(_on_damage_sounds)
 	if attacks == []:
 		var _attacks = find_children("*", "Attack")
 		for a in _attacks:
@@ -77,8 +90,8 @@ func _physics_process(delta):
 				velocity = Vector3.ZERO
 				if track_target : global_rotation.y = lerp_angle(global_rotation.y, atan2(-goal_look.x, -goal_look.z), delta * 10)
 			#attacks[current_state - State.ATTACK_0].fire()
-	
-	move_and_slide()
+	if cam.global_position.distance_squared_to(global_position) <= 30*30:
+		move_and_slide()
 
 func current_attack() -> int :
 	#print(current_state)
@@ -147,4 +160,11 @@ func final_death():
 	else:
 		queue_free()
 
-	
+func _on_damage_sounds():
+	match type:
+		creature_type.slime:
+			audio.stream = screams[3]
+		creature_type.thrall:
+			var temp = screams.slice(0,2)
+			audio.stream = temp.pick_random()
+	audio.play()

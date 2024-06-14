@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cskdk8n6uscyh"
+path="res://.godot/imported/grapple reel.wav-95da937611a3627c32a3208d5bf0823b.sample"
+
+[deps]
+
+source_file="res://audio/grapple reel.wav"
+dest_files=["res://.godot/imported/grapple reel.wav-95da937611a3627c32a3208d5bf0823b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

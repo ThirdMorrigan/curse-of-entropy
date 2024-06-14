@@ -6,7 +6,9 @@ var last_tab = GameDataSingleton.item_types.TOOL
 @onready var item_slot_container = $ItemSlotContainer
 @onready var view_page = $view_page
 var character_details : PlayerCharacter
-
+@onready var audio_stream_player = $AudioStreamPlayer
+const BAG_CLOSE = preload("res://audio/bag close.wav")
+const BAG_OPEN = preload("res://audio/bag open.wav")
 const item_slot = preload("res://_PROTO_/inventory_ui_item_slot.tscn")
 
 signal inventoryState
@@ -31,15 +33,20 @@ func open():
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	populate_inventory(last_tab)
 	inventoryState.emit(true)
+	audio_stream_player.stream = BAG_OPEN
+	audio_stream_player.play()
 
 func close():
 	visible = false
 	is_open = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	inventoryState.emit(false)
-	
+	audio_stream_player.stream = BAG_CLOSE
+	audio_stream_player.play()
 #Each item type button calls this with the corresponding id for the item type enum
 func populate_inventory(type_id: int):
+	audio_stream_player.stream = BAG_OPEN
+	audio_stream_player.play()
 	last_tab = type_id as GameDataSingleton.item_types
 	#Clear existing itemslots
 	for item_slot_inst in item_slot_container.get_children():

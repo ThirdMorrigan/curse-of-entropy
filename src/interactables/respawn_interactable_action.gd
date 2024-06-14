@@ -1,6 +1,9 @@
 extends InteractableAction
 
 @onready var omni_light_3d = $"../OmniLight3D"
+var light : float
+var light_target : float = 2.0
+var on : bool = false
 
 
 func _ready():
@@ -16,8 +19,13 @@ func _on_interact():
 
 func turn_off():
 	omni_light_3d.light_energy = 0
+	light = 0
+	on = false
 
 func turn_on():
-	print("on now")
-	omni_light_3d.light_energy = 2
-	
+	on = true
+
+func _process(delta):
+	if on and !is_equal_approx(light,light_target):
+		light = lerpf(light,light_target,delta)
+		omni_light_3d.light_energy = light

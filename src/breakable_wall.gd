@@ -6,10 +6,12 @@ class_name BreakableWall
 @onready var collision_shape_3d = $CollisionShape3D
 @onready var hurtbox = $Hurtbox
 @export var material : ShaderMaterial
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
 
 signal opened
 
 func die():
+	audio_stream_player_3d.play()
 	breakable_wall_visuals.breakWall()
 	collision_shape_3d.queue_free()
 	hurtbox.queue_free()

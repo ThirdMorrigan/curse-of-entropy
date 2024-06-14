@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="17_qbef0"]
 [ext_resource type="Material" uid="uid://bnjai24iy3731" path="res://textures/wire_fence_0.tres" id="18_bqh5g"]
 [ext_resource type="Material" uid="uid://dkhwphf5k7ymb" path="res://textures/metal_rusty_0.tres" id="19_s3d2s"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="20_81xli"]
+[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="20_81xli"]
 [ext_resource type="PackedScene" uid="uid://bnulvmgwd4rig" path="res://scenes/creature/thralls/thrall_sword.tscn" id="21_y55j7"]
 [ext_resource type="PackedScene" uid="uid://bttwrqh715ujk" path="res://scenes/creature/thralls/thrall_polearm.tscn" id="22_1js5d"]
 [ext_resource type="PackedScene" uid="uid://b2yll6ecii7hn" path="res://scenes/creature/thralls/thrall_sword_weak.tscn" id="23_bqwjw"]
@@ -1051,14 +1051,14 @@ points = PackedVector3Array(-1.6875, -0.124999, -0.25, -1.5625, 9.53674e-07, -0.
 _data = [Vector2(0.336761, 0.685587), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_6wlpl"]
+[sub_resource type="CurveTexture" id="CurveTexture_dfkb1"]
 curve = SubResource("Curve_0b55k")
 
 [sub_resource type="Gradient" id="Gradient_35ett"]
 offsets = PackedFloat32Array(0, 0.066482, 0.437673)
 colors = PackedColorArray(1, 1, 1, 1, 0.79, 0.552473, 0.1422, 1, 0.0475577, 0.0475576, 0.0475576, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ct3ab"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jmk4n"]
 gradient = SubResource("Gradient_35ett")
 
 [sub_resource type="Curve" id="Curve_fy1pn"]
@@ -1067,14 +1067,14 @@ max_value = 2.0
 _data = [Vector2(0, -1.00296), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_fjcba"]
+[sub_resource type="CurveTexture" id="CurveTexture_heepm"]
 curve = SubResource("Curve_fy1pn")
 
 [sub_resource type="Curve" id="Curve_14o5u"]
 _data = [Vector2(0, 1), 0.0, -2.11204, 0, 0, Vector2(1, 0.371175), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_k2rtp"]
+[sub_resource type="CurveTexture" id="CurveTexture_p542u"]
 curve = SubResource("Curve_14o5u")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sqhv6"]
@@ -1088,17 +1088,17 @@ initial_velocity_min = 1.4
 initial_velocity_max = 3.36
 orbit_velocity_min = -0.12
 orbit_velocity_max = 0.081
-orbit_velocity_curve = SubResource("CurveTexture_fjcba")
+orbit_velocity_curve = SubResource("CurveTexture_heepm")
 radial_velocity_min = -0.5
 gravity = Vector3(0, 0, 0)
 scale_min = 10.0
 scale_max = 25.0
-scale_curve = SubResource("CurveTexture_k2rtp")
-color_ramp = SubResource("GradientTexture1D_ct3ab")
-alpha_curve = SubResource("CurveTexture_6wlpl")
+scale_curve = SubResource("CurveTexture_p542u")
+color_ramp = SubResource("GradientTexture1D_jmk4n")
+alpha_curve = SubResource("CurveTexture_dfkb1")
 turbulence_noise_scale = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dn2us"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50bty"]
 transparency = 3
 alpha_hash_scale = 2.0
 alpha_antialiasing_mode = 0
@@ -1115,7 +1115,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_xw2po"]
-material = SubResource("StandardMaterial3D_dn2us")
+material = SubResource("StandardMaterial3D_50bty")
 size = Vector2(0.03, 0.03)
 
 [node name="Room" type="Area3D"]
@@ -1812,7 +1812,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 overwrite_loot_table = true
 drop = 28
@@ -1832,7 +1831,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 overwrite_loot_table = true
 drop = 21
@@ -1853,7 +1851,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2026,7 +2023,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2044,7 +2040,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2062,7 +2057,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2080,7 +2074,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2098,7 +2091,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
@@ -2116,7 +2108,6 @@ func_godot_properties = {
 "repeatable": false,
 "wander": 10.0
 }
-repetable = false
 min_time = 30.0
 wander_range = 10.0
 
