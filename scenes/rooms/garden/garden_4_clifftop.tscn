@@ -2105,6 +2105,7 @@ func_godot_properties = {
 "origin": "-512 96 16",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_2_Breakable_wall" parent="FuncGodotMap" instance=ExtResource("10_co7qd")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, -79.5)
@@ -2119,6 +2120,7 @@ func_godot_properties = {
 "origin": "-1904 -480 32",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_4_Door" parent="FuncGodotMap" instance=ExtResource("7_ek1q3")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -15, 1, -79.5)
@@ -2140,6 +2142,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("14_7oqmc")
+interactionText = "pick up Garden gate key"
 id = 9
 
 [node name="entity_6_Door" parent="FuncGodotMap" instance=ExtResource("7_ek1q3")]
@@ -2152,6 +2155,7 @@ func_godot_properties = {
 "origin": "-2176 400 32",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_7_Door" parent="FuncGodotMap" instance=ExtResource("7_ek1q3")]
 transform = Transform3D(1.39071e-07, 0, 1, 0, 1, 0, -1, 0, 1.39071e-07, 23, 1, -23)
@@ -2316,6 +2320,7 @@ func_godot_properties = {
 "origin": "-1376 -752 224",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_21_Creature" parent="FuncGodotMap" instance=ExtResource("16_vlvwt")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.25, 1.25, -17.75)
@@ -2509,6 +2514,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("19_nkmox")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_33_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_i4d8q")]
@@ -2520,6 +2526,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("19_nkmox")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_34_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_i4d8q")]
@@ -2531,6 +2538,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("20_mmfyx")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_35_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_i4d8q")]
@@ -2542,6 +2550,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("20_mmfyx")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_36_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_i4d8q")]
@@ -2553,6 +2562,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("20_mmfyx")
+interactionText = "pick up Full Health potion"
 id = 30
 
 [node name="entity_37_grapple_target" parent="FuncGodotMap" instance=ExtResource("22_aohvi")]

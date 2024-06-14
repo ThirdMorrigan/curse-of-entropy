@@ -120,6 +120,10 @@ func _ready():
 	inventory.pickaxe.connect(_add_pickaxe)
 	inventory.arcane.connect(_add_arcane)
 	inventory.grapple.connect(_add_grapple)
+	inventory.health_crystal.connect(_gain_max_hp)
+	inventory.mana_crystal.connect(_gain_max_mana)
+	inventory.str_crystal.connect(_gain_str)
+	inventory.int_crystal.connect(_gain_int)
 	inventory.setup_tools()
 	crouching = false
 	character = PlayerCharacter.new()
@@ -363,3 +367,18 @@ func heal_mana(strength):
 	
 func _on_spell_fired(cost):
 	curr_mana -= cost
+
+func _gain_max_hp():
+	$HealthPool.increase_max(10)
+	$HealthPool.heal(10)
+
+func _gain_max_mana():
+	max_mana += 10
+	curr_mana += 10
+
+func _gain_str():
+	character.strength += 1
+	
+
+func _gain_int():
+	character.intelligence += 1

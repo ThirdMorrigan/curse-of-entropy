@@ -18,8 +18,14 @@ var parent :
 
 signal health_change
 signal hurted
+signal max_health_changed
 var can_impulse : bool
-var curr_max_hp : float
+var curr_max_hp : float:
+	get:
+		return curr_max_hp
+	set(mhp):
+		curr_max_hp = mhp
+		max_health_changed.emit(curr_max_hp,max_hp)
 var curr_hp : float :
 	get:
 		return curr_hp
@@ -67,3 +73,8 @@ func heal(healing : float):
 func _on_player_death():
 	curr_max_hp = max_hp
 	curr_hp = max_hp
+
+func increase_max(max_gain):
+	var burn_ratio = (max_hp - curr_max_hp) / max_hp
+	max_hp += max_gain
+	curr_max_hp += max_gain
