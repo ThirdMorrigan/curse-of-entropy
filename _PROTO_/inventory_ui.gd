@@ -1,6 +1,6 @@
 extends Control
 var is_open = false
-var last_tab = GameDataSingleton.item_types.KEY
+var last_tab = GameDataSingleton.item_types.TOOL
 @export var catagory_buttons: ButtonGroup
 @onready var inventory = load("res://_PROTO_/inventroy.tres")
 @onready var item_slot_container = $ItemSlotContainer
@@ -40,11 +40,11 @@ func close():
 	
 #Each item type button calls this with the corresponding id for the item type enum
 func populate_inventory(type_id: int):
-	last_tab = type_id
+	last_tab = type_id as GameDataSingleton.item_types
 	#Clear existing itemslots
-	for item_slot in item_slot_container.get_children():
-		item_slot_container.remove_child(item_slot)
-		item_slot.queue_free()
+	for item_slot_inst in item_slot_container.get_children():
+		#item_slot_container.remove_child(item_slot_inst)
+		item_slot_inst.queue_free()
 		
 	var bag = inventory.bags[type_id]
 	var items = bag.keys()
@@ -57,8 +57,10 @@ func populate_inventory(type_id: int):
 		#new_item_slot.quantity_text = str(bag[item])
 		item_slot_container.add_child(new_item_slot)
 	
-	view_page._display_item(0)
-
+	if not inventory.bags[type_id].is_empty():
+		view_page._display_item(inventory.bags[type_id].keys()[0])
+	else:
+		view_page._display_item(0)
 	
 	
 func test_populate():

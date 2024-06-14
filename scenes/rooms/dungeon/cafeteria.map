@@ -536,6 +536,15 @@
 ( 208 -232 360 ) ( 208 -272 360 ) ( 168 -272 360 ) invisable_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 208 -232 360 ) ( 208 -272 352 ) ( 208 -272 360 ) invisable_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
+// brush 58
+{
+( -68 -964 476 ) ( -68 -963 476 ) ( -68 -964 477 ) wire_fence_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -68 -964 476 ) ( -68 -964 477 ) ( -67 -964 476 ) wire_fence_0 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -68 -964 440 ) ( -67 -964 440 ) ( -68 -963 440 ) wire_fence_0 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -60 -956 480 ) ( -60 -955 480 ) ( -59 -956 480 ) wire_fence_0 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -60 -956 480 ) ( -59 -956 480 ) ( -60 -956 481 ) wire_fence_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -60 -956 480 ) ( -60 -956 481 ) ( -60 -955 480 ) wire_fence_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }
 // entity 1
 {
@@ -577,12 +586,14 @@
 "classname" "Creature"
 "origin" "112 -200 200"
 "angle" "203"
+"creature_id" "12"
 }
 // entity 7
 {
 "classname" "Creature"
 "origin" "112 -112 200"
 "angle" "175"
+"creature_id" "2"
 }
 // entity 8
 {
@@ -2822,4 +2833,37 @@
 "classname" "Item_pickup"
 "origin" "-40 -904 312"
 "id" "6"
+}
+// entity 30
+{
+"classname" "Creature"
+"origin" "-909.072 213.072 200"
+"angle" "330"
+"creature_id" "7"
+}
+// entity 31
+{
+"classname" "Creature"
+"origin" "-392 -40 200"
+"creature_id" "12"
+}
+// entity 32
+{
+"classname" "Creature"
+"origin" "-331.314 -80 200"
+"creature_id" "12"
+"angle" "135"
+}
+// entity 33
+{
+"classname" "Creature"
+"origin" "-824 -760 200"
+"angle" "90"
+"creature_id" "3"
+}
+// entity 34
+{
+"classname" "grapple_target"
+"origin" "-64 -960 428"
+"angle" "60"
 }

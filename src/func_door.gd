@@ -29,7 +29,7 @@ func _func_godot_apply_properties(properties: Dictionary) -> void:
 	open_angle = deg_to_rad(properties["open_angle"])
 	speed = properties["speed"]
 	interactable = properties["interactable"]
-	print(str(properties["interactable"]), " in apply")
+	#print(str(properties["interactable"]), " in apply")
 	key = properties["key"]
 	state = properties["state"]
 	remote_activation_group = properties["remote_activation_group"]
@@ -42,7 +42,7 @@ func _func_godot_apply_properties(properties: Dictionary) -> void:
 
 func setup_link():
 	if generate_link:
-		print("generating link")
+		#print("generating link")
 		var bbox : AABB = find_child("*_mesh_*").mesh.get_aabb()
 		var forward = openable_from
 		if forward :
@@ -70,7 +70,7 @@ func setup_link():
 		link.top_level = true
 
 func setup_interact():
-	print("setting up")
+	#print("setting up")
 	var _int = BrushDoorInteractible.new()
 	add_child(_int)
 	var _prop_dict = {"key":key, "state":state}
@@ -98,7 +98,7 @@ func _physics_process(delta):
 				target_angle = open_angle
 
 func _ready():
-	#print(interactable)
+	##print(interactable)
 	setup_link()
 	setup_interact()
 	if remote_activation_group != "":

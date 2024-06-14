@@ -20,17 +20,17 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	player_moving()
 
 
 func _on_new_room_entered(roomData : Dictionary):
-	#print(roomData)
+	##print(roomData)
 	if roomData.indoors == true :
-		#print("inside")
+		##print("inside")
 		AudioServer.set_bus_effect_enabled(2,1,true)
 	if roomData.indoors == false :
-		#print("OUTSIDE")
+		##print("OUTSIDE")
 		AudioServer.set_bus_effect_enabled(2,0,false)
 	
 	if roomData.zone != player_current_zone :
@@ -42,7 +42,7 @@ func _on_new_room_entered(roomData : Dictionary):
 		player_current_zone = roomData.zone
 	
 func change_zone_music(next_track):
-	#print(next_track)
+	##print(next_track)
 	if current_music.stream != null :
 		if !flipped:
 			next_music.stream = next_track
@@ -64,5 +64,5 @@ func player_moving():
 		player_sfx_footsteps.stop()
 
 
-func _on_crossfade_finished(anim_name):
+func _on_crossfade_finished(_anim_name):
 	flipped = !flipped

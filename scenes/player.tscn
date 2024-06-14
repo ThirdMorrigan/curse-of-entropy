@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=85 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -22,9 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://g4jm5a62hdsg" path="res://_PROTO_/inventory_ui.tscn" id="16_gls4e"]
 [ext_resource type="PackedScene" uid="uid://cpu2r44awjr47" path="res://scenes/game_ui.tscn" id="17_f2jcj"]
 [ext_resource type="Script" path="res://src/sword_attack.gd" id="19_h8in8"]
+[ext_resource type="PackedScene" uid="uid://dkjceehywusxo" path="res://assets/models/pickaxe.glb" id="19_wamoq"]
 [ext_resource type="Script" path="res://src/ranged_attack.gd" id="20_h8pbd"]
 [ext_resource type="PackedScene" uid="uid://dj7of4ca3aj6k" path="res://scenes/visuals/key_visuals.tscn" id="21_qf3k0"]
+[ext_resource type="Script" path="res://src/attack.gd" id="22_fs7io"]
 [ext_resource type="Script" path="res://src/player_anim_tree.gd" id="26_xowfa"]
+[ext_resource type="Script" path="res://src/GrappleHook.gd" id="27_vnm8a"]
+[ext_resource type="PackedScene" uid="uid://dgokarnajno0u" path="res://scenes/visuals/grapple_visuals.tscn" id="28_p1cd6"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 length = 0.99
@@ -84,7 +88,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(100, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -80.0]
 }
@@ -95,10 +99,10 @@ tracks/1/path = NodePath("current_music:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -591,13 +595,119 @@ height = 1.9
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bxkqm"]
 height = 1.25
 
-[sub_resource type="Resource" id="Resource_6t3cp"]
+[sub_resource type="Resource" id="Resource_mj8bx"]
 script = ExtResource("13_qgojy")
 damage = 1.0
+impulse = 1.0
+damage_types = 16
+
+[sub_resource type="GDScript" id="GDScript_8oqmr"]
+script/source = "extends Node3D
+@onready var pickaxe_swing = $\"..\"
+@onready var animation_player = $\"../AnimationPlayer\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pickaxe_swing.fired.connect(_on_fire)
+
+
+func _on_fire():
+	animation_player.play(\"pickaxe_swing\")
+"
+
+[sub_resource type="GDScript" id="GDScript_pmdj6"]
+script/source = "extends Node
+
+@onready var attack = $\"..\"
+@onready var player = $\"../..\"
+
+@onready var inventory = preload(\"res://_PROTO_/inventroy.tres\")
+
+func check():
+	return inventory.get_quantity(3)
+"
+
+[sub_resource type="Animation" id="Animation_tmpv7"]
+resource_name = "pickaxe_swing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swang:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.756461, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u6hyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swang:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.756461, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ytl78"]
+_data = {
+"RESET": SubResource("Animation_u6hyf"),
+"pickaxe_swing": SubResource("Animation_tmpv7")
+}
+
+[sub_resource type="Resource" id="Resource_6t3cp"]
+script = ExtResource("13_qgojy")
+damage = 15.0
 impulse = 1.0
 damage_types = 4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oqgs6"]
+
+[sub_resource type="Resource" id="Resource_r7jtp"]
+script = ExtResource("13_qgojy")
+damage = 5.0
+impulse = 20.0
+damage_types = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uu0um"]
+radius = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rfwun"]
+radius = 0.1
 
 [sub_resource type="Resource" id="Resource_hl5qo"]
 script = ExtResource("13_qgojy")
@@ -694,7 +804,7 @@ graph_offset = Vector2(-313, -49)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rq6di"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing", "tool_attacks") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sword_swing") groups=["player"]]
 floor_block_on_wall = false
 script = ExtResource("1_evqos")
 speed_crouch = 1.5
@@ -704,7 +814,6 @@ friction = 15.0
 jump_height = 0.5
 crouchjump_height = 1.0
 sword_swing = NodePath("sword_swing")
-tool_attacks = [NodePath("Fireball"), NodePath("PickaxeSwing")]
 
 [node name="separation_ray_left" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.37, 1, 0)
@@ -811,7 +920,7 @@ near = 0.02
 
 [node name="RayCast3D" type="RayCast3D" parent="camera_pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150992, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -1.3)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
@@ -863,6 +972,7 @@ script = ExtResource("7_beu1l")
 shape = SubResource("SphereShape3D_4wjgr")
 
 [node name="attack_origin" type="Marker3D" parent="camera_pivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.276038, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="camera_pivot/Camera3D"]
 
@@ -1012,21 +1122,64 @@ shape = SubResource("CapsuleShape3D_bxkqm")
 disabled = true
 
 [node name="PickaxeSwing" parent="." node_paths=PackedStringArray("attack_origin") instance=ExtResource("11_pcjyh")]
-damage_instances = Array[ExtResource("13_qgojy")]([])
-targets = 0
+display_name = "Pickaxe"
+damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_mj8bx")])
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+attack_range = 1.0
+
+[node name="swang" type="Node3D" parent="PickaxeSwing"]
+transform = Transform3D(1, 0, 0, 0, 0.72727, 0.686352, 0, -0.686352, 0.72727, 0, 0.342983, 0.429461)
+visible = false
+script = SubResource("GDScript_8oqmr")
+
+[node name="pickaxe2" parent="PickaxeSwing/swang" instance=ExtResource("19_wamoq")]
+transform = Transform3D(1, 0, 0, 0, 0.978188, 0.207724, 0, -0.207724, 0.978188, -0.427924, 1.56471, -0.646819)
 
 [node name="requirement" type="Node" parent="PickaxeSwing"]
-script = ExtResource("15_m0vcd")
+script = SubResource("GDScript_pmdj6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PickaxeSwing"]
+libraries = {
+"": SubResource("AnimationLibrary_ytl78")
+}
 
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
 visuals = ExtResource("21_qf3k0")
+spell = true
+mana_cost = 50.0
+display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_oqgs6")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-range = 10.0
+attack_range = 4.0
+
+[node name="requirement" type="Node" parent="Fireball"]
+script = ExtResource("15_m0vcd")
+
+[node name="ArcaneSpell" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
+script = ExtResource("22_fs7io")
+spell = true
+mana_cost = 15.0
+display_name = "Arcane"
+damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_r7jtp")])
+targets = 40
+hitbox_shape = SubResource("SphereShape3D_uu0um")
+attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+
+[node name="requirement" type="Node" parent="ArcaneSpell"]
+script = ExtResource("15_m0vcd")
+
+[node name="GrappleHook" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
+script = ExtResource("27_vnm8a")
+visuals = ExtResource("28_p1cd6")
+display_name = "Grapple Hook"
+hitbox_shape = SubResource("SphereShape3D_rfwun")
+attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
+attack_range = 10.0
+ai_range_max = 10.0
+weight = 0.0
 
 [node name="sword_swing" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_h8in8")
@@ -1034,7 +1187,6 @@ damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_hl5qo")
 targets = 32
 hitbox_shape = SubResource("SphereShape3D_bqkju")
 attack_origin = NodePath("../camera_pivot/metarig/Skeleton3D/sword_pivot/sword_hilt")
-range = 1.6
 weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
@@ -1054,11 +1206,10 @@ offset_right = 400.0
 offset_bottom = 250.0
 catagory_buttons = SubResource("ButtonGroup_rq6di")
 
-[connection signal="pause_player" from="." to="PlayerInputHandler" method="_on_player_pause_player"]
-[connection signal="player_death" from="." to="game_ui" method="_on_player_player_death"]
-[connection signal="unpause_player" from="." to="PlayerInputHandler" method="_on_player_unpause_player"]
 [connection signal="animation_finished" from="camera_pivot/Camera3D/Audio control node/AnimationPlayer" to="camera_pivot/Camera3D/Audio control node" method="_on_crossfade_finished"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]
+[connection signal="fired" from="Fireball" to="." method="_on_spell_fired"]
+[connection signal="fired" from="ArcaneSpell" to="." method="_on_spell_fired"]
 [connection signal="fade_complete" from="game_ui" to="." method="_on_game_ui_fade_complete"]
 [connection signal="fade_complete" from="game_ui" to="HealthPool" method="_on_player_death"]
 [connection signal="inventoryState" from="InventoryUI" to="PlayerInputHandler" method="_on_inventory_ui_inventory_state_change"]

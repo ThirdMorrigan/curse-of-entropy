@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dqwy37oojacc8"
+path="res://.godot/imported/east_maintinance.map-b993e1990b085d820a8f1e8e2dbc59a2.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/east_maintinance.map"
+dest_files=["res://.godot/imported/east_maintinance.map-b993e1990b085d820a8f1e8e2dbc59a2.tres"]
+
+[params]
+

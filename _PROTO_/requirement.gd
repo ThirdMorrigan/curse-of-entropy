@@ -1,8 +1,16 @@
 extends Node
 
-var tool_id = 3
+@onready var attack = $".."
+@onready var player = $"../.."
+
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
 
+
+
 func check():
-	print("borger")
-	return inventory.playerHas(tool_id)
+	return player.curr_mana > scale_cost()
+
+func scale_cost():
+	var inteli = player.character.intelligence
+	var discount = (150.0 - inteli) / 100.0
+	return (attack.mana_cost * discount)

@@ -10,11 +10,17 @@ func _create_hitbox():
 	var p = Projectile.new()
 	p.parent_attack = self
 	p.collision_mask = 0b11
+	p.collide_with_areas = true
+	p.travelling = false
+	p.max_distance = 100.0
 	return p
 
 func fire():
+	cast.collide_with_bodies = true
+	if spell:
+		scale_attack()
 	cast.damage = damage_instances[0]
-	cast.set_movement_vector((attack_origin.global_basis * Vector3.FORWARD) * range,1)
+	cast.set_movement_vector((attack_origin.global_basis * Vector3.FORWARD), attack_range)
 	cast.global_rotation = Vector3.ZERO
 	var _vis = visuals.instantiate()
 	if visuals != null :
@@ -24,4 +30,5 @@ func fire():
 	cast.travelling = true
 	cast.top_level = true
 	create_hitbox()
-	#print(cast)
+	print(cast.collide_with_areas)
+	print(cast.collide_with_bodies)

@@ -38,12 +38,26 @@ class_name Player
 var current_tool : Attack
 var current_consumeable : int
 @onready var inventory = preload("res://_PROTO_/inventroy.tres")
+@onready var game_ui = $game_ui
+@onready var fireball = $Fireball
+@onready var pickaxe_swing = $PickaxeSwing
+@onready var arcane_spell = $ArcaneSpell
+@onready var grapple_hook = $GrappleHook
 
 signal player_death
 signal pause_player
 signal unpause_player
-
+signal mana_changed
+signal grapple_disconnect
 var current_max_speed : float
+
+var max_mana : float = 100
+var curr_mana : float = max_mana:
+	get:
+		return curr_mana
+	set(m):
+		curr_mana = m
+		mana_changed.emit(curr_mana,max_mana)
 
 var jump_power : float
 var climbing : bool = false
@@ -64,6 +78,11 @@ var crouching : bool :
 			try_uncrouch = true
 var try_uncrouch : bool = false
 var camera_lerp : Node3D
+
+var grappling : bool = false
+var grapple_dc_ticker : int = 0
+var grapple_target : Node3D
+
 
 var yaw : float :
 	get:
@@ -89,17 +108,32 @@ var jumping : bool :
 			jump()
 		jumping = j
 		
+var fall_damage : DamageInstance
+var fall_speed : float = 0.0
 
 func _ready():
+	#print("new players")
 	current_max_speed = speed
 	inventory.jump_boots.connect(_apply_jump_boots)
+	inventory.fireball.connect(_add_fireball)
+	inventory.pickaxe.connect(_add_pickaxe)
+	inventory.arcane.connect(_add_arcane)
+	inventory.grapple.connect(_add_grapple)
+	inventory.setup_tools()
 	crouching = false
 	character = PlayerCharacter.new()
 	add_child(character)
 	character.connect_player()
 	if not tool_attacks.is_empty():
 		current_tool = tool_attacks[0]
-	inventory.add(6,3)
+	#curr_mana = max_mana
+	if inventory.bags[GameDataSingleton.item_types.CONSUMABLE].is_empty():
+		inventory.add(6,3)
+		
+	fall_damage = DamageInstance.new()
+	fall_damage.impulse_vector = Vector3.UP
+	fall_damage.damage_types = 1
+	
 	cycle_consumeable()
 
 func _process(delta):
@@ -113,55 +147,90 @@ func _process(delta):
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
-		var floor_friction : float = 1.0
-		if $floor_test.is_colliding() :
-			var col = $floor_test.get_collider()
-			if col is StaticBody3D or col is RigidBody3D:
-				var pmo = col.physics_material_override
-				if pmo != null:
-					floor_friction = pmo.friction
-					#print(floor_friction)
-			elif col is Creature:
-				floor_friction = 0
-				velocity += Vector3.FORWARD* 100
-		$mantle_fix_c.disabled = is_on_floor()
-		$mantle_fix_l.disabled = is_on_floor()
-		$mantle_fix_r.disabled = is_on_floor()
-		if not is_on_floor():
+		if !grappling :
+			var floor_friction : float = 1.0
+			if $floor_test.is_colliding() :
+				var col = $floor_test.get_collider()
+				if col is StaticBody3D or col is RigidBody3D:
+					var pmo = col.physics_material_override
+					if pmo != null:
+						floor_friction = pmo.friction
+						#print(floor_friction)
+				elif col is Creature:
+					floor_friction = 0
+					velocity += Vector3.FORWARD* 100
+			$mantle_fix_c.disabled = is_on_floor()
+			$mantle_fix_l.disabled = is_on_floor()
+			$mantle_fix_r.disabled = is_on_floor()
+			if not is_on_floor():
+				fall_speed = velocity.y
+				if !climbing:
+					velocity.y -= gravity * delta
+					if coyote_timer :
+						coyote_timer-=1
+			else :
+				if -fall_speed > 8.0 :
+					fall_speed += 8.0
+					#fall_speed *= 
+					fall_damage.damage = fall_speed * fall_speed
+					#$HealthPool.hurt(fall_damage)		#	DISABLED COS IT DOESN'T KILL U RIGHT AND I CBA TO MAKE A FALL DAMAGE CANCEL THING
+				fall_speed = 0
+					
+				coyote_timer = coyote_frames * int(!jumping)
+				can_jump = !jumping
+				
+				
+			var vel_v = velocity.y
+			velocity.y = 0
+			var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
+			var temp_friction = friction
+			temp_friction *= (2 if edge_stop else 1)
+			temp_friction *= floor_friction
+			velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
+				
+			velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
+			var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
+			if swinging :
+				speed_limit *= sword_swing.weight + (character.strength-100) * 0.002
+				#print(sword_swing.weight + (character.strength-100) * 0.002)
+			current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
+			velocity = velocity.limit_length(current_max_speed)
+
 			if !climbing:
-				velocity.y -= gravity * delta
-				if coyote_timer :
-					coyote_timer-=1
-		else : 
-			coyote_timer = coyote_frames * int(!jumping)
-			can_jump = !jumping
-			
-		var vel_v = velocity.y
-		velocity.y = 0
-		var edge_stop = !$direction_pivot/leading_ray.is_colliding() && !input_dir
-		var temp_friction = friction
-		temp_friction *= (2 if edge_stop else 1)
-		temp_friction *= floor_friction
-		velocity *= 1 - (delta * temp_friction * float(is_on_floor()))
-			
-		velocity += input_dir * delta * ((acceleration*floor_friction) if is_on_floor() else acceleration_air)
-		var speed_limit := speed if !crouching || !is_on_floor() else speed_crouch
-		if swinging :
-			speed_limit *= sword_swing.weight + (character.strength-100) * 0.002
-			#print(sword_swing.weight + (character.strength-100) * 0.002)
-		current_max_speed = lerp(current_max_speed, speed_limit, delta * 5.0)
-		velocity = velocity.limit_length(current_max_speed)
+				velocity.y = vel_v
+			else:
+				velocity.y = jump_power
+				velocity.x = 0
+				velocity.z = 0
 
-		if !climbing:
-			velocity.y = vel_v
-		else:
-			velocity.y = jump_power
-			velocity.x = 0
-			velocity.z = 0
-
-		move_and_slide()
-		
+			move_and_slide()
+		else :
+			var to_target = grapple_target.global_position - $camera_pivot/Camera3D/attack_origin.global_position
+			var to_target_n = to_target.normalized()
+			velocity = to_target_n * 6.0
+			var pre = global_position
+			move_and_slide()
+			var post = global_position
+			
+			if (pre - post).length_squared() < 0.1:
+				grapple_dc_ticker += 1
+			else :
+				grapple_dc_ticker = 0
+			
+			var dc :bool= (grapple_target.global_position -
+				$camera_pivot/Camera3D/attack_origin.global_position).length_squared() < 0.01
+			
+			if dc :
+				grappling = false
+				grapple_disconnect.emit()
+			
 		$direction_pivot.global_rotation.y = atan2(-velocity.x, -velocity.z)
+
+func start_grapple(target : Node3D):
+	print("wawawa")
+	grappling = true
+	grapple_target = target
+	pass
 
 func try_swing():
 	if !swinging:
@@ -176,6 +245,28 @@ func jump():
 
 func _apply_jump_boots():
 	jump_height = 1
+
+func _add_fireball():
+	if not (fireball in tool_attacks):
+		tool_attacks.append(fireball)
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
+func _add_pickaxe():
+	if not (pickaxe_swing in tool_attacks):
+		tool_attacks.append(pickaxe_swing)
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
+func _add_arcane():
+	if not (pickaxe_swing in tool_attacks):
+		tool_attacks.append(arcane_spell)
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
+
+func _add_grapple():
+	if not (grapple_hook in tool_attacks):
+		tool_attacks.append(grapple_hook)
+		if tool_attacks.size() == 1:
+			cycle_current_tool(1)
 
 func die():
 	get_tree().call_group("creature","stop")
@@ -201,6 +292,7 @@ func _on_game_ui_fade_complete():
 	position = GameDataSingleton.respawn_point
 	get_tree().call_group("creature","delete")
 	get_tree().call_group("spawner","spawn")
+	curr_mana = max_mana
 	character.get_older()
 	unpause()
 
@@ -211,17 +303,19 @@ func new_character(new_char):
 
 func cycle_current_tool(dir : int):
 	var size = tool_attacks.size()
-	var new_index = tool_attacks.find(current_tool) + dir
-	if new_index >= size:
-		new_index = 0
-	elif new_index < 0:
-		new_index = size -1
-	print_debug(new_index)
-	current_tool = tool_attacks[new_index]
+	if size:
+		var new_index = tool_attacks.find(current_tool) + dir
+		if new_index >= size:
+			new_index = 0
+		elif new_index < 0:
+			new_index = size -1
+		#print_debug(new_index)
+		current_tool = tool_attacks[new_index]
+		set_ui_items()
 
 func cycle_consumeable():
 	var consumable_array = inventory.bags[GameDataSingleton.item_types.CONSUMABLE].keys()
-	print(consumable_array)
+	#print(consumable_array)
 	if consumable_array.size():
 		var index = consumable_array.find(current_consumeable)
 		if index > -1:
@@ -231,19 +325,36 @@ func cycle_consumeable():
 		else:
 			index = 0
 		current_consumeable = consumable_array[index]
-	print(current_consumeable)
+	set_ui_items()
+	
+	
 
 func use_consumeable():
 	var item = GameDataSingleton.itemLookupTable[current_consumeable]
 	if inventory.playerHas(current_consumeable):
 		inventory.consumeItem(current_consumeable)
+		set_ui_items()
 		match item["resource"]:
 			GameDataSingleton.consumeable_type.HEALTH:
 				heal_health(item["strength"])
 			GameDataSingleton.consumeable_type.MANA:
-				pass
+				heal_mana(item["strength"])
 			GameDataSingleton.consumeable_type.STAMINA:
 				pass
 
+func set_ui_items():
+	var tool_name
+	if current_tool != null:
+		tool_name = current_tool.display_name
+	else:
+		tool_name = ""
+	game_ui.set_selected_item_text(GameDataSingleton.itemLookupTable[current_consumeable].name,inventory.get_quantity(current_consumeable), tool_name)
+	
 func heal_health(strength):
 	$HealthPool.heal(strength)
+
+func heal_mana(strength):
+	curr_mana = minf(max_mana,curr_mana + strength)
+	
+func _on_spell_fired(cost):
+	curr_mana -= cost

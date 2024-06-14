@@ -3,33 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cbwadw7ku10l2" path="res://assets/models/minecraft_lever.glb" id="1_kaxlk"]
 [ext_resource type="Script" path="res://src/visuals/lever_visuals.gd" id="2_kl22j"]
 
-[sub_resource type="Animation" id="Animation_kxigy"]
-resource_name = "pull"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles/Object_3:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.3383, -3.6922e-07, 2.92006e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles/Object_3:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.0424203, 0.00748587), Vector3(2.98023e-08, -0.210854, -0.222083)]
-}
-
 [sub_resource type="Animation" id="Animation_2et7c"]
 length = 0.001
 tracks/0/type = "value"
@@ -55,6 +28,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0.0536492, -0.0012477)]
+}
+
+[sub_resource type="Animation" id="Animation_kxigy"]
+resource_name = "pull"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles/Object_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.3383, -3.6922e-07, 2.92006e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles/Object_3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0424203, 0.00748587), Vector3(2.98023e-08, -0.210854, -0.222083)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_drjks"]

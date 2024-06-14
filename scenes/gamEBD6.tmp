@@ -1,0 +1,478 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpu2r44awjr47"]
+
+[ext_resource type="Script" path="res://src/game_ui.gd" id="1_862kw"]
+[ext_resource type="PackedScene" uid="uid://bqhuchapsof4y" path="res://scenes/face.tscn" id="2_2eqf4"]
+[ext_resource type="PackedScene" uid="uid://ddld4lk0oa4yc" path="res://scenes/character_select_panel.tscn" id="2_yt4s0"]
+[ext_resource type="Texture2D" uid="uid://bfohu53hf3iop" path="res://assets/sprites/health_bar_background.png" id="3_xasrb"]
+[ext_resource type="Texture2D" uid="uid://bf22gnmcpf7dt" path="res://assets/sprites/health_bar.png" id="4_a2pbj"]
+
+[sub_resource type="Animation" id="Animation_6v8aw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("death_message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("character_select_panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("character_select_panel2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character_select_panel3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pm35w"]
+resource_name = "death_screen_fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("death_message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_5w2we"]
+resource_name = "death_screen_fade_real"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("death_message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("character_select_panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("character_select_panel2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character_select_panel3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_6a1mo"]
+resource_name = "death_screen_unfade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("death_message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("character_select_panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("character_select_panel2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character_select_panel3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oiocy"]
+_data = {
+"RESET": SubResource("Animation_6v8aw"),
+"death_screen_fade": SubResource("Animation_pm35w"),
+"death_screen_fade_real": SubResource("Animation_5w2we"),
+"death_screen_unfade": SubResource("Animation_6a1mo")
+}
+
+[node name="game_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_862kw")
+
+[node name="death_screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="death_screen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(47.902, 26.9063)
+color = Color(0, 0, 0, 0)
+
+[node name="death_message" type="Label" parent="death_screen"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.194444
+anchor_right = 0.5
+anchor_bottom = 0.194444
+offset_left = -302.0
+offset_top = -11.0
+offset_right = -65.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.54895, 2.82958)
+theme_override_font_sizes/font_size = 0
+text = "You died
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="next_character_select" type="Control" parent="death_screen"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="character_select_panel" parent="death_screen" instance=ExtResource("2_yt4s0")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.437
+anchor_top = 0.5
+anchor_right = 0.437
+anchor_bottom = 0.5
+offset_left = -118.04
+offset_right = 120.96
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="character_select_panel2" parent="death_screen" instance=ExtResource("2_yt4s0")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="character_select_panel3" parent="death_screen" instance=ExtResource("2_yt4s0")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.630458
+anchor_top = 0.5
+anchor_right = 0.630458
+anchor_bottom = 0.5
+offset_left = 1.5199
+offset_right = 1.5199
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../death_screen")
+libraries = {
+"": SubResource("AnimationLibrary_oiocy")
+}
+
+[node name="interactable" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.508333
+anchor_top = 0.493056
+anchor_right = 0.508333
+anchor_bottom = 0.493056
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[node name="gameplay" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Character_info" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="healthbar" type="Control" parent="Character_info"]
+layout_mode = 1
+anchor_left = 0.025
+anchor_top = 0.325
+anchor_right = 0.025
+anchor_bottom = 0.325
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Health_lost_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6
+anchor_top = -2.2375
+anchor_right = 13.475
+anchor_bottom = -2.2375
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+texture_under = ExtResource("3_xasrb")
+texture_progress = ExtResource("4_a2pbj")
+tint_progress = Color(1, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="maxhealth_missing_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6
+anchor_top = -2.2375
+anchor_right = 13.475
+anchor_bottom = -2.2375
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+fill_mode = 1
+texture_progress = ExtResource("4_a2pbj")
+tint_progress = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Health_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6
+anchor_top = -2.2375
+anchor_right = 9.925
+anchor_bottom = -2.2375
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+texture_progress = ExtResource("4_a2pbj")
+tint_progress = Color(0.95, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="face" parent="Character_info" instance=ExtResource("2_2eqf4")]
+layout_mode = 1
+anchor_left = 2.4
+anchor_top = -1.825
+anchor_right = 2.4
+anchor_bottom = -1.825
+offset_top = 0.0
+offset_bottom = 0.0
+scale = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="consume" type="Sprite2D" parent="Character_info"]
+position = Vector2(270.53, -27.89)
+texture = ExtResource("3_xasrb")
+
+[node name="consumeable" type="Label" parent="Character_info/consume"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="tool2" type="Sprite2D" parent="Character_info"]
+position = Vector2(270, -49)
+texture = ExtResource("3_xasrb")
+
+[node name="tool" type="Label" parent="Character_info/tool2"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

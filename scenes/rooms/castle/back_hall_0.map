@@ -513,6 +513,7 @@
 "origin" "-31 0 0"
 "interactable" "1"
 "state" "1"
+"generate_link" "1"
 // brush 0
 {
 ( -1328 600 272 ) ( -1328 601 272 ) ( -1328 600 273 ) wood_planks_0 [ 0 -4.371139006309477e-08 -0.999999999999999 128.00002 ] [ 0 -0.999999999999999 4.371139006309477e-08 452 ] 90 1 1
@@ -544,6 +545,7 @@
 "interactable" "1"
 "open_angle" "-89"
 "state" "1"
+"generate_link" "1"
 "_tb_group" "2"
 // brush 0
 {
@@ -567,6 +569,7 @@
 // entity 4
 {
 "classname" "func_detail_illusionary"
+"generate_link" "1"
 // brush 0
 {
 ( -1320 776 272 ) ( -1320 777 272 ) ( -1320 776 273 ) carpet_red_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -594,6 +597,7 @@
 "interactable" "1"
 "open_angle" "89"
 "state" "1"
+"generate_link" "1"
 "_tb_group" "3"
 // brush 0
 {
@@ -631,6 +635,7 @@
 "interactable" "1"
 "open_angle" "-89"
 "state" "1"
+"generate_link" "1"
 "_tb_group" "4"
 // brush 0
 {
@@ -668,6 +673,7 @@
 "interactable" "1"
 "open_angle" "89"
 "state" "1"
+"generate_link" "1"
 "_tb_group" "5"
 // brush 0
 {
@@ -687,4 +693,110 @@
 ( -872 900 316 ) ( -868 896 320 ) ( -868 900 320 ) smooth_stone_0 [ 3.8285686989269494e-16 -1 0 528 ] [ 0.7071067811865476 2.7072068892498036e-16 0.7071067811865476 67.88223 ] 70.52878 1 1
 ( -872 900 324 ) ( -868 896 320 ) ( -872 896 324 ) smooth_stone_0 [ -3.8285686989269494e-16 1 0 -528 ] [ 0.7071067811865476 2.7072068892498036e-16 -0.7071067811865476 67.88226 ] 289.47122 1 1
 }
+}
+// entity 11
+{
+"classname" "Torch"
+"origin" "-576 688 368"
+"angle" "90"
+"generate_link" "1"
+}
+// entity 12
+{
+"classname" "Torch"
+"origin" "-1024 688 368"
+"angle" "90"
+"generate_link" "1"
+}
+// entity 13
+{
+"classname" "Torch"
+"origin" "-1248 656 368"
+"generate_link" "1"
+}
+// entity 14
+{
+"classname" "Torch"
+"origin" "-480 896 384"
+"angle" "90"
+"generate_link" "1"
+}
+// entity 15
+{
+"classname" "Torch"
+"origin" "-896 896 384"
+"angle" "90"
+"generate_link" "1"
+}
+// entity 16
+{
+"classname" "Creature"
+"origin" "-510 468 280"
+"angle" "150"
+"creature_id" "6"
+"wander" "1"
+}
+// entity 17
+{
+"classname" "Creature"
+"origin" "-506 406 280"
+"wander" "1"
+"creature_id" "8"
+}
+// entity 18
+{
+"classname" "Creature"
+"origin" "-744 400 280"
+"wander" "0"
+"repeatable" "0"
+"creature_id" "12"
+"drop" "32"
+}
+// entity 19
+{
+"classname" "Creature"
+"origin" "-1158 416 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 20
+{
+"classname" "Creature"
+"origin" "-1150 604 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 21
+{
+"classname" "Creature"
+"origin" "-996 446 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 22
+{
+"classname" "Creature"
+"origin" "-1112 538 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 23
+{
+"classname" "Creature"
+"origin" "-930 526 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
+}
+// entity 24
+{
+"classname" "Creature"
+"origin" "-1058 634 280"
+"angle" "45"
+"creature_id" "9"
+"wander" "2"
 }

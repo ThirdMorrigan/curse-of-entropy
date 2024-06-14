@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=23 format=3 uid="uid://c1blhjn6ke38y"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=25 format=3 uid="uid://c1blhjn6ke38y"]
 
 [ext_resource type="Resource" uid="uid://nayxb8n7see2" path="res://addons/func_godot/fgd/phong_base.tres" id="1_co63r"]
 [ext_resource type="Resource" uid="uid://bdji3873bg32h" path="res://addons/func_godot/fgd/worldspawn.tres" id="2_g02gq"]
@@ -22,6 +22,8 @@
 [ext_resource type="Resource" uid="uid://2l236n5qoe8r" path="res://func_godot/func_friction.tres" id="19_ydhbc"]
 [ext_resource type="Resource" uid="uid://cdcqe02h1cifh" path="res://func_godot/wall-torch.tres" id="20_nd4wd"]
 [ext_resource type="Resource" path="res://func_godot/func_damage.tres" id="21_6j6ol"]
+[ext_resource type="Resource" uid="uid://8y36wsupewtw" path="res://func_godot/func_arcane_lock.tres" id="22_2an6v"]
+[ext_resource type="Resource" path="res://func_godot/grapple_target.tres" id="23_svbgl"]
 
 [resource]
 script = ExtResource("8_1hv21")
@@ -29,4 +31,4 @@ export_file = false
 model_key_word_supported = true
 fgd_name = "CurseOFEntropy"
 base_fgd_files = Array[Resource]([])
-entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq"), ExtResource("9_bmajx"), ExtResource("9_h3ua6"), ExtResource("11_6xirn"), ExtResource("12_xnv32"), ExtResource("14_ubb2c"), ExtResource("15_xbjrt"), ExtResource("14_bw5ed"), ExtResource("15_fl1vc"), ExtResource("16_43dl6"), ExtResource("17_kq83q"), ExtResource("18_0c0bc"), ExtResource("19_ydhbc"), ExtResource("20_nd4wd"), ExtResource("21_6j6ol")])
+entity_definitions = Array[Resource]([ExtResource("7_58sq4"), ExtResource("4_lxge8"), ExtResource("5_x3sj8"), ExtResource("3_hqo12"), ExtResource("6_w5w5f"), ExtResource("1_co63r"), ExtResource("2_g02gq"), ExtResource("9_bmajx"), ExtResource("9_h3ua6"), ExtResource("11_6xirn"), ExtResource("12_xnv32"), ExtResource("14_ubb2c"), ExtResource("15_xbjrt"), ExtResource("14_bw5ed"), ExtResource("15_fl1vc"), ExtResource("16_43dl6"), ExtResource("17_kq83q"), ExtResource("18_0c0bc"), ExtResource("19_ydhbc"), ExtResource("20_nd4wd"), ExtResource("21_6j6ol"), ExtResource("22_2an6v"), ExtResource("23_svbgl")])

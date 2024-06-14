@@ -17,7 +17,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	var targetCollider = get_collider()
 	if current_interactable != targetCollider:
 		current_interactable = targetCollider
@@ -28,5 +28,6 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		if current_interactable is Interactable:
 			current_interactable.interact.emit()
+			$"../../..".set_ui_items()
 			
 			

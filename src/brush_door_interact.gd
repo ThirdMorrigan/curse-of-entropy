@@ -10,7 +10,7 @@ func _ready():
 	$"..".opened.connect(_on_finished_opening)
 	
 func _func_godot_apply_properties(props: Dictionary) -> void:
-	state = props["state"] as int
+	state = props["state"] as states
 	keyID = props["key"] as int
 
 func wrong_side_test() -> bool: 

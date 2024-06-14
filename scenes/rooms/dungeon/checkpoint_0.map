@@ -579,14 +579,6 @@
 }
 // entity 4
 {
-"classname" "Door"
-"origin" "-1600 232 16"
-"angle" "180"
-"state" "0"
-"key" "11"
-}
-// entity 5
-{
 "classname" "func_door"
 "origin" "-19 0 0"
 "open_angle" "-100"
@@ -600,10 +592,59 @@
 ( -1168 524 20 ) ( -1168 524 21 ) ( -1168 525 20 ) metal_rusty_0 [ 0 1 0 32 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 6
+// entity 5
 {
 "classname" "Door"
 "origin" "-1272 528 16"
 "angle" "180"
 "state" "1"
+}
+// entity 6
+{
+"classname" "Creature"
+"origin" "-1192 408 24"
+"creature_id" "6"
+}
+// entity 7
+{
+"classname" "Creature"
+"origin" "-1320 552 24"
+"angle" "180"
+"creature_id" "7"
+}
+// entity 8
+{
+"classname" "func_door"
+"open_angle" "-70"
+"key" "11"
+"generate_link" "1"
+"interactable" "1"
+"origin" "0 -31 0"
+// brush 0
+{
+( -1604 232 16 ) ( -1604 233 16 ) ( -1604 232 17 ) metal_fence_0 [ 0 -1 0 0 ] [ 0 0 -1 -8 ] 0 1 1
+( -1604 232 16 ) ( -1604 232 17 ) ( -1603 232 16 ) metal_fence_0 [ 1 0 0 0 ] [ 0 0 -1 -8 ] 0 1 1
+( -1604 232 16 ) ( -1603 232 16 ) ( -1604 233 16 ) metal_fence_0 [ -1 0 0 0 ] [ 0 -1 0 -8 ] 0 1 1
+( -1596 296 96 ) ( -1596 297 96 ) ( -1595 296 96 ) metal_fence_0 [ 1 0 0 0 ] [ 0 -1 0 -8 ] 0 1 1
+( -1596 296 20 ) ( -1595 296 20 ) ( -1596 296 21 ) metal_fence_0 [ -1 0 0 0 ] [ 0 0 -1 -8 ] 0 1 1
+( -1596 296 20 ) ( -1596 296 21 ) ( -1596 297 20 ) metal_fence_0 [ 0 1 0 0 ] [ 0 0 -1 -8 ] 0 1 1
+}
+}
+// entity 9
+{
+"classname" "Torch"
+"origin" "-1472 240 68"
+"angle" "270"
+}
+// entity 10
+{
+"classname" "Torch"
+"origin" "-1088 352 72"
+"angle" "270"
+}
+// entity 11
+{
+"classname" "Torch"
+"origin" "-1096 592 72"
+"angle" "90"
 }

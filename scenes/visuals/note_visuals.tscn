@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkpdv7mjn4n4v"]
+
+[ext_resource type="PackedScene" uid="uid://b5yqt7308vb7g" path="res://assets/models/world/scroll.glb" id="1_f57ke"]
+[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_um8jh"]
+[ext_resource type="Texture2D" uid="uid://dq6n6r0nyw3xn" path="res://assets/materials/scroll/scroll_albedo.png" id="3_ph7g5"]
+[ext_resource type="Texture2D" uid="uid://dnbo5qsetnuro" path="res://assets/materials/scroll/scroll_crunch.png" id="4_ytqwc"]
+[ext_resource type="Texture2D" uid="uid://gdu18kgd2oqd" path="res://assets/materials/scroll/scroll_normal.png" id="5_c26vq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqn3e"]
+render_priority = 0
+shader = ExtResource("2_um8jh")
+shader_parameter/vertex_wobble_scale = 2
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_albedo = ExtResource("3_ph7g5")
+shader_parameter/texture_normal = ExtResource("5_c26vq")
+shader_parameter/texture_crunch = ExtResource("4_ytqwc")
+
+[node name="scroll" instance=ExtResource("1_f57ke")]
+
+[node name="Cylinder" parent="." index="0"]
+layers = 17
+surface_material_override/0 = SubResource("ShaderMaterial_iqn3e")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115927, 0.290155, -0.14394)
+light_cull_mask = 4293918736
+omni_range = 0.47

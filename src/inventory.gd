@@ -5,6 +5,10 @@ var equipment = {}
 
 signal equipmentChanged
 signal jump_boots
+signal fireball
+signal pickaxe
+signal arcane
+signal grapple
 
 #these need definitions for when its empty
 #a manuel check for 0 could work or maybe any negetive value
@@ -20,16 +24,12 @@ func bagHasByID(id,type):
 
 func add(id, amount):
 	var item = GameDataSingleton.itemLookupTable[id]
-	match id:
-		7:
-			jump_boots.emit()
-			print("testing 124")
-	
+	check_tool(id)
 	if id in bags[item["type"]]:
 		bags[item["type"]][id] += amount
 	else:
 		bags[item["type"]][id] = amount
-	print(bags)
+	#print(bags)
 
 func updateEquipment(id):
 	var item = GameDataSingleton.itemLookupTable[id]
@@ -46,3 +46,27 @@ func playerHas(id):
 func consumeItem(id):
 	var item = GameDataSingleton.itemLookupTable[id]
 	bags[item["type"]][id] -= 1
+
+func get_quantity(id):
+	var item = GameDataSingleton.itemLookupTable[id]
+	return bags[item["type"]][id]
+
+func setup_tools():
+	for item in bags[GameDataSingleton.item_types.TOOL].keys():
+		check_tool(item)
+
+
+func check_tool(id):
+	match id:
+		7:
+			jump_boots.emit()
+			#print("testing 124")
+		3:
+			pickaxe.emit()
+		22:
+			fireball.emit()
+		23:
+			arcane.emit()
+		27:
+			grapple.emit()
+		

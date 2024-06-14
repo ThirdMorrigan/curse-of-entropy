@@ -1,9 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://lxnrcvm08whn"]
+[gd_scene load_steps=21 format=3 uid="uid://lxnrcvm08whn"]
 
 [ext_resource type="PackedScene" uid="uid://dq25c0xpdv6yp" path="res://assets/models/creatures/humanoid base/humanoid_base.glb" id="1_ufxch"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="2_8djno"]
-[ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="2_75wws"]
-[ext_resource type="Material" uid="uid://bapvghxu8wmry" path="res://scenes/creature/thralls/base_thrall.tres" id="3_6sy1f"]
+[ext_resource type="Material" path="res://textures/carpet_white_0.tres" id="3_i3cmm"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="3_w1osr"]
 [ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="5_5qyje"]
@@ -164,36 +163,6 @@ bind/41/name = &"foot_IK.R"
 bind/41/bone = -1
 bind/41/pose = Transform3D(1, -6.06535e-07, -3.79084e-07, -2.84217e-13, -0.529999, 0.847998, -7.15256e-07, -0.847999, -0.529999, 0.098, 0.0588935, 0.0636634)
 
-[sub_resource type="Curve" id="Curve_dv2kh"]
-_data = [Vector2(0.522822, 0.208791), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="Curve" id="Curve_jhy4a"]
-_data = [Vector2(0.497925, 1), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="Curve" id="Curve_nlllb"]
-_data = [Vector2(0.53527, 1), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_xd3m0"]
-curve_x = SubResource("Curve_dv2kh")
-curve_y = SubResource("Curve_jhy4a")
-curve_z = SubResource("Curve_nlllb")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pglwm"]
-render_priority = 0
-shader = ExtResource("2_75wws")
-shader_parameter/vertex_wobble_scale = 0
-shader_parameter/albedo = Color(0.713726, 0.713726, 0.713726, 1)
-shader_parameter/alpha_scissor_threshold = 0.5
-shader_parameter/roughness = 1.0
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 1.0
-shader_parameter/normal_scale = 2.0
-shader_parameter/ao_light_affect = 0.5
-shader_parameter/texture_crunch = SubResource("CurveXYZTexture_xd3m0")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2keqp"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rde5a"]
@@ -220,7 +189,7 @@ radius = 0.0743231
 
 [sub_resource type="Resource" id="Resource_vwpa3"]
 script = ExtResource("8_ge3yd")
-damage = 5.0
+damage = 50.0
 impulse = 2.0
 damage_types = 1
 
@@ -238,7 +207,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0173497, 0.97262, -0.0853307)
+bones/1/position = Vector3(0.0171027, 0.97435, -0.0853959)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -246,7 +215,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.181922, -0.0192802, 0.000113888, 0.983124)
+bones/7/rotation = Quaternion(-0.171677, -0.0165777, -0.000191751, 0.985014)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.26114, 0.673809, -0.527406, 0.4468)
@@ -271,18 +240,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.939074, 0.0171571, 0.0274485, 0.342188)
+bones/24/rotation = Quaternion(0.940083, 0.01735, 0.0275741, 0.339386)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.286362, -1.75663e-09, 1.23055e-09, 0.958122)
+bones/25/rotation = Quaternion(0.280163, -9.11606e-10, -8.91973e-10, 0.959952)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.577148, -0.130874, -0.0308126, 0.805496)
+bones/26/rotation = Quaternion(-0.574321, -0.13097, -0.0312333, 0.807482)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.956244, -0.0479683, -0.0668382, 0.280766)
+bones/29/rotation = Quaternion(0.957033, -0.047945, -0.066423, 0.278167)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.289616, -3.24537e-09, -1.22278e-09, 0.957143)
+bones/30/rotation = Quaternion(0.283658, 2.93089e-09, -2.48216e-09, 0.958926)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.624934, 0.169747, 0.0153346, 0.761846)
+bones/31/rotation = Quaternion(-0.622309, 0.169355, 0.0160102, 0.764064)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -307,15 +276,15 @@ bones/41/scale = Vector3(1, 1, 0.999999)
 [node name="proto_weapon" type="MeshInstance3D" parent="rig/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_s8tb4")
 skin = SubResource("Skin_gut7l")
-surface_material_override/0 = SubResource("ShaderMaterial_pglwm")
+surface_material_override/0 = ExtResource("3_i3cmm")
 
 [node name="thrall" type="MeshInstance3D" parent="rig/Skeleton3D" index="1"]
 mesh = SubResource("ArrayMesh_rde5a")
 skin = SubResource("Skin_gut7l")
-surface_material_override/0 = ExtResource("3_6sy1f")
+surface_material_override/0 = ExtResource("3_i3cmm")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.999557, -0.00598966, 0.0291359, 0.0154418, 0.941674, -0.336173, -0.0254229, 0.336474, 0.94135, 0.0107932, 1.70871, 0.110234)
+transform = Transform3D(0.999382, -0.00531138, 0.0347465, 0.0173304, 0.934471, -0.355616, -0.0305808, 0.355998, 0.933986, 0.0105462, 1.71044, 0.110169)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -368,13 +337,12 @@ damage_instances = Array[ExtResource("8_ge3yd")]([SubResource("Resource_vwpa3")]
 targets = 16
 hitbox_shape = SubResource("CapsuleShape3D_l356f")
 attack_origin = NodePath("../attack_origin")
-range = 1.0
 ai_range_max = 1.0
 
 [node name="eyes" type="Marker3D" parent="." index="9"]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="10"]
-navigation_layers = 129
+navigation_layers = 177
 avoidance_enabled = true
 
 [node name="CreatureAI" type="Node" parent="." index="11" node_paths=PackedStringArray("eyes")]

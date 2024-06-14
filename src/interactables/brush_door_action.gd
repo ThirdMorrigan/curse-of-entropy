@@ -3,7 +3,7 @@ extends DoorAction
 class_name BrushDoorAction
 
 func open():
-	print("open")
+	#print("open")
 	interactable.start_opening()
 	pass
 

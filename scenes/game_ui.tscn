@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpu2r44awjr47"]
+[gd_scene load_steps=11 format=3 uid="uid://cpu2r44awjr47"]
 
 [ext_resource type="Script" path="res://src/game_ui.gd" id="1_862kw"]
 [ext_resource type="PackedScene" uid="uid://bqhuchapsof4y" path="res://scenes/face.tscn" id="2_2eqf4"]
 [ext_resource type="PackedScene" uid="uid://ddld4lk0oa4yc" path="res://scenes/character_select_panel.tscn" id="2_yt4s0"]
+[ext_resource type="Texture2D" uid="uid://bfohu53hf3iop" path="res://assets/sprites/health_bar_background.png" id="3_xasrb"]
+[ext_resource type="Texture2D" uid="uid://bf22gnmcpf7dt" path="res://assets/sprites/health_bar.png" id="4_a2pbj"]
 
 [sub_resource type="Animation" id="Animation_6v8aw"]
 length = 0.001
@@ -66,6 +68,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character_info:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pm35w"]
 resource_name = "death_screen_fade"
@@ -92,6 +106,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Character_info:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_5w2we"]
@@ -156,6 +182,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character_info:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_6a1mo"]
 resource_name = "death_screen_unfade"
@@ -219,6 +257,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Character_info:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oiocy"]
@@ -285,14 +335,11 @@ offset_bottom = 40.0
 [node name="character_select_panel" parent="death_screen" instance=ExtResource("2_yt4s0")]
 visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.437
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.437
 anchor_bottom = 0.5
-offset_left = -118.04
-offset_right = 120.96
-grow_horizontal = 2
+offset_left = 239.0
+offset_right = 239.0
 grow_vertical = 2
 
 [node name="character_select_panel2" parent="death_screen" instance=ExtResource("2_yt4s0")]
@@ -310,13 +357,11 @@ grow_vertical = 2
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.630458
+anchor_left = 0.818229
 anchor_top = 0.5
-anchor_right = 0.630458
+anchor_right = 0.818229
 anchor_bottom = 0.5
-offset_left = 1.5199
-offset_right = 1.5199
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
@@ -326,16 +371,6 @@ libraries = {
 "": SubResource("AnimationLibrary_oiocy")
 }
 
-[node name="health" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
 [node name="interactable" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -343,22 +378,200 @@ anchor_left = 0.508333
 anchor_top = 0.493056
 anchor_right = 0.508333
 anchor_bottom = 0.493056
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -19.9994
+offset_top = -11.5005
+offset_right = 193.001
+offset_bottom = 39.4995
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 3
+text = "test text what"
 autowrap_mode = 2
-
-[node name="face" parent="." instance=ExtResource("2_2eqf4")]
-layout_mode = 1
+justification_flags = 162
 
 [node name="gameplay" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Character_info" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="healthbar" type="Control" parent="Character_info"]
+layout_mode = 1
+anchor_left = 0.025
+anchor_top = -0.15
+anchor_right = 0.025
+anchor_bottom = -0.15
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Health_lost_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6
+anchor_top = -2.2375
+anchor_right = 13.475
+anchor_bottom = -2.2375
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.001
+value = 50.0
+texture_under = ExtResource("3_xasrb")
+texture_progress = ExtResource("4_a2pbj")
+tint_progress = Color(1, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="maxhealth_missing_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6
+anchor_top = -2.2375
+anchor_right = 13.475
+anchor_bottom = -2.2375
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.001
+value = 50.0
+fill_mode = 1
+texture_progress = ExtResource("4_a2pbj")
+tint_progress = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Health_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6
+anchor_top = -2.2375
+anchor_right = 9.925
+anchor_bottom = -2.2375
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.001
+value = 50.0
+texture_progress = ExtResource("4_a2pbj")
+tint_progress = Color(0.95, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="mana_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6
+anchor_top = -1.6125
+anchor_right = 9.925
+anchor_bottom = -1.6125
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 2.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.001
+value = 50.0
+texture_under = ExtResource("3_xasrb")
+texture_progress = ExtResource("4_a2pbj")
+tint_progress = Color(0.167383, 0.469601, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="face" parent="Character_info" instance=ExtResource("2_2eqf4")]
+layout_mode = 1
+anchor_left = 2.4
+anchor_top = -1.825
+anchor_right = 2.4
+anchor_bottom = -1.825
+offset_top = 0.0
+offset_bottom = 0.0
+scale = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="consume" type="Sprite2D" parent="Character_info"]
+position = Vector2(270.53, -27.89)
+texture = ExtResource("3_xasrb")
+
+[node name="consumeable" type="Label" parent="Character_info/consume"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="consumeable_quantity" type="Label" parent="Character_info/consume"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="tool2" type="Sprite2D" parent="Character_info"]
+position = Vector2(270, -49)
+texture = ExtResource("3_xasrb")
+
+[node name="tool" type="Label" parent="Character_info/tool2"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="name plate" type="Sprite2D" parent="Character_info"]
+position = Vector2(129, 0)
+texture = ExtResource("3_xasrb")
+
+[node name="name" type="Label" parent="Character_info/name plate"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -19.5
+offset_right = -128.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Eddward
+"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

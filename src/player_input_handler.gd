@@ -16,6 +16,8 @@ var mouselook_active : bool :
 			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func _ready():
+	player.pause_player.connect(_on_player_pause_player)
+	player.unpause_player.connect(_on_player_unpause_player)
 	mouselook_active = true
 
 func _input(event):
@@ -35,14 +37,15 @@ func _process(_delta):
 		player.try_swing()
 		
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("cycle_tool_up"):
 		player.cycle_current_tool(-1)
 	if Input.is_action_just_pressed("cycle_tool_down"):
 		player.cycle_current_tool(1)
 	if Input.is_action_just_pressed("use_tool"):
-		if player.current_tool.check():
-			player.current_tool.fire()
+		if player.current_tool != null:
+			if player.current_tool.check():
+				player.current_tool.fire()
 	if Input.is_action_just_pressed("cycle_consumeable"):
 		player.cycle_consumeable()
 	if Input.is_action_just_pressed("use_consumeable"):

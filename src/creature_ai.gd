@@ -11,7 +11,7 @@ class_name CreatureAI
 @export var vision_range : float = 15
 @export var vision_angle : float = 45
 
-var overwirte_target_position : Marker3D
+var overwirte_target_position : Marker3D = null
 var attacks : Array[Attack]
 var attack_timer : float = 0.0
 
@@ -49,7 +49,7 @@ func _ready():
 	nav = creature.find_children("*", "NavigationAgent3D")[0]
 	attacks = creature.attacks
 	if !(nav is NavigationAgent3D):
-		print("dies xd")
+		print("nav missing dies xd")
 		queue_free()
 	
 	overwirte_target_position = creature.overwirte_target_position
@@ -59,7 +59,7 @@ func _ready():
 	nav.path_changed.connect(_on_path_changed)
 	nav.velocity_computed.connect(_on_velocity_computed)
 	nav.max_speed = creature.speed
-	#print("setting state in ai ready")
+	##print("setting state in ai ready")
 	creature.current_state = Creature.State.IDLE
 	
 	
@@ -82,21 +82,22 @@ func _ready():
 	vision_area.collision_mask = 16
 	vision_area.collision_layer = 0
 	
+	wander_range = creature.wander_range
 	if overwirte_target_position == null :
 		wander_goal = random_pos_in_wander_range()
 	else :
 		wander_goal = overwirte_target_position.global_position
 
-	wander_range = creature.wander_range
 	
 	ai_loop.start(_ai_loop)
 	
 func _physics_process(delta):
+	#print(current_nav_goal)
 	#if overwirte_target_position != null:
-		#print(current_nav_goal)
+		##print(current_nav_goal)
 	if creature.current_state == Creature.State.DIE:
 		nav.queue_free()
-		queue_free()
+		safe_kill()
 		
 	if !ai_ticker:
 		sem.post()
@@ -104,8 +105,8 @@ func _physics_process(delta):
 	ai_ticker -= 1
 	
 	mut.lock()
-	if next_state != creature.current_state:
-		if !(next_state >= Creature.State.ATTACK_0 && creature.current_state == Creature.State.IDLE) :
+	if next_state != creature.current_state and creature.current_state != Creature.State.DIE:
+		if !(next_state >= Creature.State.ATTACK_0 && creature.current_state == Creature.State.IDLE)  :
 			creature.current_state = next_state
 	if creature.current_state < Creature.State.ATTACK_0 :
 		attack_timer -= delta
@@ -121,7 +122,7 @@ func _physics_process(delta):
 		current_nav_goal = player_last_seen
 	else:
 		if vision_area.has_overlapping_areas() :
-			#print("player close")
+			##print("player close")
 			var _p = vision_area.get_overlapping_areas()[0].parent
 			var to_player = (_p.global_position - creature.global_position)
 			var close = to_player.length_squared() < 4.0
@@ -172,13 +173,15 @@ func _ai_loop():
 			if overwirte_target_position == null:
 				if wander_range :
 					if waiting:
-						#print("player null, waiting, setting to idle")
+						##print("player null, waiting, setting to idle")
 						next_state = Creature.State.IDLE
 					else:
-						#print("player null, not waiting, setting to walk")
+						##print("player null, not waiting, setting to walk")
 						next_state = Creature.State.WALK
 						if current_nav_goal != wander_goal:
 							current_nav_goal = wander_goal
+				else :
+					next_state = Creature.State.IDLE
 		
 
 			mut.unlock()
@@ -191,7 +194,8 @@ func _ai_loop():
 					if attacks[_a].ai_range_min < absolute_distance_to_player && absolute_distance_to_player < attacks[_a].ai_range_max:
 						picked_attack = _a
 			if picked_attack > -1 && attack_timer <= 0.0:
-				next_state = Creature.State.ATTACK_0 + picked_attack
+				next_state = (Creature.State.ATTACK_0 + picked_attack) as Creature.State
+				#print(next_state)
 				attack_timer = attacks[picked_attack].wind_down
 				
 			elif creature.current_state < Creature.State.ATTACK_0:
@@ -201,6 +205,8 @@ func _ai_loop():
 				else:
 					next_state = Creature.State.JUMP
 			mut.unlock()
+		if creature.current_state == Creature.State.DIE:
+			next_state = Creature.State.DIE
 	
 func wait():
 	randomize()
@@ -234,6 +240,7 @@ func look_for(_player : Player) -> bool:
 
 func _on_link_reached(details):
 	var link : NavigationLink3D = details["owner"]
+	print("link reached??")
 	if link.navigation_layers > 63:
 		next_state = Creature.State.JUMP
 		creature.landed = false
@@ -255,8 +262,28 @@ func _exit_tree():
 	exit_ai_loop = true
 	mut.unlock()
 	sem.post()
-	ai_loop.wait_to_finish()
+	if ai_loop.is_alive():
+		ai_loop.wait_to_finish()
 	if waiting_thread.is_alive():
 		waiting_thread.wait_to_finish()
 
+func safe_kill():
+	exit_ai_loop = true
+	sem.post()
+	if ai_loop.is_alive():
+		ai_loop.wait_to_finish()
+	if waiting_thread.is_alive():
+		waiting_thread.wait_to_finish()
+	
+	queue_free()
+		
 
+func safe_kill_creature():
+	exit_ai_loop = true
+	sem.post()
+	#print(self)
+	if ai_loop.is_alive():
+		ai_loop.wait_to_finish()
+	if waiting_thread.is_alive():
+		waiting_thread.wait_to_finish()
+	$"..".queue_free()

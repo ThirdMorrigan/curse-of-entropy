@@ -9,9 +9,6 @@ func _ready():
 		interactable.interact.connect(_on_interact)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _on_interact():
 	print("no action implamented")

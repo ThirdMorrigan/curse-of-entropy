@@ -4,7 +4,6 @@
 
 [node name="EnemySpawner" type="Marker3D"]
 script = ExtResource("1_63cf0")
-repetable = null
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

@@ -28,15 +28,16 @@ func _ready():
 	opened.connect(_on_opened)
 	
 func _func_godot_apply_properties(props: Dictionary) -> void:
-	state = props["state"] as int
+	state = props["state"] as states
 	keyID = props["key"] as int
 
 func _on_opened():
-	print("opened")
+	#print("opened")
 	if link != null :
+		print("opened")
 		link.enabled = true
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !Engine.is_editor_hint():
 		set_interaction_text()
 

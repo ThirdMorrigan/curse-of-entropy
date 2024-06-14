@@ -8,6 +8,6 @@ func _ready():
 	pass
 
 func _func_godot_apply_properties(props: Dictionary) -> void:
-	print("building light")
+	#print("building light")
 	light_energy = props["energy"] as float
 	light_color = props["colour"] as Color
