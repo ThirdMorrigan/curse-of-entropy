@@ -10,8 +10,10 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -30, 30)
 
 [node name="Room" parent="." instance=ExtResource("1_3etp6")]
+zone = 6
 
 [node name="Room2" parent="." instance=ExtResource("2_2hlwh")]
+zone = 6
 
 [node name="Room3" parent="." instance=ExtResource("3_4qel8")]
 

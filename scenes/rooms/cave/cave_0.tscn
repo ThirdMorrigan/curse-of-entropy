@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://dyvbnk6yj5r4e"]
+[gd_scene load_steps=174 format=3 uid="uid://dyvbnk6yj5r4e"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_4gfpf"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_jx4c4"]
@@ -17,11 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="14_743ay"]
 [ext_resource type="Script" path="res://addons/func_godot/src/func_kill.gd" id="15_wgdjs"]
 [ext_resource type="Material" path="res://textures/invisable_wall.tres" id="16_14q5s"]
-[ext_resource type="Shader" uid="uid://bex50qh6882hc" path="res://fast_water.tres" id="17_5qy06"]
+[ext_resource type="Material" uid="uid://ndjgsoiti4hi" path="res://scenes/rooms/cave/water_spray.tres" id="17_edmg2"]
 [ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="17_pwpch"]
-[ext_resource type="Texture2D" uid="uid://mtluu6k27ayq" path="res://assets/materials/water/water_albedo.png" id="18_05lb5"]
-[ext_resource type="Texture2D" uid="uid://c4t1o8jvmmy6u" path="res://assets/materials/water/water_crunch.png" id="19_ixvfh"]
-[ext_resource type="Texture2D" uid="uid://cstrcn75p1uu2" path="res://assets/materials/water/water_normal.png" id="20_0qye8"]
 [ext_resource type="PackedScene" uid="uid://dywlbjb7mce68" path="res://scenes/visuals/str_crystal_visuals.tscn" id="20_e7qhy"]
 [ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="20_thxds"]
 [ext_resource type="PackedScene" uid="uid://b1fpm3e0vfvl" path="res://scenes/creature/thralls/thrall_pickaxe_1h.tscn" id="21_y60xh"]
@@ -557,21 +554,6 @@ points = PackedVector3Array(-3.40625, -4, -37.3437, -3.875, -4, -37.5, -3.875, -
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mj5y7"]
 points = PackedVector3Array(-3.875, -4, -36.875, -3.875, -5, -36.875, -3.25, -5, -36.875, -3.25, -4, -36.875, -3.875, -4, -36.25, -3.875, -5, -36.25, -3.40625, -5, -36.4063, -3.40625, -4, -36.4063)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubihi"]
-render_priority = 0
-shader = ExtResource("17_5qy06")
-shader_parameter/vertex_wobble_scale = 0
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/alpha_scissor_threshold = 0.5
-shader_parameter/roughness = 1.0
-shader_parameter/specular = 1.139
-shader_parameter/metallic = 1.0
-shader_parameter/normal_scale = 1.0
-shader_parameter/ao_light_affect = 1.2
-shader_parameter/texture_albedo = ExtResource("18_05lb5")
-shader_parameter/texture_normal = ExtResource("20_0qye8")
-shader_parameter/texture_crunch = ExtResource("19_ixvfh")
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_o70fb"]
 _surfaces = [{
 "aabb": AABB(-0.263795, -2.30663, -3.25799, 0.625, 4.85501, 6.125),
@@ -579,7 +561,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 231,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 4, 0, 5, 0, 0, 0, 5, 0, 6, 0, 0, 0, 6, 0, 7, 0, 0, 0, 7, 0, 8, 0, 0, 0, 8, 0, 9, 0, 0, 0, 9, 0, 10, 0, 0, 0, 10, 0, 11, 0, 0, 0, 11, 0, 12, 0, 0, 0, 12, 0, 13, 0, 0, 0, 13, 0, 14, 0, 0, 0, 14, 0, 15, 0, 0, 0, 15, 0, 16, 0, 0, 0, 16, 0, 17, 0, 0, 0, 17, 0, 18, 0, 0, 0, 18, 0, 19, 0, 0, 0, 19, 0, 20, 0, 0, 0, 20, 0, 21, 0, 0, 0, 21, 0, 22, 0, 0, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 24, 0, 26, 0, 27, 0, 24, 0, 27, 0, 28, 0, 24, 0, 28, 0, 29, 0, 24, 0, 29, 0, 30, 0, 24, 0, 30, 0, 31, 0, 32, 0, 33, 0, 34, 0, 35, 0, 36, 0, 37, 0, 35, 0, 37, 0, 38, 0, 39, 0, 40, 0, 41, 0, 39, 0, 41, 0, 42, 0, 39, 0, 42, 0, 43, 0, 39, 0, 43, 0, 44, 0, 39, 0, 44, 0, 45, 0, 39, 0, 45, 0, 46, 0, 39, 0, 46, 0, 47, 0, 48, 0, 49, 0, 50, 0, 51, 0, 52, 0, 53, 0, 54, 0, 55, 0, 56, 0, 54, 0, 56, 0, 57, 0, 54, 0, 57, 0, 58, 0, 54, 0, 58, 0, 59, 0, 54, 0, 59, 0, 60, 0, 54, 0, 60, 0, 61, 0, 54, 0, 61, 0, 62, 0, 54, 0, 62, 0, 63, 0, 54, 0, 63, 0, 64, 0, 54, 0, 64, 0, 65, 0, 66, 0, 67, 0, 68, 0, 66, 0, 68, 0, 69, 0, 66, 0, 69, 0, 70, 0, 66, 0, 70, 0, 71, 0, 66, 0, 71, 0, 72, 0, 66, 0, 72, 0, 73, 0, 66, 0, 73, 0, 74, 0, 66, 0, 74, 0, 75, 0, 76, 0, 77, 0, 78, 0, 79, 0, 80, 0, 81, 0, 82, 0, 83, 0, 84, 0, 85, 0, 86, 0, 87, 0, 85, 0, 87, 0, 88, 0, 89, 0, 90, 0, 91, 0, 89, 0, 91, 0, 92, 0, 89, 0, 92, 0, 93, 0, 89, 0, 93, 0, 94, 0, 89, 0, 94, 0, 95, 0, 89, 0, 95, 0, 96, 0, 97, 0, 98, 0, 99, 0, 100, 0, 101, 0, 102, 0, 100, 0, 102, 0, 103, 0, 104, 0, 105, 0, 106, 0, 107, 0, 108, 0, 109, 0, 110, 0, 111, 0, 112, 0, 113, 0, 114, 0, 115, 0, 116, 0, 117, 0, 118, 0),
-"material": SubResource("ShaderMaterial_ubihi"),
+"material": ExtResource("17_edmg2"),
 "name": "water_0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -589,6 +571,9 @@ _surfaces = [{
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7a7nb"]
 points = PackedVector3Array(-0.0489621, -2.30663, -2.11671, -0.0489621, -2.30663, -2.11671, -0.0489616, -2.30663, -2.11671, -0.0489616, -2.30663, -2.11671, -0.0489616, -2.30663, -2.11671, -0.0489607, -2.30663, -2.11671, 0.349363, -2.30663, -2.1167, 0.349363, -2.30663, -2.11671, 0.349363, -2.30663, -2.11671, 0.349363, -2.30663, -2.11671, 0.349363, -2.30663, -2.11671, 0.349363, -2.30663, -2.11671, 0.236206, 1.04838, -3.25799, 0.236205, 1.04838, -3.25799, -0.263794, 1.04838, -3.25799, -0.263794, 1.04837, -3.25799, -0.263794, 1.04837, -3.25799, -0.263794, 1.04837, -3.25799, -0.263794, 1.04837, -3.25799, -0.263794, 1.04838, -3.25799, -0.263795, 1.04838, -3.25799, -0.263794, 1.0484, -3.25799, -0.263795, 1.04838, -3.25799, -0.263793, 1.04835, -3.25798, 0.236207, 2.54836, -0.258008, 0.236205, 2.54837, -0.258002, 0.236206, 2.54837, -0.257991, 0.236206, 2.54838, -0.257987, 0.236205, 2.54838, -0.257987, -0.263794, 2.54838, -0.257987, -0.138794, -1.88913, -2.13299, 0.361206, -1.88913, -2.13299, 0.361205, -1.88912, -2.13298, -0.188892, -2.07662, 1.61701, -0.188892, -2.07662, 1.617, -0.188893, -2.07662, 1.61701, -0.188892, -2.07662, 1.61702, -0.188892, -2.07663, 1.61701, -0.188892, -2.07663, 1.61701, -0.188891, -2.07663, 1.61701, 0.289576, 0.92335, 2.867, 0.289576, 0.923372, 2.86702, 0.289576, 0.923375, 2.86701, 0.289576, 0.923376, 2.86702, 0.289577, 0.923376, 2.86701, 0.289576, 0.923376, 2.86701, 0.289576, 0.923377, 2.86701, 0.289576, 0.923378, 2.86701, 0.289582, 0.92338, 2.867, 0.289576, 0.923383, 2.86701, -0.263794, 2.29838, 1.99202, -0.263794, 2.29838, 1.99201, -0.263794, 2.29838, 1.99201, -0.263794, 2.29837, 1.99202, -0.263794, 2.29837, 1.99202, -0.263794, 2.29837, 1.99202, -0.263794, 2.29836, 1.99202, -0.263794, 2.29836, 1.99202, 0.236205, 2.29838, 1.99201, -0.207615, 0.798374, 2.86701, -0.207615, 0.798375, 2.86701, -0.156002, -2.09225, 1.61701, -0.156, -2.09225, 1.61701, -0.156, -2.09225, 1.61701, -0.156, -2.09225, 1.61701, -0.156, -2.09225, 1.61701, -0.155998, -2.09225, 1.61701)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7xc01"]
+size = Vector3(0.732422, 2.72559, 2.29932)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nbe4u"]
 _surfaces = [{
@@ -1063,6 +1048,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("12_hexwy")
+interactionText = "pick up Intelligence Crystal"
 id = 36
 
 [node name="entity_2_Door" parent="FuncGodotMap" instance=ExtResource("10_ca7wk")]
@@ -1076,6 +1062,7 @@ func_godot_properties = {
 "origin": "16 -192 -208",
 "state": 3
 }
+interactionText = "can't be opened from this side"
 
 [node name="entity_3_Lever" parent="FuncGodotMap" instance=ExtResource("14_743ay")]
 transform = Transform3D(1.39071e-07, 0, 1, 0, 1, 0, -1, 0, 1.39071e-07, -5, -5.25, -37.25)
@@ -1105,6 +1092,10 @@ mesh = SubResource("ArrayMesh_o70fb")
 
 [node name="entity_4_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_4_func_kill"]
 shape = SubResource("ConvexPolygonShape3D_7a7nb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FuncGodotMap/entity_4_func_kill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133789, -0.862793, 1.92609)
+shape = SubResource("BoxShape3D_7xc01")
 
 [node name="entity_5_func_detail" type="StaticBody3D" parent="FuncGodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -4, 4.25)
@@ -1140,6 +1131,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("20_e7qhy")
+interactionText = "pick up Strength Crystal"
 id = 35
 
 [node name="entity_12_Creature" parent="FuncGodotMap" instance=ExtResource("20_thxds")]

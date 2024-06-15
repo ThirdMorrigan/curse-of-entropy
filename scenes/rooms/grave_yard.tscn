@@ -11,14 +11,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.077, 0, 0)
 
 [node name="Big maus" parent="." instance=ExtResource("1_os002")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.334503, -0.164618, -42.7954)
+zone = 1
 
 [node name="first" parent="." instance=ExtResource("2_fokqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3185, 0.652348, 28.7217)
+zone = 1
 
 [node name="second" parent="." instance=ExtResource("3_88llf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20.8509, 0.22444, 3.36323)
+zone = 1
 
 [node name="third" parent="." instance=ExtResource("4_o78e2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2027, 0.355034, -29.7311)
+zone = 1
 
 [node name="StaticBody3D" parent="." instance=ExtResource("5_jdtqo")]
