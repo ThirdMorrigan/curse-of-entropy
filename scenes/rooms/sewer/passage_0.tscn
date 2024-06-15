@@ -1,4 +1,4 @@
-[gd_scene load_steps=272 format=3 uid="uid://boellojabnr6l"]
+[gd_scene load_steps=274 format=3 uid="uid://boellojabnr6l"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_0aoie"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_s15vg"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b2yll6ecii7hn" path="res://scenes/creature/thralls/thrall_sword_weak.tscn" id="16_3cyyl"]
 [ext_resource type="PackedScene" uid="uid://bnulvmgwd4rig" path="res://scenes/creature/thralls/thrall_sword.tscn" id="17_sw5p5"]
 [ext_resource type="PackedScene" uid="uid://hxbkerqq4mii" path="res://scenes/creature/thralls/thrall_spear.tscn" id="18_ma2tu"]
+[ext_resource type="Script" path="res://src/fall_damage_cancel.gd" id="21_iqhjs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_worb3"]
 size = Vector3(58, 12, 55)
@@ -1051,6 +1052,9 @@ _surfaces = [{
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kliri"]
 points = PackedVector3Array(-27.5, 0.5, -21.75, -27.5, -0.5, -21.75, 27.5, -0.5, -21.75, 27.5, 0.5, -21.75, -27.5, 0.5, 21.75, -27.5, -0.5, 21.75, 27.5, -0.5, 21.75, 27.5, 0.5, 21.75)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oykt4"]
+size = Vector3(4, 0.02, 8)
+
 [node name="Room" type="Area3D"]
 collision_layer = 0
 collision_mask = 64
@@ -2005,5 +2009,12 @@ transform = Transform3D(1.39071e-07, 0, 1, 0, 1, 0, -1, 0, 1.39071e-07, -4, 2.5,
 
 [node name="entity_27_Torch" parent="FuncGodotMap" instance=ExtResource("7_fi20k")]
 transform = Transform3D(1.39071e-07, 0, 1, 0, 1, 0, -1, 0, 1.39071e-07, -4, 2.5, 6.5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("21_iqhjs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.42765, 0)
+shape = SubResource("BoxShape3D_oykt4")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

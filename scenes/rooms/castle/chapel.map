@@ -2468,7 +2468,7 @@
 // entity 51
 {
 "classname" "Torch"
-"origin" "1424 2800 528"
+"origin" "1408 2800 528"
 "angle" "180"
 }
 // entity 52
@@ -2515,4 +2515,61 @@
 "classname" "Creature"
 "origin" "2584 4680 480"
 "creature_id" "8"
+}
+// entity 58
+{
+"classname" "Item_pickup"
+"origin" "1488 2872 528"
+"id" "35"
+}
+// entity 59
+{
+"classname" "Item_pickup"
+"origin" "1504 2936 528"
+"id" "34"
+}
+// entity 60
+{
+"classname" "Item_pickup"
+"origin" "2616 3584 480"
+"id" "6"
+}
+// entity 61
+{
+"classname" "Item_pickup"
+"origin" "2640 3568 480"
+"id" "26"
+}
+// entity 62
+{
+"classname" "Item_pickup"
+"origin" "2568 3584 480"
+"id" "26"
+}
+// entity 63
+{
+"classname" "Item_pickup"
+"origin" "2536 3568 480"
+"id" "26"
+}
+// entity 64
+{
+"classname" "Item_pickup"
+"origin" "2884 3440 472"
+"id" "34"
+}
+// entity 65
+{
+"classname" "func_detail"
+// brush 0
+{
+( 1408 2624 480 ) ( 1408 3008 464 ) ( 1408 3008 480 ) invisable_wall [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 1600 3200 480 ) ( 1408 3008 464 ) ( 1600 3200 464 ) invisable_wall [ -0.7071067811865476 -0.7071067811865476 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 1792 2624 480 ) ( 1408 2624 464 ) ( 1408 2624 480 ) invisable_wall [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 1984 3200 464 ) ( 1792 2624 464 ) ( 1984 2816 464 ) invisable_wall [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 1984 3200 480 ) ( 1408 3008 480 ) ( 1600 3200 480 ) invisable_wall [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 1984 3200 480 ) ( 1600 3200 464 ) ( 1984 3200 464 ) invisable_wall [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 1984 2816 480 ) ( 1792 2624 464 ) ( 1792 2624 480 ) invisable_wall [ 0.7071067811865476 0.7071067811865476 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 1984 3200 480 ) ( 1984 2816 464 ) ( 1984 2816 480 ) invisable_wall [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
 }

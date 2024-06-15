@@ -157,6 +157,8 @@ func _physics_process(delta):
 			if $floor_test.is_colliding() :
 				var col = $floor_test.get_collider()
 				if col is StaticBody3D or col is RigidBody3D:
+					if col is FallDamageCancel:
+						fall_speed = 0.0
 					var pmo = col.physics_material_override
 					if pmo != null:
 						floor_friction = pmo.friction
@@ -178,6 +180,7 @@ func _physics_process(delta):
 					fall_speed += 8.0
 					#fall_speed *= 
 					fall_damage.damage = fall_speed * fall_speed
+					#get_coll
 					$HealthPool.hurt(fall_damage)
 					audio_control_node.fall_damage(true)
 				elif -fall_speed >4:

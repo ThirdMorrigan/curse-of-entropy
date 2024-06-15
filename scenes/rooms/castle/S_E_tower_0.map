@@ -275,3 +275,31 @@
 "angle" "30"
 "wander" "0"
 }
+// entity 9
+{
+"classname" "Torch"
+"origin" "-1664 160 96"
+"angle" "90"
+}
+// entity 10
+{
+"classname" "Torch"
+"origin" "-1424 -128 96"
+}
+// entity 11
+{
+"classname" "Torch"
+"origin" "-1664 160 208"
+"angle" "90"
+}
+// entity 12
+{
+"classname" "Torch"
+"origin" "-1424 -128 208"
+}
+// entity 13
+{
+"classname" "Torch"
+"origin" "-1920 -112 192"
+"angle" "180"
+}

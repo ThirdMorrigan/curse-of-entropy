@@ -596,7 +596,7 @@
 "key" "0"
 "interactable" "1"
 "open_angle" "89"
-"state" "1"
+"state" "0"
 "generate_link" "1"
 "_tb_group" "3"
 // brush 0
@@ -672,7 +672,7 @@
 "key" "0"
 "interactable" "1"
 "open_angle" "89"
-"state" "1"
+"state" "0"
 "generate_link" "1"
 "_tb_group" "5"
 // brush 0
@@ -799,4 +799,10 @@
 "angle" "45"
 "creature_id" "9"
 "wander" "2"
+}
+// entity 25
+{
+"classname" "Torch"
+"origin" "-1328 176 224"
+"angle" "180"
 }

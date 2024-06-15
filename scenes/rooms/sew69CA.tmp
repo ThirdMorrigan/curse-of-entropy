@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8qurahdclhh6"]
+
+[ext_resource type="PackedScene" uid="uid://boellojabnr6l" path="res://scenes/rooms/sewer/passage_0.tscn" id="1_3etp6"]
+[ext_resource type="PackedScene" uid="uid://62hjd1xvqhd5" path="res://scenes/rooms/sewer/passage_1.tscn" id="2_2hlwh"]
+[ext_resource type="PackedScene" uid="uid://dwlavpc2mweak" path="res://scenes/rooms/sewer/ravine.tscn" id="3_4qel8"]
+[ext_resource type="PackedScene" uid="uid://86qj40r7aiy2" path="res://scenes/rooms/sewer/to_dungeon.tscn" id="4_7thr8"]
+[ext_resource type="PackedScene" uid="uid://cuxomaeoe0sfp" path="res://scenes/rooms/sewer/tank.tscn" id="5_fcejn"]
+[ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="6_rwprj"]
+
+[node name="sewer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -30, 30)
+
+[node name="Room" parent="." instance=ExtResource("1_3etp6")]
+
+[node name="Room2" parent="." instance=ExtResource("2_2hlwh")]
+
+[node name="Room3" parent="." instance=ExtResource("3_4qel8")]
+
+[node name="Room4" parent="." instance=ExtResource("4_7thr8")]
+
+[node name="Room5" parent="." instance=ExtResource("5_fcejn")]
+
+[node name="Player" parent="." instance=ExtResource("6_rwprj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125351, 12.1304, -2.20047)
