@@ -14,6 +14,8 @@ extends Control
 @onready var mana_bar = $Character_info/healthbar/mana_bar
 @onready var player = $".."
 @onready var name_display = $"Character_info/name plate/name"
+@onready var health_text = $"Character_info/healthbar/Health_bar/health text"
+@onready var mana_text = $"Character_info/healthbar/mana_bar/mana text"
 
 @onready var consumeable = $Character_info/consume/consumeable
 @onready var tool = $Character_info/tool2/tool
@@ -69,6 +71,7 @@ func _on_health_change(new_hp,_new_max):
 	health_target = new_hp
 	##print(new_hp)
 	maxhealth_missing_bar.value = healthPool.max_hp - healthPool.curr_max_hp
+	health_text.text = str(int(new_hp)) +"/"+ str(int(healthPool.curr_max_hp))
 	timer.start()
 
 func _on_interactable_look(interact_message):
@@ -114,6 +117,7 @@ func _on_timer_timeout():
 func _on_mana_change(new_mana,new_max):
 	mana_target = new_mana
 	mana_bar.max_value = new_max
+	mana_text.text = str(int(new_mana)) + "/" + str(int(new_max))
 
 func _on_max_health_change(curr_max,full_max):
 	print(curr_max)

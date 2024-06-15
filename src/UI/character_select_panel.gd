@@ -30,5 +30,6 @@ func new_character():
 	intelligence_label.text = "Intelligence: " + str(character.intelligence)
 
 func _on_character_select():
+	print(character.strength)
 	get_tree().call_group("player","new_character",character)
 	$"../..".reload()

@@ -1,15 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbaki6pwgq3ad"]
+[gd_scene load_steps=11 format=3 uid="uid://okyny1oy2we8"]
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_dj85u"]
-[ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="11_8bbro"]
-[ext_resource type="PackedScene" uid="uid://flnsj2gm6hin" path="res://scenes/lever.tscn" id="24_y7bsn"]
-[ext_resource type="PackedScene" uid="uid://ojbnw4rvnxdx" path="res://scenes/rooms/castle.tscn" id="31_a5e28"]
-[ext_resource type="PackedScene" uid="uid://e6iyy134iowi" path="res://scenes/rooms/dungeon.tscn" id="32_x4rpi"]
-[ext_resource type="PackedScene" uid="uid://bskhruril6hag" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
-[ext_resource type="PackedScene" uid="uid://d1frlam5pfndn" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
-[ext_resource type="PackedScene" uid="uid://oddcm8p8t5n8" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
-[ext_resource type="PackedScene" uid="uid://c8qurahdclhh6" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/castle.tscn" id="31_a5e28"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/dungeon.tscn" id="32_x4rpi"]
+[ext_resource type="PackedScene" uid="uid://cn7brxlnfdiis" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
+[ext_resource type="PackedScene" uid="uid://cv3vgjdboysxf" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
@@ -35,17 +33,8 @@ shadow_enabled = true
 shadow_blur = 0.5
 directional_shadow_max_distance = 800.0
 
-[node name="Lever" parent="." instance=ExtResource("24_y7bsn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.408, -27.6324, 33.0036)
-bidirectional = true
-
 [node name="Player" parent="." instance=ExtResource("4_dj85u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.073, 22.2364, 39.046)
-
-[node name="Key4" parent="." instance=ExtResource("11_8bbro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8871, 7.07478, -85.1387)
-interactionText = "pick up Grapple Hook"
-id = 27
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3796, -7.34853, -7.28924)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_10dk0")

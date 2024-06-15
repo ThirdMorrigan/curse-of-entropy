@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="3_w1osr"]
 [ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_oppdi"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="5_5qyje"]
-[ext_resource type="AnimationLibrary" uid="uid://qcwmalocle7c" path="res://assets/models/creatures/humanoid base/animation_library_test.tres" id="5_bjj80"]
+[ext_resource type="AnimationLibrary" uid="uid://cokbdf5h3s2a1" path="res://assets/models/creatures/humanoid base/animation_library_test.tres" id="5_bjj80"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="6_xsdof"]
 [ext_resource type="Script" path="res://src/attack.gd" id="7_kj51n"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="8_ge3yd"]

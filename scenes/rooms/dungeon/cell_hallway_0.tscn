@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://src/room.gd" id="1_qs1m2"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_7rxb5"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_iofav"]
-[ext_resource type="Material" path="res://textures/wall_brick_0.tres" id="5_laewb"]
+[ext_resource type="Material" uid="uid://cr3lm23t2pg3q" path="res://textures/wall_brick_0.tres" id="5_laewb"]
 [ext_resource type="Texture2D" uid="uid://ber0vrx84c12f" path="res://textures/bare_stone_0.png" id="6_hhf6y"]
 [ext_resource type="PackedScene" uid="uid://hegywc5emmxm" path="res://scenes/door.tscn" id="6_mwmwm"]
 [ext_resource type="PackedScene" uid="uid://c5y8clpwclb6g" path="res://scenes/pickup.tscn" id="8_jf8xh"]
 [ext_resource type="PackedScene" uid="uid://cidvofjq6nuku" path="res://scenes/visuals/potion_visuals.tscn" id="9_2igfd"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_spawner.tscn" id="10_8ver3"]
+[ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="10_8ver3"]
 [ext_resource type="Script" path="res://src/creature.gd" id="11_kub2l"]
 [ext_resource type="Animation" uid="uid://culowml70870p" path="res://assets/models/creatures/humanoid base/attack-1h.res" id="12_0jsqv"]
 [ext_resource type="Material" uid="uid://dkhwphf5k7ymb" path="res://textures/metal_rusty_0.tres" id="12_ndo3u"]
@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="21_wqb8s"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="22_j2618"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="23_k0xlg"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="24_jt21i"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="24_jt21i"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="25_ktd86"]
 [ext_resource type="Script" path="res://src/attack.gd" id="26_yutjp"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="27_lk1tx"]
@@ -1152,6 +1152,8 @@ data = PackedVector3Array(0.015625, 0.121875, -0.0100694, 0.015625, 0.371875, 0.
 size = Vector3(24.5, 8.50002, 24.9313)
 
 [node name="CellHallway0" type="Area3D"]
+collision_layer = 0
+collision_mask = 64
 script = ExtResource("1_qs1m2")
 zone = 4
 
@@ -1541,7 +1543,6 @@ func_godot_properties = {
 "creature_id": 0,
 "origin": "94.4841 53.657 -8"
 }
-repetable = false
 
 [node name="entity_13_Item_pickup" parent="FuncGodotMap" instance=ExtResource("8_jf8xh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.75, -3.25, 10.25)
@@ -1661,7 +1662,6 @@ func_godot_properties = {
 "creature_id": 0,
 "origin": "338 455 -96"
 }
-repetable = false
 
 [node name="entity_25_Creature" parent="FuncGodotMap" instance=ExtResource("10_8ver3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.0938, -3.25, 10.25)
@@ -1672,7 +1672,6 @@ func_godot_properties = {
 "creature_id": 0,
 "origin": "328 355 -104"
 }
-repetable = false
 
 [node name="entity_26_Creature" parent="FuncGodotMap" instance=ExtResource("10_8ver3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.875, -2.8125, 7.75)
@@ -1683,7 +1682,6 @@ func_godot_properties = {
 "creature_id": 0,
 "origin": "248 444 -90"
 }
-repetable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 0.24999, -0.0343742)

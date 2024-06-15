@@ -49,11 +49,10 @@ func _ready():
 	create_hitbox()
 
 func fire() :
-	print("test")
 	play_sfx()
 	if spell:
 		scale_attack()
-	fired.emit()
+	fired.emit(mana_cost)
 	if attack_origin != null :
 		cast.global_position = attack_origin.global_position
 		cast.global_rotation = attack_origin.global_rotation

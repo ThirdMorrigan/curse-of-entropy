@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1frlam5pfndn"]
+[gd_scene load_steps=10 format=3 uid="uid://cv3vgjdboysxf"]
 
 [ext_resource type="PackedScene" uid="uid://lnlwc1p5nnvs" path="res://scenes/rooms/garden/garden_0_courtyard.tscn" id="1_6cpkh"]
 [ext_resource type="PackedScene" uid="uid://ct0ufd3dj7oqw" path="res://scenes/rooms/garden/garden_1_tunnel.tscn" id="2_akml7"]

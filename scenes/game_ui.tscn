@@ -472,6 +472,18 @@ texture_progress = ExtResource("4_a2pbj")
 tint_progress = Color(0.95, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="health text" type="Label" parent="Character_info/healthbar/Health_bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.037037
+anchor_right = 0.187003
+anchor_bottom = 0.544963
+offset_top = -3.0
+offset_right = 13.6009
+offset_bottom = 4.286
+text = "100/100"
+metadata/_edit_use_anchors_ = true
+
 [node name="mana_bar" type="TextureProgressBar" parent="Character_info/healthbar"]
 layout_mode = 1
 anchors_preset = -1
@@ -490,6 +502,17 @@ value = 50.0
 texture_under = ExtResource("3_xasrb")
 texture_progress = ExtResource("4_a2pbj")
 tint_progress = Color(0.167383, 0.469601, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="mana text" type="Label" parent="Character_info/healthbar/mana_bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.156
+anchor_bottom = 0.549963
+offset_top = -4.0
+offset_right = -0.0919991
+offset_bottom = 4.151
+text = "100/100"
 metadata/_edit_use_anchors_ = true
 
 [node name="face" parent="Character_info" instance=ExtResource("2_2eqf4")]
