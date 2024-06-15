@@ -15,6 +15,7 @@ const PLAYER_HIT_1 = preload("res://audio/player hit 1.wav")
 const PLAYER_HIT_2 = preload("res://audio/player hit 2.wav")
 const PLAYER_HIT_3 = preload("res://audio/player hit 3.wav")
 const PLAYER_DEATH_AAAH = preload("res://audio/player death AAAH.wav")
+const POTION_DRINK = preload("res://audio/potion drink.wav")
 var hit_sounds = [PLAYER_HIT_1,PLAYER_HIT_2,PLAYER_HIT_3]
 @onready var player_sfx_footsteps : AudioStreamPlayer = $player_sfx_footsteps
 @onready var health_pool = $"../../../HealthPool"
@@ -90,3 +91,6 @@ func player_die():
 	damage.stream = PLAYER_DEATH_AAAH
 	damage.play()
 
+func player_drink_potion():
+	damage.stream = POTION_DRINK
+	damage.play()

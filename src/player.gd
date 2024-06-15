@@ -358,8 +358,10 @@ func use_consumeable():
 		match item["resource"]:
 			GameDataSingleton.consumeable_type.HEALTH:
 				heal_health(item["strength"])
+				audio_control_node.player_drink_potion()
 			GameDataSingleton.consumeable_type.MANA:
 				heal_mana(item["strength"])
+				audio_control_node.player_drink_potion()
 			GameDataSingleton.consumeable_type.STAMINA:
 				pass
 
