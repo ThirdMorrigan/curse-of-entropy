@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://25438e3nny5t"
+path="res://.godot/imported/crypt_0.map-7b6aba006976e5dc94182c464fae3f9c.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/graveyard/crypt_0.map"
+dest_files=["res://.godot/imported/crypt_0.map-7b6aba006976e5dc94182c464fae3f9c.tres"]
+
+[params]
+
