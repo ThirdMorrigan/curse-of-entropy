@@ -79,20 +79,20 @@ func _on_area_entered(hb : Area3D):
 func _on_animation_finished(anim_name : String):
 	anim_name = anim_name.to_upper()
 	if anim_name.contains("SPAWN"):
+		if anim_tree.dying:
+			$metarig.visible = false
+			print("wawa")
+			victory.emit()
 		process = true
 	elif anim_name.contains("ATTACK"):
 		
 		current_attack = null
-	elif anim_tree.contains("SPAWN") && anim_tree.dying:
-		print("wawa")
-		victory.emit()
 
 func _on_fire():
 	current_attack.fire()
 	attack_timer = current_attack.wind_down
 
 func die():
-	$metarig.visible = false
 	print("epic win!!!!")
 	process = false
 	anim_tree.dying = true
