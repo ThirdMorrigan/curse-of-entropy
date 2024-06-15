@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmygl2nrhf8dq"]
+
+[ext_resource type="Script" path="res://src/arcane_visuals.gd" id="1_xodgf"]
+
+[sub_resource type="Curve" id="Curve_04m6u"]
+_data = [Vector2(0, 0.0246792), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ic1wt"]
+curve = SubResource("Curve_04m6u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u3ema"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 4.8
+initial_velocity_max = 6.25
+color = Color(0, 0.74902, 1, 1)
+alpha_curve = SubResource("CurveTexture_ic1wt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcbbk"]
+transparency = 3
+alpha_hash_scale = 1.5
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_sl2gh"]
+material = SubResource("StandardMaterial3D_wcbbk")
+
+[node name="ArcaneVisuals" type="GPUParticles3D"]
+emitting = false
+amount = 32
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_u3ema")
+draw_pass_1 = SubResource("QuadMesh_sl2gh")
+script = ExtResource("1_xodgf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.815686, 1, 1)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_bake_mode = 0

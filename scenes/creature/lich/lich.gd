@@ -31,6 +31,7 @@ var attack_timer : float = 3.0
 var current_attack : Attack
 
 func wake():
+	player.strip_gear()
 	$metarig.visible = true
 	$spawn.emitting = true
 	anim_tree.reset = false
@@ -73,6 +74,7 @@ func _on_area_entered(hb : Area3D):
 		if hb.parent is Player :
 			if player == null :
 				player = hb.parent
+				victory.connect(player._on_victory)
 	
 func _on_animation_finished(anim_name : String):
 	anim_name = anim_name.to_upper()
@@ -90,6 +92,7 @@ func _on_fire():
 	attack_timer = current_attack.wind_down
 
 func die():
+	$metarig.visible = false
 	print("epic win!!!!")
 	process = false
 	anim_tree.dying = true

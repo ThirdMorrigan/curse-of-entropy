@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://codth4kabuudk"]
+
+[ext_resource type="Shader" path="res://assets/models/creatures/lichma/lich_outards.gdshader" id="1_1su1l"]
+
+[sub_resource type="Curve" id="Curve_n6j3a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.179949, 0.679171), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_modar"]
+curve = SubResource("Curve_n6j3a")
+
+[sub_resource type="Gradient" id="Gradient_0soht"]
+offsets = PackedFloat32Array(0, 0.066482, 0.437673)
+colors = PackedColorArray(1, 1, 1, 1, 0.79, 0.552473, 0.1422, 1, 0.0475577, 0.0475576, 0.0475576, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gmd30"]
+gradient = SubResource("Gradient_0soht")
+
+[sub_resource type="Curve" id="Curve_d62mj"]
+_data = [Vector2(0, 0.788253), 0.0, 0.0, 0, 0, Vector2(0.434447, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_86bb6"]
+curve = SubResource("Curve_d62mj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0cils"]
+angle_max = 720.0
+inherit_velocity_ratio = -1.0
+spread = 180.0
+initial_velocity_min = 3.3
+initial_velocity_max = 3.3
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -28.65
+radial_accel_max = -5.74
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_86bb6")
+color_ramp = SubResource("GradientTexture1D_gmd30")
+alpha_curve = SubResource("CurveTexture_modar")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bko4g"]
+transparency = 3
+alpha_hash_scale = 2.0
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_4tnqg"]
+material = SubResource("StandardMaterial3D_bko4g")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3gq2a"]
+frequency = 0.1169
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_5nt7u"]
+seamless = true
+noise = SubResource("FastNoiseLite_3gq2a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nelas"]
+render_priority = 0
+shader = ExtResource("1_1su1l")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(0.988235, 1, 0.309804, 1)
+shader_parameter/alpha_hash_scale = 0.045
+shader_parameter/fresnel_power = 0.88
+shader_parameter/hide = false
+shader_parameter/noise = SubResource("NoiseTexture3D_5nt7u")
+
+[sub_resource type="SphereMesh" id="SphereMesh_t6lnv"]
+material = SubResource("ShaderMaterial_nelas")
+radius = 0.2
+height = 0.345
+radial_segments = 4
+rings = 1
+
+[node name="FireballVisuals" type="GPUParticles3D"]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_0cils")
+draw_pass_1 = SubResource("QuadMesh_4tnqg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.686275, 0.411765, 1)
+light_energy = 2.0
+light_indirect_energy = 1.5
+light_size = 0.1
+light_bake_mode = 0
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.707105
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_t6lnv")
