@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyfpdeoxam1yb"
+path="res://.godot/imported/Crypt - Ambient.wav-77c0c8d34fa67af1d5833c273b168a24.sample"
+
+[deps]
+
+source_file="res://audio/Crypt - Ambient.wav"
+dest_files=["res://.godot/imported/Crypt - Ambient.wav-77c0c8d34fa67af1d5833c273b168a24.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=86 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -64,18 +64,6 @@ size = Vector2(10, 10)
 
 [sub_resource type="Animation" id="Animation_rnkcc"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("current_music:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_tmkp4"]
 resource_name = "crossfade_audio_in"
@@ -90,7 +78,59 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -80.0]
+"values": [0.0, -50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("next_music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-40.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("next_music:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("current_music:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lf6lx"]
+resource_name = "crossfade_audio_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("current_music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-50.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -99,10 +139,10 @@ tracks/1/path = NodePath("current_music:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -112,9 +152,9 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 50),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-50.0, 0.0]
+"values": [0.0, -50.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -123,16 +163,17 @@ tracks/3/path = NodePath("next_music:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jy8l7"]
 _data = {
 "RESET": SubResource("Animation_rnkcc"),
-"crossfade_audio_in": SubResource("Animation_tmkp4")
+"crossfade_audio_in": SubResource("Animation_tmkp4"),
+"crossfade_audio_out": SubResource("Animation_lf6lx")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4wjgr"]
@@ -948,10 +989,11 @@ omni_range = 3.0
 script = ExtResource("5_atf2r")
 
 [node name="current_music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+volume_db = -40.0
 bus = &"Music"
 
 [node name="next_music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
-volume_db = -50.0
+volume_db = -10.0
 bus = &"Music"
 
 [node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
