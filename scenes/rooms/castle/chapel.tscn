@@ -2024,6 +2024,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("28_occ1j")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_31_Creature" parent="FuncGodotMap" instance=ExtResource("20_g8uy2")]
@@ -2357,6 +2358,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("32_wttcg")
+interactionText = "pick up Strength Crystal"
 id = 35
 
 [node name="entity_58_Item_pickup" parent="FuncGodotMap" instance=ExtResource("24_a48ig")]
@@ -2368,6 +2370,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("33_4yvro")
+interactionText = "pick up Mana Crystal"
 id = 34
 
 [node name="entity_59_Item_pickup" parent="FuncGodotMap" instance=ExtResource("24_a48ig")]
@@ -2379,6 +2382,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("34_wkcyd")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_60_Item_pickup" parent="FuncGodotMap" instance=ExtResource("24_a48ig")]
@@ -2390,6 +2394,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("28_occ1j")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_61_Item_pickup" parent="FuncGodotMap" instance=ExtResource("24_a48ig")]
@@ -2401,6 +2406,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("28_occ1j")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_62_Item_pickup" parent="FuncGodotMap" instance=ExtResource("24_a48ig")]
@@ -2412,6 +2418,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("28_occ1j")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_63_Item_pickup" parent="FuncGodotMap" instance=ExtResource("24_a48ig")]
@@ -2423,6 +2430,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("33_4yvro")
+interactionText = "pick up Mana Crystal"
 id = 34
 
 [node name="entity_64_func_detail" type="StaticBody3D" parent="FuncGodotMap"]
