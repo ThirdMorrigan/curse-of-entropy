@@ -84,6 +84,8 @@ var grappling : bool = false
 var grapple_dc_ticker : int = 0
 var grapple_target : Node3D
 
+var victory : bool = false
+
 
 var yaw : float :
 	get:
@@ -302,12 +304,15 @@ func unpause():
 
 
 func _on_game_ui_fade_complete():
-	position = GameDataSingleton.respawn_point
-	get_tree().call_group("creature","delete")
-	get_tree().call_group("spawner","spawn")
-	curr_mana = max_mana
-	character.get_older()
-	unpause()
+	if victory :
+		get_tree().change_scene_to_file("res://scenes/victory_menu.tscn")
+	else:
+		position = GameDataSingleton.respawn_point
+		get_tree().call_group("creature","delete")
+		get_tree().call_group("spawner","spawn")
+		curr_mana = max_mana
+		character.get_older()
+		unpause()
 
 func new_character(new_char):
 	character = new_char
@@ -357,6 +362,8 @@ func strip_gear():
 	jump_height = 0.5
 
 func _on_victory():
+	victory = true
+	game_ui.animation_player.play("death_screen_fade")
 	pass
 
 func use_consumeable():
