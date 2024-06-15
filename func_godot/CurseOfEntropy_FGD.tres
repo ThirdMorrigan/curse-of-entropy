@@ -21,11 +21,11 @@
 [ext_resource type="Resource" uid="uid://baogn3rcmucr5" path="res://func_godot/func_door.tres" id="18_0c0bc"]
 [ext_resource type="Resource" uid="uid://2l236n5qoe8r" path="res://func_godot/func_friction.tres" id="19_ydhbc"]
 [ext_resource type="Resource" uid="uid://cdcqe02h1cifh" path="res://func_godot/wall-torch.tres" id="20_nd4wd"]
-[ext_resource type="Resource" uid="uid://cjavn0nriiovk" path="res://func_godot/func_damage.tres" id="21_6j6ol"]
-[ext_resource type="Resource" path="res://func_godot/func_arcane_lock.tres" id="22_2an6v"]
+[ext_resource type="Resource" path="res://func_godot/func_damage.tres" id="21_6j6ol"]
+[ext_resource type="Resource" uid="uid://8y36wsupewtw" path="res://func_godot/func_arcane_lock.tres" id="22_2an6v"]
 [ext_resource type="Resource" uid="uid://do5q68o828cdp" path="res://func_godot/grapple_target.tres" id="23_svbgl"]
-[ext_resource type="Resource" path="res://func_godot/respawn.tres" id="24_iux6f"]
-[ext_resource type="Resource" path="res://func_godot/func_kill.tres" id="25_xpc12"]
+[ext_resource type="Resource" uid="uid://64032rtbujq0" path="res://func_godot/respawn.tres" id="24_iux6f"]
+[ext_resource type="Resource" uid="uid://cl0xxdpmt7hdh" path="res://func_godot/func_kill.tres" id="25_xpc12"]
 
 [resource]
 script = ExtResource("8_1hv21")

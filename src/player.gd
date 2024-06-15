@@ -12,7 +12,7 @@ class_name Player
 	get:
 		return jump_height
 	set(h):
-		jump_height = h
+		jump_height = clampf(h,0.5,1)
 		jump_power = sqrt(-(2 * -9.81 * h))
 		notify_property_list_changed()
 @export var crouch_difference : float = 0.5 :
