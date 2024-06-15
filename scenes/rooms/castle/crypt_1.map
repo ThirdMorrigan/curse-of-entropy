@@ -3357,5 +3357,17 @@
 {
 "classname" "Item_pickup"
 "origin" "1048 1864 -488"
-"id" "27"
+"id" "19"
+}
+// entity 105
+{
+"classname" "Item_pickup"
+"origin" "1208 2056 -556"
+"id" "35"
+}
+// entity 106
+{
+"classname" "Item_pickup"
+"origin" "1208 2184 -556"
+"id" "36"
 }
