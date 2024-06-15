@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ojbnw4rvnxdx"]
+[gd_scene load_steps=11 format=3 uid="uid://x4q216crnfpy"]
 
 [ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="1_xongl"]
 [ext_resource type="PackedScene" uid="uid://d0knfchgkblas" path="res://scenes/rooms/castle/entrance_hall_0.tscn" id="2_8hmck"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://wenq428im3ym" path="res://scenes/rooms/castle/S_E_tower.tscn" id="5_4uh4f"]
 [ext_resource type="PackedScene" uid="uid://bmvoky2qqmm75" path="res://scenes/rooms/castle/back_hall_0.tscn" id="6_bohg1"]
 [ext_resource type="PackedScene" uid="uid://cbt3wmfyuln3u" path="res://scenes/rooms/castle/east_maintinance.tscn" id="7_hvne2"]
-[ext_resource type="PackedScene" uid="uid://bbaoc4g7gv4cv" path="res://scenes/rooms/castle/chapel.tscn" id="8_4ocui"]
-[ext_resource type="PackedScene" uid="uid://ovoypcub0che" path="res://scenes/rooms/castle/east_wing.tscn" id="9_d5phd"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/castle/chapel.tscn" id="8_4ocui"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/castle/east_wing.tscn" id="9_d5phd"]
+[ext_resource type="PackedScene" uid="uid://c8mg80dad5i0c" path="res://scenes/rooms/graveyard/crypt_0.tscn" id="10_t5j64"]
 
 [node name="world#Castle" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
@@ -30,3 +31,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
 [node name="Room2" parent="." instance=ExtResource("8_4ocui")]
 
 [node name="Room3" parent="." instance=ExtResource("9_d5phd")]
+
+[node name="crypt_entrance" parent="." instance=ExtResource("10_t5j64")]

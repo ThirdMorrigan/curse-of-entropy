@@ -2,11 +2,11 @@
 
 [ext_resource type="Environment" uid="uid://ddtcwap4p84ds" path="res://assets/default_world_environment.tres" id="1_tfkiy"]
 [ext_resource type="PackedScene" uid="uid://cy1leb1kiu6o4" path="res://scenes/player.tscn" id="4_dj85u"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/castle.tscn" id="31_a5e28"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/dungeon.tscn" id="32_x4rpi"]
+[ext_resource type="PackedScene" uid="uid://x4q216crnfpy" path="res://scenes/rooms/castle.tscn" id="31_a5e28"]
+[ext_resource type="PackedScene" uid="uid://d4jp6etcswn1q" path="res://scenes/rooms/dungeon.tscn" id="32_x4rpi"]
 [ext_resource type="PackedScene" uid="uid://cn7brxlnfdiis" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
 [ext_resource type="PackedScene" uid="uid://cv3vgjdboysxf" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
+[ext_resource type="PackedScene" uid="uid://dpgw6hjcm5ntj" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
 [ext_resource type="PackedScene" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
