@@ -2620,9 +2620,10 @@
 "classname" "func_door"
 "interactable" "1"
 "open_angle" "-90"
-"state" "1"
+"state" "0"
 "axis" "0 0 1"
 "origin" "0 32 32"
+"key" "25"
 // brush 0
 {
 ( 516 -736 32 ) ( 516 -735 32 ) ( 516 -736 33 ) metal_rusty_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1

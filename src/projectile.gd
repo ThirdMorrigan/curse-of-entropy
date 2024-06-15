@@ -6,7 +6,7 @@ var parent_attack : RangedAttack
 var travelling : bool = false
 var timer : Timer
 var damage : DamageInstance
-var timer_length : float = 3
+var timer_length : float = 0.5
 
 var distance_travelled : float = 0.0
 var max_distance : float

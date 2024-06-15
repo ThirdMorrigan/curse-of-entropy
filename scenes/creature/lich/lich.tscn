@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://borb6ah14ldkw"]
+[gd_scene load_steps=71 format=3 uid="uid://borb6ah14ldkw"]
 
 [ext_resource type="PackedScene" uid="uid://crxwluv107xiq" path="res://assets/models/creatures/lichma/lich.glb" id="1_xggd1"]
 [ext_resource type="Material" uid="uid://ddjne04hdhr58" path="res://assets/models/creatures/lichma/lich_outards.tres" id="2_3gnfi"]
@@ -20,6 +20,8 @@
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="17_2f8x7"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="19_3rre7"]
 [ext_resource type="Script" path="res://src/ranged_attack.gd" id="19_kha0v"]
+[ext_resource type="PackedScene" uid="uid://codth4kabuudk" path="res://scenes/visuals/fireball_visuals.tscn" id="20_twkyd"]
+[ext_resource type="Script" path="res://src/hurtbox.gd" id="22_32lf3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebplj"]
 resource_name = "Material.002"
@@ -139,6 +141,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_wfgxf"]
 material = SubResource("StandardMaterial3D_4rrsc")
+size = Vector2(3, 3)
 
 [sub_resource type="GDScript" id="GDScript_jg642"]
 script/source = "extends Marker3D
@@ -146,7 +149,7 @@ script/source = "extends Marker3D
 
 func _process(delta):
 	if $\"../../../..\".player != null:
-		look_at($\"../../../..\".player.global_position)
+		look_at($\"../../../..\".player.global_position + (Vector3.UP))
 "
 
 [sub_resource type="Animation" id="Animation_13bmv"]
@@ -536,6 +539,10 @@ blend_point_1/pos = -1.0
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqtlo"]
 animation = &"attack_vertical"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7vhxx"]
+animation = &"spawn"
+play_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ho5rg"]
 animation = &"idle"
 
@@ -578,6 +585,26 @@ advance_expression = "wake"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ym06l"]
+advance_mode = 2
+advance_expression = "reset"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_01v8t"]
+advance_mode = 2
+advance_expression = "dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fowll"]
+advance_mode = 2
+advance_expression = "dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbpi2"]
+advance_mode = 2
+advance_expression = "dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oeq40"]
+advance_mode = 2
+advance_expression = "dying"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fujwi"]
 states/Start/position = Vector2(38, 100)
 states/attack_cast/node = SubResource("AnimationNodeAnimation_exg2o")
@@ -586,38 +613,58 @@ states/attack_horizontal/node = SubResource("AnimationNodeBlendSpace1D_omb8j")
 states/attack_horizontal/position = Vector2(592, 6)
 states/attack_vertical/node = SubResource("AnimationNodeAnimation_uqtlo")
 states/attack_vertical/position = Vector2(592, 100)
+states/die/node = SubResource("AnimationNodeAnimation_7vhxx")
+states/die/position = Vector2(359, -59)
 states/idle/node = SubResource("AnimationNodeAnimation_ho5rg")
 states/idle/position = Vector2(359, 103)
 states/spawn/node = SubResource("AnimationNodeAnimation_jk3d8")
 states/spawn/position = Vector2(178, 100)
-transitions = ["idle", "attack_horizontal", SubResource("AnimationNodeStateMachineTransition_daopn"), "attack_horizontal", "idle", SubResource("AnimationNodeStateMachineTransition_af6cj"), "idle", "attack_vertical", SubResource("AnimationNodeStateMachineTransition_c3kix"), "idle", "attack_cast", SubResource("AnimationNodeStateMachineTransition_2jocl"), "attack_vertical", "idle", SubResource("AnimationNodeStateMachineTransition_v4mmu"), "attack_cast", "idle", SubResource("AnimationNodeStateMachineTransition_fl4j5"), "Start", "spawn", SubResource("AnimationNodeStateMachineTransition_v23es"), "spawn", "idle", SubResource("AnimationNodeStateMachineTransition_dlsrn")]
-graph_offset = Vector2(-163, -68)
+transitions = ["idle", "attack_horizontal", SubResource("AnimationNodeStateMachineTransition_daopn"), "attack_horizontal", "idle", SubResource("AnimationNodeStateMachineTransition_af6cj"), "idle", "attack_vertical", SubResource("AnimationNodeStateMachineTransition_c3kix"), "idle", "attack_cast", SubResource("AnimationNodeStateMachineTransition_2jocl"), "attack_vertical", "idle", SubResource("AnimationNodeStateMachineTransition_v4mmu"), "attack_cast", "idle", SubResource("AnimationNodeStateMachineTransition_fl4j5"), "Start", "spawn", SubResource("AnimationNodeStateMachineTransition_v23es"), "spawn", "idle", SubResource("AnimationNodeStateMachineTransition_dlsrn"), "idle", "spawn", SubResource("AnimationNodeStateMachineTransition_ym06l"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_01v8t"), "attack_horizontal", "die", SubResource("AnimationNodeStateMachineTransition_fowll"), "attack_vertical", "die", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "attack_cast", "die", SubResource("AnimationNodeStateMachineTransition_oeq40")]
+graph_offset = Vector2(-338, -117)
 
 [sub_resource type="Resource" id="Resource_vd2lq"]
 script = ExtResource("17_2f8x7")
-damage = 10.0
-impulse = 8.0
+damage = 30.0
+impulse = 10.0
 damage_types = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5vegd"]
 radius = 0.05
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sw8i7"]
+radius = 2.5
+height = 6.0
+
 [sub_resource type="Resource" id="Resource_ja8ow"]
 script = ExtResource("17_2f8x7")
-damage = 10.0
-impulse = 5.0
+damage = 20.0
+impulse = 8.0
 damage_types = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s6co8"]
-radius = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ofoj4"]
 radius = 4.0
 
-[node name="lich" node_paths=PackedStringArray("anim_tree") instance=ExtResource("1_xggd1")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_225f4"]
+
+[sub_resource type="GDScript" id="GDScript_giy8o"]
+script/source = "extends Node3D
+
+
+func die():
+	$\"..\".shielded = false
+	$HealthPool.heal(1)
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_slsr1"]
+
+[node name="lich" node_paths=PackedStringArray("anim_tree") groups=["creature"] instance=ExtResource("1_xggd1")]
 script = ExtResource("2_xyang")
 anim_tree = NodePath("AnimationTree")
+
+[node name="metarig" parent="." index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="metarig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
@@ -692,7 +739,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_5ouue")
 
 [node name="sword_hilt" type="Marker3D" parent="metarig/Skeleton3D/r_hand" index="1"]
-transform = Transform3D(1, -1.24176e-08, 5.42792e-16, 0, -4.37114e-08, -1, 1.24176e-08, 1, -4.37114e-08, 0, 0.08, 0)
+transform = Transform3D(1, 5.96046e-08, -1.49012e-08, -7.45058e-09, -2.98023e-08, -1, 0, 1, -2.98023e-08, 2.98023e-08, -0.92, -2.98023e-08)
 gizmo_extents = 3.0
 
 [node name="l_hand" type="BoneAttachment3D" parent="metarig/Skeleton3D" index="2"]
@@ -727,26 +774,27 @@ damage_instances = Array[ExtResource("17_2f8x7")]([SubResource("Resource_vd2lq")
 targets = 16
 hitbox_shape = SubResource("SphereShape3D_5vegd")
 attack_origin = NodePath("../metarig/Skeleton3D/r_hand/sword_hilt")
-range = 3.0
+attack_range = 4.5
 wind_down = 4.0
 
 [node name="swing_horizontal" type="Node3D" parent="." index="4" node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("16_dolju")
 damage_instances = Array[ExtResource("17_2f8x7")]([SubResource("Resource_vd2lq")])
 targets = 16
-hitbox_shape = SubResource("SphereShape3D_5vegd")
-attack_origin = NodePath("../metarig/Skeleton3D/r_hand/sword_hilt")
-range = 3.0
+hitbox_shape = SubResource("CapsuleShape3D_sw8i7")
+attack_origin = NodePath("../Marker3D")
+attack_range = 4.0
 wind_down = 3.0
 
 [node name="magic_cast" type="Node3D" parent="." index="5" node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("19_kha0v")
+visuals = ExtResource("20_twkyd")
 damage_instances = Array[ExtResource("17_2f8x7")]([SubResource("Resource_ja8ow")])
 targets = 16
 hitbox_shape = SubResource("SphereShape3D_s6co8")
 attack_origin = NodePath("../metarig/Skeleton3D/l_hand/cast_origin")
-range = 3.0
-wind_down = 4.0
+attack_range = 5.0
+wind_down = 1.5
 
 [node name="chest" type="Marker3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11354, 0)
@@ -758,9 +806,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.85558)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.63948, 2.85558)
 
 [node name="spawn" type="GPUParticles3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152557, 0)
 emitting = false
 amount = 32
-lifetime = 2.0
+lifetime = 3.0
 one_shot = true
 explosiveness = 0.85
 process_material = SubResource("ParticleProcessMaterial_o6tvf")
@@ -774,6 +823,42 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_check" index="0"]
 shape = SubResource("SphereShape3D_ofoj4")
 
-[node name="HealthPool" type="Node" parent="." index="11"]
+[node name="HealthPool" type="Node" parent="." index="11" node_paths=PackedStringArray("hurtboxes")]
 script = ExtResource("19_3rre7")
 max_hp = 30.0
+hurtboxes = [NodePath("../Hurtbox")]
+immunities = 31
+
+[node name="Hurtbox" type="Area3D" parent="." index="12"]
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("22_32lf3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_225f4")
+
+[node name="Marker3D" type="Marker3D" parent="." index="13"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="sheild" type="Node3D" parent="." index="14"]
+script = SubResource("GDScript_giy8o")
+
+[node name="HealthPool" type="Node" parent="sheild" index="0" node_paths=PackedStringArray("hurtboxes")]
+script = ExtResource("19_3rre7")
+max_hp = 1.0
+hurtboxes = [NodePath("../Hurtbox")]
+immunities = 2
+invert_immunities = true
+
+[node name="Hurtbox" type="Area3D" parent="sheild" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.390345, 0)
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+script = ExtResource("22_32lf3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sheild/Hurtbox" index="0"]
+shape = SubResource("SphereShape3D_slsr1")

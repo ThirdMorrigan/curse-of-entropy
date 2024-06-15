@@ -1722,14 +1722,14 @@
 "classname" "Creature"
 "origin" "504 344 24"
 "creature_id" "6"
-"drop" "28"
+"drop" ""
 }
 // entity 28
 {
 "classname" "Creature"
 "origin" "532 252 24"
 "creature_id" "8"
-"drop" "21"
+"drop" ""
 }
 // entity 29
 {
@@ -2109,13 +2109,25 @@
 }
 // entity 69
 {
+"classname" "Item_pickup"
+"origin" "276 172 136"
+"id" "35"
+}
+// entity 70
+{
+"classname" "Item_pickup"
+"origin" "284 808 136"
+"id" "34"
+}
+// entity 71
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "new_scene"
 "_tb_id" "3"
 "_tb_layer_sort_index" "0"
 }
-// entity 70
+// entity 72
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"

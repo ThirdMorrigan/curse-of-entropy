@@ -6,7 +6,8 @@ var inventory = load("res://_PROTO_/inventroy.tres")
 
 
 func _on_interact():
-	audio_stream_player_3d.play()
+	if audio_stream_player_3d != null :
+		audio_stream_player_3d.play()
 	inventory.add(interactable.id, interactable.quantity)
 	interactable.queue_free()
 

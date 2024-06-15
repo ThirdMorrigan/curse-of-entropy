@@ -15,21 +15,26 @@ data = PackedVector3Array(-195.965, 0, 99.997, -200, 0, 95.9167, -195.965, 0, 95
 [node name="Garden" type="Node3D"]
 
 [node name="Room" parent="." instance=ExtResource("1_6cpkh")]
+indoors = false
 
 [node name="Room2" parent="." instance=ExtResource("2_akml7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0604, 1.07753, -62.4645)
+indoors = false
 
 [node name="Room3" parent="." instance=ExtResource("3_mmppt")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 156.457, -0.48, 119.502)
+indoors = false
 
 [node name="Room4" parent="." instance=ExtResource("4_ap1oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.0676, 6.06453, -75.4487)
+indoors = false
 
 [node name="Room5" parent="." instance=ExtResource("5_sky3s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.977, 7.09419, -103.423)
 
 [node name="Room7" parent="." instance=ExtResource("6_ikwf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.979, 7.11004, -103.417)
+indoors = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 117.436, -11.8517, -142.765)

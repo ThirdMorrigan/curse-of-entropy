@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bo7rg28y5u17g"
+path="res://.godot/imported/final_boss_room.map-9b29f3aac71720091085133d8a653cbe.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/final_boss_room.map"
+dest_files=["res://.godot/imported/final_boss_room.map-9b29f3aac71720091085133d8a653cbe.tres"]
+
+[params]
+

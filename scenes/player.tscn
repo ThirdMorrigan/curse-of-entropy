@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cy1leb1kiu6o4"]
+[gd_scene load_steps=86 format=3 uid="uid://cy1leb1kiu6o4"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_evqos"]
 [ext_resource type="Script" path="res://src/player_input_handler.gd" id="2_k1kd7"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bf0fjftalsl1m" path="res://assets/models/Sword_sword_albedo.png" id="9_iivne"]
 [ext_resource type="Texture2D" uid="uid://pr33ecs12n3" path="res://assets/models/Sword_sword_metal-sword_roughness.png" id="10_lbfb5"]
 [ext_resource type="Shader" path="res://assets/shaders/vertex_wobble.gdshader" id="11_gcrif"]
-[ext_resource type="PackedScene" uid="uid://c818g2vuvr4nf" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
+[ext_resource type="PackedScene" path="res://_PROTO_/player_attack.tscn" id="11_pcjyh"]
 [ext_resource type="Texture2D" uid="uid://c7tm7uedoc24m" path="res://assets/materials/sword/sword_albedo.png" id="12_kb52q"]
 [ext_resource type="Texture2D" uid="uid://cceo8axseb2kr" path="res://assets/materials/sword/sword_cruch.png" id="13_lu8wx"]
 [ext_resource type="Script" path="res://src/damage_instance.gd" id="13_qgojy"]
@@ -24,11 +24,12 @@
 [ext_resource type="Script" path="res://src/sword_attack.gd" id="19_h8in8"]
 [ext_resource type="PackedScene" uid="uid://dkjceehywusxo" path="res://assets/models/pickaxe.glb" id="19_wamoq"]
 [ext_resource type="Script" path="res://src/ranged_attack.gd" id="20_h8pbd"]
-[ext_resource type="PackedScene" uid="uid://dj7of4ca3aj6k" path="res://scenes/visuals/key_visuals.tscn" id="21_qf3k0"]
+[ext_resource type="PackedScene" uid="uid://codth4kabuudk" path="res://scenes/visuals/fireball_visuals.tscn" id="21_t3s2p"]
 [ext_resource type="Script" path="res://src/attack.gd" id="22_fs7io"]
 [ext_resource type="Script" path="res://src/player_anim_tree.gd" id="26_xowfa"]
 [ext_resource type="Script" path="res://src/GrappleHook.gd" id="27_vnm8a"]
 [ext_resource type="PackedScene" uid="uid://dgokarnajno0u" path="res://scenes/visuals/grapple_visuals.tscn" id="28_p1cd6"]
+[ext_resource type="PackedScene" uid="uid://dmygl2nrhf8dq" path="res://scenes/visuals/arcane_visuals.tscn" id="30_0fpj2"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g0tft"]
 length = 0.99
@@ -64,18 +65,6 @@ size = Vector2(10, 10)
 
 [sub_resource type="Animation" id="Animation_rnkcc"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("current_music:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_tmkp4"]
 resource_name = "crossfade_audio_in"
@@ -90,7 +79,59 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -80.0]
+"values": [0.0, -50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("next_music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-40.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("next_music:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("current_music:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lf6lx"]
+resource_name = "crossfade_audio_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("current_music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-50.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -99,10 +140,10 @@ tracks/1/path = NodePath("current_music:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -112,9 +153,9 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 50),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-50.0, 0.0]
+"values": [0.0, -50.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -123,16 +164,17 @@ tracks/3/path = NodePath("next_music:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jy8l7"]
 _data = {
 "RESET": SubResource("Animation_rnkcc"),
-"crossfade_audio_in": SubResource("Animation_tmkp4")
+"crossfade_audio_in": SubResource("Animation_tmkp4"),
+"crossfade_audio_out": SubResource("Animation_lf6lx")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4wjgr"]
@@ -148,7 +190,7 @@ roughness_texture = ExtResource("10_lbfb5")
 roughness_texture_channel = 1
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_tgsdj"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_d2asp"]
 _surfaces = [{
 "aabb": AABB(-0.105621, -0.89582, -0.634362, 0.211242, 6.33453, 1.26872),
 "format": 34896613377,
@@ -180,7 +222,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray(255, 127, 190, 1, 0, 149, 184, 15, 255, 127, 243, 5, 180, 157, 40, 0, 129, 218, 190, 1, 128, 138, 84, 179, 254, 255, 243, 5, 217, 142, 58, 172, 129, 218, 190, 1, 126, 117, 47, 214, 255, 255, 243, 5, 37, 113, 196, 211, 255, 127, 190, 1, 254, 106, 192, 27, 255, 127, 243, 5, 74, 98, 45, 0, 255, 127, 6, 43, 0, 149, 227, 1, 255, 127, 0, 0, 255, 127, 137, 42, 155, 203, 6, 43, 128, 138, 12, 174, 155, 203, 6, 43, 126, 117, 1, 210, 255, 127, 6, 43, 254, 106, 234, 2, 255, 127, 109, 15, 222, 116, 72, 7, 255, 127, 109, 15, 32, 139, 242, 5, 13, 168, 109, 15, 143, 133, 56, 174, 13, 168, 109, 15, 111, 122, 73, 210, 125, 37, 190, 1, 128, 138, 107, 13, 0, 0, 243, 5, 217, 142, 12, 0, 125, 37, 190, 1, 126, 117, 63, 23, 0, 0, 243, 5, 37, 113, 21, 0, 99, 52, 6, 43, 128, 138, 244, 0, 99, 52, 6, 43, 126, 117, 232, 1, 241, 87, 109, 15, 143, 133, 84, 3, 241, 87, 109, 15, 111, 122, 47, 5, 255, 127, 176, 46, 209, 97, 101, 196, 255, 127, 176, 46, 209, 97, 6, 0, 193, 150, 176, 46, 255, 127, 5, 0, 193, 150, 176, 46, 255, 127, 101, 196, 255, 127, 69, 239, 228, 99, 214, 195, 255, 127, 69, 239, 228, 99, 116, 0, 57, 143, 188, 237, 255, 127, 84, 0, 57, 143, 188, 237, 255, 127, 247, 195, 255, 127, 255, 255, 255, 127, 194, 0, 255, 127, 255, 255, 255, 127, 92, 195, 255, 127, 255, 255, 255, 127, 165, 188, 255, 127, 255, 255, 255, 127, 213, 0, 61, 105, 176, 46, 255, 127, 152, 187, 61, 105, 176, 46, 255, 127, 5, 0, 197, 112, 188, 237, 255, 127, 8, 188, 197, 112, 188, 237, 255, 127, 92, 0, 255, 127, 176, 46, 45, 158, 5, 0, 255, 127, 176, 46, 45, 158, 152, 187, 255, 127, 69, 239, 26, 156, 107, 0, 255, 127, 69, 239, 26, 156, 40, 188, 148, 164, 95, 42, 124, 40, 255, 255, 148, 164, 95, 42, 124, 40, 178, 213, 122, 167, 95, 42, 61, 84, 255, 255, 122, 167, 95, 42, 61, 84, 23, 216, 150, 183, 152, 48, 0, 0, 255, 255, 150, 183, 152, 48, 0, 0, 255, 255, 150, 183, 152, 48, 0, 0, 61, 213, 107, 174, 7, 43, 88, 1, 255, 255, 107, 174, 7, 43, 88, 1, 255, 255, 107, 174, 7, 43, 88, 1, 60, 213, 187, 216, 54, 49, 255, 127, 255, 255, 187, 216, 54, 49, 255, 127, 255, 255, 187, 216, 54, 49, 255, 127, 178, 47, 187, 216, 54, 49, 255, 127, 73, 218, 187, 216, 95, 42, 255, 127, 255, 255, 187, 216, 95, 42, 255, 127, 255, 255, 187, 216, 95, 42, 255, 127, 178, 47, 187, 216, 95, 42, 255, 127, 73, 218, 148, 164, 230, 46, 232, 39, 255, 255, 148, 164, 230, 46, 232, 39, 162, 213, 122, 167, 161, 46, 150, 85, 255, 255, 122, 167, 161, 46, 150, 85, 102, 216, 106, 91, 95, 42, 124, 40, 255, 255, 106, 91, 95, 42, 124, 40, 6, 44, 132, 88, 95, 42, 61, 84, 255, 255, 132, 88, 95, 42, 61, 84, 211, 40, 104, 72, 152, 48, 0, 0, 255, 255, 104, 72, 152, 48, 0, 0, 255, 255, 104, 72, 152, 48, 0, 0, 48, 45, 147, 81, 7, 43, 88, 1, 255, 255, 147, 81, 7, 43, 88, 1, 255, 255, 147, 81, 7, 43, 88, 1, 48, 45, 67, 39, 54, 49, 255, 127, 255, 255, 67, 39, 54, 49, 255, 127, 255, 255, 67, 39, 54, 49, 255, 127, 201, 209, 67, 39, 54, 49, 255, 127, 122, 38, 67, 39, 95, 42, 255, 127, 255, 255, 67, 39, 95, 42, 255, 127, 255, 255, 67, 39, 95, 42, 255, 127, 201, 209, 67, 39, 95, 42, 255, 127, 122, 38, 106, 91, 230, 46, 232, 39, 255, 255, 106, 91, 230, 46, 232, 39, 42, 44, 132, 88, 161, 46, 150, 85, 255, 255, 132, 88, 161, 46, 150, 85, 123, 40, 148, 164, 95, 42, 130, 215, 255, 255, 148, 164, 95, 42, 130, 215, 98, 42, 122, 167, 95, 42, 193, 171, 255, 255, 122, 167, 95, 42, 193, 171, 135, 45, 150, 183, 152, 48, 255, 255, 255, 255, 150, 183, 152, 48, 255, 255, 255, 255, 150, 183, 152, 48, 255, 255, 45, 41, 107, 174, 7, 43, 166, 254, 255, 255, 107, 174, 7, 43, 166, 254, 255, 255, 107, 174, 7, 43, 166, 254, 45, 41, 148, 164, 230, 46, 22, 216, 255, 255, 148, 164, 230, 46, 22, 216, 57, 42, 122, 167, 161, 46, 104, 170, 255, 255, 122, 167, 161, 46, 104, 170, 215, 45, 106, 91, 95, 42, 130, 215, 255, 255, 106, 91, 95, 42, 130, 215, 15, 214, 132, 88, 95, 42, 193, 171, 255, 255, 132, 88, 95, 42, 193, 171, 190, 211, 104, 72, 152, 48, 255, 255, 255, 255, 104, 72, 152, 48, 255, 255, 255, 255, 104, 72, 152, 48, 255, 255, 134, 214, 147, 81, 7, 43, 166, 254, 255, 255, 147, 81, 7, 43, 166, 254, 255, 255, 147, 81, 7, 43, 166, 254, 134, 214, 106, 91, 230, 46, 22, 216, 255, 255, 106, 91, 230, 46, 22, 216, 27, 214, 132, 88, 161, 46, 104, 170, 255, 255, 132, 88, 161, 46, 104, 170, 114, 211, 255, 127, 6, 43, 0, 149, 86, 1, 155, 203, 6, 43, 128, 138, 210, 203, 155, 203, 6, 43, 126, 117, 96, 224, 255, 127, 6, 43, 254, 106, 248, 63, 99, 52, 6, 43, 128, 138, 156, 31, 99, 52, 6, 43, 126, 117, 43, 52, 187, 216, 95, 42, 255, 127, 170, 254, 67, 39, 95, 42, 255, 127, 212, 218, 255, 127, 243, 5, 180, 157, 0, 0, 255, 127, 243, 5, 180, 157, 0, 0, 255, 127, 243, 5, 180, 157, 0, 0, 255, 255, 243, 5, 37, 113, 69, 203, 255, 255, 243, 5, 37, 113, 29, 220, 255, 255, 243, 5, 37, 113, 239, 224, 255, 127, 6, 43, 0, 149, 0, 0, 255, 127, 6, 43, 0, 149, 0, 0, 155, 203, 6, 43, 128, 138, 14, 177, 155, 203, 6, 43, 128, 138, 13, 163, 155, 203, 6, 43, 126, 117, 114, 209, 255, 127, 6, 43, 254, 106, 163, 16, 255, 127, 6, 43, 254, 106, 220, 17, 255, 127, 6, 43, 254, 106, 16, 2, 255, 127, 109, 15, 32, 139, 0, 0, 255, 127, 109, 15, 32, 139, 0, 0, 255, 127, 109, 15, 32, 139, 0, 0, 255, 127, 109, 15, 32, 139, 0, 0, 13, 168, 109, 15, 111, 122, 217, 214, 13, 168, 109, 15, 111, 122, 73, 196, 13, 168, 109, 15, 111, 122, 255, 255, 13, 168, 109, 15, 111, 122, 47, 224, 0, 0, 243, 5, 37, 113, 81, 44, 0, 0, 243, 5, 37, 113, 0, 0, 0, 0, 243, 5, 37, 113, 0, 0, 0, 0, 243, 5, 37, 113, 71, 28, 99, 52, 6, 43, 128, 138, 0, 0, 99, 52, 6, 43, 128, 138, 51, 27, 99, 52, 6, 43, 126, 117, 0, 0, 241, 87, 109, 15, 111, 122, 0, 0, 241, 87, 109, 15, 111, 122, 0, 0, 241, 87, 109, 15, 111, 122, 236, 31, 187, 216, 54, 49, 255, 127, 255, 255, 132, 88, 161, 46, 150, 85, 229, 248, 132, 88, 161, 46, 104, 170, 255, 255, 65, 121, 165, 95, 255, 127, 183, 127, 62, 89, 36, 61, 19, 128, 59, 0, 232, 110, 194, 45, 145, 127, 69, 0, 106, 29, 110, 106, 182, 0, 72, 127, 229, 127, 147, 123, 125, 85, 64, 85, 123, 122, 35, 8, 5, 126, 96, 5, 97, 3, 187, 124, 140, 247, 203, 118, 129, 245, 197, 0, 13, 149, 215, 12, 39, 142, 145, 5, 96, 88, 7, 105, 217, 79, 7, 128, 130, 57, 89, 113, 211, 255, 68, 176, 60, 79, 193, 125, 102, 50, 191, 126, 80, 250, 79, 47, 68, 252, 51, 76, 24, 128, 11, 0, 248, 255, 113, 67, 134, 188, 6, 128, 24, 128, 11, 0, 212, 129, 224, 0, 136, 255, 198, 66, 176, 188, 101, 128, 114, 129, 177, 0, 234, 188, 235, 128, 80, 131, 149, 1, 224, 129, 102, 252, 39, 255, 51, 66, 14, 128, 227, 255, 249, 255, 114, 67, 212, 128, 102, 254, 161, 255, 236, 66, 133, 188, 7, 128, 14, 128, 227, 255, 188, 188, 129, 128, 12, 129, 252, 253, 166, 190, 255, 255, 78, 170, 24, 86, 255, 127, 255, 63, 109, 172, 175, 84, 255, 127, 71, 185, 6, 131, 255, 255, 93, 169, 92, 86, 6, 131, 255, 255, 83, 189, 255, 255, 93, 169, 92, 86, 255, 127, 123, 182, 255, 127, 130, 201, 184, 167, 133, 87, 200, 173, 123, 83, 255, 127, 255, 63, 255, 127, 255, 63, 184, 167, 133, 87, 200, 173, 123, 83, 255, 127, 29, 188, 46, 170, 30, 86, 255, 127, 143, 196, 159, 172, 128, 84, 166, 190, 255, 255, 148, 85, 211, 170, 255, 127, 255, 63, 103, 84, 183, 172, 255, 127, 71, 185, 6, 131, 255, 255, 163, 85, 21, 170, 6, 131, 255, 255, 83, 189, 255, 255, 163, 85, 21, 170, 255, 127, 123, 182, 255, 127, 130, 201, 242, 87, 77, 167, 60, 83, 9, 174, 255, 127, 255, 63, 255, 127, 255, 63, 242, 87, 77, 167, 60, 83, 9, 174, 255, 127, 29, 188, 148, 85, 185, 170, 255, 127, 143, 196, 57, 84, 231, 172, 255, 127, 88, 65, 64, 170, 46, 84, 255, 127, 255, 63, 7, 169, 26, 86, 255, 127, 182, 198, 255, 127, 248, 124, 84, 170, 128, 83, 255, 127, 248, 124, 255, 127, 171, 66, 84, 170, 128, 83, 255, 127, 225, 195, 68, 170, 26, 84, 255, 127, 110, 187, 215, 168, 80, 86, 255, 127, 88, 65, 82, 84, 30, 170, 255, 127, 255, 63, 123, 86, 168, 168, 255, 127, 182, 198, 255, 127, 248, 124, 105, 83, 106, 170, 255, 127, 248, 124, 255, 127, 171, 66, 105, 83, 107, 170, 255, 127, 225, 195, 53, 84, 42, 170, 255, 127, 110, 187, 177, 86, 120, 168, 252, 127, 249, 119, 103, 71, 42, 92, 61, 97, 111, 79, 59, 0, 189, 124, 34, 97, 65, 79, 144, 71, 65, 92, 9, 137, 9, 9, 43, 82, 161, 172, 117, 120, 174, 8, 216, 130, 64, 14, 197, 117, 178, 244, 71, 132, 42, 1, 236, 100, 129, 72, 230, 137, 141, 1, 65, 132, 254, 36, 235, 122, 255, 224, 132, 135, 24, 4, 97, 130, 131, 0, 43, 128, 50, 0, 127, 115, 134, 12, 73, 138, 192, 245, 172, 212, 135, 171, 41, 77, 201, 22, 155, 63, 43, 9, 123, 171, 201, 242, 140, 199, 44, 247, 20, 133, 254, 1, 16, 137, 178, 2, 131, 36, 112, 23, 84, 149, 196, 3, 135, 64, 175, 101, 98, 193, 122, 40, 8, 151, 171, 12, 88, 193, 214, 216, 249, 188, 235, 231, 100, 139, 33, 3, 55, 67, 48, 99, 30, 188, 51, 36, 217, 171, 21, 23, 220, 223, 246, 199, 205, 102, 204, 230, 10, 93, 10, 221, 43, 95, 43, 223)
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_tgsdj")
+shadow_mesh = SubResource("ArrayMesh_d2asp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lfa5o"]
 render_priority = 0
@@ -947,10 +989,11 @@ omni_range = 3.0
 script = ExtResource("5_atf2r")
 
 [node name="current_music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
+volume_db = -40.0
 bus = &"Music"
 
 [node name="next_music" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
-volume_db = -50.0
+volume_db = -10.0
 bus = &"Music"
 
 [node name="player_sfx_footsteps" type="AudioStreamPlayer" parent="camera_pivot/Camera3D/Audio control node"]
@@ -1150,15 +1193,15 @@ libraries = {
 
 [node name="Fireball" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("20_h8pbd")
-visuals = ExtResource("21_qf3k0")
+visuals = ExtResource("21_t3s2p")
 spell = true
-mana_cost = 50.0
+mana_cost = 15.0
 display_name = "Fireball"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_6t3cp")])
 targets = 40
 hitbox_shape = SubResource("SphereShape3D_oqgs6")
 attack_origin = NodePath("../camera_pivot/Camera3D/attack_origin")
-attack_range = 4.0
+attack_range = 10.0
 
 [node name="requirement" type="Node" parent="Fireball"]
 script = ExtResource("15_m0vcd")
@@ -1166,7 +1209,7 @@ script = ExtResource("15_m0vcd")
 [node name="ArcaneSpell" type="Node3D" parent="." node_paths=PackedStringArray("attack_origin")]
 script = ExtResource("22_fs7io")
 spell = true
-mana_cost = 15.0
+mana_cost = 20.0
 display_name = "Arcane"
 damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_r7jtp")])
 targets = 40
@@ -1192,10 +1235,14 @@ damage_instances = Array[ExtResource("13_qgojy")]([SubResource("Resource_hl5qo")
 targets = 32
 hitbox_shape = SubResource("SphereShape3D_bqkju")
 attack_origin = NodePath("../camera_pivot/metarig/Skeleton3D/sword_pivot/sword_hilt")
+attack_range = 1.4
 weight = 0.5
 
 [node name="viewmodel_animation_tree" type="AnimationTree" parent="."]
 root_node = NodePath("../camera_pivot")
+libraries = {
+"": SubResource("AnimationLibrary_vtxm4")
+}
 tree_root = SubResource("AnimationNodeStateMachine_vwxjo")
 anim_player = NodePath("../camera_pivot/AnimationPlayer")
 parameters/walk/tilt_blend_space/blend_position = -1.0
@@ -1210,6 +1257,10 @@ offset_top = -250.0
 offset_right = 400.0
 offset_bottom = 250.0
 catagory_buttons = SubResource("ButtonGroup_rq6di")
+
+[node name="ArcaneVisuals" parent="." node_paths=PackedStringArray("spell") instance=ExtResource("30_0fpj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21633, -0.352377)
+spell = NodePath("../ArcaneSpell")
 
 [connection signal="animation_finished" from="camera_pivot/Camera3D/Audio control node/AnimationPlayer" to="camera_pivot/Camera3D/Audio control node" method="_on_crossfade_finished"]
 [connection signal="newRoomEntered" from="camera_pivot/Camera3D/room_detector" to="camera_pivot/Camera3D/Audio control node" method="_on_new_room_entered"]

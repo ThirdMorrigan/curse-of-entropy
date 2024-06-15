@@ -84,6 +84,8 @@ var grappling : bool = false
 var grapple_dc_ticker : int = 0
 var grapple_target : Node3D
 
+var victory : bool = false
+
 
 var yaw : float :
 	get:
@@ -157,6 +159,8 @@ func _physics_process(delta):
 			if $floor_test.is_colliding() :
 				var col = $floor_test.get_collider()
 				if col is StaticBody3D or col is RigidBody3D:
+					if col is FallDamageCancel:
+						fall_speed = 0.0
 					var pmo = col.physics_material_override
 					if pmo != null:
 						floor_friction = pmo.friction
@@ -178,6 +182,7 @@ func _physics_process(delta):
 					fall_speed += 8.0
 					#fall_speed *= 
 					fall_damage.damage = fall_speed * fall_speed
+					#get_coll
 					$HealthPool.hurt(fall_damage)
 					audio_control_node.fall_damage(true)
 				elif -fall_speed >4:
@@ -299,12 +304,15 @@ func unpause():
 
 
 func _on_game_ui_fade_complete():
-	position = GameDataSingleton.respawn_point
-	get_tree().call_group("creature","delete")
-	get_tree().call_group("spawner","spawn")
-	curr_mana = max_mana
-	character.get_older()
-	unpause()
+	if victory :
+		get_tree().change_scene_to_file("res://scenes/victory_menu.tscn")
+	else:
+		position = GameDataSingleton.respawn_point
+		get_tree().call_group("creature","delete")
+		get_tree().call_group("spawner","spawn")
+		curr_mana = max_mana
+		character.get_older()
+		unpause()
 
 func new_character(new_char):
 	character = new_char
@@ -345,7 +353,18 @@ func cycle_consumeable():
 		current_consumeable = consumable_array[index]
 	set_ui_items()
 	
-	
+
+func strip_gear():
+	tool_attacks = []
+	current_tool = null
+	set_ui_items()
+	print("googoooooaaaa")
+	jump_height = 0.5
+
+func _on_victory():
+	victory = true
+	game_ui.animation_player.play("death_screen_fade")
+	pass
 
 func use_consumeable():
 	var item = GameDataSingleton.itemLookupTable[current_consumeable]
@@ -355,8 +374,10 @@ func use_consumeable():
 		match item["resource"]:
 			GameDataSingleton.consumeable_type.HEALTH:
 				heal_health(item["strength"])
+				audio_control_node.player_drink_potion()
 			GameDataSingleton.consumeable_type.MANA:
 				heal_mana(item["strength"])
+				audio_control_node.player_drink_potion()
 			GameDataSingleton.consumeable_type.STAMINA:
 				pass
 

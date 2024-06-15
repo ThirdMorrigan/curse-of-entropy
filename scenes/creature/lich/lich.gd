@@ -9,8 +9,9 @@ class_name Lich
 		return shielded
 	set(s):
 		shielded = s
-		$metarig/Skeleton3D/Cube.get_surface_override_material(0).set("hide", s)
-		$HealthPool.immunities = 0b11111 if s else 0b11101
+		$metarig/Skeleton3D/Cube.get_surface_override_material(0).set("shader_parameter/hide", !s)
+		$HealthPool.immunities = 0b11111 if s else 0b0
+		$sheild/Hurtbox.monitorable = s
 		
 var player : Player :
 	get :
@@ -20,6 +21,8 @@ var player : Player :
 		if anim_tree != null:
 			anim_tree.player = player
 
+signal victory
+
 var process : bool
 
 
@@ -28,31 +31,42 @@ var attack_timer : float = 3.0
 var current_attack : Attack
 
 func wake():
+	player.strip_gear()
 	$metarig.visible = true
 	$spawn.emitting = true
+	anim_tree.reset = false
 	anim_tree.wake = true
+	shielded = true
+	$Hurtbox.monitorable = true
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	shielded = false
 	$metarig.visible = false
 	process = false
 	$player_check.area_entered.connect(_on_area_entered)
 	anim_tree.animation_finished.connect(_on_animation_finished)
 	anim_tree.fire.connect(_on_fire)
+	$Hurtbox.monitorable = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if process:
+		scale = Vector3(2.0,2.0,2.0)
 		attack_timer -= delta
 		var to_player = player.global_position - global_position
-		global_rotation.y = atan2(player.global_position.x, player.global_position.z)
+		global_rotation.y = lerp_angle(global_rotation.y, atan2(-to_player.x, -to_player.z), delta * 2.0)
 		if attack_timer <= 0.0 && current_attack == null:
-			if to_player.length_squared() > 3.5 * 3.5:
+			print(to_player.length())
+			if to_player.length_squared() < 6 * 6:
 				anim_tree.attack_horizontal = true
+				current_attack = $swing_horizontal
 			else :
 				anim_tree.attack_cast = true
+				current_attack = $magic_cast
+		scale = Vector3(2.0,2.0,2.0)
 	
 
 func _on_area_entered(hb : Area3D):
@@ -60,12 +74,18 @@ func _on_area_entered(hb : Area3D):
 		if hb.parent is Player :
 			if player == null :
 				player = hb.parent
+				victory.connect(player._on_victory)
 	
 func _on_animation_finished(anim_name : String):
 	anim_name = anim_name.to_upper()
-	if anim_name.contains("spawn"):
+	if anim_name.contains("SPAWN"):
+		if anim_tree.dying:
+			$metarig.visible = false
+			print("wawa")
+			victory.emit()
 		process = true
-	elif anim_name.contains("attack"):
+	elif anim_name.contains("ATTACK"):
+		
 		current_attack = null
 
 func _on_fire():
@@ -73,4 +93,19 @@ func _on_fire():
 	attack_timer = current_attack.wind_down
 
 func die():
-	pass
+	print("epic win!!!!")
+	process = false
+	anim_tree.dying = true
+	#queue_free()
+
+func stop():
+	process = false
+
+func delete():
+	shielded = false
+	process = false
+	attack_timer = 3.0
+	anim_tree.reset = true
+	$metarig.visible = false
+	$Hurtbox.monitorable = false
+	

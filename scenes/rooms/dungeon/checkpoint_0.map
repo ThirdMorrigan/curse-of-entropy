@@ -648,3 +648,8 @@
 "origin" "-1096 592 72"
 "angle" "90"
 }
+// entity 12
+{
+"classname" "respawn"
+"origin" "-1600 752 -96"
+}

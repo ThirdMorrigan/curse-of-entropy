@@ -159,3 +159,21 @@
 "creature_id" "6"
 "wander" "3"
 }
+// entity 5
+{
+"classname" "Torch"
+"origin" "-1040 384 96"
+"angle" "180"
+}
+// entity 6
+{
+"classname" "Torch"
+"origin" "-640 80 96"
+"angle" "270"
+}
+// entity 7
+{
+"classname" "Torch"
+"origin" "-640 704 96"
+"angle" "90"
+}

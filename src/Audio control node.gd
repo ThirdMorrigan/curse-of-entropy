@@ -15,6 +15,11 @@ const PLAYER_HIT_1 = preload("res://audio/player hit 1.wav")
 const PLAYER_HIT_2 = preload("res://audio/player hit 2.wav")
 const PLAYER_HIT_3 = preload("res://audio/player hit 3.wav")
 const PLAYER_DEATH_AAAH = preload("res://audio/player death AAAH.wav")
+const POTION_DRINK = preload("res://audio/potion drink.wav")
+const CRYPT___AMBIENT = preload("res://audio/Crypt - Ambient.wav")
+const DUNGEON___AMBIENT = preload("res://audio/Dungeon - Ambient.wav")
+const MAIN_MENU = preload("res://audio/Main Menu.wav")
+
 var hit_sounds = [PLAYER_HIT_1,PLAYER_HIT_2,PLAYER_HIT_3]
 @onready var player_sfx_footsteps : AudioStreamPlayer = $player_sfx_footsteps
 @onready var health_pool = $"../../../HealthPool"
@@ -25,6 +30,7 @@ var hit_sounds = [PLAYER_HIT_1,PLAYER_HIT_2,PLAYER_HIT_3]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_pool.hurted.connect(_player_hit)
+	current_music.volume_db = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,6 +40,7 @@ func _process(_delta):
 
 func _on_new_room_entered(roomData : Dictionary):
 	##print(roomData)
+	# SFX processing for inside vs outside reverb
 	if roomData.indoors == true :
 		##print("inside")
 		AudioServer.set_bus_effect_enabled(2,1,true)
@@ -41,12 +48,23 @@ func _on_new_room_entered(roomData : Dictionary):
 		##print("OUTSIDE")
 		AudioServer.set_bus_effect_enabled(2,0,false)
 	
+	# room checking to set current zone music
 	if roomData.zone != player_current_zone :
 		match roomData["zone"]:
 			GameDataSingleton.map_zone.GARDEN:
 				change_zone_music(GARDEN___AMBIENT_1)
 			GameDataSingleton.map_zone.CAVE:
 				change_zone_music(CAVE___AMBIENT)
+			GameDataSingleton.map_zone.CRYPT:
+				change_zone_music(CRYPT___AMBIENT)
+			GameDataSingleton.map_zone.GRAVEYARD:
+				change_zone_music(CRYPT___AMBIENT)
+			GameDataSingleton.map_zone.DUNGEON:
+				change_zone_music(DUNGEON___AMBIENT)
+			GameDataSingleton.map_zone.SEWER:
+				change_zone_music(DUNGEON___AMBIENT)
+			GameDataSingleton.map_zone.CASTLE:
+				change_zone_music(MAIN_MENU)
 		player_current_zone = roomData.zone
 	
 func change_zone_music(next_track):
@@ -90,3 +108,6 @@ func player_die():
 	damage.stream = PLAYER_DEATH_AAAH
 	damage.play()
 
+func player_drink_potion():
+	damage.stream = POTION_DRINK
+	damage.play()

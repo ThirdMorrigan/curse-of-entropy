@@ -77,7 +77,7 @@ geometry_source_group_name = &"room2_source_group"
 
 [node name="Room" type="Area3D"]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 64
 script = ExtResource("1_hgfdm")
 
 [node name="FuncGodotMap" type="Node3D" parent="." groups=["room2_source_group"]]

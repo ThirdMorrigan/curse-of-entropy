@@ -5,8 +5,8 @@
 [ext_resource type="Material" uid="uid://buvsa5yo2mpy5" path="res://textures/wood_misc_0.tres" id="3_ks78v"]
 
 [sub_resource type="Curve" id="Curve_n6j3a"]
-_data = [Vector2(0.336761, 0.685587), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.179949, 0.679171), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_5jga6"]
 curve = SubResource("Curve_n6j3a")

@@ -3,7 +3,9 @@ extends AnimationTree
 @export var attack_horizontal : bool
 @export var attack_vertical : bool
 @export var attack_cast : bool
+@export var dying : bool
 @export var wake : bool
+@export var reset : bool = false
 
 @export var fire_attack : bool 
 
@@ -22,8 +24,8 @@ signal fire
 func _ready():
 	var to_low = $"../low_swipe".global_position - $"../chest".global_position
 	var to_high = $"../high_swipe".global_position - $"../chest".global_position
-	var low_swipe = to_low.normalized.y
-	var high_swipe = to_high.normalized.y
+	var low_swipe = to_low.normalized().y
+	var high_swipe = to_high.normalized().y
 	sweep_offset = -low_swipe
 	sweep_scale = 1/(high_swipe + low_swipe)
 	fire_attack = false
@@ -37,7 +39,8 @@ func _physics_process(delta):
 	if player != null:
 		var to_player = player.global_position - $"../chest".global_position
 		to_player = to_player.normalized()
-		horizontal_height = saturate 
+		horizontal_height = to_player
+		set("parameters/attack_horizontal/blend_position", -1)
 	if fire_attack :
 		attack_horizontal = false
 		attack_vertical = false
