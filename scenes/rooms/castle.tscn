@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ojbnw4rvnxdx"]
+[gd_scene load_steps=11 format=3 uid="uid://ojbnw4rvnxdx"]
 
 [ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="1_xongl"]
 [ext_resource type="PackedScene" uid="uid://d0knfchgkblas" path="res://scenes/rooms/castle/entrance_hall_0.tscn" id="2_8hmck"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cbt3wmfyuln3u" path="res://scenes/rooms/castle/east_maintinance.tscn" id="7_hvne2"]
 [ext_resource type="PackedScene" uid="uid://bbaoc4g7gv4cv" path="res://scenes/rooms/castle/chapel.tscn" id="8_4ocui"]
 [ext_resource type="PackedScene" uid="uid://ovoypcub0che" path="res://scenes/rooms/castle/east_wing.tscn" id="9_d5phd"]
+[ext_resource type="PackedScene" uid="uid://c737pqrmevcnv" path="res://scenes/rooms/castle/final_boss_arena.tscn" id="10_vb7v0"]
 
 [node name="world#Castle" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
@@ -30,3 +31,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
 [node name="Room2" parent="." instance=ExtResource("8_4ocui")]
 
 [node name="Room3" parent="." instance=ExtResource("9_d5phd")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.707107, 0.260062, -0.657547, 0, 0.929911, 0.367784, 0.707107, -0.260062, 0.657547, 86.4922, 19.5225, 70.5238)
+light_energy = 4.0
+shadow_enabled = true
+spot_range = 13.3084
+spot_attenuation = 0.000850145
+spot_angle = 9.76525
+spot_angle_attenuation = 0.000644292
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.707107, 0.260062, -0.657547, 0, 0.929911, 0.367784, 0.707107, -0.260062, 0.657547, 89.5041, 19.5225, 73.5356)
+light_energy = 4.0
+shadow_enabled = true
+spot_range = 13.3084
+spot_attenuation = 0.000850145
+spot_angle = 9.76525
+spot_angle_attenuation = 0.000644292
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(0.707107, 0.260062, -0.657547, 0, 0.929911, 0.367784, 0.707107, -0.260062, 0.657547, 92.4781, 19.5225, 76.5097)
+light_energy = 4.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 13.3084
+spot_attenuation = 0.000850145
+spot_angle = 9.76525
+spot_angle_attenuation = 0.000644292
+
+[node name="Room4" parent="." instance=ExtResource("10_vb7v0")]
