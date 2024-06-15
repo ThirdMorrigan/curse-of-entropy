@@ -53,7 +53,8 @@ func attack_closeout():
 			var d : DamageInstance = player.sword_swing.damage_instances[player.current_swing_damage_instance].copy()
 			d.impulse *= damage_mults[h]
 			d.rotate_impulse(player.global_basis)
-			d.damage += character_details.strength * 0.02
+			if character_details != null:
+				d.damage += character_details.strength * 0.02
 			d.damage *= damage_mults[h]
 			
 			

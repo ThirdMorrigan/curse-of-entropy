@@ -348,7 +348,16 @@ func cycle_consumeable():
 		current_consumeable = consumable_array[index]
 	set_ui_items()
 	
-	
+
+func strip_gear():
+	tool_attacks = []
+	current_tool = null
+	set_ui_items()
+	print("googoooooaaaa")
+	jump_height = 0.5
+
+func _on_victory():
+	pass
 
 func use_consumeable():
 	var item = GameDataSingleton.itemLookupTable[current_consumeable]
