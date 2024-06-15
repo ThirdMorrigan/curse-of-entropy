@@ -15,22 +15,30 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
 
 [node name="world_Castle#Room" parent="." instance=ExtResource("1_xongl")]
+zone = 2
 
 [node name="world_Castle#Room2" parent="." instance=ExtResource("2_8hmck")]
+zone = 2
 
 [node name="world_Castle#Room3" parent="." instance=ExtResource("3_ya6lh")]
+zone = 2
 
 [node name="world_Castle#Room4" parent="." instance=ExtResource("4_nxrqa")]
+zone = 2
 
 [node name="world_Castle#Room5" parent="." instance=ExtResource("5_4uh4f")]
+zone = 2
 
 [node name="world_Castle#Room6" parent="." instance=ExtResource("6_bohg1")]
 
 [node name="Room" parent="." instance=ExtResource("7_hvne2")]
+zone = 2
 
 [node name="Room2" parent="." instance=ExtResource("8_4ocui")]
+zone = 2
 
 [node name="Room3" parent="." instance=ExtResource("9_d5phd")]
+zone = 2
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.707107, 0.260062, -0.657547, 0, 0.929911, 0.367784, 0.707107, -0.260062, 0.657547, 86.4922, 19.5225, 70.5238)
@@ -61,3 +69,4 @@ spot_angle = 9.76525
 spot_angle_attenuation = 0.000644292
 
 [node name="Room4" parent="." instance=ExtResource("10_vb7v0")]
+zone = 2

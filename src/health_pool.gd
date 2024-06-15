@@ -18,6 +18,7 @@ var parent :
 
 signal health_change
 signal hurted
+signal hurted_w_damage
 signal max_health_changed
 var can_impulse : bool
 var curr_max_hp : float:
@@ -40,7 +41,9 @@ func _ready():
 
 func hurt(di : DamageInstance):
 	#print("ouch")
+	var damage = 0.0
 	if di.damage_types & ~immunities :
+		if di.damage > 0.0 : damage = di.damage
 		curr_max_hp -= di.damage * max_hp_loss_ration
 		curr_hp -= di.damage
 		
@@ -49,7 +52,7 @@ func hurt(di : DamageInstance):
 		hurted.emit()
 		if can_impulse:
 			parent.impulse(di.impulse_vector)
-		
+	hurted_w_damage.emit(damage)
 		##print(str("someone's health pool is now ", curr_hp))
 	
 

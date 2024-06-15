@@ -50,7 +50,7 @@ func _ready():
 	audio = AudioStreamPlayer3D.new()
 	add_child(audio)
 	if has_node("HealthPool"):
-		$HealthPool.hurted.connect(_on_damage_sounds)
+		$HealthPool.hurted_w_damage.connect(_on_damage_sounds)
 	if attacks == []:
 		var _attacks = find_children("*", "Attack")
 		for a in _attacks:
@@ -161,11 +161,12 @@ func final_death():
 	else:
 		queue_free()
 
-func _on_damage_sounds():
+func _on_damage_sounds(d : float):
 	match type:
 		creature_type.slime:
 			audio.stream = screams[3]
 		creature_type.thrall:
 			var temp = screams.slice(0,2)
 			audio.stream = temp.pick_random()
-	audio.play()
+	if d > 0.1 :
+		audio.play()
