@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dtsm2rqlrxawr"
+path="res://.godot/imported/crypt_1.map-857e15d4ab1635ffc637a2f151465ca8.tres"
+
+[deps]
+
+source_file="res://scenes/rooms/castle/crypt_1.map"
+dest_files=["res://.godot/imported/crypt_1.map-857e15d4ab1635ffc637a2f151465ca8.tres"]
+
+[params]
+

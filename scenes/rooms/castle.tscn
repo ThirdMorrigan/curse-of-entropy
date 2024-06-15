@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ojbnw4rvnxdx"]
+[gd_scene load_steps=13 format=3 uid="uid://ojbnw4rvnxdx"]
 
 [ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="1_xongl"]
 [ext_resource type="PackedScene" uid="uid://d0knfchgkblas" path="res://scenes/rooms/castle/entrance_hall_0.tscn" id="2_8hmck"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bbaoc4g7gv4cv" path="res://scenes/rooms/castle/chapel.tscn" id="8_4ocui"]
 [ext_resource type="PackedScene" uid="uid://ovoypcub0che" path="res://scenes/rooms/castle/east_wing.tscn" id="9_d5phd"]
 [ext_resource type="PackedScene" uid="uid://c737pqrmevcnv" path="res://scenes/rooms/castle/final_boss_arena.tscn" id="10_vb7v0"]
+[ext_resource type="PackedScene" uid="uid://b8jt7mjqetp4r" path="res://scenes/rooms/castle/crypt_0.tscn" id="11_e772s"]
+[ext_resource type="PackedScene" uid="uid://ctljvvf5085p4" path="res://scenes/rooms/castle/crypt_1.tscn" id="12_f84pt"]
 
 [node name="world#Castle" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 16)
@@ -70,3 +72,7 @@ spot_angle_attenuation = 0.000644292
 
 [node name="Room4" parent="." instance=ExtResource("10_vb7v0")]
 zone = 2
+
+[node name="Room5" parent="." instance=ExtResource("11_e772s")]
+
+[node name="Room6" parent="." instance=ExtResource("12_f84pt")]
