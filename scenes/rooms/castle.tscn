@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ojbnw4rvnxdx"]
+[gd_scene load_steps=14 format=3 uid="uid://ojbnw4rvnxdx"]
 
 [ext_resource type="PackedScene" uid="uid://dgf053nqjh3bu" path="res://scenes/rooms/castle/castle_exterior.tscn" id="1_xongl"]
 [ext_resource type="PackedScene" uid="uid://d0knfchgkblas" path="res://scenes/rooms/castle/entrance_hall_0.tscn" id="2_8hmck"]
@@ -7,11 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://wenq428im3ym" path="res://scenes/rooms/castle/S_E_tower.tscn" id="5_4uh4f"]
 [ext_resource type="PackedScene" uid="uid://bmvoky2qqmm75" path="res://scenes/rooms/castle/back_hall_0.tscn" id="6_bohg1"]
 [ext_resource type="PackedScene" uid="uid://cbt3wmfyuln3u" path="res://scenes/rooms/castle/east_maintinance.tscn" id="7_hvne2"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/castle/chapel.tscn" id="8_4ocui"]
-[ext_resource type="PackedScene" path="res://scenes/rooms/castle/east_wing.tscn" id="9_d5phd"]
-[ext_resource type="PackedScene" uid="uid://c8mg80dad5i0c" path="res://scenes/rooms/graveyard/crypt_0.tscn" id="10_t5j64"]
 [ext_resource type="PackedScene" uid="uid://bbaoc4g7gv4cv" path="res://scenes/rooms/castle/chapel.tscn" id="8_4ocui"]
 [ext_resource type="PackedScene" uid="uid://ovoypcub0che" path="res://scenes/rooms/castle/east_wing.tscn" id="9_d5phd"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/graveyard/crypt_0.tscn" id="10_t5j64"]
 [ext_resource type="PackedScene" uid="uid://c737pqrmevcnv" path="res://scenes/rooms/castle/final_boss_arena.tscn" id="10_vb7v0"]
 [ext_resource type="PackedScene" uid="uid://b8jt7mjqetp4r" path="res://scenes/rooms/castle/crypt_0.tscn" id="11_e772s"]
 [ext_resource type="PackedScene" uid="uid://ctljvvf5085p4" path="res://scenes/rooms/castle/crypt_1.tscn" id="12_f84pt"]
