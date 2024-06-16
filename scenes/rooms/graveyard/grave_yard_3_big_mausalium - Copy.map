@@ -1798,6 +1798,7 @@
 "classname" "func_door"
 "origin" "30 0 0"
 "open_angle" "-80"
+"remote_activation_group" ""
 "_tb_group" "1"
 // brush 0
 {
@@ -1817,6 +1818,7 @@
 "origin" "-30 0 0"
 "open_angle" "80"
 "remote_activation_group" ""
+"axis" "0 1 0"
 "_tb_group" "1"
 // brush 0
 {
@@ -1999,30 +2001,33 @@
 "_tb_group" "1"
 // brush 0
 {
-( 24 712 -144 ) ( 24 713 -144 ) ( 24 712 -143 ) wood_misc_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 24 704 -144 ) ( 24 704 -143 ) ( 25 704 -144 ) wood_misc_0 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 24 712 -144 ) ( 25 712 -144 ) ( 24 713 -144 ) wood_misc_0 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 40 816 -72 ) ( 40 817 -72 ) ( 41 816 -72 ) wood_misc_0 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 40 856 -136 ) ( 41 856 -136 ) ( 40 856 -135 ) wood_misc_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 32 816 -136 ) ( 32 816 -135 ) ( 32 817 -136 ) wood_misc_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 24 712 -144 ) ( 24 713 -144 ) ( 24 712 -143 ) wood_planks_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 24 704 -144 ) ( 24 704 -143 ) ( 25 704 -144 ) wood_planks_0 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 24 712 -144 ) ( 25 712 -144 ) ( 24 713 -144 ) wood_planks_0 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 40 816 -72 ) ( 40 817 -72 ) ( 41 816 -72 ) wood_planks_0 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 40 856 -136 ) ( 41 856 -136 ) ( 40 856 -135 ) wood_planks_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 816 -136 ) ( 32 816 -135 ) ( 32 817 -136 ) wood_planks_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
 // entity 18
 {
 "classname" "Creature"
 "origin" "136 776 -136"
+"creature_id" "11"
 "_tb_group" "1"
 }
 // entity 19
 {
 "classname" "Creature"
 "origin" "-112 832 -136"
+"creature_id" "11"
 "_tb_group" "1"
 }
 // entity 20
 {
 "classname" "Creature"
 "origin" "-128 656 -136"
+"creature_id" "6"
 "_tb_group" "1"
 }
 // entity 21
@@ -2057,26 +2062,118 @@
 {
 "classname" "Lever"
 "origin" "168 64 -40"
-"angle" "90"
+"angle" "270"
 "target" "big_mausoleum_shortcut"
 "_tb_group" "1"
 }
 // entity 24
 {
-"classname" "func_burnable"
-// brush 0
-{
-( -56 600 -144 ) ( -56 601 -144 ) ( -56 600 -143 ) wood_misc_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -32 600 -144 ) ( -32 600 -143 ) ( -31 600 -144 ) wood_misc_0 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -32 600 -144 ) ( -31 600 -144 ) ( -32 601 -144 ) wood_misc_0 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 56 608 -72 ) ( 56 609 -72 ) ( 57 608 -72 ) wood_misc_0 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 56 616 -136 ) ( 57 616 -136 ) ( 56 616 -135 ) wood_misc_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 56 608 -136 ) ( 56 608 -135 ) ( 56 609 -136 ) wood_misc_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-}
+"classname" "Item_pickup"
+"origin" "88 816 -141"
+"id" "33"
+"_tb_group" "1"
 }
 // entity 25
 {
 "classname" "Item_pickup"
+"origin" "96 744 -141"
+"id" "34"
+"_tb_group" "1"
+}
+// entity 26
+{
+"classname" "Item_pickup"
+"origin" "-40 728 -141"
+"id" "35"
+"_tb_group" "1"
+}
+// entity 27
+{
+"classname" "Item_pickup"
+"origin" "-40 824 -141"
+"id" "36"
+"_tb_group" "1"
+}
+// entity 28
+{
+"classname" "Torch"
+"origin" "216 592 -120"
+"_tb_group" "1"
+}
+// entity 29
+{
+"classname" "Torch"
+"origin" "216 576 -64"
+"_tb_group" "1"
+}
+// entity 30
+{
+"classname" "Torch"
+"origin" "192 312 -32"
+"angle" "270"
+"_tb_group" "1"
+}
+// entity 31
+{
+"classname" "Item_pickup"
+"origin" "192 328 -56"
+"id" "29"
+"_tb_group" "1"
+}
+// entity 32
+{
+"classname" "Item_pickup"
+"origin" "-88 664 -48"
+"id" "34"
+"_tb_group" "1"
+}
+// entity 33
+{
+"classname" "Torch"
+"origin" "40 672 -40"
+"angle" "90"
+"_tb_group" "1"
+}
+// entity 34
+{
+"classname" "Item_pickup"
+"origin" "-88 624 -48"
+"id" "36"
+"_tb_group" "1"
+}
+// entity 35
+{
+"classname" "func_burnable"
+// brush 0
+{
+( -56 600 -144 ) ( -56 601 -144 ) ( -56 600 -143 ) wood_planks_0 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -32 600 -144 ) ( -32 600 -143 ) ( -31 600 -144 ) wood_planks_0 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -32 600 -144 ) ( -31 600 -144 ) ( -32 601 -144 ) wood_planks_0 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 56 608 -72 ) ( 56 609 -72 ) ( 57 608 -72 ) wood_planks_0 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 56 616 -136 ) ( 57 616 -136 ) ( 56 616 -135 ) wood_planks_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 56 608 -136 ) ( 56 608 -135 ) ( 56 609 -136 ) wood_planks_0 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 36
+{
+"classname" "Item_pickup"
 "origin" "-8 512 -130.667"
 "id" "22"
+}
+// entity 37
+{
+"classname" "Torch"
+"origin" "168 288 -104"
+"angle" "180"
+}
+// entity 38
+{
+"classname" "Torch"
+"origin" "168 168 -104"
+"angle" "180"
+}
+// entity 39
+{
+"classname" "Torch"
+"origin" "320 40 -48"
 }

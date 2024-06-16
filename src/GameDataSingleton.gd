@@ -242,6 +242,12 @@ var itemLookupTable = {
 		"description" : "A powerful crystal, enough of these and your mind will be un-matched",
 		"visuals" : "res://scenes/visuals/int_crystal_visuals.tscn"
 	},
+	100 : {
+		"name" : "Simple key",
+		"type" : item_types.KEY,
+		"description" : "Opens a nearby door",
+		"visuals" : key_visuals
+	},
 	
 }
 

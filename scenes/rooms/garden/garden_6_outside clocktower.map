@@ -839,7 +839,7 @@
 {
 "classname" "Item_pickup"
 "origin" "-1600 64 200"
-"id" "30"
+"id" "35"
 }
 // entity 6
 {
@@ -857,7 +857,7 @@
 {
 "classname" "Item_pickup"
 "origin" "-64 64 200"
-"id" "30"
+"id" "36"
 }
 // entity 9
 {
@@ -875,13 +875,13 @@
 {
 "classname" "Item_pickup"
 "origin" "-1600 1536 312"
-"id" "30"
+"id" "33"
 }
 // entity 12
 {
 "classname" "Item_pickup"
 "origin" "-64 1536 200"
-"id" "30"
+"id" "34"
 }
 // entity 13
 {

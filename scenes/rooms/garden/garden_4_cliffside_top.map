@@ -2934,7 +2934,7 @@
 {
 "classname" "Item_pickup"
 "origin" "-2792 56 40"
-"id" "30"
+"id" "33"
 }
 // entity 45
 {
@@ -3162,7 +3162,8 @@
 "origin" "-448 -1776 40"
 "boss" "0"
 "creature_id" "10"
-"repeatable" "1"
+"repeatable" "0"
+"drop" "34"
 }
 // entity 50
 {
@@ -3170,7 +3171,8 @@
 "origin" "-736 -1832 360"
 "boss" "0"
 "creature_id" "10"
-"repeatable" "1"
+"repeatable" "0"
+"drop" "33"
 }
 // entity 51
 {
@@ -3276,6 +3278,43 @@
 }
 // entity 53
 {
-"classname" "respawn"
-"origin" "-696 -968 232"
+"classname" "Item_pickup"
+"origin" "-752 -2112 360"
+"id" "35"
+}
+// entity 54
+{
+"classname" "Item_pickup"
+"origin" "-432 -2120 40"
+"id" "36"
+}
+// entity 55
+{
+"classname" "Item_pickup"
+"origin" "-1456 -984 224"
+"id" "35"
+}
+// entity 56
+{
+"classname" "Creature"
+"origin" "-2016 56 232"
+"creature_id" "11"
+}
+// entity 57
+{
+"classname" "Item_pickup"
+"origin" "-2368 848 40"
+"id" "6"
+}
+// entity 58
+{
+"classname" "Item_pickup"
+"origin" "-2408 792 40"
+"id" "6"
+}
+// entity 59
+{
+"classname" "Item_pickup"
+"origin" "-2480 856 40"
+"id" "6"
 }
