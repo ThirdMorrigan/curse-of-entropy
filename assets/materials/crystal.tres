@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dt86s5y88ugkk"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://brcwmojntst4"]
 
 [ext_resource type="Shader" uid="uid://dl1clctijiv06" path="res://assets/models/world/crystal.tres" id="1_t28lh"]
 
