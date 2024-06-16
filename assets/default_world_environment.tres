@@ -4,6 +4,7 @@
 rayleigh_coefficient = 3.75
 mie_coefficient = 0.11
 turbidity = 1.75
+ground_color = Color(0.141176, 0.101961, 0.0588235, 1)
 
 [sub_resource type="Sky" id="Sky_hrpth"]
 sky_material = SubResource("PhysicalSkyMaterial_t3ivt")

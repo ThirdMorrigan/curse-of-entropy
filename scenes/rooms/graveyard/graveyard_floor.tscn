@@ -1,14 +1,14 @@
 [gd_scene load_steps=424 format=3 uid="uid://ciigjpmulsx0"]
 
-[ext_resource type="ArrayMesh" uid="uid://cv2nmgmdlogwa" path="res://assets/models/rooms/graveyard_floor_Landscape_002.res" id="1_e3dt1"]
+[ext_resource type="ArrayMesh" uid="uid://v73lbmla27vm" path="res://assets/models/rooms/graveyard_floor_Landscape_002.res" id="1_e3dt1"]
 [ext_resource type="Material" uid="uid://c4i0ucvapgjo3" path="res://textures/rock_wall_0.tres" id="2_b1ik1"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_4lldr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_x6yrv"]
 [ext_resource type="Material" uid="uid://dc7e3jahsipi3" path="res://textures/bare_stone_0.tres" id="5_ikqfs"]
-[ext_resource type="Material" path="res://textures/metal_fence_0.tres" id="6_xlsve"]
-[ext_resource type="Material" path="res://textures/smooth_stone_0.tres" id="7_gu0e0"]
+[ext_resource type="Material" uid="uid://c10xh3hstsunr" path="res://textures/metal_fence_0.tres" id="6_xlsve"]
+[ext_resource type="Material" uid="uid://jsufqdhpo58a" path="res://textures/smooth_stone_0.tres" id="7_gu0e0"]
 [ext_resource type="PackedScene" uid="uid://ckmvy71utkoe5" path="res://scenes/enemy_spawner.tscn" id="8_mykk8"]
-[ext_resource type="Material" uid="uid://waac3ms0ofu3" path="res://textures/invisable_wall.tres" id="8_wj2se"]
+[ext_resource type="Material" path="res://textures/invisable_wall.tres" id="8_wj2se"]
 [ext_resource type="PackedScene" uid="uid://lxnrcvm08whn" path="res://scenes/creature/proto_thrall_1h.tscn" id="9_qjb3s"]
 [ext_resource type="PackedScene" uid="uid://hxbkerqq4mii" path="res://scenes/creature/thralls/thrall_spear.tscn" id="10_gn1wx"]
 [ext_resource type="PackedScene" uid="uid://bnulvmgwd4rig" path="res://scenes/creature/thralls/thrall_sword.tscn" id="11_0a4we"]
@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b6b3ekwg8o2oo" path="res://scenes/creature/slime/slime.tscn" id="23_ruvme"]
 [ext_resource type="PackedScene" uid="uid://dywlbjb7mce68" path="res://scenes/visuals/str_crystal_visuals.tscn" id="24_uvrn7"]
 [ext_resource type="PackedScene" uid="uid://cidvofjq6nuku" path="res://scenes/visuals/potion_visuals.tscn" id="25_neq23"]
-[ext_resource type="PackedScene" uid="uid://dxeo6cpt88lfc" path="res://scenes/visuals/potion_visuals_mana.tscn" id="26_rlgqt"]
+[ext_resource type="PackedScene" path="res://scenes/visuals/potion_visuals_mana.tscn" id="26_rlgqt"]
 [ext_resource type="PackedScene" uid="uid://b56hobyjaf7cb" path="res://scenes/visuals/mana_crystal_visuals.tscn" id="27_f5hx2"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7jc1y"]
@@ -2732,6 +2732,7 @@ func_godot_properties = {
 "quantity": 3
 }
 visuals = ExtResource("14_vi8yh")
+interactionText = "pick up Intelligence Crystal"
 id = 36
 quantity = 3
 
@@ -2865,6 +2866,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("19_de0bf")
+interactionText = "pick up Health Crystal"
 id = 33
 
 [node name="entity_22_Creature" parent="FuncGodotMap" instance=ExtResource("8_mykk8")]
@@ -3136,6 +3138,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("24_uvrn7")
+interactionText = "pick up Strength Crystal"
 id = 35
 
 [node name="entity_36_Item_pickup" parent="FuncGodotMap" instance=ExtResource("13_howfh")]
@@ -3147,6 +3150,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("25_neq23")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_37_Item_pickup" parent="FuncGodotMap" instance=ExtResource("13_howfh")]
@@ -3158,6 +3162,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("25_neq23")
+interactionText = "pick up Small health potion"
 id = 6
 
 [node name="entity_38_Item_pickup" parent="FuncGodotMap" instance=ExtResource("13_howfh")]
@@ -3169,6 +3174,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("25_neq23")
+interactionText = "pick up Medium health potion"
 id = 21
 
 [node name="entity_39_Item_pickup" parent="FuncGodotMap" instance=ExtResource("13_howfh")]
@@ -3180,6 +3186,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("26_rlgqt")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_40_Item_pickup" parent="FuncGodotMap" instance=ExtResource("13_howfh")]
@@ -3191,6 +3198,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("24_uvrn7")
+interactionText = "pick up Strength Crystal"
 id = 35
 
 [node name="entity_41_Item_pickup" parent="FuncGodotMap" instance=ExtResource("13_howfh")]
@@ -3202,4 +3210,5 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("27_f5hx2")
+interactionText = "pick up Mana Crystal"
 id = 34
