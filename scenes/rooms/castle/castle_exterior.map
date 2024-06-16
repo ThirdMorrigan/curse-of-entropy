@@ -906,9 +906,10 @@
 // entity 2
 {
 "classname" "Lever"
-"origin" "248 -184 40"
+"origin" "-248 -88 56"
 "bidirectional" "1"
 "target" "test"
+"angle" "45"
 }
 // entity 3
 {
