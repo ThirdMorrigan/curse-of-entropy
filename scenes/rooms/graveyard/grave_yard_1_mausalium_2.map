@@ -1216,6 +1216,7 @@
 "origin" "80 24 15.919"
 "angle" "90"
 "state" "1"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 3
@@ -1223,13 +1224,15 @@
 "classname" "Torch"
 "origin" "112 192 16"
 "angle" "90"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 4
 {
 "classname" "Lever"
-"origin" "112 600 -688"
-"angle" "90"
+"origin" "112 608 -688"
+"angle" "270"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 5
@@ -1237,6 +1240,7 @@
 "classname" "Torch"
 "origin" "112 448 -384"
 "angle" "270"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 6
@@ -1244,6 +1248,7 @@
 "classname" "Torch"
 "origin" "112 608 -80"
 "angle" "90"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 7
@@ -1251,29 +1256,38 @@
 "classname" "Torch"
 "origin" "112 448 -592"
 "angle" "270"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 8
 {
 "classname" "Item_pickup"
 "origin" "72 472 -728"
+"id" "6"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 9
 {
 "classname" "Item_pickup"
 "origin" "184 520 -728"
+"id" "6"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 10
 {
 "classname" "Item_pickup"
 "origin" "184 600 -728"
+"id" "35"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }
 // entity 11
 {
 "classname" "Item_pickup"
 "origin" "40 536 -728"
+"id" "6"
+"target" "big_mausoleum_door"
 "_tb_group" "1"
 }

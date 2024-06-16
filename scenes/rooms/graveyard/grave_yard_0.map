@@ -1642,26 +1642,31 @@
 {
 "classname" "Creature"
 "origin" "-296 664 -232"
+"creature_id" "8"
 }
 // entity 31
 {
 "classname" "Creature"
 "origin" "-296 808 -232"
+"creature_id" "7"
 }
 // entity 32
 {
 "classname" "Creature"
 "origin" "-296 1064 -232"
+"creature_id" "6"
 }
 // entity 33
 {
 "classname" "Creature"
 "origin" "-8 856 -248"
+"creature_id" "7"
 }
 // entity 34
 {
 "classname" "Creature"
 "origin" "216 648 -248"
+"creature_id" "6"
 }
 // entity 35
 {
@@ -1672,21 +1677,25 @@
 {
 "classname" "Creature"
 "origin" "120 1272 -248"
+"creature_id" "11"
 }
 // entity 37
 {
 "classname" "Creature"
 "origin" "472 584 -232"
+"creature_id" "6"
 }
 // entity 38
 {
 "classname" "Creature"
 "origin" "552 936 -232"
+"creature_id" "7"
 }
 // entity 39
 {
 "classname" "Creature"
 "origin" "456 984 -232"
+"creature_id" "8"
 }
 // entity 40
 {
@@ -1749,4 +1758,23 @@
 ( -208 880 -80 ) ( -207 880 -80 ) ( -208 880 -79 ) metal_fence_0 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( -208 880 -80 ) ( -208 880 -79 ) ( -208 881 -80 ) metal_fence_0 [ 0 1 0 -240 ] [ 0 0 -1 0 ] 0 1 1
 }
+}
+// entity 42
+{
+"classname" "Lever"
+"origin" "128 1344 -216"
+"angle" "270"
+"target" "big_mausoleum_door"
+}
+// entity 43
+{
+"classname" "Item_pickup"
+"origin" "152 1200 -672"
+"id" "6"
+}
+// entity 44
+{
+"classname" "Item_pickup"
+"origin" "208 480 -440"
+"id" "35"
 }
