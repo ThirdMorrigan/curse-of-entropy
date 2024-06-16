@@ -1,14 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://b6b3ekwg8o2oo"]
+[gd_scene load_steps=31 format=3 uid="uid://b6b3ekwg8o2oo"]
 
 [ext_resource type="PackedScene" uid="uid://bq17qn6ht6lm8" path="res://assets/models/creatures/slime/slime.glb" id="1_tupnk"]
 [ext_resource type="Material" uid="uid://bvve875ktrb27" path="res://scenes/creature/slime/slime_material_0.tres" id="2_volj6"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="3_3ysba"]
-[ext_resource type="Animation" uid="uid://bttxyikbwb8sb" path="res://assets/models/creatures/slime/Idle.res" id="3_elaky"]
-[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_8i1x0"]
-[ext_resource type="Animation" uid="uid://c5ny0vcuaswvk" path="res://assets/models/creatures/slime/attack_0.res" id="4_f0o2j"]
-[ext_resource type="Animation" uid="uid://bi8ysyfbvuso3" path="res://assets/models/creatures/slime/die.res" id="5_4lfod"]
+[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_8i1x0"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="5_c3cqd"]
-[ext_resource type="Animation" uid="uid://dj5yy7gxyo546" path="res://assets/models/creatures/slime/walk.res" id="6_gpof0"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="6_yeefr"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="7_o5lod"]
 [ext_resource type="Script" path="res://src/attack.gd" id="8_w4843"]
@@ -24,14 +20,6 @@ script/source = "extends Node3D
 func _physics_process(_delta):
 	global_rotation.y = 0
 "
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_04shu"]
-_data = {
-"Idle": ExtResource("3_elaky"),
-"attack_0": ExtResource("4_f0o2j"),
-"die": ExtResource("5_4lfod"),
-"walk": ExtResource("6_gpof0")
-}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
 animation = &"attack_0"
@@ -166,9 +154,6 @@ bones/0/scale = Vector3(1.1572, 0.876555, 1.1572)
 surface_material_override/0 = ExtResource("2_volj6")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
-libraries = {
-"": SubResource("AnimationLibrary_04shu")
-}
 tree_root = SubResource("AnimationNodeStateMachine_y0tkb")
 anim_player = NodePath("../AnimationPlayer")
 script = ExtResource("3_3ysba")
