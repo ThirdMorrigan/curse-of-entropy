@@ -1432,14 +1432,15 @@
 // entity 6
 {
 "classname" "Lever"
-"origin" "-216 1080 -232"
+"origin" "-208 1080 -232"
 "target" "mausoleum_0_door_1"
+"angle" "180"
 }
 // entity 7
 {
 "classname" "Lever"
-"origin" "408 1080 -216"
-"angle" "180"
+"origin" "400 1080 -216"
+"angle" "0"
 "target" "mausoleum_0_door_0"
 }
 // entity 8
@@ -1672,6 +1673,8 @@
 {
 "classname" "Creature"
 "origin" "328 504 -120"
+"repeatable" "1"
+"creature_id" "6"
 }
 // entity 36
 {
