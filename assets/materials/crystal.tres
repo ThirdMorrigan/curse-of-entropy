@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dt86s5y88ugkk"]
+
+[ext_resource type="Shader" uid="uid://dl1clctijiv06" path="res://assets/models/world/crystal.tres" id="1_t28lh"]
+
+[sub_resource type="Curve" id="Curve_efcjf"]
+_data = [Vector2(0.518703, 0.219256), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_qfnys"]
+_data = [Vector2(0.461347, 0.405148), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_pw3t1"]
+_data = [Vector2(0.498753, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_b80tp"]
+curve_x = SubResource("Curve_efcjf")
+curve_y = SubResource("Curve_qfnys")
+curve_z = SubResource("Curve_pw3t1")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_t28lh")
+shader_parameter/vertex_wobble_scale = 1
+shader_parameter/albedo = Color(0, 0.501961, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 2.0
+shader_parameter/ao_light_affect = 0.5
+shader_parameter/texture_crunch = SubResource("CurveXYZTexture_b80tp")

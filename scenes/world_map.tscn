@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bskhruril6hag" path="res://scenes/rooms/cave.tscn" id="33_d8d4j"]
 [ext_resource type="PackedScene" uid="uid://cv3vgjdboysxf" path="res://scenes/rooms/garden.tscn" id="34_l3eis"]
 [ext_resource type="PackedScene" uid="uid://dpgw6hjcm5ntj" path="res://scenes/rooms/grave_yard.tscn" id="35_oosby"]
-[ext_resource type="PackedScene" uid="uid://c8qurahdclhh6" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/sewer.tscn" id="36_leat4"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xd1se"]
 exposure_multiplier = 2.0
