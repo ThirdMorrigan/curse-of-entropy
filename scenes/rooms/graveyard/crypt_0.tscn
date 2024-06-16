@@ -1,10 +1,11 @@
-[gd_scene load_steps=293 format=3 uid="uid://c8mg80dad5i0c"]
+[gd_scene load_steps=294 format=3 uid="uid://c8mg80dad5i0c"]
 
 [ext_resource type="Script" path="res://src/room.gd" id="1_qr75n"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_mvvwn"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_45c87"]
 [ext_resource type="Material" path="res://textures/smooth_stone_0.tres" id="6_7621y"]
 [ext_resource type="PackedScene" uid="uid://cjvqp56mo6pfb" path="res://scenes/visuals/torch.tscn" id="7_0d3k7"]
+[ext_resource type="Material" uid="uid://dt86s5y88ugkk" path="res://assets/materials/crystal.tres" id="7_fb4uq"]
 [ext_resource type="Script" path="res://src/func_arcane_lock.gd" id="8_c1a60"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="9_cqire"]
 [ext_resource type="Script" path="res://src/func_door.gd" id="10_igwn4"]
@@ -1776,6 +1777,7 @@ script = ExtResource("8_c1a60")
 
 [node name="entity_1_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_1_func_arcane_lock"]
 mesh = SubResource("ArrayMesh_h7k2l")
+surface_material_override/0 = ExtResource("7_fb4uq")
 
 [node name="entity_1_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_1_func_arcane_lock"]
 shape = SubResource("ConvexPolygonShape3D_f2u8k")
@@ -1786,6 +1788,7 @@ script = ExtResource("8_c1a60")
 
 [node name="entity_2_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_2_func_arcane_lock"]
 mesh = SubResource("ArrayMesh_3odg5")
+surface_material_override/0 = ExtResource("7_fb4uq")
 
 [node name="entity_2_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_2_func_arcane_lock"]
 shape = SubResource("ConvexPolygonShape3D_ema21")
@@ -1796,6 +1799,7 @@ script = ExtResource("8_c1a60")
 
 [node name="entity_3_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_3_func_arcane_lock"]
 mesh = SubResource("ArrayMesh_1bk18")
+surface_material_override/0 = ExtResource("7_fb4uq")
 
 [node name="entity_3_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_3_func_arcane_lock"]
 shape = SubResource("ConvexPolygonShape3D_a1whs")
@@ -1806,6 +1810,7 @@ script = ExtResource("8_c1a60")
 
 [node name="entity_4_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_4_func_arcane_lock"]
 mesh = SubResource("ArrayMesh_yybiv")
+surface_material_override/0 = ExtResource("7_fb4uq")
 
 [node name="entity_4_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_4_func_arcane_lock"]
 shape = SubResource("ConvexPolygonShape3D_0y170")
@@ -1816,6 +1821,7 @@ script = ExtResource("8_c1a60")
 
 [node name="entity_5_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_5_func_arcane_lock"]
 mesh = SubResource("ArrayMesh_bs4xf")
+surface_material_override/0 = ExtResource("7_fb4uq")
 
 [node name="entity_5_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_5_func_arcane_lock"]
 shape = SubResource("ConvexPolygonShape3D_0maas")
@@ -1826,6 +1832,7 @@ script = ExtResource("8_c1a60")
 
 [node name="entity_6_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_6_func_arcane_lock"]
 mesh = SubResource("ArrayMesh_kl6db")
+surface_material_override/0 = ExtResource("7_fb4uq")
 
 [node name="entity_6_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_6_func_arcane_lock"]
 shape = SubResource("ConvexPolygonShape3D_ps7db")
@@ -2278,6 +2285,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_k15n2")
+interactionText = "pick up Full Mana potion"
 id = 29
 
 [node name="entity_42_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2289,6 +2297,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("14_xascb")
+interactionText = "pick up Intelligence Crystal"
 id = 36
 
 [node name="entity_43_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2300,6 +2309,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("15_eibhh")
+interactionText = "pick up Health Crystal"
 id = 33
 
 [node name="entity_44_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2311,6 +2321,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("16_cj2mi")
+interactionText = "pick up Medium health potion"
 id = 21
 
 [node name="entity_45_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2322,6 +2333,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_k15n2")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_46_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2333,6 +2345,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_k15n2")
+interactionText = "pick up Medium Mana potion"
 id = 28
 
 [node name="entity_47_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2344,6 +2357,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("17_yetke")
+interactionText = "pick up Strength Crystal"
 id = 35
 
 [node name="entity_48_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2355,6 +2369,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("14_xascb")
+interactionText = "pick up Intelligence Crystal"
 id = 36
 
 [node name="entity_49_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2366,6 +2381,7 @@ func_godot_properties = {
 "quantity": 3
 }
 visuals = ExtResource("16_cj2mi")
+interactionText = "pick up Small health potion"
 id = 6
 quantity = 3
 
@@ -2378,6 +2394,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_k15n2")
+interactionText = "pick up Medium Mana potion"
 id = 28
 
 [node name="entity_51_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2398,6 +2415,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_k15n2")
+interactionText = "pick up Full Mana potion"
 id = 29
 
 [node name="entity_53_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2409,6 +2427,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("16_cj2mi")
+interactionText = "pick up Medium health potion"
 id = 21
 
 [node name="entity_54_func_door" type="AnimatableBody3D" parent="FuncGodotMap"]
@@ -2450,6 +2469,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("18_38oex")
+interactionText = "pick up Arcane burst spell"
 id = 23
 
 [node name="entity_56_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2461,6 +2481,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_k15n2")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_57_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2472,6 +2493,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("13_k15n2")
+interactionText = "pick up Small Mana potion"
 id = 26
 
 [node name="entity_58_Creature" parent="FuncGodotMap" instance=ExtResource("19_dgveb")]
@@ -2712,6 +2734,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("27_tfxv6")
+interactionText = "pick up Mana Crystal"
 id = 34
 
 [node name="entity_72_Item_pickup" parent="FuncGodotMap" instance=ExtResource("12_t4kwx")]
@@ -2723,6 +2746,7 @@ func_godot_properties = {
 "quantity": 1
 }
 visuals = ExtResource("16_cj2mi")
+interactionText = "pick up Medium health potion"
 id = 21
 
 [node name="entity_73_Creature" parent="FuncGodotMap" instance=ExtResource("19_dgveb")]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbggg6dd7nwuw"]
+[gd_scene load_steps=8 format=3 uid="uid://bbggg6dd7nwuw"]
 
 [ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_b2dml"]
 [ext_resource type="Script" path="res://src/interactables/respawn_interactable_action.gd" id="2_ouoqb"]
-[ext_resource type="Shader" uid="uid://dl1clctijiv06" path="res://assets/models/world/crystal.tres" id="3_fc8p4"]
+[ext_resource type="Material" uid="uid://dt86s5y88ugkk" path="res://assets/materials/crystal.tres" id="3_0i5ik"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbyje"]
 
@@ -38,36 +38,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r4sdv")
 
-[sub_resource type="Curve" id="Curve_efcjf"]
-_data = [Vector2(0.518703, 0.219256), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="Curve" id="Curve_qfnys"]
-_data = [Vector2(0.461347, 0.405148), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="Curve" id="Curve_pw3t1"]
-_data = [Vector2(0.498753, 1), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_b80tp"]
-curve_x = SubResource("Curve_efcjf")
-curve_y = SubResource("Curve_qfnys")
-curve_z = SubResource("Curve_pw3t1")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhojq"]
-render_priority = 0
-shader = ExtResource("3_fc8p4")
-shader_parameter/vertex_wobble_scale = 1
-shader_parameter/albedo = Color(0, 0.501961, 1, 1)
-shader_parameter/alpha_scissor_threshold = 0.5
-shader_parameter/roughness = 1.0
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 1.0
-shader_parameter/normal_scale = 2.0
-shader_parameter/ao_light_affect = 0.5
-shader_parameter/texture_crunch = SubResource("CurveXYZTexture_b80tp")
-
 [node name="respawn_point" type="Area3D"]
 script = ExtResource("1_b2dml")
 interactionText = "Set spawn"
@@ -83,7 +53,7 @@ shape = SubResource("BoxShape3D_fbyje")
 transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vxffs")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_jhojq")
+surface_material_override/0 = ExtResource("3_0i5ik")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7333, 0)
