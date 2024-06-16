@@ -1,10 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://b6b3ekwg8o2oo"]
+[gd_scene load_steps=36 format=3 uid="uid://b6b3ekwg8o2oo"]
 
 [ext_resource type="PackedScene" uid="uid://bq17qn6ht6lm8" path="res://assets/models/creatures/slime/slime.glb" id="1_tupnk"]
 [ext_resource type="Material" uid="uid://bvve875ktrb27" path="res://scenes/creature/slime/slime_material_0.tres" id="2_volj6"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="3_3ysba"]
-[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_8i1x0"]
+[ext_resource type="Animation" uid="uid://bttxyikbwb8sb" path="res://assets/models/creatures/slime/Idle.res" id="3_elaky"]
+[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="4_8i1x0"]
+[ext_resource type="Animation" uid="uid://c5ny0vcuaswvk" path="res://assets/models/creatures/slime/attack_0.res" id="4_f0o2j"]
+[ext_resource type="Animation" uid="uid://bi8ysyfbvuso3" path="res://assets/models/creatures/slime/die.res" id="5_4lfod"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="5_c3cqd"]
+[ext_resource type="Animation" uid="uid://dj5yy7gxyo546" path="res://assets/models/creatures/slime/walk.res" id="6_gpof0"]
 [ext_resource type="Script" path="res://src/hurtbox.gd" id="6_yeefr"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="7_o5lod"]
 [ext_resource type="Script" path="res://src/attack.gd" id="8_w4843"]
@@ -20,6 +24,14 @@ script/source = "extends Node3D
 func _physics_process(_delta):
 	global_rotation.y = 0
 "
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04shu"]
+_data = {
+"Idle": ExtResource("3_elaky"),
+"attack_0": ExtResource("4_f0o2j"),
+"die": ExtResource("5_4lfod"),
+"walk": ExtResource("6_gpof0")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjh3y"]
 animation = &"attack_0"
@@ -129,18 +141,34 @@ func _process(delta):
 "
 
 [node name="slime" instance=ExtResource("1_tupnk")]
+loot_table = {
+0.1: 36,
+0.2: 35,
+0.3: 34,
+0.4: 33,
+1.0: 3,
+1.5: 30,
+2.0: 29,
+3.0: 28,
+4.0: 21,
+9.0: 6,
+14.0: 26
+}
 type = 2
 
 [node name="Armature" parent="." index="0"]
 script = SubResource("GDScript_hkwnx")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/scale = Vector3(1.27235, 0.786134, 1.27235)
+bones/0/scale = Vector3(1.1572, 0.876555, 1.1572)
 
 [node name="Sphere" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_volj6")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_04shu")
+}
 tree_root = SubResource("AnimationNodeStateMachine_y0tkb")
 anim_player = NodePath("../AnimationPlayer")
 script = ExtResource("3_3ysba")
@@ -167,7 +195,7 @@ damage_instances = Array[ExtResource("9_lym1g")]([SubResource("Resource_j1hw5")]
 targets = 16
 hitbox_shape = SubResource("CylinderShape3D_4xssm")
 attack_origin = NodePath("../Marker3D")
-attack_range = 2.0
+attack_range = 1.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="8"]
 avoidance_enabled = true

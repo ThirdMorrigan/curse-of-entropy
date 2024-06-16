@@ -251,13 +251,18 @@ height = 1.0
 
 [node name="proto_thrall_2h" groups=["Reload"] instance=ExtResource("1_xj4tm")]
 speed = 2.0
+loot_table = {
+5: 21,
+20.0: 6,
+35.0: 26
+}
 
 [node name="rig" parent="." index="0"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0177303, 0.969954, -0.0852301)
+bones/1/position = Vector3(0.0174345, 0.972026, -0.0853083)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -265,7 +270,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.198447, -0.0236459, 0.000608138, 0.979826)
+bones/7/rotation = Quaternion(-0.185317, -0.0201764, 0.000215296, 0.982472)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.26114, 0.673809, -0.527406, 0.4468)
@@ -290,18 +295,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.937607, 0.016876, 0.0272582, 0.346214)
+bones/24/rotation = Quaternion(0.938742, 0.0170936, 0.0274064, 0.343103)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.296068, -1.20003e-09, -1.03804e-09, 0.955167)
+bones/25/rotation = Quaternion(0.288361, -1.35842e-09, 1.16214e-09, 0.957522)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.581094, -0.130728, -0.0302271, 0.802699)
+bones/26/rotation = Quaternion(-0.57807, -0.130841, -0.0306756, 0.804845)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.955288, -0.0480005, -0.0673463, 0.283876)
+bones/29/rotation = Quaternion(0.955984, -0.0479765, -0.0669755, 0.281614)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.298537, 2.63651e-09, -1.68727e-09, 0.954398)
+bones/30/rotation = Quaternion(0.291563, -1.23718e-09, -2.16805e-09, 0.956552)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.628923, 0.170356, 0.0142947, 0.75844)
+bones/31/rotation = Quaternion(-0.625784, 0.169876, 0.0151143, 0.761123)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -329,7 +334,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_tsiov")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.999776, -0.00683879, 0.0200341, 0.0126149, 0.95246, -0.304403, -0.0169999, 0.304587, 0.952333, 0.0111738, 1.70605, 0.110334)
+transform = Transform3D(0.999609, -0.00618888, 0.0272712, 0.0148389, 0.943974, -0.329687, -0.0237029, 0.329962, 0.943696, 0.010878, 1.70812, 0.110256)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -345,7 +350,7 @@ transform = Transform3D(1, 1.86265e-09, 0, 0, 1, 0, -7.45058e-09, 2.98023e-08, 1
 shape = SubResource("SphereShape3D_qe6q0")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.971357, -0.00762148, -0.237502, -0.237551, -0.0559849, -0.96976, -0.00590538, 0.998402, -0.0561918, -0.248819, 0.917464, 0.0228087)
+transform = Transform3D(0.971357, -0.00762102, -0.237501, -0.23755, -0.0559863, -0.969761, -0.00590604, 0.998402, -0.0561932, -0.249114, 0.919536, 0.0227302)
 bone_name = "weapon"
 bone_idx = 18
 

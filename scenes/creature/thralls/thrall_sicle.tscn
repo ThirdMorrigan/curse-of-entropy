@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cfdcti48dwc3e" path="res://assets/materials/metal_rusty/metal_rusty_albedo.png" id="5_x7nio"]
 [ext_resource type="Texture2D" uid="uid://bhg4c8ako3ko5" path="res://assets/materials/metal_rusty/metal_rusty_crunch.png" id="6_wjyqj"]
 [ext_resource type="Texture2D" uid="uid://brbli0cf8pwck" path="res://assets/materials/metal_rusty/metal_rusty_normal.png" id="7_rxavk"]
-[ext_resource type="AnimationLibrary" path="res://assets/models/creatures/humanoid base/animation_library_test.tres" id="8_02tr2"]
+[ext_resource type="AnimationLibrary" uid="uid://cokbdf5h3s2a1" path="res://assets/models/creatures/humanoid base/animation_library_test.tres" id="8_02tr2"]
 [ext_resource type="Script" path="res://src/creature_animation_tree.gd" id="12_kwh46"]
 [ext_resource type="PackedScene" uid="uid://bnl3lldtblpkr" path="res://scenes/creature/collision hulls/ray.tscn" id="13_xmkyw"]
-[ext_resource type="PackedScene" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="14_y5owp"]
+[ext_resource type="PackedScene" uid="uid://cx5tcfysa08kp" path="res://scenes/creature/collision hulls/collision_hull_medium.tscn" id="14_y5owp"]
 [ext_resource type="Script" path="res://src/health_pool.gd" id="15_1ykr4"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://csiew5vbvnir1" path="res://assets/models/creatures/humanoid base/humanoid_1H.tres" id="15_an630"]
 [ext_resource type="Script" path="res://src/attack.gd" id="16_cy4tl"]
@@ -348,13 +348,17 @@ height = 1.5
 
 [node name="proto_thrall_1h" groups=["Reload"] instance=ExtResource("1_g4fhu")]
 speed = 2.0
+loot_table = {
+5.0: 6,
+10.0: 26
+}
 
 [node name="rig" parent="." index="0"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0165823, 0.977995, -0.0855334)
+bones/1/position = Vector3(0.0169083, 0.975712, -0.0854473)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -362,7 +366,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.149694, -0.0107905, -0.000845465, 0.988673)
+bones/7/rotation = Quaternion(-0.163832, -0.0145106, -0.000425373, 0.986382)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.26114, 0.673809, -0.527406, 0.4468)
@@ -387,18 +391,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.942227, 0.0177586, 0.0278259, 0.333345)
+bones/24/rotation = Quaternion(0.940862, 0.0174988, 0.0276681, 0.337204)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.266408, -1.56131e-09, 1.33538e-09, 0.963861)
+bones/25/rotation = Quaternion(0.275378, -2.19338e-09, -1.95609e-09, 0.961336)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.568215, -0.131155, -0.0321451, 0.811724)
+bones/26/rotation = Quaternion(-0.572117, -0.131041, -0.0315619, 0.809021)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.958707, -0.047906, -0.0655543, 0.272559)
+bones/29/rotation = Quaternion(0.95764, -0.0479292, -0.066106, 0.276149)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.270412, 1.84098e-09, -4.04396e-09, 0.962745)
+bones/30/rotation = Quaternion(0.279006, 2.63614e-09, -4.97321e-09, 0.960289)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.616648, 0.168531, 0.0174449, 0.76879)
+bones/31/rotation = Quaternion(-0.620273, 0.169055, 0.0165299, 0.765774)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -426,7 +430,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_ksoue")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.998903, -0.00346916, 0.0466904, 0.021727, 0.917715, -0.396644, -0.0414724, 0.397224, 0.916784, 0.0100258, 1.71409, 0.110031)
+transform = Transform3D(0.999227, -0.00471422, 0.0390243, 0.018846, 0.928694, -0.370368, -0.0344956, 0.370817, 0.928065, 0.0103518, 1.71181, 0.110117)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -453,6 +457,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 root_motion_track = NodePath("rig/Skeleton3D:Bone")
+libraries = {
+"": ExtResource("8_02tr2")
+}
 tree_root = ExtResource("15_an630")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/Add2/add_amount = 1.0

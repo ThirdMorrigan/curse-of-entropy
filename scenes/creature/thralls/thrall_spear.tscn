@@ -235,13 +235,20 @@ height = 0.5
 
 [node name="proto_thrall_2h" groups=["Reload"] instance=ExtResource("1_dylkq")]
 speed = 2.0
+loot_table = {
+1.0: 30,
+6.0: 21,
+11.0: 28,
+26.0: 26,
+50.0: 6
+}
 
 [node name="rig" parent="." index="0"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/position = Vector3(0.0171436, 0.974063, -0.0853851)
+bones/1/position = Vector3(0.0165328, 0.978342, -0.0855465)
 bones/1/rotation = Quaternion(0.175891, 0.0115186, 0.00210885, 0.98434)
 bones/2/rotation = Quaternion(-0.0644764, -6.97611e-15, -2.23079e-15, 0.997919)
 bones/3/rotation = Quaternion(-0.0518233, 0.00566168, 0.00432261, 0.998631)
@@ -249,7 +256,7 @@ bones/4/rotation = Quaternion(-0.0087574, 0.00522832, 0.0110519, 0.999887)
 bones/5/rotation = Quaternion(0.333828, 0.0316235, -0.00891027, 0.942061)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.0374555, -0.0228635, 0.00872438, 0.998999)
-bones/7/rotation = Quaternion(-0.173388, -0.0170288, -0.00014075, 0.984706)
+bones/7/rotation = Quaternion(-0.148921, -0.0105872, -0.000868407, 0.988792)
 bones/8/rotation = Quaternion(-0.597703, -0.296975, -0.403717, 0.625755)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.020635, 0.452077, -0.667065, 0.591798)
@@ -274,18 +281,18 @@ bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
 bones/23/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
 bones/23/scale = Vector3(1, 1, 1)
-bones/24/rotation = Quaternion(0.939914, 0.0173178, 0.0275534, 0.339857)
+bones/24/rotation = Quaternion(0.942368, 0.0177854, 0.0278418, 0.332944)
 bones/24/scale = Vector3(1, 1, 0.999997)
-bones/25/rotation = Quaternion(0.281203, -5.3335e-10, 1.5759e-10, 0.959648)
+bones/25/rotation = Quaternion(0.26591, -1.64774e-09, 6.47625e-10, 0.963998)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.574796, -0.130955, -0.0311625, 0.807149)
+bones/26/rotation = Quaternion(-0.567842, -0.131166, -0.032201, 0.811982)
 bones/27/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/27/scale = Vector3(1, 1, 1)
-bones/29/rotation = Quaternion(0.956901, -0.0479488, -0.0664924, 0.278604)
+bones/29/rotation = Quaternion(0.958812, -0.0479039, -0.0655001, 0.272202)
 bones/29/scale = Vector3(1, 1, 0.999997)
-bones/30/rotation = Quaternion(0.284647, 2.14248e-09, -2.48355e-09, 0.958632)
+bones/30/rotation = Quaternion(0.269934, -1.08932e-09, -5.21859e-09, 0.962879)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/rotation = Quaternion(-0.62275, 0.169421, 0.0158971, 0.763692)
+bones/31/rotation = Quaternion(-0.616303, 0.168481, 0.0175316, 0.769076)
 bones/32/rotation = Quaternion(-1.20504e-08, 0.961249, -0.275682, 4.20175e-08)
 bones/32/scale = Vector3(1, 1, 1)
 bones/34/position = Vector3(0.232027, 0.229211, -0.436057)
@@ -313,7 +320,7 @@ skin = SubResource("Skin_gut7l")
 surface_material_override/0 = ExtResource("2_3hnhg")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
-transform = Transform3D(0.999413, -0.00543269, 0.0338113, 0.0170078, 0.935701, -0.352383, -0.0297229, 0.352751, 0.935245, 0.0105871, 1.71016, 0.110179)
+transform = Transform3D(0.998884, -0.00339484, 0.047108, 0.0218901, 0.917094, -0.39807, -0.0418511, 0.398657, 0.916145, 0.00997626, 1.71444, 0.110018)
 bone_name = "spine.006"
 bone_idx = 7
 
@@ -329,7 +336,7 @@ transform = Transform3D(1, 1.86265e-09, 0, 0, 1, 0, -7.45058e-09, 2.98023e-08, 1
 shape = SubResource("SphereShape3D_qe6q0")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
-transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819498, 0.386427, -0.423198, -0.249737, 0.423847, 0.870623, -0.365739, 1.05648, 0.107862)
+transform = Transform3D(0.515803, 0.819163, -0.250837, -0.819498, 0.386427, -0.423198, -0.249737, 0.423847, 0.870623, -0.36635, 1.06076, 0.107701)
 bone_name = "weapon"
 bone_idx = 18
 
@@ -358,8 +365,6 @@ parameters/idle/Add2/add_amount = 1.0
 parameters/idle/Blend2/blend_amount = 1.0
 parameters/walk/Add2/add_amount = 1.0
 script = ExtResource("9_ofi7k")
-track_target = false
-fire_attack = true
 
 [node name="ray" parent="." index="3" instance=ExtResource("10_cuir4")]
 
